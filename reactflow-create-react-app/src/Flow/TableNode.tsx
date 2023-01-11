@@ -3,10 +3,15 @@ import { Handle, Position, NodeProps } from 'reactflow';
 
 import '@reactflow/node-resizer/dist/style.css';
 
-const sourceHandleStyle: CSSProperties = {
+const leftHandleStyle: CSSProperties = {
   left: 0,
   top: "50%",
   transform: "translateX(-50%) translateY(-50%)"
+};
+const rightHandleStyle: CSSProperties = {
+  right: 0,
+  top: "50%",
+  transform: "translateX(50%) translateY(-50%)"
 };
 
 const tableStyle: CSSProperties = {
@@ -24,7 +29,7 @@ const tableNameStyle: CSSProperties = {
 const columnNameStyle: CSSProperties = {
   borderBottom: "1px solid red",
   position: "relative",
-  fontSize: 16,
+  fontSize: 12,
   lineHeight: 1
 };
 const columnNameInnerStyle: CSSProperties = {
@@ -42,9 +47,9 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
         <div key={index} style={columnNameStyle} className="column-name">
           {column.handleType && <Handle
             type={column.handleType}
-            position={Position.Left}
+            position={column.handleType === "source" ? Position.Right : Position.Left}
             id={column.name}
-            style={sourceHandleStyle}
+            style={column.handleType === "source" ? rightHandleStyle : leftHandleStyle}
           />}
 
           <div style={columnNameInnerStyle}>

@@ -60,7 +60,7 @@ const initialNodes: Node[] = [
         }
       ]
     },
-    position: { x: 800, y: 200 },
+    position: { x: 800, y: 400 },
     type: 'table',
   },
   {
