@@ -1,0 +1,10 @@
+.DS_Store
+.cache
+node_modules
+dist
+.env
+.eslintcache
+.idea
+.log
+
+.rollup.cache

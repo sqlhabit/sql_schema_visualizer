@@ -1,0 +1,15 @@
+.Flow {
+  flex-grow: 1;
+  font-size: 12px;
+}
+
+.react-flow__node-custom {
+  border: 1px solid #555;
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+.column-name:last-child {
+  border-bottom: 0 !important;
+}
