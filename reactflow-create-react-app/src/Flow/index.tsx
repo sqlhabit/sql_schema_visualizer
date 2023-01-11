@@ -22,21 +22,74 @@ const nodeTypes = {
 
 const initialNodes: Node[] = [
   {
-    id: '4',
-    data: { label: 'Node 4', name: "users" },
+    id: 'users',
+    data: {
+      label: 'Node 4',
+      name: "users",
+      columns: [
+        {
+          name: "id",
+          handleType: "source"
+        },
+        {
+          name: "email",
+        },
+        {
+          name: "name"
+        }
+      ]
+    },
     position: { x: 600, y: 200 },
     type: 'table',
   },
   {
-    id: '5',
-    data: { label: 'Node 5', name: "purchases" },
+    id: 'products',
+    data: {
+      label: 'Node 5',
+      name: "products",
+      columns: [
+        {
+          name: "id",
+          handleType: "source"
+        },
+        {
+          name: "name"
+        },
+        {
+          name: "price"
+        }
+      ]
+    },
     position: { x: 800, y: 200 },
+    type: 'table',
+  },
+  {
+    id: 'purchases',
+    data: {
+      label: 'Node 5',
+      name: "purchases",
+      columns: [
+        {
+          name: "id"
+        },
+        {
+          name: "user_id",
+          handleType: "target"
+        },
+        {
+          name: "product_id",
+          handleType: "target"
+        },
+      ]
+    },
+    position: { x: 1000, y: 200 },
     type: 'table',
   },
 ];
 
 const initialEdges: Edge[] = [
-  { id: 'users_id-purchases_id', source: '4', target: '5', sourceHandle: 'a', targetHandle: 'b', animated: true, type: "smoothstep" },
+  { id: 'users-purchases', source: 'users', target: 'purchases', sourceHandle: 'id', targetHandle: 'user_id', animated: false, type: "smoothstep" },
+  { id: 'products-purchases', source: 'products', target: 'purchases', sourceHandle: 'id', targetHandle: 'product_id', animated: false, type: "smoothstep" },
 ];
 
 function Flow() {

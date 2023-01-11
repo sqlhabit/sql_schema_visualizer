@@ -38,42 +38,20 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
         {data.name}
       </div>
 
-      <div style={columnNameStyle} className="column-name">
-        <Handle
-          type="source"
-          position={Position.Left}
-          id="a"
-          style={sourceHandleStyle}
-        />
-
-        <div style={columnNameInnerStyle}>
-          id
-        </div>
-      </div>
-
-      <div style={columnNameStyle} className="column-name">
-        <div style={columnNameInnerStyle}>
-          <Handle
-            type="target"
+      {data.columns.map((column: any, index: any) => (
+        <div key={index} style={columnNameStyle} className="column-name">
+          {column.handleType && <Handle
+            type={column.handleType}
             position={Position.Left}
-            id="b"
+            id={column.name}
             style={sourceHandleStyle}
-          />
-          user_id
-        </div>
-      </div>
+          />}
 
-      <div style={columnNameStyle} className="column-name">
-        <div style={columnNameInnerStyle}>
-          first_name
+          <div style={columnNameInnerStyle}>
+            {column.name}
+          </div>
         </div>
-      </div>
-
-      <div style={columnNameStyle} className="column-name">
-        <div style={columnNameInnerStyle}>
-          last_name
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
