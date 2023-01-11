@@ -37,7 +37,8 @@ const columnNameStyle: CSSProperties = {
   borderBottom: "1px solid red",
   position: "relative",
   fontSize: 12,
-  lineHeight: 1
+  lineHeight: 1,
+  zIndex: 50
 };
 const columnNameInnerStyle: CSSProperties = {
   padding: 8,
@@ -60,8 +61,12 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
             className={column.handleType === "source" ? "source-handle" : "target-handle"}
           />}
 
-          <div style={columnNameInnerStyle}>
+          <div style={columnNameInnerStyle} className="column-name__inner">
             {column.name}
+          </div>
+
+          <div className="column-name__description">
+            {column.description}
           </div>
         </div>
       ))}

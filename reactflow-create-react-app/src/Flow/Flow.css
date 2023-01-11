@@ -25,3 +25,26 @@
 
   background: transparent !important;
 }
+
+.column-name__description {
+  display: none;
+}
+
+.column-name:hover .column-name__description {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 300px;
+  transform: translateX(100%);
+  padding: 4px;
+  z-index: 1000;
+
+  border: 1px solid #B1B1B6;
+
+  border-radius: 4px;
+
+  background-color: #FFF;
+
+  font-size: 10px;
+}

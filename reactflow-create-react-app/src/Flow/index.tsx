@@ -31,7 +31,8 @@ const initialNodes: Node[] = [
       columns: [
         {
           name: "id",
-          handleType: "source"
+          handleType: "source",
+          description: "Primary key of the users table. An integer. Use it to join with other tables."
         },
         {
           name: "email",
@@ -41,7 +42,7 @@ const initialNodes: Node[] = [
         }
       ]
     },
-    position: { x: 320, y: 0 },
+    position: { x: 280, y: -100 },
     type: 'table',
   },
   {
