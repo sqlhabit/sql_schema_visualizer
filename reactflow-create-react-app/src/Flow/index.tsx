@@ -6,7 +6,8 @@ import ReactFlow, {
   addEdge,
   Connection,
   Edge,
-  Controls
+  Controls,
+  Background
 } from 'reactflow';
 
 import TableNode from './TableNode';
@@ -39,7 +40,7 @@ const initialNodes: Node[] = [
         }
       ]
     },
-    position: { x: 600, y: 200 },
+    position: { x: 320, y: 0 },
     type: 'table',
   },
   {
@@ -60,7 +61,7 @@ const initialNodes: Node[] = [
         }
       ]
     },
-    position: { x: 800, y: 400 },
+    position: { x: 320, y: 160 },
     type: 'table',
   },
   {
@@ -82,7 +83,7 @@ const initialNodes: Node[] = [
         },
       ]
     },
-    position: { x: 1000, y: 200 },
+    position: { x: 600, y: 0 },
     type: 'table',
   },
 ];
@@ -112,6 +113,7 @@ function Flow() {
         nodeTypes={nodeTypes}
       >
         <Controls />
+        <Background color="#aaa" gap={16} />
       </ReactFlow>
     </div>
   );

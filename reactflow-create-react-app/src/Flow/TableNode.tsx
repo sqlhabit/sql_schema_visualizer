@@ -17,14 +17,15 @@ const rightHandleStyle: CSSProperties = {
 const tableStyle: CSSProperties = {
   border: "1px solid red",
   borderRadius: 4,
-  paddingTop: 12
+  paddingTop: 12,
+  backgroundColor: "#FFF"
 };
 const tableNameStyle: CSSProperties = {
   borderBottom: "1px solid red",
   paddingLeft: 8,
   paddingRight: 8,
   paddingBottom: 12,
-  fontWeight: 800
+  fontWeight: 800,
 };
 const columnNameStyle: CSSProperties = {
   borderBottom: "1px solid red",
