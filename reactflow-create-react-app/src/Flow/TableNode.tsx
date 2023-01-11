@@ -4,11 +4,17 @@ import { Handle, Position, NodeProps } from 'reactflow';
 import '@reactflow/node-resizer/dist/style.css';
 
 const leftHandleStyle: CSSProperties = {
+  width: 2,
+  height: 2,
+  minWidth: 2,
   left: 0,
   top: "50%",
   transform: "translateX(-50%) translateY(-50%)"
 };
 const rightHandleStyle: CSSProperties = {
+  width: 2,
+  height: 2,
+  minWidth: 2,
   right: 0,
   top: "50%",
   transform: "translateX(50%) translateY(-50%)"

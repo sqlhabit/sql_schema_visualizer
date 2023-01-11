@@ -7,7 +7,8 @@ import ReactFlow, {
   Connection,
   Edge,
   Controls,
-  Background
+  Background,
+  MarkerType
 } from 'reactflow';
 
 import TableNode from './TableNode';
@@ -89,8 +90,8 @@ const initialNodes: Node[] = [
 ];
 
 const initialEdges: Edge[] = [
-  { id: 'users-purchases', source: 'users', target: 'purchases', sourceHandle: 'id', targetHandle: 'user_id', animated: false, type: "smoothstep" },
-  { id: 'products-purchases', source: 'products', target: 'purchases', sourceHandle: 'id', targetHandle: 'product_id', animated: false, type: "smoothstep" },
+  { id: 'users-purchases', source: 'users', target: 'purchases', sourceHandle: 'id', targetHandle: 'user_id', animated: false, type: "smoothstep", markerEnd: 'hasMany' },
+  { id: 'products-purchases', source: 'products', target: 'purchases', sourceHandle: 'id', targetHandle: 'product_id', animated: false, type: "smoothstep", markerEnd: 'hasMany' }
 ];
 
 function Flow() {
@@ -103,6 +104,23 @@ function Flow() {
 
   return (
     <div className="Flow">
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker
+            id="hasMany"
+            viewBox="0 0 10 13"
+            markerHeight={10}
+            markerWidth={13}
+            refX={10}
+            refY={6.5}
+            fill="none"
+          >
+            <path d="M10 12C2.57803 12 0.909955 8.66667 1.00367 7" stroke="#B1B1B6"/>
+            <path d="M10 1C2.57803 1 0.909955 5 1.00367 7" stroke="#B1B1B6"/>
+            <line x1="10" y1="6.5" x2="1" y2="6.5" stroke="#B1B1B6" strokeWidth="1" />
+          </marker>
+        </defs>
+      </svg>
       <ReactFlow
         nodes={nodes}
         onNodesChange={onNodesChange}

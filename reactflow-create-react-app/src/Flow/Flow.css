@@ -14,9 +14,14 @@
   border-bottom: 0 !important;
 }
 
-.source-handle {
+.react-flow__handle-left {
+  border: 0 !important;
+
+  background: transparent !important;
 }
 
-.target-handle {
+.react-flow__handle-right {
+  border: 0 !important;
 
+  background: transparent !important;
 }
