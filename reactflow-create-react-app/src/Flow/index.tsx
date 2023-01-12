@@ -7,7 +7,9 @@ import ReactFlow, {
   Connection,
   Edge,
   Controls,
-  Background
+  Background,
+  getOutgoers,
+  getIncomers
 } from 'reactflow';
 
 import TableNode from './TableNode';
@@ -144,6 +146,8 @@ function Flow() {
     [setEdges]
   );
   const toggleEdgeHighlight = (node: Node, toggle: true | false) => {
+    console.log(getOutgoers(node, nodes, edges));
+    console.log(getIncomers(node, nodes, edges));
     console.log(node, toggle);
 
     // TODO: highlight all outgoing edges and their markers.
