@@ -7,8 +7,7 @@ import ReactFlow, {
   Connection,
   Edge,
   Controls,
-  Background,
-  MarkerType
+  Background
 } from 'reactflow';
 
 import TableNode from './TableNode';
@@ -137,10 +136,6 @@ const initialEdges: Edge[] = [
   { id: 'books_users-books', source: 'books', target: 'books_users', sourceHandle: 'id-r', targetHandle: 'book_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" }
 ];
 
-const toggleEdgeHighlight = (node: Node, toggle: true | false) => {
-  console.log(node, toggle)
-}
-
 function Flow() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -148,6 +143,26 @@ function Flow() {
     (params: Connection | Edge) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
+  const toggleEdgeHighlight = (node: Node, toggle: true | false) => {
+    console.log(node, toggle);
+
+    // TODO: highlight all outgoing edges and their markers.
+    // I guess via a CSS class toggle?
+  }
+
+  const onInit = (instance: any) => {
+    const handleKeyboard = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.key === 'p') {
+        const nodes = instance.getNodes()
+
+        nodes.forEach((n: any) => {
+          console.log(`${n.data.name} x: ${n.position.x}, y: ${n.position.y}`)
+        })
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyboard)
+  }
 
   // https://stackoverflow.com/questions/16664584/changing-an-svg-markers-color-css
   return (
@@ -224,6 +239,7 @@ function Flow() {
         edges={edges}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        onInit={onInit}
         fitView
         nodeTypes={nodeTypes}
         onNodeMouseEnter={(_event, node) => toggleEdgeHighlight(node, true)}
