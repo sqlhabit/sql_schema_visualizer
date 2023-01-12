@@ -9,7 +9,9 @@ import ReactFlow, {
   Controls,
   Background,
   getOutgoers,
-  getIncomers
+  getIncomers,
+  useStoreApi,
+  ReactFlowProvider
 } from 'reactflow';
 
 import TableNode from './TableNode';
@@ -139,6 +141,7 @@ const initialEdges: Edge[] = [
 ];
 
 function Flow() {
+  const store = useStoreApi();
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = useCallback(
@@ -167,6 +170,21 @@ function Flow() {
 
     document.addEventListener('keydown', handleKeyboard)
   }
+
+  // https://github.com/wbkd/react-flow/issues/2580
+  const onNodeMouseEnter = useCallback(
+    (_: any, node: Node) => {
+      // const { edges } = store.getState();
+      const id = node.id;
+      // let hasChange = false;
+
+      const state = store.getState();
+      state.resetSelectedElements();
+
+      console.log("WTF", id)
+    },
+    [setEdges, store]
+  );
 
   // https://stackoverflow.com/questions/16664584/changing-an-svg-markers-color-css
   return (
@@ -246,7 +264,8 @@ function Flow() {
         onInit={onInit}
         fitView
         nodeTypes={nodeTypes}
-        onNodeMouseEnter={(_event, node) => toggleEdgeHighlight(node, true)}
+        // onNodeMouseEnter={(_event, node) => toggleEdgeHighlight(node, true)}
+        onNodeMouseEnter={onNodeMouseEnter}
         onNodeMouseLeave={(_event, node) => toggleEdgeHighlight(node, false)}
       >
         <Controls />
@@ -256,4 +275,9 @@ function Flow() {
   );
 }
 
-export default Flow;
+// https://codesandbox.io/s/elastic-elion-dbqwty?file=/src/App.js
+export default () => (
+  <ReactFlowProvider>
+    <Flow />
+  </ReactFlowProvider>
+);
