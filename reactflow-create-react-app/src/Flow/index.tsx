@@ -148,14 +148,6 @@ function Flow() {
     (params: Connection | Edge) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
-  const toggleEdgeHighlight = (node: Node, toggle: true | false) => {
-    console.log(getOutgoers(node, nodes, edges));
-    console.log(getIncomers(node, nodes, edges));
-    console.log(node, toggle);
-
-    // TODO: highlight all outgoing edges and their markers.
-    // I guess via a CSS class toggle?
-  }
 
   const onInit = (instance: any) => {
     const handleKeyboard = (e: KeyboardEvent) => {
@@ -174,14 +166,24 @@ function Flow() {
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(
     (_: any, node: Node) => {
-      // const { edges } = store.getState();
-      const id = node.id;
-      // let hasChange = false;
-
       const state = store.getState();
       state.resetSelectedElements();
+      state.addSelectedNodes([node.id]);
 
-      console.log("WTF", id)
+      console.log(getOutgoers(node, nodes, edges));
+      console.log(getIncomers(node, nodes, edges));
+      console.log(node);
+
+      // TODO: highlight all outgoing edges and their markers.
+      // I guess via a CSS class toggle?
+    },
+    [setEdges, store]
+  );
+
+  const onNodeMouseLeave = useCallback(
+    (_: any, node: Node) => {
+      const state = store.getState();
+      state.resetSelectedElements();
     },
     [setEdges, store]
   );
@@ -264,9 +266,8 @@ function Flow() {
         onInit={onInit}
         fitView
         nodeTypes={nodeTypes}
-        // onNodeMouseEnter={(_event, node) => toggleEdgeHighlight(node, true)}
         onNodeMouseEnter={onNodeMouseEnter}
-        onNodeMouseLeave={(_event, node) => toggleEdgeHighlight(node, false)}
+        onNodeMouseLeave={onNodeMouseLeave}
       >
         <Controls />
         <Background color="#aaa" gap={16} />
