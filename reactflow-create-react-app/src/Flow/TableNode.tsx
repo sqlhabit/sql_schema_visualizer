@@ -55,9 +55,16 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
         <div key={index} style={columnNameStyle} className="column-name">
           {column.handleType && <Handle
             type={column.handleType}
-            position={column.handleType === "source" ? Position.Right : Position.Left}
-            id={column.name}
-            style={column.handleType === "source" ? rightHandleStyle : leftHandleStyle}
+            position={Position.Right}
+            id={`${column.name}-r`}
+            style={rightHandleStyle}
+            className={column.handleType === "source" ? "source-handle" : "target-handle"}
+          />}
+          {column.handleType && <Handle
+            type={column.handleType}
+            position={Position.Left}
+            id={`${column.name}-l`}
+            style={leftHandleStyle}
             className={column.handleType === "source" ? "source-handle" : "target-handle"}
           />}
 

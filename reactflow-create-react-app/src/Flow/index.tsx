@@ -88,11 +88,53 @@ const initialNodes: Node[] = [
     position: { x: 600, y: 0 },
     type: 'table',
   },
+  {
+    id: 'books_users',
+    data: {
+      label: 'Node 5',
+      name: "books_users",
+      columns: [
+        {
+          name: "book_id",
+          handleType: "target"
+        },
+        {
+          name: "user_id",
+          handleType: "target"
+        },
+      ]
+    },
+    position: { x: 100, y: 0 },
+    type: 'table',
+  },
+  {
+    id: 'books',
+    data: {
+      label: 'books',
+      name: "books",
+      columns: [
+        {
+          name: "id",
+          handleType: "source"
+        },
+        {
+          name: "name"
+        },
+        {
+          name: "author"
+        },
+      ]
+    },
+    position: { x: -100, y: 100 },
+    type: 'table',
+  },
 ];
 
 const initialEdges: Edge[] = [
-  { id: 'users-purchases', source: 'users', target: 'purchases', sourceHandle: 'id', targetHandle: 'user_id', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
-  { id: 'products-purchases', source: 'products', target: 'purchases', sourceHandle: 'id', targetHandle: 'product_id', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" }
+  { id: 'users-purchases', source: 'users', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
+  { id: 'products-purchases', source: 'products', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'product_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
+  { id: 'books_users-users', source: 'users', target: 'books_users', sourceHandle: 'id-l', targetHandle: 'user_id-r', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
+  { id: 'books_users-books', source: 'books', target: 'books_users', sourceHandle: 'id-r', targetHandle: 'book_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" }
 ];
 
 function Flow() {
