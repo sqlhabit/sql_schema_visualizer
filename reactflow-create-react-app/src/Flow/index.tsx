@@ -11,7 +11,8 @@ import ReactFlow, {
   getOutgoers,
   getIncomers,
   useStoreApi,
-  ReactFlowProvider
+  ReactFlowProvider,
+  getConnectedEdges
 } from 'reactflow';
 
 import TableNode from './TableNode';
@@ -170,7 +171,30 @@ function Flow() {
       state.resetSelectedElements();
       state.addSelectedNodes([node.id]);
 
-      console.log(getOutgoers(node, nodes, edges));
+      const outgoers = getOutgoers(node, nodes, edges)
+      console.log(outgoers);
+
+      const connectedEdges = getConnectedEdges([node], edges);
+      console.log(connectedEdges)
+      connectedEdges.map(edge => {
+        console.log("edge");
+        console.log(edge);
+
+        // https://reactflow.dev/docs/examples/nodes/update-node/
+        setEdges((eds) =>
+          eds.map((ed) => {
+            if (ed.id === edge.id) {
+              // TODO: Add className and highlight outgoing edges and markers
+              ed.hidden = true;
+            }
+
+            return ed;
+          })
+        );
+
+        return edge
+      })
+
       console.log(getIncomers(node, nodes, edges));
       console.log(node);
 
@@ -184,6 +208,14 @@ function Flow() {
     (_: any, node: Node) => {
       const state = store.getState();
       state.resetSelectedElements();
+
+      setEdges((eds) =>
+        eds.map((ed) => {
+          ed.hidden = false;
+
+          return ed;
+        })
+      );
     },
     [setEdges, store]
   );
