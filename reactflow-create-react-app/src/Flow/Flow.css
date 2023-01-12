@@ -48,3 +48,7 @@
 
   font-size: 10px;
 }
+
+.has-many-edge.selected path.react-flow__edge-path {
+  marker-end: url(#hasManySelected);
+}
