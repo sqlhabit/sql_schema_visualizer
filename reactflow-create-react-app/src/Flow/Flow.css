@@ -52,3 +52,7 @@
 .has-many-edge.selected path.react-flow__edge-path {
   marker-end: url(#hasManySelected);
 }
+
+.has-many-edge-reversed.selected path.react-flow__edge-path {
+  marker-end: url(#hasManyReversedSelected);
+}

@@ -133,7 +133,7 @@ const initialNodes: Node[] = [
 const initialEdges: Edge[] = [
   { id: 'users-purchases', source: 'users', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
   { id: 'products-purchases', source: 'products', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'product_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
-  { id: 'books_users-users', source: 'users', target: 'books_users', sourceHandle: 'id-l', targetHandle: 'user_id-r', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
+  { id: 'books_users-users', source: 'users', target: 'books_users', sourceHandle: 'id-l', targetHandle: 'user_id-r', animated: false, type: "smoothstep", markerEnd: "hasManyReversed", className: "has-many-edge-reversed" },
   { id: 'books_users-books', source: 'books', target: 'books_users', sourceHandle: 'id-r', targetHandle: 'book_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" }
 ];
 
@@ -174,6 +174,40 @@ function Flow() {
             refX="10"
             refY="6.5"
             fill="none"
+          >
+            <path d="M10 12C2.57803 12 0.909955 8.66667 1.00367 7" stroke="#555"/>
+            <path d="M10 1C2.57803 1 0.909955 5 1.00367 7" stroke="#555"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker
+            id="hasManyReversed"
+            viewBox="0 0 10 13"
+            markerHeight="10"
+            markerWidth="13"
+            refX="10"
+            refY="6.5"
+            fill="none"
+            orient="auto-start-reverse"
+          >
+            <path d="M10 12C2.57803 12 0.909955 8.66667 1.00367 7" stroke="#B1B1B6"/>
+            <path d="M10 1C2.57803 1 0.909955 5 1.00367 7" stroke="#B1B1B6"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker
+            id="hasManyReversedSelected"
+            viewBox="0 0 10 13"
+            markerHeight="10"
+            markerWidth="13"
+            refX="10"
+            refY="6.5"
+            fill="none"
+            orient="auto-start-reverse"
           >
             <path d="M10 12C2.57803 12 0.909955 8.66667 1.00367 7" stroke="#555"/>
             <path d="M10 1C2.57803 1 0.909955 5 1.00367 7" stroke="#555"/>
