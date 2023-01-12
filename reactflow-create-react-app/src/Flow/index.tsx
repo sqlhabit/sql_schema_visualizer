@@ -156,7 +156,7 @@ function Flow() {
         const nodes = instance.getNodes()
 
         nodes.forEach((n: any) => {
-          console.log(`${n.data.name} x: ${n.position.x}, y: ${n.position.y}`)
+          console.log(`${n.data.name} x: ${Math.round(n.position.x)}, y: ${Math.round(n.position.y)}`)
         })
       }
     }
