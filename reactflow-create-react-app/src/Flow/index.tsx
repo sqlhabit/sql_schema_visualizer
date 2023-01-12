@@ -137,6 +137,10 @@ const initialEdges: Edge[] = [
   { id: 'books_users-books', source: 'books', target: 'books_users', sourceHandle: 'id-r', targetHandle: 'book_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" }
 ];
 
+const toggleEdgeHighlight = (node: Node, toggle: true | false) => {
+  console.log(node, toggle)
+}
+
 function Flow() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -222,6 +226,8 @@ function Flow() {
         onConnect={onConnect}
         fitView
         nodeTypes={nodeTypes}
+        onNodeMouseEnter={(_event, node) => toggleEdgeHighlight(node, true)}
+        onNodeMouseLeave={(_event, node) => toggleEdgeHighlight(node, false)}
       >
         <Controls />
         <Background color="#aaa" gap={16} />
