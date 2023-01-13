@@ -234,6 +234,11 @@ function Flow() {
     document.addEventListener('keydown', handleKeyboard)
   }
 
+  function moveInFront(element: any) {
+    const svg = element.closest('svg'); // Find the parent SVG
+    svg.appendChild(element); // Append child moves the element to the end
+  }
+
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(
     (_: any, node: Node) => {
@@ -257,15 +262,28 @@ function Flow() {
               if(edge.className?.includes("has-many-edge-reversed")) {
                 ed.className = "has-many-edge-reversed has-many-edge-reversed--highlighted";
                 ed.markerEnd = "hasManyReversedHighlighted"
+
+                // https://stackoverflow.com/questions/17786618/how-to-use-z-index-in-svg-elements
+                const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
+                moveInFront(svg)
               } else if(edge.className?.includes("has-many-edge")) {
                 ed.className = "has-many-edge has-many-edge--highlighted";
                 ed.markerEnd = "hasManyHighlighted"
+
+                const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
+                moveInFront(svg)
               } else if(edge.className?.includes("has-one-edge-reversed")) {
                 ed.className = "has-one-edge-reversed has-one-edge-reversed--highlighted";
                 ed.markerEnd = "hasOneReversedHighlighted"
+
+                const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
+                moveInFront(svg)
               } else if(edge.className?.includes("has-one-edge")) {
                 ed.className = "has-one-edge has-one-edge--highlighted";
                 ed.markerEnd = "hasOneHighlighted"
+
+                const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
+                moveInFront(svg)
               }
             }
 

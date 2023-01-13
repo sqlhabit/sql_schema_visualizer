@@ -1,4 +1,5 @@
 // https://www.svgrepo.com/svg/469278/minimize-size
+// https://svg2jsx.com/
 
 function MinimizeIcon() {
   return (

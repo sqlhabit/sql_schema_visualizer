@@ -1,4 +1,5 @@
 // https://www.svgrepo.com/svg/469238/maximize-size
+// https://svg2jsx.com/
 
 function MaximizeIcon() {
   return (
