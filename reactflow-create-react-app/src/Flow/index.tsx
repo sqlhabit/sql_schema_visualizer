@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import ReactFlow, {
   Node,
   useNodesState,
@@ -198,6 +198,7 @@ function Flow() {
     (params: Connection | Edge) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
+  const [fullscreenOn, setFullScreen] = useState(false);
 
   const onInit = (instance: any) => {
     const handleKeyboard = (e: KeyboardEvent) => {
@@ -292,12 +293,10 @@ function Flow() {
     [setEdges, store]
   );
 
-  let fullscreenOn = false;
-
   const toggleFullScreen = () => {
     if(fullscreenOn) {
       document.exitFullscreen().then(function() {
-        fullscreenOn = false;
+        setFullScreen(false)
       })
       .catch(function(error) {
         alert("Can't exit fullscreen")
@@ -309,7 +308,7 @@ function Flow() {
       // make the element go to full-screen mode
       element && element.requestFullscreen()
         .then(function() {
-          fullscreenOn = true;
+          setFullScreen(true)
         })
         .catch(function(error) {
           alert("Can't turn on fullscreen")
