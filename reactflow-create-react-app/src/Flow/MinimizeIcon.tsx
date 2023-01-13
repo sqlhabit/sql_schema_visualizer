@@ -1,3 +1,5 @@
+// https://www.svgrepo.com/svg/469278/minimize-size
+
 function MinimizeIcon() {
   return (
     <svg
