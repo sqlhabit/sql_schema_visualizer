@@ -282,6 +282,9 @@ function Flow() {
           return ed;
         })
       );
+
+      // https://stackoverflow.com/questions/2520650/how-do-you-clear-the-focus-in-javascript
+      (document.activeElement as HTMLElement).blur();
     },
     [setEdges, store]
   );
