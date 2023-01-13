@@ -30,8 +30,8 @@
   display: none;
 }
 
-.column-name:hover .column-name__description {
-  display: block;
+.column-name__description {
+  display: none;
   position: absolute;
   top: 0;
   right: -4px;
@@ -47,6 +47,10 @@
   background-color: #FFF;
 
   font-size: 10px;
+}
+
+.column-name--selected .column-name__description {
+  display: block;
 }
 
 /* HAS MANY */
@@ -105,4 +109,12 @@
 
 .column-name__type {
   color: #BBB;
+}
+
+.column-name {
+  cursor: pointer;
+}
+
+.column-name:hover {
+  background-color: #EFEFEF;
 }

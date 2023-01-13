@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { memo, FC, CSSProperties } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
 
@@ -48,6 +49,8 @@ const columnNameInnerStyle: CSSProperties = {
 };
 
 const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
+  const [selectedColumn, setSelectedColumn] = useState("");
+
   return (
     <div style={tableStyle}>
       <div style={tableNameStyle}>
@@ -55,7 +58,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
       </div>
 
       {data.columns.map((column: any, index: any) => (
-        <div key={index} style={columnNameStyle} className="column-name">
+        <div key={index} style={columnNameStyle} className={selectedColumn === column.name ? 'column-name column-name--selected' : 'column-name'} onClick={() => setSelectedColumn(column.name)} onMouseLeave={() => setSelectedColumn("")}>
           {column.handleType && <Handle
             type={column.handleType}
             position={Position.Right}
