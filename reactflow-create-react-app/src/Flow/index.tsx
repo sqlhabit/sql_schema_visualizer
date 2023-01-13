@@ -17,6 +17,8 @@ import ReactFlow, {
 } from 'reactflow';
 
 import TableNode from './TableNode';
+import MaximizeIcon from './MaximizeIcon';
+import MinimizeIcon from './MinimizeIcon';
 
 // this is important! You need to import the styles from the lib to make it work
 import 'reactflow/dist/style.css';
@@ -423,7 +425,8 @@ function Flow() {
       >
         <Controls>
           <ControlButton onClick={toggleFullScreen}>
-            <div>FS</div>
+            {!fullscreenOn && <MaximizeIcon />}
+            {fullscreenOn && <MinimizeIcon />}
           </ControlButton>
         </Controls>
         <Background color="#aaa" gap={16} />
