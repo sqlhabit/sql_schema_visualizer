@@ -94,3 +94,7 @@
 .has-one-edge-reversed--highlighted path.react-flow__connection-path {
   stroke: blue !important;
 }
+
+:not(:root):fullscreen::backdrop {
+  background-color: #FFF;
+}

@@ -7,6 +7,7 @@ import ReactFlow, {
   Connection,
   Edge,
   Controls,
+  ControlButton,
   Background,
   getOutgoers,
   getIncomers,
@@ -289,6 +290,32 @@ function Flow() {
     [setEdges, store]
   );
 
+  let fullscreenOn = false;
+
+  const toggleFullScreen = () => {
+    if(fullscreenOn) {
+      document.exitFullscreen().then(function() {
+        fullscreenOn = false;
+      })
+      .catch(function(error) {
+        alert("Can't exit fullscreen")
+        console.error(error)
+      });
+    } else {
+      var element = document.querySelector("body");
+
+      // make the element go to full-screen mode
+      element && element.requestFullscreen()
+        .then(function() {
+          fullscreenOn = true;
+        })
+        .catch(function(error) {
+          alert("Can't turn on fullscreen")
+          console.error(error)
+        });
+    }
+  }
+
   // https://stackoverflow.com/questions/16664584/changing-an-svg-markers-color-css
   return (
     <div className="Flow">
@@ -394,7 +421,11 @@ function Flow() {
         onNodeMouseEnter={onNodeMouseEnter}
         onNodeMouseLeave={onNodeMouseLeave}
       >
-        <Controls />
+        <Controls>
+          <ControlButton onClick={toggleFullScreen}>
+            <div>FS</div>
+          </ControlButton>
+        </Controls>
         <Background color="#aaa" gap={16} />
       </ReactFlow>
     </div>
