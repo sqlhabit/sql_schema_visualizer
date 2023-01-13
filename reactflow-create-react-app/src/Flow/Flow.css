@@ -6,7 +6,7 @@
 .react-flow__node-custom {
   border: 1px solid #555;
   padding: 10px;
-  width: 200px;
+  width: 300px;
   border-radius: 5px;
 }
 
@@ -97,4 +97,12 @@
 
 :not(:root):fullscreen::backdrop {
   background-color: #FFF;
+}
+
+.column-name__name {
+  margin-right: 16px;
+}
+
+.column-name__type {
+  color: #BBB;
 }

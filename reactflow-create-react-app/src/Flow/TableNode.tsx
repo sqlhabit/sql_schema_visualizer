@@ -32,6 +32,7 @@ const tableNameStyle: CSSProperties = {
   paddingRight: 8,
   paddingBottom: 12,
   fontWeight: 800,
+  textAlign: "center"
 };
 const columnNameStyle: CSSProperties = {
   borderBottom: "1px solid red",
@@ -42,6 +43,8 @@ const columnNameStyle: CSSProperties = {
 };
 const columnNameInnerStyle: CSSProperties = {
   padding: 8,
+  display: "flex",
+  justifyContent: "space-between"
 };
 
 const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
@@ -69,7 +72,12 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
           />}
 
           <div style={columnNameInnerStyle} className="column-name__inner">
-            {column.name}
+            <div className="column-name__name">
+              {column.name}
+            </div>
+            <div className="column-name__type">
+              {column.type}
+            </div>
           </div>
 
           <div className="column-name__description">

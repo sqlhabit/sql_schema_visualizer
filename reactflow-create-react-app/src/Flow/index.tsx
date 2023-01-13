@@ -39,13 +39,16 @@ const initialNodes: Node[] = [
         {
           name: "id",
           handleType: "source",
-          description: "Primary key of the users table. An integer. Use it to join with other tables."
+          description: "Primary key of the users table. An integer. Use it to join with other tables.",
+          type: "number"
         },
         {
           name: "email",
+          type: "string"
         },
         {
-          name: "name"
+          name: "name",
+          type: "string"
         }
       ]
     },
@@ -60,13 +63,16 @@ const initialNodes: Node[] = [
       columns: [
         {
           name: "id",
-          handleType: "source"
+          handleType: "source",
+          type: "number"
         },
         {
-          name: "name"
+          name: "name",
+          type: "string"
         },
         {
-          name: "price"
+          name: "price",
+          type: "number"
         }
       ]
     },
@@ -80,15 +86,18 @@ const initialNodes: Node[] = [
       name: "purchases",
       columns: [
         {
-          name: "id"
+          name: "id",
+          type: "number"
         },
         {
           name: "user_id",
-          handleType: "target"
+          handleType: "target",
+          type: "number"
         },
         {
           name: "product_id",
-          handleType: "target"
+          handleType: "target",
+          type: "number"
         },
       ]
     },
@@ -103,11 +112,13 @@ const initialNodes: Node[] = [
       columns: [
         {
           name: "book_id",
-          handleType: "target"
+          handleType: "target",
+          type: "number"
         },
         {
           name: "user_id",
-          handleType: "target"
+          handleType: "target",
+          type: "number"
         },
       ]
     },
@@ -122,13 +133,16 @@ const initialNodes: Node[] = [
       columns: [
         {
           name: "id",
-          handleType: "source"
+          handleType: "source",
+          type: "number"
         },
         {
-          name: "name"
+          name: "name",
+          type: "string"
         },
         {
-          name: "author"
+          name: "author",
+          type: "string"
         },
       ]
     },
@@ -143,14 +157,17 @@ const initialNodes: Node[] = [
       columns: [
         {
           name: "id",
-          handleType: "source"
+          handleType: "source",
+          type: "number"
         },
         {
           name: "user_id",
-          handleType: "target"
+          handleType: "target",
+          type: "number"
         },
         {
-          name: "about"
+          name: "about",
+          type: "string"
         },
       ]
     },
@@ -165,14 +182,17 @@ const initialNodes: Node[] = [
       columns: [
         {
           name: "id",
-          handleType: "source"
+          handleType: "source",
+          type: "number"
         },
         {
           name: "user_id",
-          handleType: "target"
+          handleType: "target",
+          type: "number"
         },
         {
-          name: "platform"
+          name: "platform",
+          type: "string"
         },
       ]
     },
