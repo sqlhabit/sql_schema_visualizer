@@ -81,7 +81,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
           </div>
 
           <div className="column-name__description">
-            {column.description}
+            {column.description || "No description."}
           </div>
         </div>
       ))}
