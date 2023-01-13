@@ -49,6 +49,8 @@
   font-size: 10px;
 }
 
+/* HAS MANY */
+
 /* https://reactflow.dev/docs/guides/theming/#react-flow-class-names */
 .has-many-edge.selected path.react-flow__edge-path {
   marker-end: url(#hasManySelected);
@@ -67,5 +69,28 @@
 .has-many-edge-reversed--highlighted path.react-flow__edge-path,
 .has-many-edge-reversed--highlighted path.react-flow__edge-interaction,
 .has-many-edge-reversed--highlighted path.react-flow__connection-path {
+  stroke: blue !important;
+}
+
+/* HAS ONE */
+
+/* https://reactflow.dev/docs/guides/theming/#react-flow-class-names */
+.has-one-edge.selected path.react-flow__edge-path {
+  marker-end: url(#hasOneSelected);
+}
+
+.has-one-edge-reversed.selected path.react-flow__edge-path {
+  marker-end: url(#hasOneReversedSelected);
+}
+
+.has-one-edge--highlighted path.react-flow__edge-path,
+.has-one-edge--highlighted path.react-flow__edge-interaction,
+.has-one-edge--highlighted path.react-flow__connection-path {
+  stroke: blue !important;
+}
+
+.has-one-edge-reversed--highlighted path.react-flow__edge-path,
+.has-one-edge-reversed--highlighted path.react-flow__edge-interaction,
+.has-one-edge-reversed--highlighted path.react-flow__connection-path {
   stroke: blue !important;
 }

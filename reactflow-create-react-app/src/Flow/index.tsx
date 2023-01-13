@@ -132,13 +132,59 @@ const initialNodes: Node[] = [
     position: { x: -100, y: 100 },
     type: 'table',
   },
+  {
+    id: 'profiles',
+    data: {
+      label: 'profiles',
+      name: "profiles",
+      columns: [
+        {
+          name: "id",
+          handleType: "source"
+        },
+        {
+          name: "user_id",
+          handleType: "target"
+        },
+        {
+          name: "about"
+        },
+      ]
+    },
+    position: { x: -100, y: -150 },
+    type: 'table'
+  },
+  {
+    id: 'accounts',
+    data: {
+      label: 'accounts',
+      name: "accounts",
+      columns: [
+        {
+          name: "id",
+          handleType: "source"
+        },
+        {
+          name: "user_id",
+          handleType: "target"
+        },
+        {
+          name: "platform"
+        },
+      ]
+    },
+    position: { x: 450, y: -250 },
+    type: 'table'
+  }
 ];
 
 const initialEdges: Edge[] = [
   { id: 'users-purchases', source: 'users', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
   { id: 'products-purchases', source: 'products', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'product_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
   { id: 'books_users-users', source: 'users', target: 'books_users', sourceHandle: 'id-l', targetHandle: 'user_id-r', animated: false, type: "smoothstep", markerEnd: "hasManyReversed", className: "has-many-edge-reversed" },
-  { id: 'books_users-books', source: 'books', target: 'books_users', sourceHandle: 'id-r', targetHandle: 'book_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" }
+  { id: 'books_users-books', source: 'books', target: 'books_users', sourceHandle: 'id-r', targetHandle: 'book_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
+  { id: 'users-profiles', source: 'users', target: 'profiles', sourceHandle: 'id-l', targetHandle: 'user_id-r', animated: false, type: "smoothstep", markerEnd: 'hasOneReversed', className: "has-one-edge-reversed" },
+  { id: 'users-accounts', source: 'users', target: 'accounts', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasOne', className: "has-one-edge" }
 ];
 
 function Flow() {
@@ -276,6 +322,48 @@ function Flow() {
           <marker id="hasManyReversedHighlighted" viewBox="0 0 10 13" markerHeight="10" markerWidth="13" refX="10" refY="6.5" fill="none" orient="auto-start-reverse">
             <path d="M10 12C2.57803 12 0.909955 8.66667 1.00367 7" stroke="blue"/>
             <path d="M10 1C2.57803 1 0.909955 5 1.00367 7" stroke="blue"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker id="hasOne" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none">
+            <circle cx="4" cy="4" r="4" fill="#B1B1B6"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker id="hasOneSelected" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none">
+            <circle cx="4" cy="4" r="4" fill="#555"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker id="hasOneReversed" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="4" fill="#B1B1B6"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker id="hasOneReversedSelected" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="4" fill="#555"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker id="hasOneHighlighted" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none">
+            <circle cx="4" cy="4" r="4" fill="blue"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker id="hasOneReversedHighlighted" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="4" fill="blue"/>
           </marker>
         </defs>
       </svg>

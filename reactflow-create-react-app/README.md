@@ -28,6 +28,10 @@ npm test
 npm run build
 ```
 
-## Create React App Docs
+## TODO
 
-Please refer to the [Create React App docs](https://facebook.github.io/create-react-app/docs/getting-started) for more information.
+- [ ] Full screen button
+- [ ] Deselected selected edge on node hover
+- [ ] Has one edge
+- [ ] Show column description on click?
+- [ ] Add column type
