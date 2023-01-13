@@ -339,43 +339,43 @@ function Flow() {
       </svg>
       <svg style={{ position: 'absolute', top: 0, left: 0 }}>
         <defs>
-          <marker id="hasOne" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none">
-            <circle cx="4" cy="4" r="4" fill="#B1B1B6"/>
+          <marker id="hasOne" viewBox="0 0 6 6" markerHeight="6" markerWidth="6" refX="6" refY="3" fill="none">
+            <circle cx="3" cy="3" r="3" fill="#B1B1B6"/>
           </marker>
         </defs>
       </svg>
       <svg style={{ position: 'absolute', top: 0, left: 0 }}>
         <defs>
-          <marker id="hasOneSelected" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none">
-            <circle cx="4" cy="4" r="4" fill="#555"/>
+          <marker id="hasOneSelected" viewBox="0 0 6 6" markerHeight="6" markerWidth="6" refX="6" refY="3" fill="none">
+            <circle cx="3" cy="3" r="3" fill="#555"/>
           </marker>
         </defs>
       </svg>
       <svg style={{ position: 'absolute', top: 0, left: 0 }}>
         <defs>
-          <marker id="hasOneReversed" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none" orient="auto-start-reverse">
-            <circle cx="4" cy="4" r="4" fill="#B1B1B6"/>
+          <marker id="hasOneReversed" viewBox="0 0 6 6" markerHeight="6" markerWidth="6" refX="6" refY="3" fill="none" orient="auto-start-reverse">
+            <circle cx="3" cy="3" r="3" fill="#B1B1B6"/>
           </marker>
         </defs>
       </svg>
       <svg style={{ position: 'absolute', top: 0, left: 0 }}>
         <defs>
-          <marker id="hasOneReversedSelected" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none" orient="auto-start-reverse">
-            <circle cx="4" cy="4" r="4" fill="#555"/>
+          <marker id="hasOneReversedSelected" viewBox="0 0 6 6" markerHeight="6" markerWidth="6" refX="6" refY="3" fill="none" orient="auto-start-reverse">
+            <circle cx="3" cy="3" r="3" fill="#555"/>
           </marker>
         </defs>
       </svg>
       <svg style={{ position: 'absolute', top: 0, left: 0 }}>
         <defs>
-          <marker id="hasOneHighlighted" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none">
-            <circle cx="4" cy="4" r="4" fill="blue"/>
+          <marker id="hasOneHighlighted" viewBox="0 0 6 6" markerHeight="6" markerWidth="6" refX="6" refY="3" fill="none">
+            <circle cx="3" cy="3" r="3" fill="blue"/>
           </marker>
         </defs>
       </svg>
       <svg style={{ position: 'absolute', top: 0, left: 0 }}>
         <defs>
-          <marker id="hasOneReversedHighlighted" viewBox="0 0 8 8" markerHeight="8" markerWidth="8" refX="8" refY="4" fill="none" orient="auto-start-reverse">
-            <circle cx="4" cy="4" r="4" fill="blue"/>
+          <marker id="hasOneReversedHighlighted" viewBox="0 0 6 6" markerHeight="6" markerWidth="6" refX="6" refY="3" fill="none" orient="auto-start-reverse">
+            <circle cx="3" cy="3" r="3" fill="blue"/>
           </marker>
         </defs>
       </svg>
