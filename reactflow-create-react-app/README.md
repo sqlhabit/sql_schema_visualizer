@@ -30,7 +30,7 @@ npm run build
 
 ## TODO
 
-- [ ] Full screen button
+- [x] Full screen button
 - [x] Deselected selected edge on node hover
 - [x] Has one edge
 - [ ] Show column description on click?
