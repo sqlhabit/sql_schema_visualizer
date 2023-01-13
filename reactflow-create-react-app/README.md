@@ -33,7 +33,7 @@ npm run build
 - [x] Full screen button
 - [x] Deselected selected edge on node hover
 - [x] Has one edge
-- [ ] Show column description on click?
+- [x] Show column description on click?
 - [x] Add column type
 - [x] Highlighted edge is always on top (full blue)
 - [x] Selected edge is always on top (full #555)
