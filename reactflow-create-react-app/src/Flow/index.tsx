@@ -236,6 +236,12 @@ function Flow() {
               } else if(edge.className?.includes("has-many-edge")) {
                 ed.className = "has-many-edge has-many-edge--highlighted";
                 ed.markerEnd = "hasManyHighlighted"
+              } else if(edge.className?.includes("has-one-edge-reversed")) {
+                ed.className = "has-one-edge-reversed has-one-edge-reversed--highlighted";
+                ed.markerEnd = "hasOneReversedHighlighted"
+              } else if(edge.className?.includes("has-one-edge")) {
+                ed.className = "has-one-edge has-one-edge--highlighted";
+                ed.markerEnd = "hasOneHighlighted"
               }
             }
 
@@ -265,6 +271,12 @@ function Flow() {
           } else if(ed.className?.includes("has-many-edge")) {
             ed.className = "has-many-edge";
             ed.markerEnd = "hasMany"
+          } else if(ed.className?.includes("has-one-edge-reversed")) {
+            ed.className = "has-one-edge-reversed";
+            ed.markerEnd = "hasOneReversed"
+          } else if(ed.className?.includes("has-one-edge")) {
+            ed.className = "has-one-edge";
+            ed.markerEnd = "hasOne"
           }
 
           return ed;
