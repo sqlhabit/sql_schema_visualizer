@@ -58,6 +58,8 @@
   marker-end: url(#hasManyReversedSelected);
 }
 
-.abc {
+.has-many-edge--highlighted path.react-flow__edge-path,
+.has-many-edge--highlighted path.react-flow__edge-interaction,
+.has-many-edge--highlighted path.react-flow__connection-path {
   stroke: blue !important;
 }

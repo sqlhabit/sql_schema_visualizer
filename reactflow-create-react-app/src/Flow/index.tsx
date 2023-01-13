@@ -184,8 +184,7 @@ function Flow() {
         setEdges((eds) =>
           eds.map((ed) => {
             if (ed.id === edge.id) {
-              // TODO: Add className and highlight outgoing edges and markers
-              ed.hidden = true;
+              ed.className = "has-many-edge has-many-edge--highlighted";
             }
 
             return ed;
@@ -197,9 +196,6 @@ function Flow() {
 
       console.log(getIncomers(node, nodes, edges));
       console.log(node);
-
-      // TODO: highlight all outgoing edges and their markers.
-      // I guess via a CSS class toggle?
     },
     [setEdges, store]
   );
@@ -211,7 +207,7 @@ function Flow() {
 
       setEdges((eds) =>
         eds.map((ed) => {
-          ed.hidden = false;
+          ed.className = "has-many-edge";
 
           return ed;
         })
