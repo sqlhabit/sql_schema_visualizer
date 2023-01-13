@@ -13,7 +13,8 @@ import ReactFlow, {
   getIncomers,
   useStoreApi,
   ReactFlowProvider,
-  getConnectedEdges
+  getConnectedEdges,
+  OnSelectionChangeParams
 } from 'reactflow';
 
 import TableNode from './TableNode';
@@ -331,6 +332,18 @@ function Flow() {
     [setEdges, store]
   );
 
+  const onSelectionChange = useCallback(
+    (params: OnSelectionChangeParams) => {
+      const edges = params.edges;
+
+      edges.forEach(ed => {
+        const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
+        moveInFront(svg)
+      })
+    },
+    [setEdges, store]
+  );
+
   const toggleFullScreen = () => {
     if(fullscreenOn) {
       document.exitFullscreen().then(function() {
@@ -459,6 +472,7 @@ function Flow() {
         nodeTypes={nodeTypes}
         onNodeMouseEnter={onNodeMouseEnter}
         onNodeMouseLeave={onNodeMouseLeave}
+        onSelectionChange={onSelectionChange}
       >
         <Controls>
           <ControlButton onClick={toggleFullScreen}>

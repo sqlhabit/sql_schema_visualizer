@@ -36,3 +36,4 @@ npm run build
 - [ ] Show column description on click?
 - [x] Add column type
 - [x] Highlighted edge is always on top (full blue)
+- [x] Selected edge is always on top (full #555)
