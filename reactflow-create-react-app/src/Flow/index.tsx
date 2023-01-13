@@ -184,7 +184,13 @@ function Flow() {
         setEdges((eds) =>
           eds.map((ed) => {
             if (ed.id === edge.id) {
-              ed.className = "has-many-edge has-many-edge--highlighted";
+              if(edge.className?.includes("has-many-edge-reversed")) {
+                ed.className = "has-many-edge-reversed has-many-edge-reversed--highlighted";
+                ed.markerEnd = "hasManyReversedHighlighted"
+              } else if(edge.className?.includes("has-many-edge")) {
+                ed.className = "has-many-edge has-many-edge--highlighted";
+                ed.markerEnd = "hasManyHighlighted"
+              }
             }
 
             return ed;
@@ -207,7 +213,13 @@ function Flow() {
 
       setEdges((eds) =>
         eds.map((ed) => {
-          ed.className = "has-many-edge";
+          if(ed.className?.includes("has-many-edge-reversed")) {
+            ed.className = "has-many-edge-reversed";
+            ed.markerEnd = "hasManyReversed"
+          } else if(ed.className?.includes("has-many-edge")) {
+            ed.className = "has-many-edge";
+            ed.markerEnd = "hasMany"
+          }
 
           return ed;
         })
@@ -248,6 +260,22 @@ function Flow() {
           <marker id="hasManyReversedSelected" viewBox="0 0 10 13" markerHeight="10" markerWidth="13" refX="10" refY="6.5" fill="none" orient="auto-start-reverse">
             <path d="M10 12C2.57803 12 0.909955 8.66667 1.00367 7" stroke="#555"/>
             <path d="M10 1C2.57803 1 0.909955 5 1.00367 7" stroke="#555"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker id="hasManyHighlighted" viewBox="0 0 10 13" markerHeight="10" markerWidth="13" refX="10" refY="6.5" fill="none">
+            <path d="M10 12C2.57803 12 0.909955 8.66667 1.00367 7" stroke="blue"/>
+            <path d="M10 1C2.57803 1 0.909955 5 1.00367 7" stroke="blue"/>
+          </marker>
+        </defs>
+      </svg>
+      <svg style={{ position: 'absolute', top: 0, left: 0 }}>
+        <defs>
+          <marker id="hasManyReversedHighlighted" viewBox="0 0 10 13" markerHeight="10" markerWidth="13" refX="10" refY="6.5" fill="none" orient="auto-start-reverse">
+            <path d="M10 12C2.57803 12 0.909955 8.66667 1.00367 7" stroke="blue"/>
+            <path d="M10 1C2.57803 1 0.909955 5 1.00367 7" stroke="blue"/>
           </marker>
         </defs>
       </svg>

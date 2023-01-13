@@ -63,3 +63,9 @@
 .has-many-edge--highlighted path.react-flow__connection-path {
   stroke: blue !important;
 }
+
+.has-many-edge-reversed--highlighted path.react-flow__edge-path,
+.has-many-edge-reversed--highlighted path.react-flow__edge-interaction,
+.has-many-edge-reversed--highlighted path.react-flow__connection-path {
+  stroke: blue !important;
+}
