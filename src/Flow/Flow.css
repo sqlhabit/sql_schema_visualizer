@@ -163,3 +163,9 @@ html {
   height: 12px;
   margin-right: 4px;
 }
+
+.App__logo {
+  top: 16px;
+  left: 16px;
+  position: fixed;
+}
