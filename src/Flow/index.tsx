@@ -207,6 +207,65 @@ const initialNodes: Node[] = [
     },
     position: { x: 450, y: -250 },
     type: 'table'
+  },
+  {
+    id: 'marketing_spends',
+    data: {
+      label: 'marketing_spends',
+      name: "marketing_spends",
+      columns: [
+        {
+          name: "id",
+          handleType: "source",
+          key: true,
+          type: "number"
+        },
+        {
+          name: "spent_at",
+          type: "date"
+        },
+        {
+          name: "amount",
+          type: "number"
+        },
+        {
+          name: "clicks",
+          type: "number"
+        },
+      ]
+    },
+    position: { x: 160, y: -336 },
+    type: 'table'
+  },
+  {
+    id: 'devices',
+    data: {
+      label: 'devices',
+      name: "devices",
+      columns: [
+        {
+          name: "id",
+          handleType: "source",
+          key: true,
+          type: "number"
+        },
+        {
+          name: "user_id",
+          handleType: "target",
+          type: "number"
+        },
+        {
+          name: "device_type",
+          type: "string"
+        },
+        {
+          name: "connected_at",
+          type: "datetime"
+        }
+      ]
+    },
+    position: { x: 432, y: -448 },
+    type: 'table'
   }
 ];
 
@@ -216,7 +275,8 @@ const initialEdges: Edge[] = [
   { id: 'books_users-users', source: 'users', target: 'books_users', sourceHandle: 'id-l', targetHandle: 'user_id-r', animated: false, type: "smoothstep", markerEnd: "hasManyReversed", className: "has-many-edge-reversed" },
   { id: 'books_users-books', source: 'books', target: 'books_users', sourceHandle: 'id-r', targetHandle: 'book_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
   { id: 'users-profiles', source: 'users', target: 'profiles', sourceHandle: 'id-l', targetHandle: 'user_id-r', animated: false, type: "smoothstep", markerEnd: 'hasOneReversed', className: "has-one-edge-reversed" },
-  { id: 'users-accounts', source: 'users', target: 'accounts', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasOne', className: "has-one-edge" }
+  { id: 'users-accounts', source: 'users', target: 'accounts', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasOne', className: "has-one-edge" },
+  { id: 'users-devices', source: 'users', target: 'devices', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" }
 ];
 
 function Flow() {
