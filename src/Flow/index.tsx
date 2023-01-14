@@ -500,7 +500,9 @@ function Flow() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         onInit={onInit}
+        snapToGrid={true}
         fitView
+        snapGrid={[16, 16]}
         nodeTypes={nodeTypes}
         onNodeMouseEnter={onNodeMouseEnter}
         onNodeMouseLeave={onNodeMouseLeave}
