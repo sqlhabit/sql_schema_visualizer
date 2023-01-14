@@ -381,6 +381,18 @@ function Flow() {
     }
   });
 
+  document.addEventListener('click', (event: Event) => {
+    const target = (event.target as HTMLInputElement);
+
+    if (target && target.closest('.into-popup-toggle')) {
+      return;
+    }
+
+    if (target && !target.closest('.info-popup')) {
+      setInfoPopupOn(false);
+    }
+  })
+
   // https://stackoverflow.com/questions/16664584/changing-an-svg-markers-color-css
   return (
     <div className="Flow">
@@ -492,7 +504,7 @@ function Flow() {
             {!fullscreenOn && <MaximizeIcon />}
             {fullscreenOn && <MinimizeIcon />}
           </ControlButton>
-          <ControlButton onClick={toggleInfoPopup}>
+          <ControlButton onClick={toggleInfoPopup} className="into-popup-toggle">
             <InfoIcon />
           </ControlButton>
         </Controls>
