@@ -22,7 +22,6 @@ const rightHandleStyle: CSSProperties = {
 };
 
 const tableStyle: CSSProperties = {
-  border: "1px solid #CBD2D9",
   borderRadius: 4,
   backgroundColor: "#FFF"
 };
@@ -53,42 +52,44 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
 
   return (
-    <div style={tableStyle}>
-      <div style={tableNameStyle}>
+    <div style={tableStyle} className="table">
+      <div style={tableNameStyle} className="table__name">
         {data.name}
       </div>
 
-      {data.columns.map((column: any, index: any) => (
-        <div key={index} style={columnNameStyle} className={selectedColumn === column.name ? 'column-name column-name--selected' : 'column-name'} onClick={() => setSelectedColumn(column.name)} onMouseLeave={() => setSelectedColumn("")}>
-          {column.handleType && <Handle
-            type={column.handleType}
-            position={Position.Right}
-            id={`${column.name}-r`}
-            style={rightHandleStyle}
-            className={column.handleType === "source" ? "source-handle" : "target-handle"}
-          />}
-          {column.handleType && <Handle
-            type={column.handleType}
-            position={Position.Left}
-            id={`${column.name}-l`}
-            style={leftHandleStyle}
-            className={column.handleType === "source" ? "source-handle" : "target-handle"}
-          />}
+      <div className="table__columns">
+        {data.columns.map((column: any, index: any) => (
+          <div key={index} style={columnNameStyle} className={selectedColumn === column.name ? 'column-name column-name--selected' : 'column-name'} onClick={() => setSelectedColumn(column.name)} onMouseLeave={() => setSelectedColumn("")}>
+            {column.handleType && <Handle
+              type={column.handleType}
+              position={Position.Right}
+              id={`${column.name}-r`}
+              style={rightHandleStyle}
+              className={column.handleType === "source" ? "source-handle" : "target-handle"}
+            />}
+            {column.handleType && <Handle
+              type={column.handleType}
+              position={Position.Left}
+              id={`${column.name}-l`}
+              style={leftHandleStyle}
+              className={column.handleType === "source" ? "source-handle" : "target-handle"}
+            />}
 
-          <div style={columnNameInnerStyle} className="column-name__inner">
-            <div className="column-name__name">
-              {column.name}
+            <div style={columnNameInnerStyle} className="column-name__inner">
+              <div className="column-name__name">
+                {column.name}
+              </div>
+              <div className="column-name__type">
+                {column.type}
+              </div>
             </div>
-            <div className="column-name__type">
-              {column.type}
+
+            <div className="column-name__description">
+              {column.description || "No description."}
             </div>
           </div>
-
-          <div className="column-name__description">
-            {column.description || "No description."}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

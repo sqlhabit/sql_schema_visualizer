@@ -40,7 +40,7 @@
   padding: 4px;
   z-index: 1000;
 
-  border: 1px solid #B1B1B6;
+  border: 1px solid #CBD2D9;
 
   border-radius: 4px;
 
@@ -137,4 +137,15 @@
   border-radius: 16px;
 
   background-color: #FFF;
+}
+
+.table__name {
+  border: 0;
+  border-radius: 4px 4px 0 0;
+}
+
+.table__columns {
+  border: 1px solid #CBD2D9;
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
 }
