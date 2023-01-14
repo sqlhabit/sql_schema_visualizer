@@ -4,6 +4,8 @@ import { Handle, Position, NodeProps } from 'reactflow';
 
 import '@reactflow/node-resizer/dist/style.css';
 
+import KeyIcon from "./KeyIcon";
+
 const leftHandleStyle: CSSProperties = {
   width: 2,
   height: 2,
@@ -77,6 +79,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
 
             <div style={columnNameInnerStyle} className="column-name__inner">
               <div className="column-name__name">
+                {column.key && <KeyIcon />}
                 {column.name}
               </div>
               <div className="column-name__type">
