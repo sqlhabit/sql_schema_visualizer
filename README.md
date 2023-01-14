@@ -1,6 +1,4 @@
-# React Flow Example App - Create React App
-
-This app was bootstrapped with [`create-react-app`](https://github.com/facebook/create-react-app).
+# SQL Schema Graph
 
 ## Installation
 
@@ -27,13 +25,3 @@ npm test
 ```sh
 npm run build
 ```
-
-## TODO
-
-- [x] Full screen button
-- [x] Deselected selected edge on node hover
-- [x] Has one edge
-- [x] Show column description on click?
-- [x] Add column type
-- [x] Highlighted edge is always on top (full blue)
-- [x] Selected edge is always on top (full #555)
