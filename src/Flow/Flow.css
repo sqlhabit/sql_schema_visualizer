@@ -118,3 +118,18 @@
 .column-name:hover {
   background-color: #EFEFEF;
 }
+
+.info-popup {
+  position: fixed;
+  width: 500px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  z-index: 20000;
+  transform: translateX(-50%) translateY(-50%);
+
+  border: 2px solid #555;
+  border-radius: 16px;
+
+  background-color: #FFF;
+}

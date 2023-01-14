@@ -20,6 +20,8 @@ import ReactFlow, {
 import TableNode from './TableNode';
 import MaximizeIcon from './MaximizeIcon';
 import MinimizeIcon from './MinimizeIcon';
+import InfoIcon from './InfoIcon';
+import InfoPopup from './InfoPopup';
 
 // this is important! You need to import the styles from the lib to make it work
 import 'reactflow/dist/style.css';
@@ -220,6 +222,7 @@ function Flow() {
     [setEdges]
   );
   const [fullscreenOn, setFullScreen] = useState(false);
+  const [infoPopupOn, setInfoPopupOn] = useState(false);
 
   const onInit = (instance: any) => {
     const handleKeyboard = (e: KeyboardEvent) => {
@@ -368,6 +371,16 @@ function Flow() {
     }
   }
 
+  const toggleInfoPopup = () => {
+    setInfoPopupOn(!infoPopupOn)
+  }
+
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if(e.code === 'Escape'){
+      setInfoPopupOn(false);
+    }
+  });
+
   // https://stackoverflow.com/questions/16664584/changing-an-svg-markers-color-css
   return (
     <div className="Flow">
@@ -479,9 +492,13 @@ function Flow() {
             {!fullscreenOn && <MaximizeIcon />}
             {fullscreenOn && <MinimizeIcon />}
           </ControlButton>
+          <ControlButton onClick={toggleInfoPopup}>
+            <InfoIcon />
+          </ControlButton>
         </Controls>
         <Background color="#aaa" gap={16} />
       </ReactFlow>
+      {infoPopupOn && <InfoPopup />}
     </div>
   );
 }
