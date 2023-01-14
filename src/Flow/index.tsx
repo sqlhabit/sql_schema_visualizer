@@ -36,7 +36,6 @@ const initialNodes: Node[] = [
   {
     id: 'users',
     data: {
-      label: 'Node 4',
       name: "users",
       columns: [
         {
@@ -62,7 +61,6 @@ const initialNodes: Node[] = [
   {
     id: 'products',
     data: {
-      label: 'Node 5',
       name: "products",
       columns: [
         {
@@ -87,7 +85,6 @@ const initialNodes: Node[] = [
   {
     id: 'purchases',
     data: {
-      label: 'Node 5',
       name: "purchases",
       columns: [
         {
@@ -113,7 +110,6 @@ const initialNodes: Node[] = [
   {
     id: 'books_users',
     data: {
-      label: 'Node 5',
       name: "books_users",
       columns: [
         {
@@ -134,7 +130,6 @@ const initialNodes: Node[] = [
   {
     id: 'books',
     data: {
-      label: 'books',
       name: "books",
       columns: [
         {
@@ -159,7 +154,6 @@ const initialNodes: Node[] = [
   {
     id: 'profiles',
     data: {
-      label: 'profiles',
       name: "profiles",
       columns: [
         {
@@ -185,7 +179,6 @@ const initialNodes: Node[] = [
   {
     id: 'accounts',
     data: {
-      label: 'accounts',
       name: "accounts",
       columns: [
         {
@@ -211,7 +204,6 @@ const initialNodes: Node[] = [
   {
     id: 'marketing_spends',
     data: {
-      label: 'marketing_spends',
       name: "marketing_spends",
       columns: [
         {
@@ -240,7 +232,6 @@ const initialNodes: Node[] = [
   {
     id: 'devices',
     data: {
-      label: 'devices',
       name: "devices",
       columns: [
         {
