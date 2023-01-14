@@ -1,11 +1,39 @@
-![readme-header](https://user-images.githubusercontent.com/3797215/156259138-fb9f59f8-52f2-474a-b78c-6570867e4ead.svg#gh-light-mode-only)
+# React Flow Example App - Create React App
 
-# React Flow Example Apps
+This app was bootstrapped with [`create-react-app`](https://github.com/facebook/create-react-app).
 
-This repo contains starting points / references for projects that use [React Flow](https://reactflow.dev).
+## Installation
 
-- [Create React App Example](/reactflow-create-react-app)
-- [Next.js Example](/reactflow-nextjs)
-- [Remix Example](/reactflow-remix)
+```sh
+npm install
+```
 
-Please refer to the [React Flow Docs](https://reactflow.dev/docs) for more information about how to use React Flow.
+### Start Dev Server
+
+```sh
+npm start
+```
+
+Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Run Tests
+
+```sh
+npm test
+```
+
+### Build
+
+```sh
+npm run build
+```
+
+## TODO
+
+- [x] Full screen button
+- [x] Deselected selected edge on node hover
+- [x] Has one edge
+- [x] Show column description on click?
+- [x] Add column type
+- [x] Highlighted edge is always on top (full blue)
+- [x] Selected edge is always on top (full #555)
