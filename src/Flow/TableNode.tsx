@@ -22,21 +22,22 @@ const rightHandleStyle: CSSProperties = {
 };
 
 const tableStyle: CSSProperties = {
-  border: "1px solid red",
+  border: "1px solid #CBD2D9",
   borderRadius: 4,
-  paddingTop: 12,
   backgroundColor: "#FFF"
 };
 const tableNameStyle: CSSProperties = {
-  borderBottom: "1px solid red",
+  borderBottom: 0,
   paddingLeft: 8,
   paddingRight: 8,
-  paddingBottom: 12,
+  paddingTop: 8,
+  paddingBottom: 8,
   fontWeight: 800,
-  textAlign: "center"
+  textAlign: "center",
+  backgroundColor: "#47A3F3"
 };
 const columnNameStyle: CSSProperties = {
-  borderBottom: "1px solid red",
+  borderBottom: 0,
   position: "relative",
   fontSize: 12,
   lineHeight: 1,

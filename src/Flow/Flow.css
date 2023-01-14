@@ -99,8 +99,13 @@
   stroke: blue !important;
 }
 
+/* .react-flow__pane, */
 :not(:root):fullscreen::backdrop {
   background-color: #FFF;
+}
+
+.react-flow__node {
+  background-color: #F5F7FA;
 }
 
 .column-name__name {
