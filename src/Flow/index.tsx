@@ -381,6 +381,7 @@ function Flow() {
     }
   });
 
+  // https://stackoverflow.com/questions/42066421/property-value-does-not-exist-on-type-eventtarget
   document.addEventListener('click', (event: Event) => {
     const target = (event.target as HTMLInputElement);
 
