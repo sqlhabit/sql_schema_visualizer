@@ -28,36 +28,13 @@ import 'reactflow/dist/style.css';
 
 import './Flow.css';
 
+import usersTable from './Tables/users';
+
 const nodeTypes = {
   table: TableNode,
 };
 
-const initialNodes: Node[] = [
-  {
-    id: 'users',
-    data: {
-      name: "users",
-      columns: [
-        {
-          name: "id",
-          handleType: "source",
-          key: true,
-          description: "Primary key of the users table. An integer. Use it to join with other tables.",
-          type: "number"
-        },
-        {
-          name: "email",
-          type: "string"
-        },
-        {
-          name: "name",
-          type: "string"
-        }
-      ]
-    },
-    position: { x: 280, y: -100 },
-    type: 'table',
-  },
+let initialNodes: Node[] = [
   {
     id: 'products',
     data: {
@@ -260,6 +237,22 @@ const initialNodes: Node[] = [
   }
 ];
 
+const positions = {
+  users: { x: 280, y: -100 },
+};
+
+initialNodes.push(usersTable);
+
+Object.entries(positions).forEach(params => {
+  const tableName = params[0];
+  const position = params[1];
+  const tableNode = initialNodes.find(node => node.id === tableName);
+
+  if(tableNode) {
+    tableNode.position = position;
+  }
+});
+
 const initialEdges: Edge[] = [
   { id: 'users-purchases', source: 'users', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
   { id: 'products-purchases', source: 'products', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'product_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
@@ -285,7 +278,6 @@ function Flow() {
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === 'p') {
         const nodes = instance.getNodes()
-
         nodes.forEach((n: any) => {
           console.log(`${n.data.name} x: ${Math.round(n.position.x)}, y: ${Math.round(n.position.y)}`)
         })
@@ -395,7 +387,6 @@ function Flow() {
   const onSelectionChange = useCallback(
     (params: OnSelectionChangeParams) => {
       const edges = params.edges;
-
       edges.forEach(ed => {
         const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
         moveInFront(svg)
