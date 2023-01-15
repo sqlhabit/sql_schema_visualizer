@@ -112,6 +112,7 @@ function Flow() {
   );
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
+  let nodeHoverActive = true;
 
   interface Position {
     x: number;
@@ -168,6 +169,10 @@ function Flow() {
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(
     (_: any, node: Node) => {
+      if(!nodeHoverActive) {
+        return;
+      }
+
       const state = store.getState();
       state.resetSelectedElements();
       state.addSelectedNodes([node.id]);
@@ -228,6 +233,10 @@ function Flow() {
 
   const onNodeMouseLeave = useCallback(
     (_: any, node: Node) => {
+      if(!nodeHoverActive) {
+        return;
+      }
+
       const state = store.getState();
       state.resetSelectedElements();
 
@@ -314,6 +323,18 @@ function Flow() {
       setInfoPopupOn(false);
     }
   })
+
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if(e.code === "MetaLeft") {
+      nodeHoverActive = false;
+    }
+  }, false);
+
+  document.addEventListener('keyup', (e: KeyboardEvent) => {
+    if(e.code === "MetaLeft") {
+      nodeHoverActive = true;
+    }
+  }, false);
 
   // https://stackoverflow.com/questions/16664584/changing-an-svg-markers-color-css
   return (
