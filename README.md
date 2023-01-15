@@ -48,7 +48,7 @@ npm run build
 - [ ] Final colors for highlighted edges.
 - [ ] Final colors for selected edges.
 - [ ] Final style for table and column descriptions.
-- [ ] Add Github Action to deploy to Github pages.
+- [ ] Add Github Action to deploy to Github pages https://create-react-app.dev/docs/deployment/#github-pages
 - [ ] Add info popup content.
 - [ ] Colors for coding different schemas.
 - [x] CMD + Hover to show table and column descriptions.
