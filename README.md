@@ -6,6 +6,12 @@ A prototype of relational database schema visualization using [ReactFlow](https:
 
 Every table is a ReactFlow' [Custom Node](https://reactflow.dev/docs/guides/custom-nodes/) with custom [Markers](https://reactflow.dev/docs/examples/edges/markers/) (those SVG icons with dot and fork). [Here's a ReactFlow sandbox example of Custom Nodes](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-create-react-app).
 
+## How to update table positions?
+
+1. Drag them around to find a perfect arrangement.
+2. CMD + P (it copy pastes positions JSON to your clipboard).
+3. Paste the JSON to the `Flow/positions.ts` file.
+
 ## Installation
 
 ```sh
@@ -40,6 +46,6 @@ npm run build
 - [ ] CMD + P prints positions JSON to copy paste (sort tables alphabetically).
 - [ ] Colors for coding different schemas.
 - [x] Favicon.
-- [ ] package.json info.
+- [x] package.json info.
 - [x] Shoutout to ReactFlow demo app.
 - [x] Fix full screen icon when full screen is entered via a shortcut.

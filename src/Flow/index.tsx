@@ -38,6 +38,7 @@ import productsTable from './Tables/products';
 import profilesTable from './Tables/profiles';
 import purchasesTable from './Tables/purchases';
 import Markers from './Markers';
+import tablePositions from './TablePositions';
 
 const nodeTypes = {
   table: TableNode,
@@ -55,11 +56,7 @@ initialNodes.push(productsTable);
 initialNodes.push(profilesTable);
 initialNodes.push(purchasesTable);
 
-const positions = {
-  users: { x: 280, y: -100 },
-};
-
-Object.entries(positions).forEach(params => {
+Object.entries(tablePositions).forEach(params => {
   const tableName = params[0];
   const position = params[1];
   const tableNode = initialNodes.find(node => node.id === tableName);
@@ -90,13 +87,42 @@ function Flow() {
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
 
+  interface Position {
+    x: number;
+    y: number;
+  };
+
+  interface Positions {
+    tableName: Position;
+  };
+
+
   const onInit = (instance: any) => {
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === 'p') {
-        const nodes = instance.getNodes()
-        nodes.forEach((n: any) => {
-          console.log(`${n.data.name} x: ${Math.round(n.position.x)}, y: ${Math.round(n.position.y)}`)
-        })
+        const nodes = instance.getNodes();
+
+        const positions = {} as Positions;
+
+        const compare = ( a: String, b: String ) => {
+          if ( a < b ){
+            return -1;
+          }
+          if ( a > b ){
+            return 1;
+          }
+          return 0;
+        }
+
+        nodes.sort((n1: Node, n2: Node) => compare(n1.id, n2.id)).forEach((n: Node) => {
+          positions[n.id as keyof Positions] = {
+            x: Math.round(n.position.x),
+            y: Math.round(n.position.y)
+          };
+        });
+
+        navigator.clipboard.writeText(JSON.stringify(positions, null, 2));
+        console.log(JSON.stringify(positions, null, 2));
       }
     }
 
