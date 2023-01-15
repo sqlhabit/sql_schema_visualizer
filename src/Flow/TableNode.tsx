@@ -53,6 +53,19 @@ const columnNameInnerStyle: CSSProperties = {
 const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
   const [showDescription, setshowDescription] = useState(false);
+  const [descriptionOnHoverActive, setDescriptionOnHoverActive] = useState(false);
+
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if(e.code === "MetaLeft") {
+      setDescriptionOnHoverActive(true)
+    }
+  }, false);
+
+  document.addEventListener('keyup', (e: KeyboardEvent) => {
+    if(e.code === "MetaLeft") {
+      setDescriptionOnHoverActive(false)
+    }
+  }, false);
 
   return (
     <div style={tableStyle} className="table">
@@ -60,6 +73,11 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
         style={tableNameStyle}
         className="table__name"
         onClick={() => setshowDescription(!showDescription)}
+        onMouseEnter={() => {
+          if(descriptionOnHoverActive) {
+            setshowDescription(true)
+          }
+        }}
         onMouseLeave={() => setshowDescription(false)}>
         {data.name}
       </div>
@@ -70,7 +88,17 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
 
       <div className="table__columns">
         {data.columns.map((column: any, index: any) => (
-          <div key={index} style={columnNameStyle} className={selectedColumn === column.name ? 'column-name column-name--selected' : 'column-name'} onClick={() => setSelectedColumn(column.name)} onMouseLeave={() => setSelectedColumn("")}>
+          <div
+            key={index}
+            style={columnNameStyle}
+            className={selectedColumn === column.name ? 'column-name column-name--selected' : 'column-name'}
+            onClick={() => setSelectedColumn(column.name)}
+            onMouseEnter={() => {
+              if(descriptionOnHoverActive) {
+                setSelectedColumn(column.name)
+              }
+            }}
+            onMouseLeave={() => setSelectedColumn("")}>
             {column.handleType && <Handle
               type={column.handleType}
               position={Position.Right}

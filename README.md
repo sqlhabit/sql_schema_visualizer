@@ -40,8 +40,16 @@ npm run build
 
 ## TODO
 
+- [ ] Pull in all tables and their columns from Bindle dataset.
 - [ ] Colors for coding different schemas.
-- [ ] CMD + Hover to show table and column descriptions.
+- [ ] Final font styles.
+- [ ] Final colors for highlighted edges.
+- [ ] Final colors for selected edges.
+- [ ] Final style for table and column descriptions.
+- [ ] Add info popup content.
+- [ ] Add Github Action to deploy to Github pages.
+
+- [x] CMD + Hover to show table and column descriptions.
 - [x] Disable node hover if CMD key is pressed (edge selection).
 - [x] Click on table name shows table description.
 - [x] Simple edge definition that's translated later into ReactFlow syntax.
