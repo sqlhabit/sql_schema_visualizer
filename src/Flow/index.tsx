@@ -39,6 +39,7 @@ import profilesTable from './Tables/profiles';
 import purchasesTable from './Tables/purchases';
 import Markers from './Markers';
 import tablePositions from './TablePositions';
+import edges from './Edges';
 
 const nodeTypes = {
   table: TableNode,
@@ -66,15 +67,40 @@ Object.entries(tablePositions).forEach(params => {
   }
 });
 
-const initialEdges: Edge[] = [
-  { id: 'users-purchases', source: 'users', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
-  { id: 'products-purchases', source: 'products', target: 'purchases', sourceHandle: 'id-r', targetHandle: 'product_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
-  { id: 'books_users-users', source: 'users', target: 'books_users', sourceHandle: 'id-l', targetHandle: 'user_id-r', animated: false, type: "smoothstep", markerEnd: "hasManyReversed", className: "has-many-edge-reversed" },
-  { id: 'books_users-books', source: 'books', target: 'books_users', sourceHandle: 'id-r', targetHandle: 'book_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" },
-  { id: 'users-profiles', source: 'users', target: 'profiles', sourceHandle: 'id-l', targetHandle: 'user_id-r', animated: false, type: "smoothstep", markerEnd: 'hasOneReversed', className: "has-one-edge-reversed" },
-  { id: 'users-accounts', source: 'users', target: 'accounts', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasOne', className: "has-one-edge" },
-  { id: 'users-devices', source: 'users', target: 'devices', sourceHandle: 'id-r', targetHandle: 'user_id-l', animated: false, type: "smoothstep", markerEnd: 'hasMany', className: "has-many-edge" }
-];
+const initialEdges: Edge[] = [];
+
+const edgeClassName = (edge: any) => {
+  let className = edge.relation === "hasOne" ? "has-one-edge" : "has-many-edge";
+
+  if(edge.targetPosition === "left") {
+    className += "-reversed";
+  }
+
+  return className;
+};
+
+const edgeMarkerName = (edge: any) => {
+  let markerName = edge.relation === "hasOne" ? "hasOne" : "hasMany";
+
+  if(edge.targetPosition === "left") {
+    markerName += "Reversed";
+  }
+
+  return markerName;
+};
+
+edges.forEach(edge => {
+  initialEdges.push({
+    id: `${edge.source}-${edge.target}`,
+    source: edge.source,
+    target: edge.target,
+    sourceHandle: `${edge.sourceKey}-${edge.targetPosition === "left" ? "l" : "r"}`,
+    targetHandle: `${edge.targetKey}-${edge.targetPosition === "left" ? "r" : "l"}`,
+    type: "smoothstep",
+    markerEnd: edgeMarkerName(edge),
+    className: edgeClassName(edge)
+  })
+});
 
 function Flow() {
   const store = useStoreApi();
