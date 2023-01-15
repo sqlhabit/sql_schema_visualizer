@@ -2,6 +2,7 @@ const accountsTable = {
   id: 'accounts',
   data: {
     name: "accounts",
+    description: "Hello World",
     columns: [
       {
         name: "id",

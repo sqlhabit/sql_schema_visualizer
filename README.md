@@ -41,9 +41,9 @@ npm run build
 ## TODO
 
 - [ ] Disable node hover if CMD key is pressed (edge selection).
-- [ ] Click on table name shows table description.
 - [ ] Colors for coding different schemas.
-- [ ] Simple edge definition that's translated later into ReactFlow syntax.
+- [ ] Click on table name shows table description.
+- [x] Simple edge definition that's translated later into ReactFlow syntax.
 - [x] CMD + P prints positions JSON to copy paste (sort tables alphabetically).
 - [x] Favicon.
 - [x] package.json info.

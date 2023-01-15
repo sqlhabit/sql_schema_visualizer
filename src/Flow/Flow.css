@@ -169,3 +169,26 @@ html {
   left: 16px;
   position: fixed;
 }
+
+.table__description {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 150px;
+  transform: translateX(100%);
+  padding: 4px;
+  z-index: 1000;
+
+  border: 1px solid #CBD2D9;
+
+  border-radius: 4px;
+
+  background-color: #FFF;
+
+  font-size: 10px;
+}
+
+.table__description--active {
+  display: block;
+}

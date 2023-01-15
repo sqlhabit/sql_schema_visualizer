@@ -52,11 +52,20 @@ const columnNameInnerStyle: CSSProperties = {
 
 const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
+  const [showDescription, setshowDescription] = useState(false);
 
   return (
     <div style={tableStyle} className="table">
-      <div style={tableNameStyle} className="table__name">
+      <div
+        style={tableNameStyle}
+        className="table__name"
+        onClick={() => setshowDescription(!showDescription)}
+        onMouseLeave={() => setshowDescription(false)}>
         {data.name}
+      </div>
+
+      <div className={showDescription ? 'table__description table__description--active' : 'table__description'}>
+        {data.description}
       </div>
 
       <div className="table__columns">
