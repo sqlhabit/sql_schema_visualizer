@@ -101,6 +101,11 @@ function Flow() {
     }
 
     document.addEventListener('keydown', handleKeyboard)
+
+    // https://javascriptf1.com/snippet/detect-fullscreen-mode-with-javascript
+    window.addEventListener('resize', (event) => {
+      setFullScreen(window.innerHeight === window.screen.height);
+    });
   }
 
   function moveInFront(element: any) {

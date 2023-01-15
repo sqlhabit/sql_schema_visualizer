@@ -1,5 +1,11 @@
 # SQL Schema Graph
 
+A prototype of relational database schema visualization using [ReactFlow](https://reactflow.dev/).
+
+## How it works?
+
+Every table is a ReactFlow' [Custom Node](https://reactflow.dev/docs/guides/custom-nodes/) with custom [Markers](https://reactflow.dev/docs/examples/edges/markers/) (those SVG icons with dot and fork). [Here's a ReactFlow sandbox example of Custom Nodes](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-create-react-app).
+
 ## Installation
 
 ```sh
@@ -25,3 +31,15 @@ npm test
 ```sh
 npm run build
 ```
+
+## TODO
+
+- [ ] Disable node hover if CMD key is pressed (edge selection).
+- [ ] Click on table name shows table description.
+- [ ] Simple edge definition that's translated later into ReactFlow syntax.
+- [ ] CMD + P prints positions JSON to copy paste (sort tables alphabetically).
+- [ ] Colors for coding different schemas.
+- [ ] Favicon.
+- [ ] package.json info.
+- [x] Shoutout to ReactFlow demo app.
+- [x] Fix full screen icon when full screen is entered via a shortcut.
