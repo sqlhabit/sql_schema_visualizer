@@ -18,9 +18,9 @@ import ReactFlow, {
 } from 'reactflow';
 
 import TableNode from './TableNode';
-import MaximizeIcon from './MaximizeIcon';
-import MinimizeIcon from './MinimizeIcon';
-import InfoIcon from './InfoIcon';
+import MaximizeIcon from './Icons/MaximizeIcon';
+import MinimizeIcon from './Icons/MinimizeIcon';
+import InfoIcon from './Icons/InfoIcon';
 import InfoPopup from './InfoPopup';
 
 // this is important! You need to import the styles from the lib to make it work

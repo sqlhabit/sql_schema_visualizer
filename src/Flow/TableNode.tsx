@@ -4,7 +4,7 @@ import { Handle, Position, NodeProps } from 'reactflow';
 
 import '@reactflow/node-resizer/dist/style.css';
 
-import KeyIcon from "./KeyIcon";
+import KeyIcon from "./Icons/KeyIcon";
 
 const leftHandleStyle: CSSProperties = {
   width: 2,
