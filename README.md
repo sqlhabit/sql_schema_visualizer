@@ -39,7 +39,7 @@ npm run build
 - [ ] Simple edge definition that's translated later into ReactFlow syntax.
 - [ ] CMD + P prints positions JSON to copy paste (sort tables alphabetically).
 - [ ] Colors for coding different schemas.
-- [ ] Favicon.
+- [x] Favicon.
 - [ ] package.json info.
 - [x] Shoutout to ReactFlow demo app.
 - [x] Fix full screen icon when full screen is entered via a shortcut.

@@ -1,7 +1,7 @@
 {
-  "name": "my-app",
+  "name": "db_schema_visualization",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@reactflow/node-resizer": "^1.2.1",
     "@testing-library/jest-dom": "^5.16.5",
