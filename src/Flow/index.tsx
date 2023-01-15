@@ -29,219 +29,34 @@ import 'reactflow/dist/style.css';
 import './Flow.css';
 
 import usersTable from './Tables/users';
+import marketingSpendsTable from "./Tables/marketing_spends";
+import accountsTable from './Tables/accounts';
+import booksUsersTable from './Tables/books_users';
+import booksTable from './Tables/books';
+import devicesTable from './Tables/devices';
+import productsTable from './Tables/products';
+import profilesTable from './Tables/profiles';
+import purchasesTable from './Tables/purchases';
 
 const nodeTypes = {
   table: TableNode,
 };
 
-let initialNodes: Node[] = [
-  {
-    id: 'products',
-    data: {
-      name: "products",
-      columns: [
-        {
-          name: "id",
-          handleType: "source",
-          key: true,
-          type: "number"
-        },
-        {
-          name: "name",
-          type: "string"
-        },
-        {
-          name: "price",
-          type: "number"
-        }
-      ]
-    },
-    position: { x: 320, y: 160 },
-    type: 'table',
-  },
-  {
-    id: 'purchases',
-    data: {
-      name: "purchases",
-      columns: [
-        {
-          name: "id",
-          type: "number",
-          key: true
-        },
-        {
-          name: "user_id",
-          handleType: "target",
-          type: "number"
-        },
-        {
-          name: "product_id",
-          handleType: "target",
-          type: "number"
-        },
-      ]
-    },
-    position: { x: 600, y: 0 },
-    type: 'table',
-  },
-  {
-    id: 'books_users',
-    data: {
-      name: "books_users",
-      columns: [
-        {
-          name: "book_id",
-          handleType: "target",
-          type: "number"
-        },
-        {
-          name: "user_id",
-          handleType: "target",
-          type: "number"
-        },
-      ]
-    },
-    position: { x: 100, y: 0 },
-    type: 'table',
-  },
-  {
-    id: 'books',
-    data: {
-      name: "books",
-      columns: [
-        {
-          name: "id",
-          handleType: "source",
-          key: true,
-          type: "number"
-        },
-        {
-          name: "name",
-          type: "string"
-        },
-        {
-          name: "author",
-          type: "string"
-        },
-      ]
-    },
-    position: { x: -100, y: 100 },
-    type: 'table',
-  },
-  {
-    id: 'profiles',
-    data: {
-      name: "profiles",
-      columns: [
-        {
-          name: "id",
-          handleType: "source",
-          key: true,
-          type: "number"
-        },
-        {
-          name: "user_id",
-          handleType: "target",
-          type: "number"
-        },
-        {
-          name: "about",
-          type: "string"
-        },
-      ]
-    },
-    position: { x: -100, y: -150 },
-    type: 'table'
-  },
-  {
-    id: 'accounts',
-    data: {
-      name: "accounts",
-      columns: [
-        {
-          name: "id",
-          handleType: "source",
-          key: true,
-          type: "number"
-        },
-        {
-          name: "user_id",
-          handleType: "target",
-          type: "number"
-        },
-        {
-          name: "platform",
-          type: "string"
-        },
-      ]
-    },
-    position: { x: 450, y: -250 },
-    type: 'table'
-  },
-  {
-    id: 'marketing_spends',
-    data: {
-      name: "marketing_spends",
-      columns: [
-        {
-          name: "id",
-          handleType: "source",
-          key: true,
-          type: "number"
-        },
-        {
-          name: "spent_at",
-          type: "date"
-        },
-        {
-          name: "amount",
-          type: "number"
-        },
-        {
-          name: "clicks",
-          type: "number"
-        },
-      ]
-    },
-    position: { x: 160, y: -336 },
-    type: 'table'
-  },
-  {
-    id: 'devices',
-    data: {
-      name: "devices",
-      columns: [
-        {
-          name: "id",
-          handleType: "source",
-          key: true,
-          type: "number"
-        },
-        {
-          name: "user_id",
-          handleType: "target",
-          type: "number"
-        },
-        {
-          name: "device_type",
-          type: "string"
-        },
-        {
-          name: "connected_at",
-          type: "datetime"
-        }
-      ]
-    },
-    position: { x: 432, y: -448 },
-    type: 'table'
-  }
-];
+let initialNodes: Node[] = [];
+
+initialNodes.push(usersTable);
+initialNodes.push(marketingSpendsTable);
+initialNodes.push(accountsTable);
+initialNodes.push(booksUsersTable);
+initialNodes.push(booksTable);
+initialNodes.push(devicesTable);
+initialNodes.push(productsTable);
+initialNodes.push(profilesTable);
+initialNodes.push(purchasesTable);
 
 const positions = {
   users: { x: 280, y: -100 },
 };
-
-initialNodes.push(usersTable);
 
 Object.entries(positions).forEach(params => {
   const tableName = params[0];
