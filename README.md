@@ -49,7 +49,7 @@ npm run build
 - [ ] Final colors for selected edges.
 - [ ] Final style for table and column descriptions.
 - [ ] Add info popup content.
-- [ ] Add Github Action to deploy to Github pages https://create-react-app.dev/docs/deployment/#github-pages
+- [x] Add Github Action to deploy to Github pages https://create-react-app.dev/docs/deployment/#github-pages
 - [x] Colors for coding different schemas.
 - [x] CMD + Hover to show table and column descriptions.
 - [x] Disable node hover if CMD key is pressed (edge selection).
