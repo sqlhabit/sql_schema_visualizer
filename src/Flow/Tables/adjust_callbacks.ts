@@ -1,5 +1,6 @@
-const purchasesTable = {
-  name: "purchases",
+const adjustCallbacksTable = {
+  schema: "adjust",
+  name: "callbacks",
   columns: [
     {
       name: "id",
@@ -12,11 +13,10 @@ const purchasesTable = {
       type: "number"
     },
     {
-      name: "product_id",
-      handleType: "target",
-      type: "number"
+      name: "tracker",
+      type: "text"
     },
   ]
 };
 
-export default purchasesTable;
+export default adjustCallbacksTable;

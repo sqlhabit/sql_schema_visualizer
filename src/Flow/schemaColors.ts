@@ -4,7 +4,8 @@ interface SchemaColorsDictionary {
 
 const schemaColors: SchemaColorsDictionary = {
   "DEFAULT": "#91C4F2",
-  "public": "#BEB8EB"
+  "public": "#BEB8EB",
+  "adjust": "#AFA2FF"
 };
 
 export default schemaColors;

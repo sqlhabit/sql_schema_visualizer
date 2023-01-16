@@ -37,9 +37,40 @@ import devicesTable from './Tables/devices';
 import productsTable from './Tables/products';
 import profilesTable from './Tables/profiles';
 import purchasesTable from './Tables/purchases';
+import adjustCallbacksTable from './Tables/adjust_callbacks';
 import Markers from './Markers';
 import tablePositions from './TablePositions';
 import edges from './Edges';
+
+interface Position {
+  x: number;
+  y: number;
+};
+
+interface Positions {
+  tableName: Position;
+};
+
+const fullTableName = (tableName: string, schemaName = "public") => {
+  if(tableName.includes(".")) {
+    return tableName;
+  } else {
+    return `${schemaName}.${tableName}`;
+  }
+};
+
+const tablePositionsWithSchema = {} as Positions;
+
+Object.entries(tablePositions).forEach(params => {
+  const tableName = params[0];
+  const position = params[1] as Position;
+
+  if(tableName.includes(".")) {
+    tablePositionsWithSchema[tableName as keyof Positions] = position;
+  } else {
+    tablePositionsWithSchema[fullTableName(tableName) as keyof Positions] = position;
+  }
+});
 
 const nodeTypes = {
   table: TableNode,
@@ -47,24 +78,29 @@ const nodeTypes = {
 
 let initialNodes: Node[] = [];
 
-initialNodes.push(usersTable);
-initialNodes.push(marketingSpendsTable);
-initialNodes.push(accountsTable);
-initialNodes.push(booksUsersTable);
-initialNodes.push(booksTable);
-initialNodes.push(devicesTable);
-initialNodes.push(productsTable);
-initialNodes.push(profilesTable);
-initialNodes.push(purchasesTable);
+[
+  usersTable,
+  marketingSpendsTable,
+  accountsTable,
+  booksUsersTable,
+  booksTable,
+  devicesTable,
+  productsTable,
+  profilesTable,
+  purchasesTable,
+  adjustCallbacksTable
+].forEach(tableData => {
+  const schemaName = (tableData as any).schema || "public";
+  const tableID = fullTableName(tableData.name, schemaName);
 
-Object.entries(tablePositions).forEach(params => {
-  const tableName = params[0];
-  const position = params[1];
-  const tableNode = initialNodes.find(node => node.id === tableName);
-
-  if(tableNode) {
-    tableNode.position = position;
+  const tableDefinition: Node = {
+    id: tableID,
+    data: tableData,
+    position: (tablePositionsWithSchema as any)[tableID] || { x: 0, y: 0 },
+    type: "table"
   }
+
+  initialNodes.push(tableDefinition);
 });
 
 const initialEdges: Edge[] = [];
@@ -90,10 +126,13 @@ const edgeMarkerName = (edge: any) => {
 };
 
 edges.forEach(edge => {
+  const sourceTableName = fullTableName(edge.source);
+  const targetTableName = fullTableName(edge.target);
+
   initialEdges.push({
-    id: `${edge.source}-${edge.target}`,
-    source: edge.source,
-    target: edge.target,
+    id: `${sourceTableName}-${targetTableName}`,
+    source: sourceTableName,
+    target: targetTableName,
     sourceHandle: `${edge.sourceKey}-${edge.targetPosition === "left" ? "l" : "r"}`,
     targetHandle: `${edge.targetKey}-${edge.targetPosition === "left" ? "r" : "l"}`,
     type: "smoothstep",
@@ -113,16 +152,6 @@ function Flow() {
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
   let nodeHoverActive = true;
-
-  interface Position {
-    x: number;
-    y: number;
-  };
-
-  interface Positions {
-    tableName: Position;
-  };
-
 
   const onInit = (instance: any) => {
     const handleKeyboard = (e: KeyboardEvent) => {

@@ -1,37 +1,41 @@
 const tablePositions = {
-  "accounts": {
+  "adjust.callbacks": {
+    "x": 160,
+    "y": -304
+  },
+  "public.accounts": {
     "x": 544,
     "y": -256
   },
-  "books": {
+  "public.books": {
     "x": -100,
     "y": 100
   },
-  "books_users": {
+  "public.books_users": {
     "x": 100,
     "y": 0
   },
-  "devices": {
+  "public.devices": {
     "x": 432,
     "y": -448
   },
-  "marketing_spends": {
+  "public.marketing_spends": {
     "x": -96,
     "y": -432
   },
-  "products": {
+  "public.products": {
     "x": 320,
     "y": 160
   },
-  "profiles": {
+  "public.profiles": {
     "x": -96,
     "y": -160
   },
-  "purchases": {
+  "public.purchases": {
     "x": 600,
     "y": 0
   },
-  "users": {
+  "public.users": {
     "x": 280,
     "y": -100
   }

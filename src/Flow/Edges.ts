@@ -55,6 +55,14 @@ const edges = [
     relation: "hasMany",
     targetPosition: "right"
   },
+  {
+    source: "users",
+    sourceKey: "id",
+    target: "adjust.callbacks",
+    targetKey: "user_id",
+    relation: "hasMany",
+    targetPosition: "left"
+  },
 ]
 
 export default edges;

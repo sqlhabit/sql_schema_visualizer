@@ -1,23 +1,17 @@
 const booksUsersTable = {
-  id: 'books_users',
-  data: {
-    schema: "public",
-    name: "books_users",
-    columns: [
-      {
-        name: "book_id",
-        handleType: "target",
-        type: "number"
-      },
-      {
-        name: "user_id",
-        handleType: "target",
-        type: "number"
-      },
-    ]
-  },
-  position: { x: 100, y: 0 },
-  type: 'table',
+  name: "books_users",
+  columns: [
+    {
+      name: "book_id",
+      handleType: "target",
+      type: "number"
+    },
+    {
+      name: "user_id",
+      handleType: "target",
+      type: "number"
+    },
+  ]
 };
 
 export default booksUsersTable;

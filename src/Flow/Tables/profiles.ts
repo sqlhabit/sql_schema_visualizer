@@ -1,28 +1,22 @@
 const profilesTable = {
-  id: 'profiles',
-  data: {
-    schema: "public",
-    name: "profiles",
-    columns: [
-      {
-        name: "id",
-        handleType: "source",
-        key: true,
-        type: "number"
-      },
-      {
-        name: "user_id",
-        handleType: "target",
-        type: "number"
-      },
-      {
-        name: "about",
-        type: "string"
-      },
-    ]
-  },
-  position: { x: -100, y: -150 },
-  type: 'table'
+  name: "profiles",
+  columns: [
+    {
+      name: "id",
+      handleType: "source",
+      key: true,
+      type: "number"
+    },
+    {
+      name: "user_id",
+      handleType: "target",
+      type: "number"
+    },
+    {
+      name: "about",
+      type: "string"
+    },
+  ]
 };
 
 export default profilesTable;

@@ -89,7 +89,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
           }
         }}
         onMouseLeave={() => setshowDescription(false)}>
-        {data.name}
+        {data.schema ? `${data.schema}.${data.name}` : data.name}
       </div>
 
       <div className={showDescription ? 'table__description table__description--active' : 'table__description'}>
