@@ -15,6 +15,8 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and 🚢
-        run: npm ci && npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_REPO_TOKEN }}
+        run: |
+          git config user.email "makaroni4@gmail.com"
+          git config user.name "makaroni4"
+
+          npm ci && npm run deploy
