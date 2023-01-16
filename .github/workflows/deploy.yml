@@ -1,6 +1,8 @@
 name: Deploy to Github pages
 on:
-  create
+  create:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
