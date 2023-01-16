@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sql_schema_visualisation/static/css/main.2af0634d.css",
+    "main.js": "/sql_schema_visualisation/static/js/main.66424451.js",
+    "index.html": "/sql_schema_visualisation/index.html",
+    "main.2af0634d.css.map": "/sql_schema_visualisation/static/css/main.2af0634d.css.map",
+    "main.66424451.js.map": "/sql_schema_visualisation/static/js/main.66424451.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2af0634d.css",
+    "static/js/main.66424451.js"
+  ]
+}
