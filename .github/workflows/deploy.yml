@@ -16,3 +16,5 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and 🚢
         run: npm ci && npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_REPO_TOKEN }}
