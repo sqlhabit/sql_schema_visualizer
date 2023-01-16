@@ -1,7 +1,6 @@
-name: Publish to NPM
+name: Deploy to Github pages
 on:
-  release:
-    types: [created]
+  create
 jobs:
   build:
     runs-on: ubuntu-latest
