@@ -143,6 +143,7 @@ edges.forEach(edge => {
 
 function Flow() {
   const store = useStoreApi();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = useCallback(
@@ -257,7 +258,7 @@ function Flow() {
       console.log(getIncomers(node, nodes, edges));
       console.log(node);
     },
-    [setEdges, store]
+    [nodes, edges, nodeHoverActive, setEdges, store]
   );
 
   const onNodeMouseLeave = useCallback(
@@ -292,7 +293,7 @@ function Flow() {
       // https://stackoverflow.com/questions/2520650/how-do-you-clear-the-focus-in-javascript
       (document.activeElement as HTMLElement).blur();
     },
-    [setEdges, store]
+    [nodeHoverActive, setEdges, store]
   );
 
   const onSelectionChange = useCallback(
@@ -303,7 +304,7 @@ function Flow() {
         moveInFront(svg)
       })
     },
-    [setEdges, store]
+    []
   );
 
   const toggleFullScreen = () => {
