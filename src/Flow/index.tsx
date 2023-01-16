@@ -401,10 +401,10 @@ function Flow() {
   );
 }
 
-function FlowWithProvider() {
+// https://codesandbox.io/s/elastic-elion-dbqwty?file=/src/App.js
+// eslint-disable-next-line import/no-anonymous-default-export
+export default () => (
   <ReactFlowProvider>
     <Flow />
   </ReactFlowProvider>
-}
-// https://codesandbox.io/s/elastic-elion-dbqwty?file=/src/App.js
-export default FlowWithProvider;
+);
