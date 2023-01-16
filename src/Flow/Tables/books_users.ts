@@ -1,6 +1,7 @@
 const booksUsersTable = {
   id: 'books_users',
   data: {
+    schema: "public",
     name: "books_users",
     columns: [
       {

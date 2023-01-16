@@ -1,6 +1,7 @@
 const profilesTable = {
   id: 'profiles',
   data: {
+    schema: "public",
     name: "profiles",
     columns: [
       {

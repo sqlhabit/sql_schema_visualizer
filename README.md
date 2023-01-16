@@ -40,8 +40,8 @@ npm run build
 
 ## TODO
 
-
 - [ ] Write README with screenshots and GIFs.
+- [ ] Add contribution guide.
 - [ ] Refactor.
 - [ ] Pull in all tables and their columns from Bindle dataset.
 - [ ] Final font styles.

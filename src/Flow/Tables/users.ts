@@ -1,6 +1,7 @@
 const usersTable = {
   id: 'users',
   data: {
+    schema: "public",
     name: "users",
     columns: [
       {

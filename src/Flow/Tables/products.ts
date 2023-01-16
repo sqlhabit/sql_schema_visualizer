@@ -1,6 +1,7 @@
 const productsTable = {
   id: 'products',
   data: {
+    schema: "public",
     name: "products",
     columns: [
       {

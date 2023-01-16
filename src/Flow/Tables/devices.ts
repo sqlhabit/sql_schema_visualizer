@@ -1,6 +1,7 @@
 const devicesTable = {
   id: 'devices',
   data: {
+    schema: "public",
     name: "devices",
     columns: [
       {

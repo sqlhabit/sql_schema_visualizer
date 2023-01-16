@@ -1,6 +1,7 @@
 const marketingSpendsTable = {
   id: 'marketing_spends',
   data: {
+    schema: "public",
     name: "marketing_spends",
     columns: [
       {

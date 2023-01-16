@@ -5,6 +5,7 @@ import { Handle, Position, NodeProps } from 'reactflow';
 import '@reactflow/node-resizer/dist/style.css';
 
 import KeyIcon from "./Icons/KeyIcon";
+import schemaColors from './schemaColors';
 
 const leftHandleStyle: CSSProperties = {
   width: 2,
@@ -34,8 +35,7 @@ const tableNameStyle: CSSProperties = {
   paddingTop: 8,
   paddingBottom: 8,
   fontWeight: 800,
-  textAlign: "center",
-  backgroundColor: "#47A3F3"
+  textAlign: "center"
 };
 const columnNameStyle: CSSProperties = {
   borderBottom: 0,
@@ -55,6 +55,16 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
   const [showDescription, setshowDescription] = useState(false);
   const [descriptionOnHoverActive, setDescriptionOnHoverActive] = useState(false);
 
+  const tableNamebgColor = (schemaName: string) => {
+    let bgColor = schemaColors[schemaName];
+
+    if(!bgColor) {
+      bgColor = schemaColors.DEFAULT;
+    }
+
+    return bgColor
+  };
+
   document.addEventListener('keydown', (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
       setDescriptionOnHoverActive(true)
@@ -70,7 +80,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
   return (
     <div style={tableStyle} className="table">
       <div
-        style={tableNameStyle}
+        style={{...tableNameStyle, backgroundColor: tableNamebgColor(data.schema) }}
         className="table__name"
         onClick={() => setshowDescription(!showDescription)}
         onMouseEnter={() => {
