@@ -16,7 +16,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and 🚢
         run: |
-          git config user.name makaroni4
-          git config user.email makaroni4@gmail.com
+          git config --global user.name 'makaroni4'
+          git config --global user.email 'makaroni4@gmail.com'
 
           npm ci && npm run deploy
