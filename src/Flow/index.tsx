@@ -401,9 +401,10 @@ function Flow() {
   );
 }
 
-// https://codesandbox.io/s/elastic-elion-dbqwty?file=/src/App.js
-export default () => (
+function FlowWithProvider() {
   <ReactFlowProvider>
     <Flow />
   </ReactFlowProvider>
-);
+}
+// https://codesandbox.io/s/elastic-elion-dbqwty?file=/src/App.js
+export default FlowWithProvider;
