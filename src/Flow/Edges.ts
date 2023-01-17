@@ -21,7 +21,7 @@ const edges = [
     target: "purchases",
     targetKey: "product_id",
     relation: "hasMany",
-    targetPosition: "right"
+    targetPosition: "left"
   },
   {
     source: "books",
@@ -53,7 +53,7 @@ const edges = [
     target: "devices",
     targetKey: "user_id",
     relation: "hasMany",
-    targetPosition: "right"
+    targetPosition: "left"
   },
   {
     source: "users",
@@ -61,7 +61,7 @@ const edges = [
     target: "adjust.callbacks",
     targetKey: "user_id",
     relation: "hasMany",
-    targetPosition: "left"
+    targetPosition: "right"
   },
   {
     source: "users",
