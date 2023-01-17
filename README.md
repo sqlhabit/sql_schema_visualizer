@@ -48,7 +48,7 @@ npm run build
 - [ ] Final style for table and column descriptions.
 - [ ] Add info popup content.
 - [ ] Style description tooltip.
-- [ ] Write table descriptions.
+- [x] Write table descriptions.
 - [x] Fix mismatched column descriptions.
 - [x] Pull in all tables and their columns from Bindle dataset.
 - [x] Final font styles.

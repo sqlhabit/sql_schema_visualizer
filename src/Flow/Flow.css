@@ -133,6 +133,8 @@ html {
 }
 
 .table__name {
+  position: relative;
+
   border: 0;
   border-radius: 4px 4px 0 0;
 }
@@ -158,20 +160,49 @@ html {
 .table__description {
   display: none;
   position: absolute;
-  top: 0;
-  right: -4px;
+  top: 50%;
+  right: -6px;
   width: 150px;
-  transform: translateX(100%);
+  transform: translateX(100%) translateY(-50%);
   padding: 4px;
   z-index: 1000;
 
   border: 1px solid #CBD2D9;
-
   border-radius: 4px;
 
   background-color: #FFF;
 
   font-size: 10px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.table__description:after {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  transform: translateX(0px);
+
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #FFF transparent transparent;
+
+  content: "";
+}
+
+.table__description:before {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateX(-0.5px);
+  margin-top: -6px;
+
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent #CBD2D9 transparent transparent;
+
+  content: "";
 }
 
 .table__description--active {
