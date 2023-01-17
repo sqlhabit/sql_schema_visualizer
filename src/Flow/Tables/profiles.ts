@@ -1,5 +1,6 @@
 const profilesTable = {
   name: "profiles",
+  description: "To avoid growing the users table further, users' profile information was extracted to this table.",
   columns: [
     {
       name: "id",

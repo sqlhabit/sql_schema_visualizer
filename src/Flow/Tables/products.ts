@@ -1,5 +1,6 @@
 const productsTable = {
   name: "products",
+  description: "The list of all purchasable Bindle products (subscriptions).",
   columns: [
     {
       name: "id",

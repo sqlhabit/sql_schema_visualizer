@@ -1,5 +1,6 @@
 const booksTable = {
   name: "books",
+  description: "All books available in the Bindle's library.",
   columns: [
     {
       name: "id",

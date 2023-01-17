@@ -1,6 +1,6 @@
 const accountsTable = {
   name: "accounts",
-  description: "Hello World",
+  description: "Accounts of platforms users can sign up with. Bindle users might have Facebook or Email accounts.",
   columns: [
     {
       name: "id",

@@ -1,6 +1,7 @@
 const webAnalyticsPageviewsTable = {
   schema: "web_analytics",
   name: "pageviews",
+  description: "This table contains all pageviews of Bindle's website.",
   columns: [
     {
       name: "pageview_id",

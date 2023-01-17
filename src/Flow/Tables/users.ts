@@ -1,5 +1,6 @@
 const usersTable = {
   name: "users",
+  description: "This table contains all user records of Bindle.",
   columns: [
     {
       name: "id",

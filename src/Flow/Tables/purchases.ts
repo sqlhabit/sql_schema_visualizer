@@ -1,5 +1,6 @@
 const purchasesTable = {
   name: "purchases",
+  description: "This table contains all purchase transactions.",
   columns: [
     {
       name: "id",

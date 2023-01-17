@@ -1,5 +1,6 @@
 const booksUsersTable = {
   name: "books_users",
+  description: "A join table for many-to-many relationship between users and books.",
   columns: [
     {
       name: "book_id",
