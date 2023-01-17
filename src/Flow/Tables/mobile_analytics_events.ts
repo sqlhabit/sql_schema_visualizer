@@ -36,7 +36,7 @@ const mobileAnalyticsEventsTable = {
     },
     {
       name: "user_id",
-      description: "If user is logged in – ID of a user in users table.",
+      description: "If user is logged in – ID of a user in the users table.",
       type: "integer",
       handleType: "target"
     },

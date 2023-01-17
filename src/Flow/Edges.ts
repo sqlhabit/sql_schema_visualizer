@@ -87,6 +87,15 @@ const edges = [
     relation: "hasMany",
     targetPosition: "right"
   },
+  {
+    source: "users",
+    sourceKey: "id",
+    target: "users",
+    targetKey: "referrer_id",
+    relation: "hasMany",
+    sourcePosition: "left",
+    targetPosition: "right"
+  },
 ]
 
 export default edges;

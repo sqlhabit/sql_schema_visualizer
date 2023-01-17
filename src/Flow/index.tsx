@@ -139,11 +139,18 @@ edges.forEach(edge => {
   const sourceTableName = fullTableName(edge.source);
   const targetTableName = fullTableName(edge.target);
 
+  let sourceHandle = edge.sourceKey;
+  if(edge.sourcePosition) {
+    sourceHandle += `-${edge.sourcePosition === "left" ? "l" : "r"}`;
+  } else {
+    sourceHandle += `-${edge.targetPosition === "left" ? "l" : "r"}`;
+  }
+
   initialEdges.push({
     id: `${sourceTableName}-${targetTableName}`,
     source: sourceTableName,
     target: targetTableName,
-    sourceHandle: `${edge.sourceKey}-${edge.targetPosition === "left" ? "l" : "r"}`,
+    sourceHandle: sourceHandle,
     targetHandle: `${edge.targetKey}-${edge.targetPosition === "left" ? "r" : "l"}`,
     type: "smoothstep",
     markerEnd: edgeMarkerName(edge),

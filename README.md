@@ -47,7 +47,10 @@ npm run build
 - [ ] Final colors for selected edges.
 - [ ] Final style for table and column descriptions.
 - [ ] Add info popup content.
-- [ ] Pull in all tables and their columns from Bindle dataset.
+- [ ] Style description tooltip.
+- [ ] Write table descriptions.
+- [x] Fix mismatched column descriptions.
+- [x] Pull in all tables and their columns from Bindle dataset.
 - [x] Final font styles.
 - [x] Add Github Action to deploy to Github pages https://create-react-app.dev/docs/deployment/#github-pages
 - [x] Colors for coding different schemas.

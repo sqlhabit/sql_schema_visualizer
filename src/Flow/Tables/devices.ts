@@ -10,18 +10,18 @@ const devicesTable = {
     },
     {
       name: "user_id",
-      description: "id of user who uses this device.",
+      description: "id of a user who uses this device.",
       handleType: "target",
       type: "integer"
     },
     {
       name: "device_type",
-      description: "Type of the device, could be browser (for users who are using Bindle website) or iphone (users who are reading via Bindle app).",
+      description: "Type of the device, could be **browser** (for users who are using Bindle website) or **iphone** (users who are reading via Bindle app).",
       type: "text"
     },
     {
       name: "connected_at",
-      description: "Timestamp when user started using this device. Device with the earliest connected_at field is the device which user used for signing up.",
+      description: "Timestamp when a user started using this device. Device with the earliest **connected_at** field is the device which user used for signing up.",
       type: "datetime"
     },
     {

@@ -10,7 +10,7 @@ const marketingSpendsTable = {
     },
     {
       name: "spent_at",
-      description: "Amount of money Bindle paid to a marketing platform on this date.",
+      description: "The date of a spend. Spend data is usually reported by date.",
       type: "date"
     },
     {

@@ -30,12 +30,12 @@ const usersTable = {
     },
     {
       name: "signup_date",
-      type: "text",
+      type: "date",
       description: "Date when user signed up."
     },
     {
       name: "created_at",
-      type: "text",
+      type: "datetime",
       description: "Timestamp when user record was created, we can treat it as signup date and time."
     },
     {
@@ -45,12 +45,13 @@ const usersTable = {
     },
     {
       name: "age",
-      type: "text",
+      type: "integer",
       description: "User’s age."
     },
     {
       name: "referrer_id",
-      type: "text",
+      type: "integer",
+      handleType: "target",
       description: "id of another user who referred this user (this is usually set when users sign up via referral link)."
     },
     {
