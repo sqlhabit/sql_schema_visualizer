@@ -132,10 +132,10 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
               <div className="column-name__type">
                 {column.type}
               </div>
-            </div>
 
-            <div className="column-name__description">
-              {column.description || "No description."}
+              <div className="column-name__description">
+                {column.description || "No description."}
+              </div>
             </div>
           </div>
         ))}

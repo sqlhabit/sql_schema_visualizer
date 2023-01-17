@@ -42,7 +42,7 @@ html {
   display: none;
   position: absolute;
   top: 0;
-  right: -4px;
+  right: -6px;
   width: 150px;
   transform: translateX(100%);
   padding: 4px;
@@ -55,6 +55,36 @@ html {
   background-color: #FFF;
 
   font-size: 10px;
+}
+
+.column-name__inner {
+  position: relative;
+}
+
+.column-name__description:after {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateX(0px) translateY(-50%);
+
+  border-width: 3px;
+  border-style: solid;
+  border-color: transparent #FFF transparent transparent;
+
+  content: "";
+}
+
+.column-name__description:before {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateX(-0.5px) translateY(-50%);
+
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent #CBD2D9 transparent transparent;
+
+  content: "";
 }
 
 .column-name--selected .column-name__description {
@@ -181,10 +211,9 @@ html {
   position: absolute;
   top: 50%;
   right: 100%;
-  margin-top: -5px;
-  transform: translateX(0px);
+  transform: translateX(-0) translateY(-50%);
 
-  border-width: 6px;
+  border-width: 3px;
   border-style: solid;
   border-color: transparent #FFF transparent transparent;
 
@@ -195,10 +224,9 @@ html {
   position: absolute;
   top: 50%;
   right: 100%;
-  transform: translateX(-0.5px);
-  margin-top: -6px;
+  transform: translateX(-0.5px) translateY(-50%);
 
-  border-width: 7px;
+  border-width: 4px;
   border-style: solid;
   border-color: transparent #CBD2D9 transparent transparent;
 
