@@ -47,6 +47,7 @@ npm run build
 - [ ] Final colors for selected edges.
 - [ ] Final style for table and column descriptions.
 - [ ] Add info popup content.
+- [x] Add info popup overlay.
 - [x] Style description tooltip.
 - [x] Write table descriptions.
 - [x] Fix mismatched column descriptions.

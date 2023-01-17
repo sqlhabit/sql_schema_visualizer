@@ -239,6 +239,19 @@ html {
 }
 
 .info-popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.info-popup__inner {
   position: fixed;
   width: 500px;
   height: 300px;
@@ -248,8 +261,7 @@ html {
   padding: 16px;
   transform: translateX(-50%) translateY(-50%);
 
-  border: 2px solid #CBD2D9;
-  border-radius: 16px;
+  border-radius: 8px;
 
   background-color: #FFF;
 }

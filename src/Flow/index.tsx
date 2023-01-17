@@ -370,7 +370,7 @@ function Flow() {
       return;
     }
 
-    if (target && !target.closest('.info-popup')) {
+    if (target && !target.closest('.info-popup__inner')) {
       setInfoPopupOn(false);
     }
   })
