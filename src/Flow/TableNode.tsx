@@ -25,7 +25,6 @@ const rightHandleStyle: CSSProperties = {
 };
 
 const tableStyle: CSSProperties = {
-  borderRadius: 4,
   backgroundColor: "#FFF"
 };
 const tableNameStyle: CSSProperties = {

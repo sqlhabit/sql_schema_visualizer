@@ -47,7 +47,7 @@ npm run build
 - [ ] Final colors for selected edges.
 - [ ] Final style for table and column descriptions.
 - [ ] Add info popup content.
-- [ ] Style description tooltip.
+- [x] Style description tooltip.
 - [x] Write table descriptions.
 - [x] Fix mismatched column descriptions.
 - [x] Pull in all tables and their columns from Bindle dataset.

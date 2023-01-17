@@ -20,6 +20,7 @@ html {
 
 .column-name:last-child {
   border-bottom: 0 !important;
+  border-radius: 0 0 4px 4px;
 }
 
 .react-flow__handle-left {
@@ -44,7 +45,7 @@ html {
   top: 0;
   right: -6px;
   width: 150px;
-  transform: translateX(100%);
+  transform: translateX(100%) translateY(-50%);
   padding: 4px;
   z-index: 1000;
 
