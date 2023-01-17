@@ -6,16 +6,24 @@ const accountsTable = {
       name: "id",
       handleType: "source",
       key: true,
-      type: "number"
+      type: "integer"
     },
     {
       name: "user_id",
       handleType: "target",
-      type: "number"
+      type: "integer"
     },
     {
       name: "platform",
-      type: "string"
+      type: "text"
+    },
+    {
+      name: "email",
+      type: "text"
+    },
+    {
+      name: "created_at",
+      type: "datetime"
     },
   ]
 };

@@ -45,7 +45,7 @@ const edges = [
     target: "accounts",
     targetKey: "user_id",
     relation: "hasOne",
-    targetPosition: "right"
+    targetPosition: "left"
   },
   {
     source: "users",
@@ -62,6 +62,30 @@ const edges = [
     targetKey: "user_id",
     relation: "hasMany",
     targetPosition: "left"
+  },
+  {
+    source: "users",
+    sourceKey: "visitor_id",
+    target: "web_analytics.pageviews",
+    targetKey: "visitor_id",
+    relation: "hasMany",
+    targetPosition: "left"
+  },
+  {
+    source: "web_analytics.pageviews",
+    sourceKey: "pageview_id",
+    target: "web_analytics.events",
+    targetKey: "pageview_id",
+    relation: "hasMany",
+    targetPosition: "left"
+  },
+  {
+    source: "users",
+    sourceKey: "id",
+    target: "mobile_analytics.events",
+    targetKey: "user_id",
+    relation: "hasMany",
+    targetPosition: "right"
   },
 ]
 

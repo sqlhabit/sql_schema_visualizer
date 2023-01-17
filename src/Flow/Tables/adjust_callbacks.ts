@@ -4,16 +4,61 @@ const adjustCallbacksTable = {
   columns: [
     {
       name: "id",
-      type: "number",
+      type: "integer",
+      handleType: "source",
       key: true
     },
     {
-      name: "user_id",
-      handleType: "target",
-      type: "number"
+      name: "tracker",
+      type: "text"
     },
     {
-      name: "tracker",
+      name: "created_at",
+      type: "datetime"
+    },
+    {
+      name: "campaign_name",
+      type: "text"
+    },
+    {
+      name: "adgroup_name",
+      type: "text"
+    },
+    {
+      name: "creative_name",
+      type: "text"
+    },
+    {
+      name: "label",
+      type: "text"
+    },
+    {
+      name: "device_name",
+      type: "text"
+    },
+    {
+      name: "app_version",
+      type: "text"
+    },
+    {
+      name: "activity_kind",
+      type: "text"
+    },
+    {
+      name: "event_name",
+      type: "text"
+    },
+    {
+      name: "adid",
+      type: "text"
+    },
+    {
+      name: "user_id",
+      type: "integer",
+      handleType: "target"
+    },
+    {
+      name: "country",
       type: "text"
     },
   ]

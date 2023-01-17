@@ -5,21 +5,25 @@ const devicesTable = {
       name: "id",
       handleType: "source",
       key: true,
-      type: "number"
+      type: "integer"
     },
     {
       name: "user_id",
       handleType: "target",
-      type: "number"
+      type: "integer"
     },
     {
       name: "device_type",
-      type: "string"
+      type: "text"
     },
     {
       name: "connected_at",
       type: "datetime"
-    }
+    },
+    {
+      name: "version",
+      type: "text"
+    },
   ]
 };
 

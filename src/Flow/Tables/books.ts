@@ -5,15 +5,23 @@ const booksTable = {
       name: "id",
       handleType: "source",
       key: true,
-      type: "number"
+      type: "integer"
     },
     {
       name: "name",
-      type: "string"
+      type: "text"
     },
     {
-      name: "author",
-      type: "string"
+      name: "slug",
+      type: "text"
+    },
+    {
+      name: "genre",
+      type: "text"
+    },
+    {
+      name: "pages_count",
+      type: "integer"
     },
   ]
 };

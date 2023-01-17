@@ -4,12 +4,20 @@ const booksUsersTable = {
     {
       name: "book_id",
       handleType: "target",
-      type: "number"
+      type: "integer"
     },
     {
       name: "user_id",
       handleType: "target",
-      type: "number"
+      type: "integer"
+    },
+    {
+      name: "last_page",
+      type: "integer"
+    },
+    {
+      name: "created_at",
+      type: "datetime"
     },
   ]
 };

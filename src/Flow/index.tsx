@@ -38,8 +38,14 @@ import productsTable from './Tables/products';
 import profilesTable from './Tables/profiles';
 import purchasesTable from './Tables/purchases';
 import adjustCallbacksTable from './Tables/adjust_callbacks';
-import Markers from './Markers';
+import helpersDatesTable from './Tables/helpers_dates';
+import webAnalyticsPageviewsTable from './Tables/web_analytics_pageviews';
+import webAnalyticsEventsTable from './Tables/web_analytics_events';
+import mobileAnalyticsEventsTable from './Tables/mobile_analytics_events';
+
 import tablePositions from './TablePositions';
+
+import Markers from './Markers';
 import edges from './Edges';
 
 interface Position {
@@ -88,7 +94,11 @@ let initialNodes: Node[] = [];
   productsTable,
   profilesTable,
   purchasesTable,
-  adjustCallbacksTable
+  adjustCallbacksTable,
+  helpersDatesTable,
+  webAnalyticsPageviewsTable,
+  webAnalyticsEventsTable,
+  mobileAnalyticsEventsTable
 ].forEach(tableData => {
   const schemaName = (tableData as any).schema || "public";
   const tableID = fullTableName(tableData.name, schemaName);
@@ -192,6 +202,10 @@ function Flow() {
   }
 
   function moveInFront(element: any) {
+    if(!element) {
+      return;
+    }
+
     const svg = element.closest('svg'); // Find the parent SVG
     svg.appendChild(element); // Append child moves the element to the end
   }

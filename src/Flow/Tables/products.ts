@@ -5,15 +5,15 @@ const productsTable = {
       name: "id",
       handleType: "source",
       key: true,
-      type: "number"
+      type: "integer"
     },
     {
       name: "name",
-      type: "string"
+      type: "text"
     },
     {
       name: "price",
-      type: "number"
+      type: "float"
     }
   ]
 };

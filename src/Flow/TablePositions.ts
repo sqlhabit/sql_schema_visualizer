@@ -1,43 +1,59 @@
 const tablePositions = {
   "adjust.callbacks": {
-    "x": 160,
-    "y": -304
+    "x": -96,
+    "y": -736
   },
-  "public.accounts": {
-    "x": 544,
-    "y": -256
-  },
-  "public.books": {
-    "x": -100,
-    "y": 100
-  },
-  "public.books_users": {
-    "x": 100,
-    "y": 0
-  },
-  "public.devices": {
-    "x": 432,
+  "helpers.dates": {
+    "x": 880,
     "y": -448
   },
-  "public.marketing_spends": {
-    "x": -96,
-    "y": -432
+  "mobile_analytics.events": {
+    "x": 528,
+    "y": 624
   },
-  "public.products": {
-    "x": 320,
+  "public.accounts": {
+    "x": -432,
+    "y": -192
+  },
+  "public.books": {
+    "x": -400,
     "y": 160
   },
+  "public.books_users": {
+    "x": -80,
+    "y": 144
+  },
+  "public.devices": {
+    "x": 464,
+    "y": -336
+  },
+  "public.marketing_spends": {
+    "x": 1040,
+    "y": -448
+  },
+  "public.products": {
+    "x": 576,
+    "y": 224
+  },
   "public.profiles": {
-    "x": -96,
-    "y": -160
+    "x": -224,
+    "y": -80
   },
   "public.purchases": {
-    "x": 600,
-    "y": 0
+    "x": 752,
+    "y": -32
   },
   "public.users": {
-    "x": 280,
-    "y": -100
+    "x": 192,
+    "y": -96
+  },
+  "web_analytics.events": {
+    "x": -352,
+    "y": 608
+  },
+  "web_analytics.pageviews": {
+    "x": -96,
+    "y": 560
   }
 };
 

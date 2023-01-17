@@ -3,18 +3,31 @@ const purchasesTable = {
   columns: [
     {
       name: "id",
-      type: "number",
+      type: "integer",
       key: true
     },
     {
       name: "user_id",
       handleType: "target",
-      type: "number"
+      type: "integer"
     },
     {
       name: "product_id",
       handleType: "target",
-      type: "number"
+      type: "integer"
+    },
+    {
+      name: "amount",
+      type: "float"
+    },
+    {
+      name: "refunded",
+      handleType: "target",
+      type: "boolean"
+    },
+    {
+      name: "created_at",
+      type: "datetime"
     },
   ]
 };
