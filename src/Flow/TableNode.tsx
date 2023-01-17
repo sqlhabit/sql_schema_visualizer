@@ -34,7 +34,7 @@ const tableNameStyle: CSSProperties = {
   paddingRight: 8,
   paddingTop: 8,
   paddingBottom: 8,
-  fontWeight: 800,
+  fontWeight: "bold",
   textAlign: "center"
 };
 const columnNameStyle: CSSProperties = {

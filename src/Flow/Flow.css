@@ -132,21 +132,6 @@ html {
   background-color: #EFEFEF;
 }
 
-.info-popup {
-  position: fixed;
-  width: 500px;
-  height: 300px;
-  top: 50%;
-  left: 50%;
-  z-index: 20000;
-  transform: translateX(-50%) translateY(-50%);
-
-  border: 2px solid #555;
-  border-radius: 16px;
-
-  background-color: #FFF;
-}
-
 .table__name {
   border: 0;
   border-radius: 4px 4px 0 0;
@@ -191,4 +176,25 @@ html {
 
 .table__description--active {
   display: block;
+}
+
+.info-popup {
+  position: fixed;
+  width: 500px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  z-index: 20000;
+  padding: 16px;
+  transform: translateX(-50%) translateY(-50%);
+
+  border: 2px solid #CBD2D9;
+  border-radius: 16px;
+
+  background-color: #FFF;
+}
+
+.info-popup__headline {
+  margin: 0;
+  margin-bottom: 16px;
 }

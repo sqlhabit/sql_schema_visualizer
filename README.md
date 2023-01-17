@@ -44,11 +44,11 @@ npm run build
 - [ ] Add contribution guide.
 - [ ] Refactor.
 - [ ] Pull in all tables and their columns from Bindle dataset.
-- [ ] Final font styles.
 - [ ] Final colors for highlighted edges.
 - [ ] Final colors for selected edges.
 - [ ] Final style for table and column descriptions.
 - [ ] Add info popup content.
+- [x] Final font styles.
 - [x] Add Github Action to deploy to Github pages https://create-react-app.dev/docs/deployment/#github-pages
 - [x] Colors for coding different schemas.
 - [x] CMD + Hover to show table and column descriptions.
