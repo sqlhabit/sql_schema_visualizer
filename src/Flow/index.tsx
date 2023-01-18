@@ -208,13 +208,14 @@ function Flow() {
     });
   }
 
+  // An SVG z-index hack to move selected edge on top of other edges.
   function moveInFront(element: any) {
     if(!element) {
       return;
     }
 
-    const svg = element.closest('svg'); // Find the parent SVG
-    svg.appendChild(element); // Append child moves the element to the end
+    const svg = element.closest('svg');
+    svg.appendChild(element);
   }
 
   // https://github.com/wbkd/react-flow/issues/2580
@@ -228,15 +229,8 @@ function Flow() {
       state.resetSelectedElements();
       state.addSelectedNodes([node.id]);
 
-      const outgoers = getOutgoers(node, nodes, edges)
-      console.log(outgoers);
-
       const connectedEdges = getConnectedEdges([node], edges);
-      console.log(connectedEdges)
       connectedEdges.map(edge => {
-        console.log("edge");
-        console.log(edge);
-
         // https://reactflow.dev/docs/examples/nodes/update-node/
         setEdges((eds) =>
           eds.map((ed) => {
@@ -275,11 +269,8 @@ function Flow() {
 
         return edge
       })
-
-      console.log(getIncomers(node, nodes, edges));
-      console.log(node);
     },
-    [nodes, edges, nodeHoverActive, setEdges, store]
+    [edges, nodeHoverActive, setEdges, store]
   );
 
   const onNodeMouseLeave = useCallback(
