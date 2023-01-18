@@ -95,22 +95,26 @@ html {
 /* https://reactflow.dev/docs/guides/theming/#react-flow-class-names */
 .has-many-edge.selected path.react-flow__edge-path {
   marker-end: url(#hasManySelected);
+  stroke-width: 1.5;
 }
 
 .has-many-edge-reversed.selected path.react-flow__edge-path {
   marker-end: url(#hasManyReversedSelected);
+  stroke-width: 1.5;
 }
 
 .has-many-edge--highlighted path.react-flow__edge-path,
 .has-many-edge--highlighted path.react-flow__edge-interaction,
 .has-many-edge--highlighted path.react-flow__connection-path {
-  stroke: blue !important;
+  stroke: #2186EB !important;
+  stroke-width: 1.5px;
 }
 
 .has-many-edge-reversed--highlighted path.react-flow__edge-path,
 .has-many-edge-reversed--highlighted path.react-flow__edge-interaction,
 .has-many-edge-reversed--highlighted path.react-flow__connection-path {
-  stroke: blue !important;
+  stroke: #2186EB !important;
+  stroke-width: 1.5px;
 }
 
 /* HAS ONE */
@@ -118,22 +122,30 @@ html {
 /* https://reactflow.dev/docs/guides/theming/#react-flow-class-names */
 .has-one-edge.selected path.react-flow__edge-path {
   marker-end: url(#hasOneSelected);
+  stroke-width: 1.5px;
 }
 
 .has-one-edge-reversed.selected path.react-flow__edge-path {
   marker-end: url(#hasOneReversedSelected);
+  stroke-width: 1.5px;
 }
 
 .has-one-edge--highlighted path.react-flow__edge-path,
 .has-one-edge--highlighted path.react-flow__edge-interaction,
 .has-one-edge--highlighted path.react-flow__connection-path {
-  stroke: blue !important;
+  stroke: #2186EB !important;
+  stroke-width: 1.5px;
 }
 
 .has-one-edge-reversed--highlighted path.react-flow__edge-path,
 .has-one-edge-reversed--highlighted path.react-flow__edge-interaction,
 .has-one-edge-reversed--highlighted path.react-flow__connection-path {
-  stroke: blue !important;
+  stroke: #2186EB !important;
+  stroke-width: 1.5px;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #2186EB !important;
 }
 
 /* .react-flow__pane, */
