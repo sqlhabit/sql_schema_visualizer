@@ -44,9 +44,9 @@ npm run build
 - [ ] Add contribution guide.
 - [ ] Refactor.
 - [ ] Final colors for highlighted edges.
+- [ ] Add info popup content.
 - [ ] Final colors for selected edges.
 - [ ] Final style for table and column descriptions.
-- [ ] Add info popup content.
 - [x] Add info popup overlay.
 - [x] Style description tooltip.
 - [x] Write table descriptions.
