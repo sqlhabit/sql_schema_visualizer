@@ -1,12 +1,16 @@
+import markdown from "./markdown";
+
 function InfoPopup() {
   return (
     <div
       className="info-popup">
       <div className="info-popup__inner">
-        <h2 className="info-popup__headline">SQL Schema Graph</h2>
+        <h2
+          className="info-popup__headline"
+          dangerouslySetInnerHTML={{__html: markdown("SQL Schema Graph :heart:") }} />
 
         <div className="info-popup__body">
-          <h3>Hot keys</h3>
+          <h3 dangerouslySetInnerHTML={{__html: markdown("Hot keys :fire:") }} />
 
           <p>
             <strong>CMD + P</strong> – print all table positions to console and copy to clipboard. Paste these positions to the <i>TablePositions.ts</i> file.

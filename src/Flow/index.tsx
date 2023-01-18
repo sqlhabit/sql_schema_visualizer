@@ -9,8 +9,6 @@ import ReactFlow, {
   Controls,
   ControlButton,
   Background,
-  getOutgoers,
-  getIncomers,
   useStoreApi,
   ReactFlowProvider,
   getConnectedEdges,
