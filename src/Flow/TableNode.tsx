@@ -81,7 +81,6 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
       <div
         style={{...tableNameStyle, backgroundColor: tableNamebgColor(data.schema) }}
         className="table__name"
-        onClick={() => setshowDescription(!showDescription)}
         onMouseEnter={() => {
           if(descriptionOnHoverActive) {
             setshowDescription(true)
@@ -101,7 +100,6 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
             key={index}
             style={columnNameStyle}
             className={selectedColumn === column.name ? 'column-name column-name--selected' : 'column-name'}
-            onClick={() => setSelectedColumn(column.name)}
             onMouseEnter={() => {
               if(descriptionOnHoverActive) {
                 setSelectedColumn(column.name)
