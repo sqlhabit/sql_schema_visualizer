@@ -10,7 +10,7 @@ Every table is a ReactFlow' [Custom Node](https://reactflow.dev/docs/guides/cust
 
 1. Drag them around to find a perfect arrangement.
 2. CMD + P (it copy pastes positions JSON to your clipboard).
-3. Paste the JSON to the `Flow/positions.ts` file.
+3. Paste the JSON to the [`Flow/TablePositions.ts`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/Flow/TablePositions.ts) file.
 
 ## Installation
 
