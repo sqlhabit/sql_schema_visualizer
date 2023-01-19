@@ -43,7 +43,7 @@ npm run build
 - [ ] Write README with screenshots and GIFs.
 - [ ] Add contribution guide.
 - [ ] Refactor.
-- [ ] Add info popup content.
+- [x] Add info popup content.
 - [x] Final colors for highlighted edges.
 - [x] Final style for table and column descriptions.
 - [x] Final colors for selected edges.
