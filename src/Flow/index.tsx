@@ -406,7 +406,7 @@ function Flow() {
         </Controls>
         <Background color="#aaa" gap={16} />
       </ReactFlow>
-      {infoPopupOn && <InfoPopup />}
+      {infoPopupOn && <InfoPopup onClose={() => { setInfoPopupOn(false) }} />}
     </div>
   );
 }

@@ -1,11 +1,3 @@
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 .Flow {
   flex-grow: 1;
   font-size: 12px;
@@ -192,15 +184,6 @@ html {
   margin-right: 4px;
 }
 
-.App__logo {
-  top: 16px;
-  left: 16px;
-  position: fixed;
-  z-index: 50000;
-
-  cursor: pointer;
-}
-
 .table__description {
   display: none;
   position: absolute;
@@ -259,28 +242,43 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  z-index: 100000;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 .info-popup__inner {
   position: fixed;
-  width: 500px;
-  height: 300px;
   top: 50%;
   left: 50%;
-  z-index: 20000;
-  padding: 16px;
+  width: 100%;
+  z-index: 200000;
+  padding: 16px 16px 8px;
   transform: translateX(-50%) translateY(-50%);
 
   border-radius: 8px;
 
   background-color: #FFF;
+
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 .info-popup__headline {
-  margin: 0;
-  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.info-popup__close-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  cursor: pointer;
+}
+
+@media (min-width: 512px) {
+  .info-popup__inner {
+    max-width: 576px;
+  }
 }
 
 .emoji {
@@ -288,4 +286,8 @@ html {
   width: 1.1em;
   margin: 0 .05em 0 .1em;
   vertical-align: -0.1em;
+}
+
+.mb-32 {
+  margin-bottom: 32px;
 }

@@ -11,3 +11,16 @@
   border-bottom: 1px solid #eee;
   padding: 0 1rem;
 }
+
+.App__logo {
+  top: 16px;
+  left: 16px;
+  position: fixed;
+  z-index: 50000;
+
+  background: none;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}

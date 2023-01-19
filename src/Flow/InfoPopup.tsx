@@ -1,32 +1,46 @@
 import markdown from "./markdown";
+import CloseIcon from "./Icons/CloseIcon";
 
-function InfoPopup() {
+type InfoPopupProps = {
+  onClose: Function
+}
+
+function InfoPopup(props: InfoPopupProps) {
   return (
     <div
       className="info-popup">
       <div className="info-popup__inner">
-        <h2
-          className="info-popup__headline"
-          dangerouslySetInnerHTML={{__html: markdown("SQL Schema Graph :heart:") }} />
+        <CloseIcon
+          className="info-popup__close-icon"
+          onClick={() => { props.onClose() }} />
+
+        <h1
+          className="info-popup__headline">
+          SQL Schema Visualizer
+        </h1>
 
         <div className="info-popup__body">
-          <h3 dangerouslySetInnerHTML={{__html: markdown("Hot keys :fire:") }} />
+          <p dangerouslySetInnerHTML={{__html: markdown("Hey :wave: The SQL Schema Visualiser is an open source project, it is built with [React Flow](https://reactflow.dev/). I bet in 20 minutes you can visualize your own schema! :boom: Check out [the README file on Github](https://github.com/sqlhabit/sql_schema_visualisation#readme) for instructions how to do it.") }} />
+
+          <h2>Shortcuts</h2>
 
           <p>
-            <strong>CMD + P</strong> – print all table positions to console and copy to clipboard. Paste these positions to the <i>TablePositions.ts</i> file.
+            <strong>CMD + hover</strong> over a table node or a column name to see the description.
           </p>
 
           <p>
-            <strong>CMD + hover</strong> – hold the CMD key and hover over table or column names to see descriptions.
+            <strong>CMD + click on an edge</strong> to select and highlight it.
           </p>
 
           <p>
-            <strong>CMD + click on edge</strong> – highlight these edges.
+            <strong>Hover over a table node</strong> to highlight all incoming and outgoing edges.
           </p>
 
-          <p>
-            <strong>Hover over a table node</strong> – highlight all incoming and outgoing edges.
+          <p className="mb-32">
+            <strong>CMD + P</strong> shortcut prints all table node positions to the console and copies them to the clipboard. You can then paste these positions to the <a target="_blank" rel="noreferrer" href="https://github.com/sqlhabit/sql_schema_visualisation/blob/main/src/Flow/TablePositions.ts"><i>TablePositions.ts</i></a> file.
           </p>
+
+          <p dangerouslySetInnerHTML={{__html: markdown("Made with :heart: by [Anatoli Makarevich](https://twitter.com/makaroni4) for the [SQL Habit](https://www.sqlhabit.com) course.") }} />
         </div>
       </div>
     </div>
