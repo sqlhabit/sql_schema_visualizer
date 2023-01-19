@@ -40,6 +40,7 @@ npm run build
 
 ## TODO
 
+- [ ] Get rid of targetPosition param and set it on the fly based on relative node positions. https://reactflow.dev/docs/examples/nodes/update-node/
 - [ ] Write README with screenshots and GIFs.
 - [ ] Add contribution guide.
 - [ ] Refactor.
