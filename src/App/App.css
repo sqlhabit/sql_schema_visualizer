@@ -24,3 +24,7 @@
 
   cursor: pointer;
 }
+
+.react-flow__attribution a {
+  background: none;
+}
