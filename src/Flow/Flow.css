@@ -196,6 +196,9 @@ html {
   top: 16px;
   left: 16px;
   position: fixed;
+  z-index: 50000;
+
+  cursor: pointer;
 }
 
 .table__description {
