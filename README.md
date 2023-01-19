@@ -1,4 +1,4 @@
-# SQL Schema Graph
+# SQL Schema Visualizer
 
 A prototype of relational database schema visualization using [ReactFlow](https://reactflow.dev/).
 

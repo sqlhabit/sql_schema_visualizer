@@ -1,7 +1,7 @@
 {
-  "name": "db_schema_visualization",
+  "name": "sql_schema_visualizer",
   "version": "0.1.0",
-  "homepage": "https://sqlhabit.github.io/sql_schema_visualisation/",
+  "homepage": "https://sqlhabit.github.io/sql_schema_visualizer/",
   "private": false,
   "dependencies": {
     "@reactflow/node-resizer": "^1.2.1",
