@@ -275,6 +275,10 @@
   cursor: pointer;
 }
 
+.info-popup__close-icon:hover {
+  opacity: 0.7;
+}
+
 @media (min-width: 512px) {
   .info-popup__inner {
     max-width: 576px;
