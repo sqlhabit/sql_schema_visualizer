@@ -162,7 +162,13 @@ const sourceHandleId = (
   }
 };
 
-const targetHandleId = (sourceNodeX: number, targetNodeX: number, edge: any) => {
+const targetHandleId = (
+  sourceNodeWidth: number,
+  sourceNodeX: number,
+  targetNodeWidth: number,
+  targetNodeX: number,
+  edge: any
+) => {
   if(sourceNodeX > targetNodeX) {
     return `${edge.targetKey}-r`;
   } else {
@@ -396,7 +402,7 @@ function Flow() {
                 eds.map((ed) => {
                   if(edge && ed.id === edge.id) {
                     ed.sourceHandle = sourceHandleId((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x, edgeParam);
-                    ed.targetHandle = targetHandleId(nodeChange.positionAbsolute!.x, targetNode.position.x, edgeParam);
+                    ed.targetHandle = targetHandleId((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x, edgeParam);
                   }
 
                   return ed;
