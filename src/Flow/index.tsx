@@ -403,7 +403,7 @@ function Flow() {
 
       onNodesChange(nodeChanges);
     },
-    [setEdges, nodes, edges]
+    [onNodesChange, setEdges, nodes, edges]
   )
 
   const toggleFullScreen = () => {
