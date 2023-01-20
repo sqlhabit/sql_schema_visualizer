@@ -369,26 +369,34 @@ function Flow() {
             return;
           }
 
-          console.log(nodeChange.id);
-          console.log(node.position);
           console.log(nodeChange.positionAbsolute); // New position (!!)
 
-          // const connectedEdges = getConnectedEdges([node], edges);
-
-          // connectedEdges.forEach(edge => {
-          //   console.log(edge);
-          // });
           const incomingNodes = getIncomers(node, nodes, edges);
-          console.log(incomingNodes);
+          incomingNodes.forEach(incomingNode => {
+            const edge = edges.find(edge => {
+              return edge.id === `${incomingNode.id}-${node.id}`;
+            });
+
+            const edgeParam = edgeParams.find(edgeParam => {
+              return edgeParam.source === incomingNode.id && edgeParam.target === node.id;
+            });
+
+            if(nodeChange.positionAbsolute?.x) {
+              setEdges((eds) =>
+                eds.map((ed) => {
+                  if(edge && ed.id === edge.id) {
+                    ed.sourceHandle = sourceHandleId((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x, edgeParam);
+                    ed.targetHandle = targetHandleId((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x, edgeParam);
+                  }
+
+                  return ed;
+                })
+              )
+            }
+          });
 
           const outgoingNodes = getOutgoers(node, nodes, edges);
-          console.log(outgoingNodes);
-
           outgoingNodes.forEach(targetNode => {
-            console.log(targetNode);
-            console.log(targetNode.position.x);
-            console.log(nodeChange.positionAbsolute?.x);
-
             const edge = edges.find(edge => {
               return edge.id === `${node.id}-${targetNode.id}`;
             });
@@ -409,9 +417,7 @@ function Flow() {
                 })
               )
             }
-
-            console.log(edge);
-          })
+          });
         }
       });
 
