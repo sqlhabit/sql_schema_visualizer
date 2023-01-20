@@ -144,11 +144,21 @@ edgeParams.forEach(edge => {
   edge.target = targetTableName;
 })
 
-const sourceHandleId = (sourceNodeX: number, targetNodeX: number, edge: any) => {
-  if(sourceNodeX > targetNodeX) {
+const sourceHandleId = (
+  sourceNodeWidth: number,
+  sourceNodeX: number,
+  targetNodeWidth: number,
+  targetNodeX: number,
+  edge: any
+) => {
+  if(sourceNodeX > (targetNodeX + targetNodeWidth)) {
     return `${edge.sourceKey}-l`;
-  } else {
+  } else if ((sourceNodeX + sourceNodeWidth) < targetNodeX) {
     return `${edge.sourceKey}-r`;
+  } else if (sourceNodeX > targetNodeX) {
+    return `${edge.sourceKey}-r`;
+  } else {
+    return `${edge.sourceKey}-l`;
   }
 };
 
@@ -382,12 +392,10 @@ function Flow() {
             });
 
             if(nodeChange.positionAbsolute?.x) {
-              console.log(sourceHandleId(nodeChange.positionAbsolute.x, targetNode.position.x, edgeParam));
-
               setEdges((eds) =>
                 eds.map((ed) => {
                   if(edge && ed.id === edge.id) {
-                    ed.sourceHandle = sourceHandleId(nodeChange.positionAbsolute!.x, targetNode.position.x, edgeParam);
+                    ed.sourceHandle = sourceHandleId((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x, edgeParam);
                     ed.targetHandle = targetHandleId(nodeChange.positionAbsolute!.x, targetNode.position.x, edgeParam);
                   }
 
