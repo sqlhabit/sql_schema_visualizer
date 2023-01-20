@@ -12,7 +12,10 @@ import ReactFlow, {
   useStoreApi,
   ReactFlowProvider,
   getConnectedEdges,
-  OnSelectionChangeParams
+  OnSelectionChangeParams,
+  NodeChange,
+  getIncomers,
+  getOutgoers
 } from 'reactflow';
 
 import TableNode from './TableNode';
@@ -44,7 +47,7 @@ import mobileAnalyticsEventsTable from './Tables/mobile_analytics_events';
 import tablePositions from './TablePositions';
 
 import Markers from './Markers';
-import edges from './Edges';
+import edgeParams from './Edges';
 
 interface Position {
   x: number;
@@ -133,10 +136,31 @@ const edgeMarkerName = (edge: any) => {
   return markerName;
 };
 
-edges.forEach(edge => {
+edgeParams.forEach(edge => {
   const sourceTableName = fullTableName(edge.source);
   const targetTableName = fullTableName(edge.target);
 
+  edge.source = sourceTableName;
+  edge.target = targetTableName;
+})
+
+const sourceHandleId = (sourceNodeX: number, targetNodeX: number, edge: any) => {
+  if(sourceNodeX > targetNodeX) {
+    return `${edge.sourceKey}-l`;
+  } else {
+    return `${edge.sourceKey}-r`;
+  }
+};
+
+const targetHandleId = (sourceNodeX: number, targetNodeX: number, edge: any) => {
+  if(sourceNodeX > targetNodeX) {
+    return `${edge.targetKey}-r`;
+  } else {
+    return `${edge.targetKey}-l`;
+  }
+};
+
+edgeParams.forEach(edge => {
   let sourceHandle = edge.sourceKey;
   if(edge.sourcePosition) {
     sourceHandle += `-${edge.sourcePosition === "left" ? "l" : "r"}`;
@@ -144,12 +168,14 @@ edges.forEach(edge => {
     sourceHandle += `-${edge.targetPosition === "left" ? "l" : "r"}`;
   }
 
+  let targetHandle = `${edge.targetKey}-${edge.targetPosition === "left" ? "r" : "l"}`;
+
   initialEdges.push({
-    id: `${sourceTableName}-${targetTableName}`,
-    source: sourceTableName,
-    target: targetTableName,
-    sourceHandle: sourceHandle,
-    targetHandle: `${edge.targetKey}-${edge.targetPosition === "left" ? "r" : "l"}`,
+    id: `${edge.source}-${edge.target}`,
+    source: edge.source,
+    target: edge.target,
+    sourceHandle,
+    targetHandle,
     type: "smoothstep",
     markerEnd: edgeMarkerName(edge),
     className: edgeClassName(edge)
@@ -317,6 +343,69 @@ function Flow() {
     []
   );
 
+  const handleNodesChange = useCallback(
+    (nodeChanges: NodeChange[]) => {
+      nodeChanges.forEach(nodeChange => {
+        if(nodeChange.type === "position" && nodeChange.positionAbsolute) {
+          const node = nodes.find(node => node.id === nodeChange.id);
+
+          if(!node) {
+            return;
+          }
+
+          console.log(nodeChange.id);
+          console.log(node.position);
+          console.log(nodeChange.positionAbsolute); // New position (!!)
+
+          // const connectedEdges = getConnectedEdges([node], edges);
+
+          // connectedEdges.forEach(edge => {
+          //   console.log(edge);
+          // });
+          const incomingNodes = getIncomers(node, nodes, edges);
+          console.log(incomingNodes);
+
+          const outgoingNodes = getOutgoers(node, nodes, edges);
+          console.log(outgoingNodes);
+
+          outgoingNodes.forEach(targetNode => {
+            console.log(targetNode);
+            console.log(targetNode.position.x);
+            console.log(nodeChange.positionAbsolute?.x);
+
+            const edge = edges.find(edge => {
+              return edge.id === `${node.id}-${targetNode.id}`;
+            });
+
+            const edgeParam = edgeParams.find(edgeParam => {
+              return edgeParam.source === nodeChange.id && edgeParam.target === targetNode.id;
+            });
+
+            if(nodeChange.positionAbsolute?.x) {
+              console.log(sourceHandleId(nodeChange.positionAbsolute.x, targetNode.position.x, edgeParam));
+
+              setEdges((eds) =>
+                eds.map((ed) => {
+                  if(edge && ed.id === edge.id) {
+                    ed.sourceHandle = sourceHandleId(nodeChange.positionAbsolute!.x, targetNode.position.x, edgeParam);
+                    ed.targetHandle = targetHandleId(nodeChange.positionAbsolute!.x, targetNode.position.x, edgeParam);
+                  }
+
+                  return ed;
+                })
+              )
+            }
+
+            console.log(edge);
+          })
+        }
+      });
+
+      onNodesChange(nodeChanges);
+    },
+    [setEdges, nodes, edges]
+  )
+
   const toggleFullScreen = () => {
     if(fullscreenOn) {
       document.exitFullscreen().then(function() {
@@ -382,7 +471,7 @@ function Flow() {
       <Markers />
       <ReactFlow
         nodes={nodes}
-        onNodesChange={onNodesChange}
+        onNodesChange={handleNodesChange}
         edges={edges}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}

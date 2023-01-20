@@ -69,7 +69,7 @@ const edges = [
     target: "web_analytics.pageviews",
     targetKey: "visitor_id",
     relation: "hasMany",
-    targetPosition: "left"
+    // targetPosition: "left"
   },
   {
     source: "web_analytics.pageviews",
