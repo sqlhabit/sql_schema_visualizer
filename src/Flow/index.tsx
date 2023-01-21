@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 import ReactFlow, {
   Node,
   useNodesState,
@@ -12,39 +12,42 @@ import ReactFlow, {
   useStoreApi,
   ReactFlowProvider,
   getConnectedEdges,
-  OnSelectionChangeParams
-} from 'reactflow';
+  OnSelectionChangeParams,
+  NodeChange,
+  getIncomers,
+  getOutgoers
+} from "reactflow";
 
-import TableNode from './TableNode';
-import MaximizeIcon from './Icons/MaximizeIcon';
-import MinimizeIcon from './Icons/MinimizeIcon';
-import InfoIcon from './Icons/InfoIcon';
-import InfoPopup from './InfoPopup';
+import TableNode from "./TableNode";
+import MaximizeIcon from "./Icons/MaximizeIcon";
+import MinimizeIcon from "./Icons/MinimizeIcon";
+import InfoIcon from "./Icons/InfoIcon";
+import InfoPopup from "./InfoPopup";
 
 // this is important! You need to import the styles from the lib to make it work
-import 'reactflow/dist/style.css';
+import "reactflow/dist/style.css";
 
-import './Flow.css';
+import "./Flow.css";
 
-import usersTable from './Tables/users';
+import usersTable from "./Tables/users";
 import marketingSpendsTable from "./Tables/marketing_spends";
-import accountsTable from './Tables/accounts';
-import booksUsersTable from './Tables/books_users';
-import booksTable from './Tables/books';
-import devicesTable from './Tables/devices';
-import productsTable from './Tables/products';
-import profilesTable from './Tables/profiles';
-import purchasesTable from './Tables/purchases';
-import adjustCallbacksTable from './Tables/adjust_callbacks';
-import helpersDatesTable from './Tables/helpers_dates';
-import webAnalyticsPageviewsTable from './Tables/web_analytics_pageviews';
-import webAnalyticsEventsTable from './Tables/web_analytics_events';
-import mobileAnalyticsEventsTable from './Tables/mobile_analytics_events';
+import accountsTable from "./Tables/accounts";
+import booksUsersTable from "./Tables/books_users";
+import booksTable from "./Tables/books";
+import devicesTable from "./Tables/devices";
+import productsTable from "./Tables/products";
+import profilesTable from "./Tables/profiles";
+import purchasesTable from "./Tables/purchases";
+import adjustCallbacksTable from "./Tables/adjust_callbacks";
+import helpersDatesTable from "./Tables/helpers_dates";
+import webAnalyticsPageviewsTable from "./Tables/web_analytics_pageviews";
+import webAnalyticsEventsTable from "./Tables/web_analytics_events";
+import mobileAnalyticsEventsTable from "./Tables/mobile_analytics_events";
 
-import tablePositions from './TablePositions';
+import tablePositions from "./TablePositions";
 
-import Markers from './Markers';
-import edges from './Edges';
+import Markers from "./Markers";
+import edgeConfigs from "./Edges";
 
 interface Position {
   x: number;
@@ -111,56 +114,81 @@ let initialNodes: Node[] = [];
   initialNodes.push(tableDefinition);
 });
 
-const initialEdges: Edge[] = [];
+const edgeClassName = (edgeConfig: any, targetPosition?: string) => {
+  let className = edgeConfig.relation === "hasOne" ? "has-one-edge" : "has-many-edge";
 
-const edgeClassName = (edge: any) => {
-  let className = edge.relation === "hasOne" ? "has-one-edge" : "has-many-edge";
-
-  if(edge.targetPosition === "left") {
+  if(edgeConfig.targetPosition) {
+    if(edgeConfig.targetPosition === "right") {
+      className += "-reversed";
+    }
+  } else if(targetPosition === "right") {
     className += "-reversed";
   }
 
   return className;
 };
 
-const edgeMarkerName = (edge: any) => {
-  let markerName = edge.relation === "hasOne" ? "hasOne" : "hasMany";
+const edgeMarkerName = (edgeConfig: any, targetPosition?: string) => {
+  let markerName = edgeConfig.relation === "hasOne" ? "hasOne" : "hasMany";
 
-  if(edge.targetPosition === "left") {
+  if(edgeConfig.targetPosition) {
+    if(edgeConfig.targetPosition === "right") {
+      markerName += "Reversed";
+    }
+  } else if(targetPosition === "right") {
     markerName += "Reversed";
   }
 
   return markerName;
 };
 
-edges.forEach(edge => {
-  const sourceTableName = fullTableName(edge.source);
-  const targetTableName = fullTableName(edge.target);
-
-  let sourceHandle = edge.sourceKey;
-  if(edge.sourcePosition) {
-    sourceHandle += `-${edge.sourcePosition === "left" ? "l" : "r"}`;
+const calculateTargetPosition = (
+  sourceNodeWidth: number,
+  sourceNodeX: number,
+  targetNodeWidth: number,
+  targetNodeX: number
+) => {
+  if(sourceNodeX > (targetNodeX + targetNodeWidth)) {
+    return "right";
+  } else if (sourceNodeX > targetNodeX && sourceNodeX < (targetNodeX + targetNodeWidth)) {
+    return "right";
+  } else if ((sourceNodeX + sourceNodeWidth) > targetNodeX) {
+    return "left";
   } else {
-    sourceHandle += `-${edge.targetPosition === "left" ? "l" : "r"}`;
+    return "left";
   }
+};
 
-  initialEdges.push({
-    id: `${sourceTableName}-${targetTableName}`,
-    source: sourceTableName,
-    target: targetTableName,
-    sourceHandle: sourceHandle,
-    targetHandle: `${edge.targetKey}-${edge.targetPosition === "left" ? "r" : "l"}`,
-    type: "smoothstep",
-    markerEnd: edgeMarkerName(edge),
-    className: edgeClassName(edge)
-  })
-});
+const calculateSourcePosition = (
+  sourceNodeWidth: number,
+  sourceNodeX: number,
+  targetNodeWidth: number,
+  targetNodeX: number
+) => {
+  if(sourceNodeX > (targetNodeX + targetNodeWidth)) {
+    return "left";
+  } else if (sourceNodeX > targetNodeX && sourceNodeX < (targetNodeX + targetNodeWidth)) {
+    return "right";
+  } else if ((sourceNodeX + sourceNodeWidth) > targetNodeX) {
+    return "left";
+  } else {
+    return "right";
+  }
+};
+
+edgeConfigs.forEach(edgeConfig => {
+  const sourceTableName = fullTableName(edgeConfig.source);
+  const targetTableName = fullTableName(edgeConfig.target);
+
+  edgeConfig.source = sourceTableName;
+  edgeConfig.target = targetTableName;
+})
 
 function Flow() {
   const store = useStoreApi();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const onConnect = useCallback(
     (params: Connection | Edge) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
@@ -170,19 +198,48 @@ function Flow() {
   let nodeHoverActive = true;
 
   const onInit = (instance: any) => {
+    const nodes = instance.getNodes();
+    const initialEdges: Edge[] = [];
+
+    edgeConfigs.forEach(edgeConfig => {
+      const sourceNode = nodes.find((node: Node) => node.id === edgeConfig.source);
+      const targetNode = nodes.find((node: Node) => node.id === edgeConfig.target);
+
+      const sourcePosition = edgeConfig.sourcePosition || calculateSourcePosition(sourceNode.width, sourceNode!.position.x, targetNode.width, targetNode!.position.x);
+      const targetPosition = edgeConfig.targetPosition || calculateTargetPosition(sourceNode.width, sourceNode!.position.x, targetNode.width, targetNode!.position.x);
+
+      const sourceHandle = `${edgeConfig.sourceKey}-${sourcePosition === "right" ? "r" : "l"}`;
+      const targetHandle = `${edgeConfig.targetKey}-${targetPosition === "right" ? "r" : "l"}`;
+
+      initialEdges.push({
+        id: `${edgeConfig.source}-${edgeConfig.target}`,
+        source: edgeConfig.source,
+        target: edgeConfig.target,
+        sourceHandle,
+        targetHandle,
+        type: "smoothstep",
+        markerEnd: edgeMarkerName(edgeConfig, targetPosition),
+        className: edgeClassName(edgeConfig, targetPosition)
+      });
+    });
+
+    setEdges((eds) => eds.concat(initialEdges));
+
     const handleKeyboard = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.key === 'p') {
+      if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
 
         const positions = {} as Positions;
 
         const compare = ( a: String, b: String ) => {
-          if ( a < b ){
+          if ( a < b ) {
             return -1;
           }
-          if ( a > b ){
+
+          if ( a > b ) {
             return 1;
           }
+
           return 0;
         }
 
@@ -198,10 +255,10 @@ function Flow() {
       }
     }
 
-    document.addEventListener('keydown', handleKeyboard)
+    document.addEventListener("keydown", handleKeyboard)
 
     // https://javascriptf1.com/snippet/detect-fullscreen-mode-with-javascript
-    window.addEventListener('resize', (event) => {
+    window.addEventListener("resize", (event) => {
       setFullScreen(window.innerHeight === window.screen.height);
     });
   }
@@ -212,7 +269,7 @@ function Flow() {
       return;
     }
 
-    const svg = element.closest('svg');
+    const svg = element.closest("svg");
     svg.appendChild(element);
   }
 
@@ -317,6 +374,87 @@ function Flow() {
     []
   );
 
+  const handleNodesChange = useCallback(
+    (nodeChanges: NodeChange[]) => {
+      nodeChanges.forEach(nodeChange => {
+        if(nodeChange.type === "position" && nodeChange.positionAbsolute) { // nodeChange.positionAbsolute contains new position
+          const node = nodes.find(node => node.id === nodeChange.id);
+
+          if(!node) {
+            return;
+          }
+
+          const incomingNodes = getIncomers(node, nodes, edges);
+          incomingNodes.forEach(incomingNode => {
+            const edge = edges.find(edge => {
+              return edge.id === `${incomingNode.id}-${node.id}`;
+            });
+
+            const edgeConfig = edgeConfigs.find(edgeConfig => {
+              return edgeConfig.source === incomingNode.id && edgeConfig.target === node.id;
+            });
+
+            if(nodeChange.positionAbsolute?.x) {
+              setEdges((eds) =>
+                eds.map((ed) => {
+                  if(edge && ed.id === edge.id) {
+                    const sourcePosition = edgeConfig!.sourcePosition || calculateSourcePosition((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x);
+                    const targetPosition = edgeConfig!.targetPosition || calculateTargetPosition((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x);
+
+                    const sourceHandle = `${edgeConfig!.sourceKey}-${sourcePosition === "right" ? "r" : "l"}`;
+                    const targetHandle = `${edgeConfig!.targetKey}-${targetPosition === "right" ? "r" : "l"}`;
+
+                    ed.sourceHandle = sourceHandle;
+                    ed.targetHandle = targetHandle;
+                    ed.className = edgeClassName(edgeConfig, targetPosition);
+                    ed.markerEnd = edgeMarkerName(edgeConfig, targetPosition);
+                  }
+
+                  return ed;
+                })
+              )
+            }
+          });
+
+          const outgoingNodes = getOutgoers(node, nodes, edges);
+          outgoingNodes.forEach(targetNode => {
+            const edge = edges.find(edge => {
+              return edge.id === `${node.id}-${targetNode.id}`;
+            });
+
+            const edgeConfig = edgeConfigs.find(edgeConfig => {
+              return edgeConfig.source === nodeChange.id && edgeConfig.target === targetNode.id;
+            });
+
+            if(nodeChange.positionAbsolute?.x) {
+              setEdges((eds) =>
+                eds.map((ed) => {
+                  if(edge && ed.id === edge.id) {
+                    const sourcePosition = edgeConfig!.sourcePosition || calculateSourcePosition((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x);
+                    const targetPosition = edgeConfig!.targetPosition || calculateTargetPosition((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x);
+
+                    const sourceHandle = `${edgeConfig!.sourceKey}-${sourcePosition === "right" ? "r" : "l"}`;
+                    const targetHandle = `${edgeConfig!.targetKey}-${targetPosition === "right" ? "r" : "l"}`;
+
+                    ed.sourceHandle = sourceHandle;
+                    ed.targetHandle = targetHandle;
+                    ed.className = edgeClassName(edgeConfig, targetPosition);
+                    ed.markerEnd = edgeMarkerName(edgeConfig, targetPosition);
+                  }
+
+                  return ed;
+                })
+              )
+            }
+          });
+        }
+      });
+
+      onNodesChange(nodeChanges);
+    },
+    [onNodesChange, setEdges, nodes, edges]
+  )
+
   const toggleFullScreen = () => {
     if(fullscreenOn) {
       document.exitFullscreen().then(function() {
@@ -345,32 +483,32 @@ function Flow() {
     setInfoPopupOn(!infoPopupOn)
   }
 
-  document.addEventListener('keydown', (e: KeyboardEvent) => {
-    if(e.code === 'Escape'){
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
+    if(e.code === "Escape") {
       setInfoPopupOn(false);
     }
   });
 
   // https://stackoverflow.com/questions/42066421/property-value-does-not-exist-on-type-eventtarget
-  document.addEventListener('click', (event: Event) => {
+  document.addEventListener("click", (event: Event) => {
     const target = (event.target as HTMLInputElement);
 
-    if (target && target.closest('.into-popup-toggle')) {
+    if (target && target.closest(".into-popup-toggle")) {
       return;
     }
 
-    if (target && !target.closest('.info-popup__inner')) {
+    if (target && !target.closest(".info-popup__inner")) {
       setInfoPopupOn(false);
     }
   })
 
-  document.addEventListener('keydown', (e: KeyboardEvent) => {
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
       nodeHoverActive = false;
     }
   }, false);
 
-  document.addEventListener('keyup', (e: KeyboardEvent) => {
+  document.addEventListener("keyup", (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
       nodeHoverActive = true;
     }
@@ -382,7 +520,7 @@ function Flow() {
       <Markers />
       <ReactFlow
         nodes={nodes}
-        onNodesChange={onNodesChange}
+        onNodesChange={handleNodesChange}
         edges={edges}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}

@@ -146,6 +146,8 @@
 }
 
 .react-flow__node {
+  max-width: 288px;
+
   background-color: #F5F7FA;
 }
 
@@ -163,6 +165,10 @@
 
 .column-name:hover {
   background-color: #EFEFEF;
+}
+
+.table {
+  background-color: #FFF;
 }
 
 .table__name {
