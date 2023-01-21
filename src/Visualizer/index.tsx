@@ -449,10 +449,6 @@ function Flow() {
     }
   }
 
-  const toggleInfoPopup = () => {
-    setInfoPopupOn(!infoPopupOn)
-  }
-
   document.addEventListener("keydown", (e: KeyboardEvent) => {
     if(e.code === "Escape") {
       setInfoPopupOn(false);
@@ -508,7 +504,7 @@ function Flow() {
             {!fullscreenOn && <MaximizeIcon />}
             {fullscreenOn && <MinimizeIcon />}
           </ControlButton>
-          <ControlButton onClick={toggleInfoPopup} className="into-popup-toggle">
+          <ControlButton onClick={() => { setInfoPopupOn(!infoPopupOn) }} className="into-popup-toggle">
             <InfoIcon />
           </ControlButton>
         </Controls>
