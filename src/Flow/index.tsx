@@ -18,16 +18,9 @@ import ReactFlow, {
   getOutgoers
 } from "reactflow";
 
-import TableNode from "./TableNode";
 import MaximizeIcon from "./Icons/MaximizeIcon";
 import MinimizeIcon from "./Icons/MinimizeIcon";
 import InfoIcon from "./Icons/InfoIcon";
-import InfoPopup from "./InfoPopup";
-
-// this is important! You need to import the styles from the lib to make it work
-import "reactflow/dist/style.css";
-
-import "./Flow.css";
 
 import usersTable from "./Tables/users";
 import marketingSpendsTable from "./Tables/marketing_spends";
@@ -45,9 +38,15 @@ import webAnalyticsEventsTable from "./Tables/web_analytics_events";
 import mobileAnalyticsEventsTable from "./Tables/mobile_analytics_events";
 
 import tablePositions from "./TablePositions";
-
-import Markers from "./Markers";
 import edgeConfigs from "./Edges";
+
+import TableNode from "./TableNode";
+import InfoPopup from "./InfoPopup";
+import Markers from "./Markers";
+
+// this is important! You need to import the styles from the lib to make it work
+import "reactflow/dist/style.css";
+import "./Flow.css";
 
 interface Position {
   x: number;

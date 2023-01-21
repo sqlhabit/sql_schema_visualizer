@@ -1,11 +1,9 @@
-import { useState } from "react";
-import { memo, FC, CSSProperties } from "react";
+import { useState, memo, FC } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
-
-import "@reactflow/node-resizer/dist/style.css";
-
 import KeyIcon from "./Icons/KeyIcon";
 import schemaColors from "./schemaColors";
+
+import "@reactflow/node-resizer/dist/style.css";
 
 const TableNode: FC<NodeProps> = ({ data }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
