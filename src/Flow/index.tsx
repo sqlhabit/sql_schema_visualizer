@@ -165,14 +165,12 @@ const calculateSourcePosition = (
   targetNodeWidth: number,
   targetNodeX: number
 ) => {
-  if(sourceNodeX > (targetNodeX + targetNodeWidth)) {
+  const targetPosition = calculateTargetPosition(sourceNodeWidth, sourceNodeX, targetNodeWidth, targetNodeX)
+
+  if(targetPosition === "left") {
     return "right";
-  } else if ((sourceNodeX + sourceNodeWidth) < targetNodeX) {
-    return "left";
-  } else if (sourceNodeX > targetNodeX) {
-    return "left";
   } else {
-    return "right";
+    return "left";
   }
 };
 
@@ -401,9 +399,10 @@ function Flow() {
               setEdges((eds) =>
                 eds.map((ed) => {
                   if(edge && ed.id === edge.id) {
-                    const targetPosition = calculateTargetPosition((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x);
+                    const sourcePosition = edgeConfig!.sourcePosition || calculateSourcePosition((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x);
+                    const targetPosition = edgeConfig!.targetPosition || calculateTargetPosition((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x);
 
-                    const sourceHandle = `${edgeConfig!.sourceKey}-${targetPosition === "left" ? "l" : "r"}`;
+                    const sourceHandle = `${edgeConfig!.sourceKey}-${sourcePosition === "left" ? "r" : "l"}`;
                     const targetHandle = `${edgeConfig!.targetKey}-${targetPosition === "left" ? "r" : "l"}`;
 
                     ed.sourceHandle = sourceHandle;
@@ -432,8 +431,10 @@ function Flow() {
               setEdges((eds) =>
                 eds.map((ed) => {
                   if(edge && ed.id === edge.id) {
-                    const targetPosition = calculateTargetPosition((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x);
-                    const sourceHandle = `${edgeConfig!.sourceKey}-${targetPosition === "left" ? "l" : "r"}`;
+                    const sourcePosition = edgeConfig!.sourcePosition || calculateSourcePosition((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x);
+                    const targetPosition = edgeConfig!.targetPosition || calculateTargetPosition((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x);
+
+                    const sourceHandle = `${edgeConfig!.sourceKey}-${sourcePosition === "left" ? "r" : "l"}`;
                     const targetHandle = `${edgeConfig!.targetKey}-${targetPosition === "left" ? "r" : "l"}`;
 
                     ed.sourceHandle = sourceHandle;
