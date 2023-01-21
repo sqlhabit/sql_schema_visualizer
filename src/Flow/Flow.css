@@ -173,9 +173,13 @@
 
 .table__name {
   position: relative;
+  padding: 8px;
 
   border: 0;
   border-radius: 4px 4px 0 0;
+
+  font-weight: bold;
+  text-align: center;
 }
 
 .table__columns {

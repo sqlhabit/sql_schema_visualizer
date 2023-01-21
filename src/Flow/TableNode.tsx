@@ -24,15 +24,6 @@ const rightHandleStyle: CSSProperties = {
   transform: "translateX(50%) translateY(-50%)"
 };
 
-const tableNameStyle: CSSProperties = {
-  borderBottom: 0,
-  paddingLeft: 8,
-  paddingRight: 8,
-  paddingTop: 8,
-  paddingBottom: 8,
-  fontWeight: "bold",
-  textAlign: "center"
-};
 const columnNameStyle: CSSProperties = {
   borderBottom: 0,
   position: "relative",
@@ -76,7 +67,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
   return (
     <div className="table">
       <div
-        style={{...tableNameStyle, backgroundColor: tableNamebgColor(data.schema) }}
+        style={{ backgroundColor: tableNamebgColor(data.schema) }}
         className="table__name"
         onMouseEnter={() => {
           if(descriptionOnHoverActive) {
