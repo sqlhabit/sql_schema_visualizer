@@ -90,10 +90,6 @@ function Flow() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-  const onConnect = useCallback(
-    (params: Connection | Edge) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges]
-  );
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
   let nodeHoverActive = true;
@@ -420,7 +416,6 @@ function Flow() {
         onNodesChange={handleNodesChange}
         edges={edges}
         onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
         onInit={onInit}
         snapToGrid={true}
         fitView
