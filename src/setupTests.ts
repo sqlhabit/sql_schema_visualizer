@@ -2,7 +2,7 @@
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 
 // To make sure that the tests are working, it's important that you are using
 // this implementation of ResizeObserver and DOMMatrixReadOnly
