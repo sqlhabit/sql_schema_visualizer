@@ -82,8 +82,8 @@ const edges = [
     target: "users",
     targetKey: "referrer_id",
     relation: "hasMany",
-    sourcePosition: "left",
-    targetPosition: "left"
+    sourcePosition: "right",
+    targetPosition: "right"
   },
 ]
 
