@@ -47,7 +47,7 @@ import mobileAnalyticsEventsTable from './Tables/mobile_analytics_events';
 import tablePositions from './TablePositions';
 
 import Markers from './Markers';
-import edgeParams from './Edges';
+import edgeConfigs from './Edges';
 
 interface Position {
   x: number;
@@ -114,8 +114,7 @@ let initialNodes: Node[] = [];
   initialNodes.push(tableDefinition);
 });
 
-const initialEdges: Edge[] = [];
-
+// TODO: make this function useful for node change
 const edgeClassName = (edge: any) => {
   let className = edge.relation === "hasOne" ? "has-one-edge" : "has-many-edge";
 
@@ -126,6 +125,7 @@ const edgeClassName = (edge: any) => {
   return className;
 };
 
+// TODO: make this function useful for node change
 const edgeMarkerName = (edge: any) => {
   let markerName = edge.relation === "hasOne" ? "hasOne" : "hasMany";
 
@@ -136,12 +136,12 @@ const edgeMarkerName = (edge: any) => {
   return markerName;
 };
 
-edgeParams.forEach(edge => {
-  const sourceTableName = fullTableName(edge.source);
-  const targetTableName = fullTableName(edge.target);
+edgeConfigs.forEach(edgeConfig => {
+  const sourceTableName = fullTableName(edgeConfig.source);
+  const targetTableName = fullTableName(edgeConfig.target);
 
-  edge.source = sourceTableName;
-  edge.target = targetTableName;
+  edgeConfig.source = sourceTableName;
+  edgeConfig.target = targetTableName;
 })
 
 const sourceHandleId = (
@@ -176,25 +176,28 @@ const targetHandleId = (
   }
 };
 
-edgeParams.forEach(edge => {
-  let sourceHandle = edge.sourceKey;
-  if(edge.sourcePosition) {
-    sourceHandle += `-${edge.sourcePosition === "left" ? "l" : "r"}`;
+const initialEdges: Edge[] = [];
+edgeConfigs.forEach(edgeConfig => {
+  let sourceHandle = edgeConfig.sourceKey;
+  if(edgeConfig.sourcePosition) {
+    sourceHandle += `-${edgeConfig.sourcePosition === "left" ? "l" : "r"}`;
   } else {
-    sourceHandle += `-${edge.targetPosition === "left" ? "l" : "r"}`;
+    sourceHandle += `-${edgeConfig.targetPosition === "left" ? "l" : "r"}`;
   }
+  // TODO: make this function useful for node change
 
-  let targetHandle = `${edge.targetKey}-${edge.targetPosition === "left" ? "r" : "l"}`;
+  let targetHandle = `${edgeConfig.targetKey}-${edgeConfig.targetPosition === "left" ? "r" : "l"}`;
 
   initialEdges.push({
-    id: `${edge.source}-${edge.target}`,
-    source: edge.source,
-    target: edge.target,
+    id: `${edgeConfig.source}-${edgeConfig.target}`,
+    source: edgeConfig.source,
+    target: edgeConfig.target,
     sourceHandle,
     targetHandle,
     type: "smoothstep",
-    markerEnd: edgeMarkerName(edge),
-    className: edgeClassName(edge)
+    // TODO: make this function useful for node change
+    markerEnd: edgeMarkerName(edgeConfig),
+    className: edgeClassName(edgeConfig)
   })
 });
 
@@ -362,14 +365,12 @@ function Flow() {
   const handleNodesChange = useCallback(
     (nodeChanges: NodeChange[]) => {
       nodeChanges.forEach(nodeChange => {
-        if(nodeChange.type === "position" && nodeChange.positionAbsolute) {
+        if(nodeChange.type === "position" && nodeChange.positionAbsolute) { // nodeChange.positionAbsolute contains new position
           const node = nodes.find(node => node.id === nodeChange.id);
 
           if(!node) {
             return;
           }
-
-          console.log(nodeChange.positionAbsolute); // New position (!!)
 
           const incomingNodes = getIncomers(node, nodes, edges);
           incomingNodes.forEach(incomingNode => {
@@ -377,16 +378,16 @@ function Flow() {
               return edge.id === `${incomingNode.id}-${node.id}`;
             });
 
-            const edgeParam = edgeParams.find(edgeParam => {
-              return edgeParam.source === incomingNode.id && edgeParam.target === node.id;
+            const edgeConfig = edgeConfigs.find(edgeConfig => {
+              return edgeConfig.source === incomingNode.id && edgeConfig.target === node.id;
             });
 
             if(nodeChange.positionAbsolute?.x) {
               setEdges((eds) =>
                 eds.map((ed) => {
                   if(edge && ed.id === edge.id) {
-                    ed.sourceHandle = sourceHandleId((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x, edgeParam);
-                    ed.targetHandle = targetHandleId((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x, edgeParam);
+                    ed.sourceHandle = sourceHandleId((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x, edgeConfig);
+                    ed.targetHandle = targetHandleId((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x, edgeConfig);
                   }
 
                   return ed;
@@ -401,16 +402,16 @@ function Flow() {
               return edge.id === `${node.id}-${targetNode.id}`;
             });
 
-            const edgeParam = edgeParams.find(edgeParam => {
-              return edgeParam.source === nodeChange.id && edgeParam.target === targetNode.id;
+            const edgeConfig = edgeConfigs.find(edgeConfig => {
+              return edgeConfig.source === nodeChange.id && edgeConfig.target === targetNode.id;
             });
 
             if(nodeChange.positionAbsolute?.x) {
               setEdges((eds) =>
                 eds.map((ed) => {
                   if(edge && ed.id === edge.id) {
-                    ed.sourceHandle = sourceHandleId((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x, edgeParam);
-                    ed.targetHandle = targetHandleId((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x, edgeParam);
+                    ed.sourceHandle = sourceHandleId((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x, edgeConfig);
+                    ed.targetHandle = targetHandleId((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x, edgeConfig);
                   }
 
                   return ed;
