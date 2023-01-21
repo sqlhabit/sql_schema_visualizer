@@ -40,10 +40,10 @@ npm run build
 
 ## TODO
 
-- [ ] Get rid of targetPosition param and set it on the fly based on relative node positions. https://reactflow.dev/docs/examples/nodes/update-node/
 - [ ] Write README with screenshots and GIFs.
 - [ ] Add contribution guide.
 - [ ] Refactor.
+- [x] Get rid of targetPosition param and set it on the fly based on relative node positions. https://reactflow.dev/docs/examples/nodes/update-node/
 - [x] Add info popup content.
 - [x] Final colors for highlighted edges.
 - [x] Final style for table and column descriptions.
