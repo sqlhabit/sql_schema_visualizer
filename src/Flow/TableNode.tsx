@@ -24,9 +24,6 @@ const rightHandleStyle: CSSProperties = {
   transform: "translateX(50%) translateY(-50%)"
 };
 
-const tableStyle: CSSProperties = {
-  backgroundColor: "#FFF"
-};
 const tableNameStyle: CSSProperties = {
   borderBottom: 0,
   paddingLeft: 8,
@@ -77,7 +74,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
   }, false);
 
   return (
-    <div style={tableStyle} className="table">
+    <div className="table">
       <div
         style={{...tableNameStyle, backgroundColor: tableNamebgColor(data.schema) }}
         className="table__name"
