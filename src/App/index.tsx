@@ -1,4 +1,4 @@
-import Flow from "../Flow";
+import Flow from "../Visualizer";
 import SQLHabitLogo from "./SQLHabitLogo";
 
 import "./App.css";

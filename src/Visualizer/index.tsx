@@ -22,23 +22,23 @@ import MaximizeIcon from "./Icons/MaximizeIcon";
 import MinimizeIcon from "./Icons/MinimizeIcon";
 import InfoIcon from "./Icons/InfoIcon";
 
-import usersTable from "./Tables/users";
-import marketingSpendsTable from "./Tables/marketing_spends";
-import accountsTable from "./Tables/accounts";
-import booksUsersTable from "./Tables/books_users";
-import booksTable from "./Tables/books";
-import devicesTable from "./Tables/devices";
-import productsTable from "./Tables/products";
-import profilesTable from "./Tables/profiles";
-import purchasesTable from "./Tables/purchases";
-import adjustCallbacksTable from "./Tables/adjust_callbacks";
-import helpersDatesTable from "./Tables/helpers_dates";
-import webAnalyticsPageviewsTable from "./Tables/web_analytics_pageviews";
-import webAnalyticsEventsTable from "./Tables/web_analytics_events";
-import mobileAnalyticsEventsTable from "./Tables/mobile_analytics_events";
+import usersTable from "../Config/Tables/users";
+import marketingSpendsTable from "../Config/Tables/marketing_spends";
+import accountsTable from "../Config/Tables/accounts";
+import booksUsersTable from "../Config/Tables/books_users";
+import booksTable from "../Config/Tables/books";
+import devicesTable from "../Config/Tables/devices";
+import productsTable from "../Config/Tables/products";
+import profilesTable from "../Config/Tables/profiles";
+import purchasesTable from "../Config/Tables/purchases";
+import adjustCallbacksTable from "../Config/Tables/adjust_callbacks";
+import helpersDatesTable from "../Config/Tables/helpers_dates";
+import webAnalyticsPageviewsTable from "../Config/Tables/web_analytics_pageviews";
+import webAnalyticsEventsTable from "../Config/Tables/web_analytics_events";
+import mobileAnalyticsEventsTable from "../Config/Tables/mobile_analytics_events";
 
-import tablePositions from "./TablePositions";
-import edgeConfigs from "./Edges";
+import tablePositions from "../Config/TablePositions";
+import edgeConfigs from "../Config/Edges";
 
 import TableNode from "./TableNode";
 import InfoPopup from "./InfoPopup";
@@ -46,7 +46,7 @@ import Markers from "./Markers";
 
 // this is important! You need to import the styles from the lib to make it work
 import "reactflow/dist/style.css";
-import "./Flow.css";
+import "./style.css";
 
 interface Position {
   x: number;
