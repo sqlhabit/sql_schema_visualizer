@@ -1,4 +1,4 @@
-import Flow from "../Visualizer";
+import Visualizer from "../Visualizer";
 import SQLHabitLogo from "./SQLHabitLogo";
 
 import "./App.css";
@@ -13,7 +13,7 @@ function App() {
         className="App__logo">
         <SQLHabitLogo/>
       </a>
-      <Flow />
+      <Visualizer />
     </div>
   );
 }

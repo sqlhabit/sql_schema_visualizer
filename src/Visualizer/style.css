@@ -335,3 +335,7 @@
   top: 50%;
   transform: translateX(50%) translateY(-50%);
 }
+
+.react-flow__attribution a {
+  background: none;
+}

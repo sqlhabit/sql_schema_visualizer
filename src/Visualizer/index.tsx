@@ -22,21 +22,7 @@ import MaximizeIcon from "./Icons/MaximizeIcon";
 import MinimizeIcon from "./Icons/MinimizeIcon";
 import InfoIcon from "./Icons/InfoIcon";
 
-import usersTable from "../Config/Tables/users";
-import marketingSpendsTable from "../Config/Tables/marketing_spends";
-import accountsTable from "../Config/Tables/accounts";
-import booksUsersTable from "../Config/Tables/books_users";
-import booksTable from "../Config/Tables/books";
-import devicesTable from "../Config/Tables/devices";
-import productsTable from "../Config/Tables/products";
-import profilesTable from "../Config/Tables/profiles";
-import purchasesTable from "../Config/Tables/purchases";
-import adjustCallbacksTable from "../Config/Tables/adjust_callbacks";
-import helpersDatesTable from "../Config/Tables/helpers_dates";
-import webAnalyticsPageviewsTable from "../Config/Tables/web_analytics_pageviews";
-import webAnalyticsEventsTable from "../Config/Tables/web_analytics_events";
-import mobileAnalyticsEventsTable from "../Config/Tables/mobile_analytics_events";
-
+import tables from "../Config/Tables";
 import tablePositions from "../Config/TablePositions";
 import edgeConfigs from "../Config/Edges";
 
@@ -84,28 +70,13 @@ const nodeTypes = {
 
 let initialNodes: Node[] = [];
 
-[
-  usersTable,
-  marketingSpendsTable,
-  accountsTable,
-  booksUsersTable,
-  booksTable,
-  devicesTable,
-  productsTable,
-  profilesTable,
-  purchasesTable,
-  adjustCallbacksTable,
-  helpersDatesTable,
-  webAnalyticsPageviewsTable,
-  webAnalyticsEventsTable,
-  mobileAnalyticsEventsTable
-].forEach(tableData => {
-  const schemaName = (tableData as any).schema || "public";
-  const tableID = fullTableName(tableData.name, schemaName);
+tables.forEach(table => {
+  const schemaName = (table as any).schema || "public";
+  const tableID = fullTableName(table.name, schemaName);
 
   const tableDefinition: Node = {
     id: tableID,
-    data: tableData,
+    data: table,
     position: (tablePositionsWithSchema as any)[tableID] || { x: 0, y: 0 },
     type: "table"
   }
