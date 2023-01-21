@@ -3,8 +3,6 @@ import ReactFlow, {
   Node,
   useNodesState,
   useEdgesState,
-  addEdge,
-  Connection,
   Edge,
   Controls,
   ControlButton,
