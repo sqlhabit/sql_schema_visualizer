@@ -30,6 +30,12 @@ import TableNode from "./TableNode";
 import InfoPopup from "./InfoPopup";
 import Markers from "./Markers";
 
+import fullTableName from "./helpers/fullTableName";
+import edgeClassName from "./helpers/edgeClassName";
+import edgeMarkerName from "./helpers/edgeMarkerName";
+import calculateTargetPosition from "./helpers/calculateTargetPosition";
+import calculateSourcePosition from "./helpers/calculateSourcePosition";
+
 // this is important! You need to import the styles from the lib to make it work
 import "reactflow/dist/style.css";
 import "./Style";
@@ -41,14 +47,6 @@ interface Position {
 
 interface Positions {
   tableName: Position;
-};
-
-const fullTableName = (tableName: string, schemaName = "public") => {
-  if(tableName.includes(".")) {
-    return tableName;
-  } else {
-    return `${schemaName}.${tableName}`;
-  }
 };
 
 const tablePositionsWithSchema = {} as Positions;
@@ -83,68 +81,6 @@ tables.forEach(table => {
 
   initialNodes.push(tableDefinition);
 });
-
-const edgeClassName = (edgeConfig: any, targetPosition?: string) => {
-  let className = edgeConfig.relation === "hasOne" ? "has-one-edge" : "has-many-edge";
-
-  if(edgeConfig.targetPosition) {
-    if(edgeConfig.targetPosition === "right") {
-      className += "-reversed";
-    }
-  } else if(targetPosition === "right") {
-    className += "-reversed";
-  }
-
-  return className;
-};
-
-const edgeMarkerName = (edgeConfig: any, targetPosition?: string) => {
-  let markerName = edgeConfig.relation === "hasOne" ? "hasOne" : "hasMany";
-
-  if(edgeConfig.targetPosition) {
-    if(edgeConfig.targetPosition === "right") {
-      markerName += "Reversed";
-    }
-  } else if(targetPosition === "right") {
-    markerName += "Reversed";
-  }
-
-  return markerName;
-};
-
-const calculateTargetPosition = (
-  sourceNodeWidth: number,
-  sourceNodeX: number,
-  targetNodeWidth: number,
-  targetNodeX: number
-) => {
-  if(sourceNodeX > (targetNodeX + targetNodeWidth)) {
-    return "right";
-  } else if (sourceNodeX > targetNodeX && sourceNodeX < (targetNodeX + targetNodeWidth)) {
-    return "right";
-  } else if ((sourceNodeX + sourceNodeWidth) > targetNodeX) {
-    return "left";
-  } else {
-    return "left";
-  }
-};
-
-const calculateSourcePosition = (
-  sourceNodeWidth: number,
-  sourceNodeX: number,
-  targetNodeWidth: number,
-  targetNodeX: number
-) => {
-  if(sourceNodeX > (targetNodeX + targetNodeWidth)) {
-    return "left";
-  } else if (sourceNodeX > targetNodeX && sourceNodeX < (targetNodeX + targetNodeWidth)) {
-    return "right";
-  } else if ((sourceNodeX + sourceNodeWidth) > targetNodeX) {
-    return "left";
-  } else {
-    return "right";
-  }
-};
 
 edgeConfigs.forEach(edgeConfig => {
   const sourceTableName = fullTableName(edgeConfig.source);
