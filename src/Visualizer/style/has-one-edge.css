@@ -1,0 +1,24 @@
+/* https://reactflow.dev/docs/guides/theming/#react-flow-class-names */
+.has-one-edge.selected path.react-flow__edge-path {
+  marker-end: url(#hasOneSelected);
+  stroke-width: 1.5px;
+}
+
+.has-one-edge-reversed.selected path.react-flow__edge-path {
+  marker-end: url(#hasOneReversedSelected);
+  stroke-width: 1.5px;
+}
+
+.has-one-edge--highlighted path.react-flow__edge-path,
+.has-one-edge--highlighted path.react-flow__edge-interaction,
+.has-one-edge--highlighted path.react-flow__connection-path {
+  stroke: #2186EB !important;
+  stroke-width: 1.5px;
+}
+
+.has-one-edge-reversed--highlighted path.react-flow__edge-path,
+.has-one-edge-reversed--highlighted path.react-flow__edge-interaction,
+.has-one-edge-reversed--highlighted path.react-flow__connection-path {
+  stroke: #2186EB !important;
+  stroke-width: 1.5px;
+}

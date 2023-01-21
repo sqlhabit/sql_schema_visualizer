@@ -59,3 +59,14 @@ a {
 a:hover {
   background-size: 0 1px, 100% 1px;
 }
+
+.emoji {
+  height: 1.1em;
+  width: 1.1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
+}
+
+.mb-32 {
+  margin-bottom: 32px;
+}
