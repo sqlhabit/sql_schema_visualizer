@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 import ReactFlow, {
   Node,
   useNodesState,
@@ -16,38 +16,38 @@ import ReactFlow, {
   NodeChange,
   getIncomers,
   getOutgoers
-} from 'reactflow';
+} from "reactflow";
 
-import TableNode from './TableNode';
-import MaximizeIcon from './Icons/MaximizeIcon';
-import MinimizeIcon from './Icons/MinimizeIcon';
-import InfoIcon from './Icons/InfoIcon';
-import InfoPopup from './InfoPopup';
+import TableNode from "./TableNode";
+import MaximizeIcon from "./Icons/MaximizeIcon";
+import MinimizeIcon from "./Icons/MinimizeIcon";
+import InfoIcon from "./Icons/InfoIcon";
+import InfoPopup from "./InfoPopup";
 
 // this is important! You need to import the styles from the lib to make it work
-import 'reactflow/dist/style.css';
+import "reactflow/dist/style.css";
 
-import './Flow.css';
+import "./Flow.css";
 
-import usersTable from './Tables/users';
+import usersTable from "./Tables/users";
 import marketingSpendsTable from "./Tables/marketing_spends";
-import accountsTable from './Tables/accounts';
-import booksUsersTable from './Tables/books_users';
-import booksTable from './Tables/books';
-import devicesTable from './Tables/devices';
-import productsTable from './Tables/products';
-import profilesTable from './Tables/profiles';
-import purchasesTable from './Tables/purchases';
-import adjustCallbacksTable from './Tables/adjust_callbacks';
-import helpersDatesTable from './Tables/helpers_dates';
-import webAnalyticsPageviewsTable from './Tables/web_analytics_pageviews';
-import webAnalyticsEventsTable from './Tables/web_analytics_events';
-import mobileAnalyticsEventsTable from './Tables/mobile_analytics_events';
+import accountsTable from "./Tables/accounts";
+import booksUsersTable from "./Tables/books_users";
+import booksTable from "./Tables/books";
+import devicesTable from "./Tables/devices";
+import productsTable from "./Tables/products";
+import profilesTable from "./Tables/profiles";
+import purchasesTable from "./Tables/purchases";
+import adjustCallbacksTable from "./Tables/adjust_callbacks";
+import helpersDatesTable from "./Tables/helpers_dates";
+import webAnalyticsPageviewsTable from "./Tables/web_analytics_pageviews";
+import webAnalyticsEventsTable from "./Tables/web_analytics_events";
+import mobileAnalyticsEventsTable from "./Tables/mobile_analytics_events";
 
-import tablePositions from './TablePositions';
+import tablePositions from "./TablePositions";
 
-import Markers from './Markers';
-import edgeConfigs from './Edges';
+import Markers from "./Markers";
+import edgeConfigs from "./Edges";
 
 interface Position {
   x: number;
@@ -199,6 +199,9 @@ function Flow() {
 
   const onInit = (instance: any) => {
     const nodes = instance.getNodes();
+    // nodes.forEach((node: Node) => {
+    //   console.log(node.id, node.width)
+    // })
     const initialEdges: Edge[] = [];
 
     edgeConfigs.forEach(edgeConfig => {
@@ -226,18 +229,20 @@ function Flow() {
     setEdges((eds) => eds.concat(initialEdges));
 
     const handleKeyboard = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.key === 'p') {
+      if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
 
         const positions = {} as Positions;
 
         const compare = ( a: String, b: String ) => {
-          if ( a < b ){
+          if ( a < b ) {
             return -1;
           }
-          if ( a > b ){
+
+          if ( a > b ) {
             return 1;
           }
+
           return 0;
         }
 
@@ -253,10 +258,10 @@ function Flow() {
       }
     }
 
-    document.addEventListener('keydown', handleKeyboard)
+    document.addEventListener("keydown", handleKeyboard)
 
     // https://javascriptf1.com/snippet/detect-fullscreen-mode-with-javascript
-    window.addEventListener('resize', (event) => {
+    window.addEventListener("resize", (event) => {
       setFullScreen(window.innerHeight === window.screen.height);
     });
   }
@@ -267,7 +272,7 @@ function Flow() {
       return;
     }
 
-    const svg = element.closest('svg');
+    const svg = element.closest("svg");
     svg.appendChild(element);
   }
 
@@ -478,32 +483,32 @@ function Flow() {
     setInfoPopupOn(!infoPopupOn)
   }
 
-  document.addEventListener('keydown', (e: KeyboardEvent) => {
-    if(e.code === 'Escape'){
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
+    if(e.code === "Escape") {
       setInfoPopupOn(false);
     }
   });
 
   // https://stackoverflow.com/questions/42066421/property-value-does-not-exist-on-type-eventtarget
-  document.addEventListener('click', (event: Event) => {
+  document.addEventListener("click", (event: Event) => {
     const target = (event.target as HTMLInputElement);
 
-    if (target && target.closest('.into-popup-toggle')) {
+    if (target && target.closest(".into-popup-toggle")) {
       return;
     }
 
-    if (target && !target.closest('.info-popup__inner')) {
+    if (target && !target.closest(".info-popup__inner")) {
       setInfoPopupOn(false);
     }
   })
 
-  document.addEventListener('keydown', (e: KeyboardEvent) => {
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
       nodeHoverActive = false;
     }
   }, false);
 
-  document.addEventListener('keyup', (e: KeyboardEvent) => {
+  document.addEventListener("keyup", (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
       nodeHoverActive = true;
     }
