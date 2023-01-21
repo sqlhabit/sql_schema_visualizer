@@ -24,12 +24,6 @@ const rightHandleStyle: CSSProperties = {
   transform: "translateX(50%) translateY(-50%)"
 };
 
-const columnNameInnerStyle: CSSProperties = {
-  padding: 8,
-  display: "flex",
-  justifyContent: "space-between"
-};
-
 const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
   const [showDescription, setshowDescription] = useState(false);
@@ -101,7 +95,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
               className={column.handleType === "source" ? "source-handle" : "target-handle"}
             />}
 
-            <div style={columnNameInnerStyle} className="column-name__inner">
+            <div className="column-name__inner">
               <div className="column-name__name">
                 {column.key && <KeyIcon />}
                 {column.name}
