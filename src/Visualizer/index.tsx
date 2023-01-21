@@ -1,46 +1,38 @@
 import { useCallback, useState } from "react";
 import ReactFlow, {
-  Node,
-  useNodesState,
-  useEdgesState,
-  Edge,
-  Controls,
-  ControlButton,
-  Background,
-  useStoreApi,
-  ReactFlowProvider,
-  getConnectedEdges,
-  OnSelectionChangeParams,
-  NodeChange,
-  getIncomers,
+  Node, useNodesState, useEdgesState, Edge,
+  Controls, ControlButton, Background, useStoreApi, ReactFlowProvider,
+  getConnectedEdges, OnSelectionChangeParams, NodeChange, getIncomers,
   getOutgoers
 } from "reactflow";
 
+// TODO: extract to index file
 import MaximizeIcon from "./Icons/MaximizeIcon";
 import MinimizeIcon from "./Icons/MinimizeIcon";
 import InfoIcon from "./Icons/InfoIcon";
 
+// TODO: extract to index file
 import tables from "../Config/Tables";
 import tablePositions from "../Config/TablePositions";
 import edgeConfigs from "../Config/Edges";
 
-import TableNode from "./TableNode";
 import InfoPopup from "./InfoPopup";
 import Markers from "./Markers";
+import nodeTypes from "../Config/NodeTypes";
 
-import fullTableName from "./helpers/fullTableName";
+// TODO: extract to index file
 import edgeClassName from "./helpers/edgeClassName";
 import edgeMarkerName from "./helpers/edgeMarkerName";
 import calculateTargetPosition from "./helpers/calculateTargetPosition";
 import calculateSourcePosition from "./helpers/calculateSourcePosition";
 import loadEdgeConfigs from "./helpers/loadEdgeConfigs";
+import initializeNodes from "./helpers/initializeNodes";
 
 // this is important! You need to import the styles from the lib to make it work
 import "reactflow/dist/style.css";
 import "./Style";
 
-loadEdgeConfigs(edgeConfigs);
-
+// TODO: Extract to file
 interface Position {
   x: number;
   y: number;
@@ -50,38 +42,9 @@ interface Positions {
   tableName: Position;
 };
 
-const tablePositionsWithSchema = {} as Positions;
+loadEdgeConfigs(edgeConfigs);
 
-Object.entries(tablePositions).forEach(params => {
-  const tableName = params[0];
-  const position = params[1] as Position;
-
-  if(tableName.includes(".")) {
-    tablePositionsWithSchema[tableName as keyof Positions] = position;
-  } else {
-    tablePositionsWithSchema[fullTableName(tableName) as keyof Positions] = position;
-  }
-});
-
-const nodeTypes = {
-  table: TableNode,
-};
-
-let initialNodes: Node[] = [];
-
-tables.forEach(table => {
-  const schemaName = (table as any).schema || "public";
-  const tableID = fullTableName(table.name, schemaName);
-
-  const tableDefinition: Node = {
-    id: tableID,
-    data: table,
-    position: (tablePositionsWithSchema as any)[tableID] || { x: 0, y: 0 },
-    type: "table"
-  }
-
-  initialNodes.push(tableDefinition);
-});
+let initialNodes: Node[] = initializeNodes(tables, tablePositions);
 
 function Flow() {
   const store = useStoreApi();
@@ -96,6 +59,7 @@ function Flow() {
     const nodes = instance.getNodes();
     const initialEdges: Edge[] = [];
 
+    // TODO: extract to file
     edgeConfigs.forEach(edgeConfig => {
       const sourceNode = nodes.find((node: Node) => node.id === edgeConfig.source);
       const targetNode = nodes.find((node: Node) => node.id === edgeConfig.target);
@@ -120,6 +84,7 @@ function Flow() {
 
     setEdges((eds) => eds.concat(initialEdges));
 
+    // TODO: extract to file
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
@@ -183,6 +148,7 @@ function Flow() {
       connectedEdges.map(edge => {
         // https://reactflow.dev/docs/examples/nodes/update-node/
         setEdges((eds) =>
+          // TODO: extract to file
           eds.map((ed) => {
             if (ed.id === edge.id) {
               if(edge.className?.includes("has-many-edge-reversed")) {
@@ -233,6 +199,7 @@ function Flow() {
       state.resetSelectedElements();
 
       setEdges((eds) =>
+        // TODO: extract to file
         eds.map((ed) => {
           if(ed.className?.includes("has-many-edge-reversed")) {
             ed.className = "has-many-edge-reversed";
