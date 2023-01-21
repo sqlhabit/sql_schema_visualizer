@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { memo, FC, CSSProperties } from 'react';
-import { Handle, Position, NodeProps } from 'reactflow';
+import { useState } from "react";
+import { memo, FC, CSSProperties } from "react";
+import { Handle, Position, NodeProps } from "reactflow";
 
-import '@reactflow/node-resizer/dist/style.css';
+import "@reactflow/node-resizer/dist/style.css";
 
 import KeyIcon from "./Icons/KeyIcon";
-import schemaColors from './schemaColors';
+import schemaColors from "./schemaColors";
 
 const leftHandleStyle: CSSProperties = {
   width: 2,
@@ -24,7 +24,7 @@ const rightHandleStyle: CSSProperties = {
   transform: "translateX(50%) translateY(-50%)"
 };
 
-const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
+const TableNode: FC<NodeProps> = ({ data }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
   const [showDescription, setshowDescription] = useState(false);
   const [descriptionOnHoverActive, setDescriptionOnHoverActive] = useState(false);
@@ -39,13 +39,13 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
     return bgColor
   };
 
-  document.addEventListener('keydown', (e: KeyboardEvent) => {
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
       setDescriptionOnHoverActive(true)
     }
   }, false);
 
-  document.addEventListener('keyup', (e: KeyboardEvent) => {
+  document.addEventListener("keyup", (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
       setDescriptionOnHoverActive(false)
     }
@@ -64,7 +64,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
         onMouseLeave={() => setshowDescription(false)}>
         {data.schema ? `${data.schema}.${data.name}` : data.name}
 
-        <div className={showDescription ? 'table__description table__description--active' : 'table__description'}>
+        <div className={showDescription ? "table__description table__description--active" : "table__description"}>
           {data.description}
         </div>
       </div>
@@ -73,7 +73,7 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
         {data.columns.map((column: any, index: any) => (
           <div
             key={index}
-            className={selectedColumn === column.name ? 'column-name column-name--selected' : 'column-name'}
+            className={selectedColumn === column.name ? "column-name column-name--selected" : "column-name"}
             onMouseEnter={() => {
               if(descriptionOnHoverActive) {
                 setSelectedColumn(column.name)
