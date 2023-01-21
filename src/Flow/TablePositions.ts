@@ -52,7 +52,7 @@ const tablePositions = {
     "y": 544
   },
   "web_analytics.pageviews": {
-    "x": -96,
+    "x": -150,
     "y": 528
   }
 };
