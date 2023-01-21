@@ -35,10 +35,13 @@ import edgeClassName from "./helpers/edgeClassName";
 import edgeMarkerName from "./helpers/edgeMarkerName";
 import calculateTargetPosition from "./helpers/calculateTargetPosition";
 import calculateSourcePosition from "./helpers/calculateSourcePosition";
+import loadEdgeConfigs from "./helpers/loadEdgeConfigs";
 
 // this is important! You need to import the styles from the lib to make it work
 import "reactflow/dist/style.css";
 import "./Style";
+
+loadEdgeConfigs(edgeConfigs);
 
 interface Position {
   x: number;
@@ -81,14 +84,6 @@ tables.forEach(table => {
 
   initialNodes.push(tableDefinition);
 });
-
-edgeConfigs.forEach(edgeConfig => {
-  const sourceTableName = fullTableName(edgeConfig.source);
-  const targetTableName = fullTableName(edgeConfig.target);
-
-  edgeConfig.source = sourceTableName;
-  edgeConfig.target = targetTableName;
-})
 
 function Flow() {
   const store = useStoreApi();
