@@ -160,6 +160,14 @@
 }
 
 .column-name {
+  position: relative;
+  z-index: 50;
+
+  border-bottom: 0;
+
+  font-size: 12px;
+  line-height: 1;
+
   cursor: pointer;
 }
 

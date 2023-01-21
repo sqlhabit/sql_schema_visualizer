@@ -24,13 +24,6 @@ const rightHandleStyle: CSSProperties = {
   transform: "translateX(50%) translateY(-50%)"
 };
 
-const columnNameStyle: CSSProperties = {
-  borderBottom: 0,
-  position: "relative",
-  fontSize: 12,
-  lineHeight: 1,
-  zIndex: 50
-};
 const columnNameInnerStyle: CSSProperties = {
   padding: 8,
   display: "flex",
@@ -86,7 +79,6 @@ const TableNode: FC<NodeProps> = ({ data, xPos, yPos }) => {
         {data.columns.map((column: any, index: any) => (
           <div
             key={index}
-            style={columnNameStyle}
             className={selectedColumn === column.name ? 'column-name column-name--selected' : 'column-name'}
             onMouseEnter={() => {
               if(descriptionOnHoverActive) {
