@@ -118,10 +118,10 @@ const edgeClassName = (edgeConfig: any, targetPosition?: string) => {
   let className = edgeConfig.relation === "hasOne" ? "has-one-edge" : "has-many-edge";
 
   if(edgeConfig.targetPosition) {
-    if(edgeConfig.targetPosition === "left") {
+    if(edgeConfig.targetPosition === "right") {
       className += "-reversed";
     }
-  } else if(targetPosition === "left") {
+  } else if(targetPosition === "right") {
     className += "-reversed";
   }
 
@@ -132,10 +132,10 @@ const edgeMarkerName = (edgeConfig: any, targetPosition?: string) => {
   let markerName = edgeConfig.relation === "hasOne" ? "hasOne" : "hasMany";
 
   if(edgeConfig.targetPosition) {
-    if(edgeConfig.targetPosition === "left") {
+    if(edgeConfig.targetPosition === "right") {
       markerName += "Reversed";
     }
-  } else if(targetPosition === "left") {
+  } else if(targetPosition === "right") {
     markerName += "Reversed";
   }
 
@@ -149,11 +149,11 @@ const calculateTargetPosition = (
   targetNodeX: number
 ) => {
   if(sourceNodeX > (targetNodeX + targetNodeWidth)) {
+    return "right";
+  } else if (sourceNodeX > targetNodeX && sourceNodeX < (targetNodeX + targetNodeWidth)) {
+    return "right";
+  } else if ((sourceNodeX + sourceNodeWidth) > targetNodeX) {
     return "left";
-  } else if ((sourceNodeX + sourceNodeWidth) < targetNodeX) {
-    return "right";
-  } else if (sourceNodeX > targetNodeX) {
-    return "right";
   } else {
     return "left";
   }
@@ -165,12 +165,14 @@ const calculateSourcePosition = (
   targetNodeWidth: number,
   targetNodeX: number
 ) => {
-  const targetPosition = calculateTargetPosition(sourceNodeWidth, sourceNodeX, targetNodeWidth, targetNodeX)
-
-  if(targetPosition === "left") {
-    return "right";
-  } else {
+  if(sourceNodeX > (targetNodeX + targetNodeWidth)) {
     return "left";
+  } else if (sourceNodeX > targetNodeX && sourceNodeX < (targetNodeX + targetNodeWidth)) {
+    return "right";
+  } else if ((sourceNodeX + sourceNodeWidth) > targetNodeX) {
+    return "left";
+  } else {
+    return "right";
   }
 };
 
@@ -197,9 +199,6 @@ function Flow() {
 
   const onInit = (instance: any) => {
     const nodes = instance.getNodes();
-    // nodes.forEach((node: Node) => {
-    //   console.log(node.id, node.width)
-    // })
     const initialEdges: Edge[] = [];
 
     edgeConfigs.forEach(edgeConfig => {
@@ -209,8 +208,8 @@ function Flow() {
       const sourcePosition = edgeConfig.sourcePosition || calculateSourcePosition(sourceNode.width, sourceNode!.position.x, targetNode.width, targetNode!.position.x);
       const targetPosition = edgeConfig.targetPosition || calculateTargetPosition(sourceNode.width, sourceNode!.position.x, targetNode.width, targetNode!.position.x);
 
-      const sourceHandle = `${edgeConfig.sourceKey}-${sourcePosition === "left" ? "r" : "l"}`;
-      const targetHandle = `${edgeConfig.targetKey}-${targetPosition === "left" ? "r" : "l"}`;
+      const sourceHandle = `${edgeConfig.sourceKey}-${sourcePosition === "right" ? "r" : "l"}`;
+      const targetHandle = `${edgeConfig.targetKey}-${targetPosition === "right" ? "r" : "l"}`;
 
       initialEdges.push({
         id: `${edgeConfig.source}-${edgeConfig.target}`,
@@ -402,8 +401,8 @@ function Flow() {
                     const sourcePosition = edgeConfig!.sourcePosition || calculateSourcePosition((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x);
                     const targetPosition = edgeConfig!.targetPosition || calculateTargetPosition((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x);
 
-                    const sourceHandle = `${edgeConfig!.sourceKey}-${sourcePosition === "left" ? "r" : "l"}`;
-                    const targetHandle = `${edgeConfig!.targetKey}-${targetPosition === "left" ? "r" : "l"}`;
+                    const sourceHandle = `${edgeConfig!.sourceKey}-${sourcePosition === "right" ? "r" : "l"}`;
+                    const targetHandle = `${edgeConfig!.targetKey}-${targetPosition === "right" ? "r" : "l"}`;
 
                     ed.sourceHandle = sourceHandle;
                     ed.targetHandle = targetHandle;
@@ -434,8 +433,8 @@ function Flow() {
                     const sourcePosition = edgeConfig!.sourcePosition || calculateSourcePosition((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x);
                     const targetPosition = edgeConfig!.targetPosition || calculateTargetPosition((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x);
 
-                    const sourceHandle = `${edgeConfig!.sourceKey}-${sourcePosition === "left" ? "r" : "l"}`;
-                    const targetHandle = `${edgeConfig!.targetKey}-${targetPosition === "left" ? "r" : "l"}`;
+                    const sourceHandle = `${edgeConfig!.sourceKey}-${sourcePosition === "right" ? "r" : "l"}`;
+                    const targetHandle = `${edgeConfig!.targetKey}-${targetPosition === "right" ? "r" : "l"}`;
 
                     ed.sourceHandle = sourceHandle;
                     ed.targetHandle = targetHandle;
