@@ -7,23 +7,6 @@ import "@reactflow/node-resizer/dist/style.css";
 import KeyIcon from "./Icons/KeyIcon";
 import schemaColors from "./schemaColors";
 
-const leftHandleStyle: CSSProperties = {
-  width: 2,
-  height: 2,
-  minWidth: 2,
-  left: 0,
-  top: "50%",
-  transform: "translateX(-50%) translateY(-50%)"
-};
-const rightHandleStyle: CSSProperties = {
-  width: 2,
-  height: 2,
-  minWidth: 2,
-  right: 0,
-  top: "50%",
-  transform: "translateX(50%) translateY(-50%)"
-};
-
 const TableNode: FC<NodeProps> = ({ data }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
   const [showDescription, setshowDescription] = useState(false);
@@ -84,15 +67,13 @@ const TableNode: FC<NodeProps> = ({ data }) => {
               type={column.handleType}
               position={Position.Right}
               id={`${column.name}-r`}
-              style={rightHandleStyle}
-              className={column.handleType === "source" ? "source-handle" : "target-handle"}
+              className={column.handleType === "source" ? "right-handle source-handle" : "right-handle target-handle"}
             />}
             {column.handleType && <Handle
               type={column.handleType}
               position={Position.Left}
               id={`${column.name}-l`}
-              style={leftHandleStyle}
-              className={column.handleType === "source" ? "source-handle" : "target-handle"}
+              className={column.handleType === "source" ? "left-handle source-handle" : "left-handle target-handle"}
             />}
 
             <div className="column-name__inner">

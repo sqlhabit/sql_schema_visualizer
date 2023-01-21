@@ -317,3 +317,21 @@
 .mb-32 {
   margin-bottom: 32px;
 }
+
+.left-handle {
+  width: 2px;
+  height: 2px;
+  min-width: 2px;
+  left: 0;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.right-handle {
+  width: 2px;
+  height: 2px;
+  min-width: 2px;
+  right: 0;
+  top: 50%;
+  transform: translateX(50%) translateY(-50%);
+}
