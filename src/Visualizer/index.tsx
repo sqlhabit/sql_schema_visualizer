@@ -41,7 +41,7 @@ import {
 import "reactflow/dist/style.css";
 import "./Style";
 
-let initialNodes: Node[] = initializeNodes(tables, tablePositions);
+let initialNodes = initializeNodes(tables, tablePositions);
 
 function Flow() {
   const store = useStoreApi();
@@ -50,7 +50,7 @@ function Flow() {
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
-  let nodeHoverActive = true;
+  let nodeHoverActive = true; // TODO: move to state
 
   const onInit = (instance: any) => {
     const nodes = instance.getNodes();
@@ -64,7 +64,7 @@ function Flow() {
       const sourcePosition = edgeConfig.sourcePosition || calculateSourcePosition(sourceNode.width, sourceNode!.position.x, targetNode.width, targetNode!.position.x);
       const targetPosition = edgeConfig.targetPosition || calculateTargetPosition(sourceNode.width, sourceNode!.position.x, targetNode.width, targetNode!.position.x);
 
-      const sourceHandle = `${edgeConfig.sourceKey}-${sourcePosition === "right" ? "r" : "l"}`;
+      const sourceHandle = `${edgeConfig.sourceKey}-${sourcePosition === "right" ? "r" : "l"}`; // TODO: extract to a helper function
       const targetHandle = `${edgeConfig.targetKey}-${targetPosition === "right" ? "r" : "l"}`;
 
       initialEdges.push({
