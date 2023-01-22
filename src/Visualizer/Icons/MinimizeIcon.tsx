@@ -1,7 +1,7 @@
 // https://www.svgrepo.com/svg/469278/minimize-size
 // https://svg2jsx.com/
 
-function MinimizeIcon() {
+export function MinimizeIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -59,5 +59,3 @@ function MinimizeIcon() {
     </svg>
   );
 }
-
-export default MinimizeIcon;

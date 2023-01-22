@@ -1,4 +1,4 @@
-function KeyIcon() {
+export function KeyIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,5 +15,3 @@ function KeyIcon() {
     </svg>
   );
 }
-
-export default KeyIcon;

@@ -1,4 +1,4 @@
-function InfoIcon() {
+export function InfoIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,5 +14,3 @@ function InfoIcon() {
     </svg>
   );
 }
-
-export default InfoIcon;

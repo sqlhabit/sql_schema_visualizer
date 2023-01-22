@@ -1,7 +1,7 @@
 // https://www.svgrepo.com/svg/469238/maximize-size
 // https://svg2jsx.com/
 
-function MaximizeIcon() {
+export function MaximizeIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -59,5 +59,3 @@ function MaximizeIcon() {
     </svg>
   );
 }
-
-export default MaximizeIcon;

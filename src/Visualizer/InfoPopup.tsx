@@ -1,5 +1,5 @@
 import markdown from "./markdown";
-import CloseIcon from "./Icons/CloseIcon";
+import { CloseIcon } from "./Icons";
 
 type InfoPopupProps = {
   onClose: Function

@@ -6,10 +6,11 @@ import ReactFlow, {
   getOutgoers
 } from "reactflow";
 
-// TODO: extract to index file
-import MaximizeIcon from "./Icons/MaximizeIcon";
-import MinimizeIcon from "./Icons/MinimizeIcon";
-import InfoIcon from "./Icons/InfoIcon";
+import {
+  MaximizeIcon,
+  MinimizeIcon,
+  InfoIcon
+} from "./Icons";
 
 // TODO: extract to index file
 import tables from "../Config/Tables";
