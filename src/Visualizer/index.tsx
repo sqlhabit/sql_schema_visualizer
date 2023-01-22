@@ -7,17 +7,17 @@ import ReactFlow, {
 } from "reactflow";
 
 import {
-  MaximizeIcon,
-  MinimizeIcon,
-  InfoIcon
-} from "./icons";
-
-import {
   tables,
   tablePositions,
   edgeConfigs,
   nodeTypes
-} from "./config"
+} from "./config";
+
+import {
+  MaximizeIcon,
+  MinimizeIcon,
+  InfoIcon
+} from "./icons";
 
 import {
   InfoPopup,

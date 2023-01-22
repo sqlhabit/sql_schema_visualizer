@@ -43,6 +43,7 @@ npm run build
 - [ ] Write README with screenshots and GIFs.
 - [ ] Add contribution guide.
 - [ ] Refactor.
+- [ ] Fix bug: random hover description showing up without CMD key
 - [x] Get rid of targetPosition param and set it on the fly based on relative node positions. https://reactflow.dev/docs/examples/nodes/update-node/
 - [x] Add info popup content.
 - [x] Final colors for highlighted edges.
