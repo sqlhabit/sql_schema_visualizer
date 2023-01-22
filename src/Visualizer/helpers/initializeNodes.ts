@@ -1,4 +1,4 @@
-import fullTableName from "./fullTableName";
+import { fullTableName } from "./fullTableName";
 
 // TODO: Extract to file
 interface Position {
@@ -10,7 +10,7 @@ interface Positions {
   tableName: Position;
 };
 
-const initializeNodes = (tableConfigs: any[], tablePositions: any) => {
+export const initializeNodes = (tableConfigs: any[], tablePositions: any) => {
   const tables = [] as any;
   const tablePositionsWithSchema = {} as Positions;
 
@@ -40,6 +40,4 @@ const initializeNodes = (tableConfigs: any[], tablePositions: any) => {
   });
 
   return tables;
-}
-
-export default initializeNodes;
+};

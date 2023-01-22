@@ -1,4 +1,4 @@
-import fullTableName from "./fullTableName";
+import { fullTableName } from "./fullTableName";
 
 interface EdgeConfig {
   source: string
@@ -10,7 +10,7 @@ interface EdgeConfig {
   targetPosition?: string;
 }
 
-const loadEdgeConfigs = (edgeConfigs: EdgeConfig[]) => {
+export const loadEdgeConfigs = (edgeConfigs: EdgeConfig[]) => {
   edgeConfigs.forEach(edgeConfig => {
     const sourceTableName = fullTableName(edgeConfig.source);
     const targetTableName = fullTableName(edgeConfig.target);
@@ -19,5 +19,3 @@ const loadEdgeConfigs = (edgeConfigs: EdgeConfig[]) => {
     edgeConfig.target = targetTableName;
   });
 }
-
-export default loadEdgeConfigs;

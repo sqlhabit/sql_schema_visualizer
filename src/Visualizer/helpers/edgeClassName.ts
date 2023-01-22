@@ -1,4 +1,4 @@
-const edgeClassName = (edgeConfig: any, targetPosition?: string) => {
+export const edgeClassName = (edgeConfig: any, targetPosition?: string) => {
   let className = edgeConfig.relation === "hasOne" ? "has-one-edge" : "has-many-edge";
 
   if(edgeConfig.targetPosition) {
@@ -11,5 +11,3 @@ const edgeClassName = (edgeConfig: any, targetPosition?: string) => {
 
   return className;
 };
-
-export default edgeClassName;

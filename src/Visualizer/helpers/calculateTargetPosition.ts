@@ -1,4 +1,4 @@
-const calculateTargetPosition = (
+export const calculateTargetPosition = (
   sourceNodeWidth: number,
   sourceNodeX: number,
   targetNodeWidth: number,
@@ -14,5 +14,3 @@ const calculateTargetPosition = (
     return "left";
   }
 };
-
-export default calculateTargetPosition;

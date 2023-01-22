@@ -1,4 +1,4 @@
-const edgeMarkerName = (edgeConfig: any, targetPosition?: string) => {
+export const edgeMarkerName = (edgeConfig: any, targetPosition?: string) => {
   let markerName = edgeConfig.relation === "hasOne" ? "hasOne" : "hasMany";
 
   if(edgeConfig.targetPosition) {
@@ -11,5 +11,3 @@ const edgeMarkerName = (edgeConfig: any, targetPosition?: string) => {
 
   return markerName;
 };
-
-export default edgeMarkerName;

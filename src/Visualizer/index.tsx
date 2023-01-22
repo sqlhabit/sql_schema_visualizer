@@ -20,13 +20,14 @@ import InfoPopup from "./InfoPopup";
 import Markers from "./Markers";
 import nodeTypes from "../Config/NodeTypes";
 
-// TODO: extract to index file
-import edgeClassName from "./helpers/edgeClassName";
-import edgeMarkerName from "./helpers/edgeMarkerName";
-import calculateTargetPosition from "./helpers/calculateTargetPosition";
-import calculateSourcePosition from "./helpers/calculateSourcePosition";
-import loadEdgeConfigs from "./helpers/loadEdgeConfigs";
-import initializeNodes from "./helpers/initializeNodes";
+import {
+  edgeClassName,
+  edgeMarkerName,
+  calculateTargetPosition,
+  calculateSourcePosition,
+  loadEdgeConfigs,
+  initializeNodes
+} from "./helpers";
 
 // this is important! You need to import the styles from the lib to make it work
 import "reactflow/dist/style.css";
