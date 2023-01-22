@@ -1,4 +1,4 @@
-const tablePositions = {
+export const tablePositions = {
   "adjust.callbacks": {
     "x": 928,
     "y": -144
@@ -56,5 +56,3 @@ const tablePositions = {
     "y": 528
   }
 };
-
-export default tablePositions;

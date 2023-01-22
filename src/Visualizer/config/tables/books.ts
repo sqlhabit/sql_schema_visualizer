@@ -1,4 +1,4 @@
-const booksTable = {
+export const booksTable = {
   name: "books",
   description: "All books available in the Bindle's library.",
   columns: [
@@ -31,5 +31,3 @@ const booksTable = {
     },
   ]
 };
-
-export default booksTable;

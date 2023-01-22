@@ -1,4 +1,4 @@
-const productsTable = {
+export const productsTable = {
   name: "products",
   description: "The list of all purchasable Bindle products (subscriptions).",
   columns: [
@@ -21,5 +21,3 @@ const productsTable = {
     }
   ]
 };
-
-export default productsTable;

@@ -12,11 +12,12 @@ import {
   InfoIcon
 } from "./icons";
 
-// TODO: extract to index file
-import tables from "../Config/Tables";
-import tablePositions from "../Config/TablePositions";
-import edgeConfigs from "../Config/Edges";
-import nodeTypes from "../Config/NodeTypes";
+import {
+  tables,
+  tablePositions,
+  edgeConfigs,
+  nodeTypes
+} from "./config"
 
 import {
   InfoPopup,
@@ -28,25 +29,17 @@ import {
   edgeMarkerName,
   calculateTargetPosition,
   calculateSourcePosition,
-  loadEdgeConfigs,
   initializeNodes
 } from "./helpers";
+
+import {
+  Positions,
+  EdgeConfig
+} from "./types";
 
 // this is important! You need to import the styles from the lib to make it work
 import "reactflow/dist/style.css";
 import "./Style";
-
-// TODO: Extract to file
-interface Position {
-  x: number;
-  y: number;
-};
-
-interface Positions {
-  tableName: Position;
-};
-
-loadEdgeConfigs(edgeConfigs);
 
 let initialNodes: Node[] = initializeNodes(tables, tablePositions);
 
@@ -64,7 +57,7 @@ function Flow() {
     const initialEdges: Edge[] = [];
 
     // TODO: extract to file
-    edgeConfigs.forEach(edgeConfig => {
+    edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
       const sourceNode = nodes.find((node: Node) => node.id === edgeConfig.source);
       const targetNode = nodes.find((node: Node) => node.id === edgeConfig.target);
 

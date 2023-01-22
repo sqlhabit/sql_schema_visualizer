@@ -1,4 +1,4 @@
-const usersTable = {
+export const usersTable = {
   name: "users",
   description: "This table contains all user records of Bindle.",
   columns: [
@@ -108,5 +108,3 @@ const usersTable = {
     }
   ]
 };
-
-export default usersTable;

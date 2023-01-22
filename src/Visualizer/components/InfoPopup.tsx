@@ -1,9 +1,6 @@
 import { markdown } from "../helpers";
 import { CloseIcon } from "../icons";
-
-type InfoPopupProps = {
-  onClose: Function
-}
+import { InfoPopupProps } from "../types";
 
 export function InfoPopup(props: InfoPopupProps) {
   return (

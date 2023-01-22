@@ -1,4 +1,4 @@
-const mobileAnalyticsEventsTable = {
+export const mobileAnalyticsEventsTable = {
   schema: "mobile_analytics",
   name: "events",
   description: "This analytics table contains all events fired by Bindle's mobile app.",
@@ -68,5 +68,3 @@ const mobileAnalyticsEventsTable = {
     },
   ]
 };
-
-export default mobileAnalyticsEventsTable;

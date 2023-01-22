@@ -1,4 +1,4 @@
-const devicesTable = {
+export const devicesTable = {
   name: "devices",
   description: "This table keeps track of all devices users log in to Bindle with – browsers or mobile apps.",
   columns: [
@@ -32,5 +32,3 @@ const devicesTable = {
     },
   ]
 };
-
-export default devicesTable;

@@ -1,4 +1,4 @@
-const purchasesTable = {
+export const purchasesTable = {
   name: "purchases",
   description: "This table contains all purchase transactions.",
   columns: [
@@ -38,5 +38,3 @@ const purchasesTable = {
     },
   ]
 };
-
-export default purchasesTable;

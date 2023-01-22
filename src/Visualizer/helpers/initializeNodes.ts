@@ -1,14 +1,5 @@
 import { fullTableName } from "./fullTableName";
-
-// TODO: Extract to file
-interface Position {
-  x: number;
-  y: number;
-};
-
-interface Positions {
-  tableName: Position;
-};
+import { Position, Positions } from "../types";
 
 export const initializeNodes = (tableConfigs: any[], tablePositions: any) => {
   const tables = [] as any;

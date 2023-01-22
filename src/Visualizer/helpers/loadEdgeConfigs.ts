@@ -1,14 +1,5 @@
 import { fullTableName } from "./fullTableName";
-
-interface EdgeConfig {
-  source: string
-  sourceKey: string;
-  target: string;
-  targetKey: string;
-  relation: string;
-  sourcePosition?: string;
-  targetPosition?: string;
-}
+import { EdgeConfig } from "../types";
 
 export const loadEdgeConfigs = (edgeConfigs: EdgeConfig[]) => {
   edgeConfigs.forEach(edgeConfig => {
@@ -18,4 +9,6 @@ export const loadEdgeConfigs = (edgeConfigs: EdgeConfig[]) => {
     edgeConfig.source = sourceTableName;
     edgeConfig.target = targetTableName;
   });
+
+  return edgeConfigs;
 }

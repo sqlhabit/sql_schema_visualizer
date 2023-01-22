@@ -1,4 +1,4 @@
-const adjustCallbacksTable = {
+export const adjustCallbacksTable = {
   schema: "adjust",
   name: "callbacks",
   description: "Adjust is a mobile attribution service, sort of Google Analytics for the mobile world. Adjust sends back callbacks with information (attribution) about every mobile install, like where this install comes from, which link a person clicked before installing the app.",
@@ -78,5 +78,3 @@ const adjustCallbacksTable = {
     },
   ]
 };
-
-export default adjustCallbacksTable;

@@ -1,7 +1,4 @@
-type CloseIconProps = {
-  className?: string,
-  onClick?: Function
-}
+import { CloseIconProps } from "../types";
 
 export function CloseIcon(props: CloseIconProps) {
   return (

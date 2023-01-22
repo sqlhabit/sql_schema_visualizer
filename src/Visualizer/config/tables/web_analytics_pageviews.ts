@@ -1,4 +1,4 @@
-const webAnalyticsPageviewsTable = {
+export const webAnalyticsPageviewsTable = {
   schema: "web_analytics",
   name: "pageviews",
   description: "This table contains all pageviews of Bindle's website.",
@@ -59,5 +59,3 @@ const webAnalyticsPageviewsTable = {
     },
   ]
 };
-
-export default webAnalyticsPageviewsTable;

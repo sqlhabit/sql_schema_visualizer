@@ -1,4 +1,6 @@
-const edges = [
+import { EdgeConfig } from "../types";
+
+export const edges: EdgeConfig[] = [
   {
     source: "users",
     sourceKey: "id",
@@ -85,6 +87,4 @@ const edges = [
     sourcePosition: "right",
     targetPosition: "right"
   },
-]
-
-export default edges;
+];

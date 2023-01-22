@@ -1,4 +1,4 @@
-const accountsTable = {
+export const accountsTable = {
   name: "accounts",
   description: "Accounts of platforms users can sign up with. Bindle users might have Facebook or Email accounts.",
   columns: [
@@ -32,5 +32,3 @@ const accountsTable = {
     },
   ]
 };
-
-export default accountsTable;

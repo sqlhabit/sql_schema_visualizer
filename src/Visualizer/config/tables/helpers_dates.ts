@@ -1,4 +1,4 @@
-const helpersDatesTable = {
+export const helpersDatesTable = {
   schema: "helpers",
   name: "dates",
   description: "A helper table with consecutive dates. Might be useful to join sparse timelines to for reporting metrics per day.",
@@ -17,5 +17,3 @@ const helpersDatesTable = {
     }
   ]
 };
-
-export default helpersDatesTable;

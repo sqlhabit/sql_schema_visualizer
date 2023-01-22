@@ -1,4 +1,4 @@
-const webAnalyticsEventsTable = {
+export const webAnalyticsEventsTable = {
   schema: "web_analytics",
   name: "events",
   description: "This table contains all events that happen on Bindle's website pages. Events are tracked during a pageview, that's why there's a has-many relation between pageviews and events.",
@@ -31,5 +31,3 @@ const webAnalyticsEventsTable = {
     }
   ]
 };
-
-export default webAnalyticsEventsTable;

@@ -1,4 +1,4 @@
-const marketingSpendsTable = {
+export const marketingSpendsTable = {
   name: "marketing_spends",
   description: "A table that keeps track of Bindle's marketing investments per campaign, per day.",
   columns: [
@@ -51,5 +51,3 @@ const marketingSpendsTable = {
     },
   ]
 };
-
-export default marketingSpendsTable;
