@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 
-import Flow from '.';
+import Visualizer from '.';
 
 const wrapperStyle = { height: 500 };
 
 test('renders nodes and edges', () => {
   const { container } = render(
     <div style={wrapperStyle}>
-      <Flow />
+      <Visualizer />
     </div>
   );
 

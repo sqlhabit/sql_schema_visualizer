@@ -1,4 +1,4 @@
-function Markers() {
+export function Markers() {
   return (
     <svg style={{ position: "absolute", top: 0, left: 0 }}>
       <defs>
@@ -70,5 +70,3 @@ function Markers() {
     </svg>
   );
 }
-
-export default Markers;

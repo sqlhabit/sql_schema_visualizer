@@ -22,8 +22,6 @@ md.renderer.rules.emoji = (token: Token, idx: Number) => {
   });
 };
 
-const markdown = (text: string) => {
+export const markdown = (text: string) => {
   return md.renderInline(text);
 };
-
-export default markdown;

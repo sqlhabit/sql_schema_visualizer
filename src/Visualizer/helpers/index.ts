@@ -4,3 +4,4 @@ export { calculateTargetPosition } from "./calculateTargetPosition";
 export { calculateSourcePosition } from "./calculateSourcePosition";
 export { loadEdgeConfigs } from "./loadEdgeConfigs";
 export { initializeNodes } from "./initializeNodes";
+export { markdown } from "./markdown";

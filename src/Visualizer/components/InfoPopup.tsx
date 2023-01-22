@@ -1,11 +1,11 @@
-import markdown from "./markdown";
-import { CloseIcon } from "./Icons";
+import { markdown } from "../helpers";
+import { CloseIcon } from "../icons";
 
 type InfoPopupProps = {
   onClose: Function
 }
 
-function InfoPopup(props: InfoPopupProps) {
+export function InfoPopup(props: InfoPopupProps) {
   return (
     <div
       className="info-popup">
@@ -47,6 +47,4 @@ function InfoPopup(props: InfoPopupProps) {
       </div>
     </div>
   );
-}
-
-export default InfoPopup;
+};

@@ -1,4 +1,4 @@
-import TableNode from "../Visualizer/TableNode"
+import { TableNode } from "../Visualizer/components";
 
 const nodeTypes = {
   table: TableNode,

@@ -10,16 +10,18 @@ import {
   MaximizeIcon,
   MinimizeIcon,
   InfoIcon
-} from "./Icons";
+} from "./icons";
 
 // TODO: extract to index file
 import tables from "../Config/Tables";
 import tablePositions from "../Config/TablePositions";
 import edgeConfigs from "../Config/Edges";
-
-import InfoPopup from "./InfoPopup";
-import Markers from "./Markers";
 import nodeTypes from "../Config/NodeTypes";
+
+import {
+  InfoPopup,
+  Markers
+} from "./components";
 
 import {
   edgeClassName,

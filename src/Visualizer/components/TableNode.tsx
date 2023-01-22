@@ -1,11 +1,11 @@
 import { useState, memo, FC } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
-import { KeyIcon } from "./Icons";
-import schemaColors from "../Config/schemaColors";
+import { KeyIcon } from "../icons";
+import schemaColors from "../../Config/schemaColors";
 
 import "@reactflow/node-resizer/dist/style.css";
 
-const TableNode: FC<NodeProps> = ({ data }) => {
+export const TableNode: FC<NodeProps> = ({ data }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
   const [showDescription, setshowDescription] = useState(false);
   const [descriptionOnHoverActive, setDescriptionOnHoverActive] = useState(false);
@@ -93,5 +93,3 @@ const TableNode: FC<NodeProps> = ({ data }) => {
     </div>
   );
 };
-
-export default memo(TableNode);
