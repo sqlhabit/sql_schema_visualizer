@@ -46,6 +46,33 @@ Tests are written with the [React Testing Library](https://testing-library.com/d
 npm test
 ```
 
+## Releasing
+
+### Building your Schema Visualizer
+
+Once you've added your tables, build the project and upload the files from the [`/build`](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/build) to your hosting of choice:
+
+
+```sh
+npm build
+```
+
+### Deploying
+
+I highly recommend https://surge.sh/. It'll take you ~2 minutes to deploy your schema online:
+
+1. `npm install --global surge`.
+2. `cd build`
+3. `surge`
+4. PROFIT :beers:
+
+## Maintainers
+
+Schema Visualizer is a project of Anatoli of [SQL Habit](https://www.sqlhabit.com/). Hi from Berlin! :wave: :beers:
+
+Anatoli Makarevich • [Twitter](https://twitter.com/makaroni4) • [Github](https://github.com/makaroni4)
+
+
 ## License
 
 SQL Schema Visualizer is [MIT licensed](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/LICENSE).
