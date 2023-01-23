@@ -1,4 +1,4 @@
-import { loadEdgeConfigs } from "../helpers";
+import { loadEdgeConfigs } from "../Visualizer/helpers";
 import { edges } from "./edges";
 
 export * from "./tables";

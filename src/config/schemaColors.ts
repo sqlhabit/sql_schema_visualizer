@@ -1,4 +1,4 @@
-import { SchemaColorsDictionary } from "../types"
+import { SchemaColorsDictionary } from "../Visualizer/types"
 
 // Get some color inspiration at https://coolors.co/generate
 export const schemaColors: SchemaColorsDictionary = {

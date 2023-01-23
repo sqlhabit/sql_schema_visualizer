@@ -1,4 +1,4 @@
-import { EdgeConfig } from "../types";
+import { EdgeConfig } from "../Visualizer/types";
 
 export const edges: EdgeConfig[] = [
   {

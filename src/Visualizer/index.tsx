@@ -11,7 +11,7 @@ import {
   tablePositions,
   edgeConfigs,
   nodeTypes
-} from "./config";
+} from "../config";
 
 import {
   MaximizeIcon,
