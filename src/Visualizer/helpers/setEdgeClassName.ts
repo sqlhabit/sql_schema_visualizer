@@ -1,6 +1,6 @@
 import { Edge } from "reactflow";
 
-export const setHighlightEdgeClassName = (edge: Edge) => {
+export const setEdgeClassName = (edge: Edge) => {
   if(edge.className?.includes("has-many-edge-reversed")) {
     edge.className = "has-many-edge-reversed";
     edge.markerEnd = "hasManyReversed"
@@ -14,4 +14,6 @@ export const setHighlightEdgeClassName = (edge: Edge) => {
     edge.className = "has-one-edge";
     edge.markerEnd = "hasOne"
   }
+
+  return edge;
 };

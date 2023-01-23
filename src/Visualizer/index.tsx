@@ -29,7 +29,8 @@ import {
   initializeNodes,
   moveSVGInFront,
   setHighlightEdgeClassName,
-  logTablePositions
+  logTablePositions,
+  setEdgeClassName
 } from "./helpers";
 
 import {
@@ -109,19 +110,15 @@ function Flow() {
       state.addSelectedNodes([node.id]);
 
       const connectedEdges = getConnectedEdges([node], edges);
-      connectedEdges.map(edge => {
-        setEdges((eds) => // https://reactflow.dev/docs/examples/nodes/update-node/
-          eds.map((ed) => {
-            if (ed.id === edge.id) {
-              setHighlightEdgeClassName(ed);
-            }
+      setEdges(eds => {
+        return eds.map((ed) => {
+          if (connectedEdges.find(e => e.id === ed.id)) {
+            setHighlightEdgeClassName(ed);
+          }
 
-            return ed;
-          })
-        );
-
-        return edge
-      })
+          return ed;
+        });
+      });
     },
     [edges, nodeHoverActive, setEdges, store]
   );
@@ -135,12 +132,8 @@ function Flow() {
       const state = store.getState();
       state.resetSelectedElements();
 
-      setEdges((eds) =>
-        eds.map((ed) => {
-          setHighlightEdgeClassName(ed);
-
-          return ed;
-        })
+      setEdges(eds =>
+        eds.map(ed => setEdgeClassName(ed))
       );
 
       // https://stackoverflow.com/questions/2520650/how-do-you-clear-the-focus-in-javascript
