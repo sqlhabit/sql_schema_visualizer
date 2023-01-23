@@ -1,9 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import { render, } from "@testing-library/react";
 
-import App from '.';
+import App from ".";
 
-test('renders header', () => {
-  render(<App />);
-  const headerElement = screen.getByText(/React Flow - CRA Example/i);
-  expect(headerElement).toBeInTheDocument();
+test("renders SQL Habit logo", () => {
+  const { container } = render(<App />);
+
+  // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+  const logo = container.querySelector(".App__logo");
+
+  expect(logo).toBeInTheDocument();
 });

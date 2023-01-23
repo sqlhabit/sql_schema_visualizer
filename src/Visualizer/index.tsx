@@ -80,7 +80,6 @@ function Flow() {
 
     setEdges(eds => initialEdges);
 
-    // TODO: extract to file
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();

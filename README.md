@@ -37,32 +37,3 @@ npm test
 ```sh
 npm run build
 ```
-
-## TODO
-
-- [ ] Write README with screenshots and GIFs.
-- [ ] Add contribution guide.
-- [ ] Refactor.
-- [ ] Fix bug: random hover description showing up without CMD key
-- [x] Get rid of targetPosition param and set it on the fly based on relative node positions. https://reactflow.dev/docs/examples/nodes/update-node/
-- [x] Add info popup content.
-- [x] Final colors for highlighted edges.
-- [x] Final style for table and column descriptions.
-- [x] Final colors for selected edges.
-- [x] Add info popup overlay.
-- [x] Style description tooltip.
-- [x] Write table descriptions.
-- [x] Fix mismatched column descriptions.
-- [x] Pull in all tables and their columns from Bindle dataset.
-- [x] Final font styles.
-- [x] Add Github Action to deploy to Github pages https://create-react-app.dev/docs/deployment/#github-pages
-- [x] Colors for coding different schemas.
-- [x] CMD + Hover to show table and column descriptions.
-- [x] Disable node hover if CMD key is pressed (edge selection).
-- [x] Click on table name shows table description.
-- [x] Simple edge definition that's translated later into ReactFlow syntax.
-- [x] CMD + P prints positions JSON to copy paste (sort tables alphabetically).
-- [x] Favicon.
-- [x] package.json info.
-- [x] Shoutout to ReactFlow demo app.
-- [x] Fix full screen icon when full screen is entered via a shortcut.
