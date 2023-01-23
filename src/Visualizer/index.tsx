@@ -110,9 +110,7 @@ function Flow() {
 
       const connectedEdges = getConnectedEdges([node], edges);
       connectedEdges.map(edge => {
-        // https://reactflow.dev/docs/examples/nodes/update-node/
-        setEdges((eds) =>
-          // TODO: extract to file
+        setEdges((eds) => // https://reactflow.dev/docs/examples/nodes/update-node/
           eds.map((ed) => {
             if (ed.id === edge.id) {
               setHighlightEdgeClassName(ed);
@@ -138,21 +136,8 @@ function Flow() {
       state.resetSelectedElements();
 
       setEdges((eds) =>
-        // TODO: extract to file
         eds.map((ed) => {
-          if(ed.className?.includes("has-many-edge-reversed")) {
-            ed.className = "has-many-edge-reversed";
-            ed.markerEnd = "hasManyReversed"
-          } else if(ed.className?.includes("has-many-edge")) {
-            ed.className = "has-many-edge";
-            ed.markerEnd = "hasMany"
-          } else if(ed.className?.includes("has-one-edge-reversed")) {
-            ed.className = "has-one-edge-reversed";
-            ed.markerEnd = "hasOneReversed"
-          } else if(ed.className?.includes("has-one-edge")) {
-            ed.className = "has-one-edge";
-            ed.markerEnd = "hasOne"
-          }
+          setHighlightEdgeClassName(ed);
 
           return ed;
         })
