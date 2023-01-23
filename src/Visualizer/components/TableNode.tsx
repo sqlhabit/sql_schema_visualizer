@@ -1,6 +1,6 @@
 import { useState, FC } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
-import { KeyIcon } from "../icons";
+import { KeyIcon } from "../components";
 import { schemaColors } from "../config";
 
 import "@reactflow/node-resizer/dist/style.css";

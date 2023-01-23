@@ -16,10 +16,7 @@ import {
 import {
   MaximizeIcon,
   MinimizeIcon,
-  InfoIcon
-} from "./icons";
-
-import {
+  InfoIcon,
   InfoPopup,
   Markers
 } from "./components";

@@ -1,5 +1,5 @@
 import { markdown } from "../helpers";
-import { CloseIcon } from "../icons";
+import { CloseIcon } from "../components";
 import { InfoPopupProps } from "../types";
 
 export function InfoPopup(props: InfoPopupProps) {
