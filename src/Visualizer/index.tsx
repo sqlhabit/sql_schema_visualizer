@@ -145,26 +145,26 @@ function Flow() {
           // TODO: extract to file
           eds.map((ed) => {
             if (ed.id === edge.id) {
-              if(edge.className?.includes("has-many-edge-reversed")) {
+              if(ed.className?.includes("has-many-edge-reversed")) {
                 ed.className = "has-many-edge-reversed has-many-edge-reversed--highlighted";
                 ed.markerEnd = "hasManyReversedHighlighted"
 
                 // https://stackoverflow.com/questions/17786618/how-to-use-z-index-in-svg-elements
                 const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
                 moveInFront(svg)
-              } else if(edge.className?.includes("has-many-edge")) {
+              } else if(ed.className?.includes("has-many-edge")) {
                 ed.className = "has-many-edge has-many-edge--highlighted";
                 ed.markerEnd = "hasManyHighlighted"
 
                 const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
                 moveInFront(svg)
-              } else if(edge.className?.includes("has-one-edge-reversed")) {
+              } else if(ed.className?.includes("has-one-edge-reversed")) {
                 ed.className = "has-one-edge-reversed has-one-edge-reversed--highlighted";
                 ed.markerEnd = "hasOneReversedHighlighted"
 
                 const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
                 moveInFront(svg)
-              } else if(edge.className?.includes("has-one-edge")) {
+              } else if(ed.className?.includes("has-one-edge")) {
                 ed.className = "has-one-edge has-one-edge--highlighted";
                 ed.markerEnd = "hasOneHighlighted"
 
