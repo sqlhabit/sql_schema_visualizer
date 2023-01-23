@@ -18,6 +18,18 @@ jobs:
   specs:
     runs-on: ubuntu-latest
     steps:
+    - name: Check out your repository using git
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
     - name: Run specs
       run: npm run test
 
@@ -34,7 +46,6 @@ jobs:
         node-version: '16'
         cache: 'npm'
 
-    # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
     - name: Install dependencies
       run: npm ci
 
