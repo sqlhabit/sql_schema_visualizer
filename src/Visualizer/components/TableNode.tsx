@@ -64,13 +64,13 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
             {column.handleType && <Handle
               type={column.handleType}
               position={Position.Right}
-              id={`${column.name}-r`}
+              id={`${column.name}-right`}
               className={column.handleType === "source" ? "right-handle source-handle" : "right-handle target-handle"}
             />}
             {column.handleType && <Handle
               type={column.handleType}
               position={Position.Left}
-              id={`${column.name}-l`}
+              id={`${column.name}-left`}
               className={column.handleType === "source" ? "left-handle source-handle" : "left-handle target-handle"}
             />}
 
