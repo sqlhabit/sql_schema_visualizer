@@ -17,7 +17,7 @@ There's no need to update them manually. Instead:
 3. Paste (**CMD** + **V**) JSON with positions to the [`src/config/tablePositions.ts`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.ts) file.
 4. PROFIT :beers:
 
-### Development
+## Development
 
 You'll need to install dependencies and start a dev server:
 
@@ -29,7 +29,7 @@ npm start
 
 You'll find the running visualizer at [http://localhost:3000](http://localhost:3000).
 
-### Testing
+## Testing
 
 Tests are written with the [React Testing Library](https://testing-library.com/docs/react-testing-library/example-intro). Run all of them via
 
@@ -37,13 +37,6 @@ Tests are written with the [React Testing Library](https://testing-library.com/d
 ```sh
 npm test
 ```
-
-### Build
-
-```sh
-npm run build
-```
-
 
 ## License
 
