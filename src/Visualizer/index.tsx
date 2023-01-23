@@ -28,11 +28,11 @@ import {
   calculateSourcePosition,
   initializeNodes,
   moveSVGInFront,
-  setHighlightEdgeClassName
+  setHighlightEdgeClassName,
+  logTablePositions
 } from "./helpers";
 
 import {
-  Positions,
   EdgeConfig
 } from "./types";
 
@@ -85,29 +85,7 @@ function Flow() {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
 
-        const positions = {} as Positions;
-
-        const compare = ( a: String, b: String ) => {
-          if ( a < b ) {
-            return -1;
-          }
-
-          if ( a > b ) {
-            return 1;
-          }
-
-          return 0;
-        }
-
-        nodes.sort((n1: Node, n2: Node) => compare(n1.id, n2.id)).forEach((n: Node) => {
-          positions[n.id as keyof Positions] = {
-            x: Math.round(n.position.x),
-            y: Math.round(n.position.y)
-          };
-        });
-
-        navigator.clipboard.writeText(JSON.stringify(positions, null, 2));
-        console.log(JSON.stringify(positions, null, 2));
+        logTablePositions(nodes);
       }
     }
 
