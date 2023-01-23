@@ -56,7 +56,6 @@ function Flow() {
     const nodes = instance.getNodes();
     const initialEdges: Edge[] = [];
 
-    // TODO: extract to file
     edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
       const sourceNode = nodes.find((node: Node) => node.id === edgeConfig.source);
       const targetNode = nodes.find((node: Node) => node.id === edgeConfig.target);
@@ -79,7 +78,7 @@ function Flow() {
       });
     });
 
-    setEdges((eds) => eds.concat(initialEdges));
+    setEdges(eds => initialEdges);
 
     // TODO: extract to file
     const handleKeyboard = (e: KeyboardEvent) => {
@@ -174,8 +173,8 @@ function Flow() {
             });
 
             if(nodeChange.positionAbsolute?.x) {
-              setEdges((eds) =>
-                eds.map((ed) => {
+              setEdges(eds =>
+                eds.map(ed => {
                   if(edge && ed.id === edge.id) {
                     const sourcePosition = edgeConfig!.sourcePosition || calculateSourcePosition((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x);
                     const targetPosition = edgeConfig!.targetPosition || calculateTargetPosition((incomingNode.width as number), incomingNode.position.x, (node.width as number), nodeChange.positionAbsolute!.x);
@@ -206,8 +205,8 @@ function Flow() {
             });
 
             if(nodeChange.positionAbsolute?.x) {
-              setEdges((eds) =>
-                eds.map((ed) => {
+              setEdges(eds =>
+                eds.map(ed => {
                   if(edge && ed.id === edge.id) {
                     const sourcePosition = edgeConfig!.sourcePosition || calculateSourcePosition((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x);
                     const targetPosition = edgeConfig!.targetPosition || calculateTargetPosition((node.width as number), nodeChange.positionAbsolute!.x, (targetNode.width as number), targetNode.position.x);

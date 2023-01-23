@@ -84,7 +84,7 @@ export const edges: EdgeConfig[] = [
     target: "users",
     targetKey: "referrer_id",
     relation: "hasMany",
-    sourcePosition: "right",
-    targetPosition: "right"
+    sourcePosition: "left",
+    targetPosition: "left"
   },
 ];
