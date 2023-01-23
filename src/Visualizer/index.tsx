@@ -47,7 +47,7 @@ function Flow() {
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
-  let nodeHoverActive = true; // TODO: move to state
+  const [nodeHoverActive, setNodeHoverActive] = useState(true);
 
   const onInit = (instance: any) => {
     const nodes = instance.getNodes();
@@ -356,13 +356,13 @@ function Flow() {
 
   document.addEventListener("keydown", (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
-      nodeHoverActive = false;
+      setNodeHoverActive(false);
     }
   }, false);
 
   document.addEventListener("keyup", (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
-      nodeHoverActive = true;
+      setNodeHoverActive(true);
     }
   }, false);
 
