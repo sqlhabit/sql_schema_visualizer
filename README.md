@@ -17,6 +17,10 @@ There's no need to update them manually. Instead:
 3. Paste (**CMD** + **V**) JSON with positions to the [`src/config/tablePositions.ts`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.ts) file.
 4. PROFIT :beers:
 
+## Contributing
+
+You're more than welcome to contribute. In fact, I'm really looking forward to it! Just make sure to check out the [contribution guidelines](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/CONTRIBUTING.md). :pray:
+
 ## Development
 
 You'll need to install dependencies and start a dev server:
@@ -40,4 +44,4 @@ npm test
 
 ## License
 
-SQL Schema Visualizer is [MIT licensed](/blob/main/LICENSE).
+SQL Schema Visualizer is [MIT licensed](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/LICENSE).
