@@ -4,7 +4,9 @@ A prototype of relational database schema visualization using [ReactFlow](https:
 
 ## How it works?
 
-Every table is a ReactFlow' [Custom Node](https://reactflow.dev/docs/guides/custom-nodes/) with custom [Markers](https://reactflow.dev/docs/examples/edges/markers/) (those SVG icons with dot and fork). [Here's a ReactFlow sandbox example of Custom Nodes](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-create-react-app).
+Every table is a ReactFlow [Custom Node](https://reactflow.dev/docs/guides/custom-nodes/) with custom [Markers](https://reactflow.dev/docs/examples/edges/markers/) (those SVG icons with dot and fork).
+
+[Here's a ReactFlow sandbox example of Custom Nodes](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-create-react-app).
 
 ## How to arrange tables for your schema
 
@@ -19,7 +21,9 @@ There's no need to update them manually. Instead:
 
 ## Contributing
 
-You're more than welcome to contribute. In fact, I'm really looking forward to it! Just make sure to check out the [contribution guidelines](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/CONTRIBUTING.md). :pray:
+You're more than welcome to contribute. In fact, I'm really looking forward to it! :rocket:
+
+Just make sure to check out the [contribution guidelines](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/CONTRIBUTING.md). :pray:
 
 ## Development
 
