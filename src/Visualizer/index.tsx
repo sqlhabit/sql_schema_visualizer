@@ -26,7 +26,9 @@ import {
   edgeMarkerName,
   calculateTargetPosition,
   calculateSourcePosition,
-  initializeNodes
+  initializeNodes,
+  moveSVGInFront,
+  setHighlightEdgeClassName
 } from "./helpers";
 
 import {
@@ -117,16 +119,6 @@ function Flow() {
     });
   }
 
-  // An SVG z-index hack to move selected edge on top of other edges.
-  function moveInFront(element: any) {
-    if(!element) {
-      return;
-    }
-
-    const svg = element.closest("svg");
-    svg.appendChild(element);
-  }
-
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(
     (_: any, node: Node) => {
@@ -145,32 +137,7 @@ function Flow() {
           // TODO: extract to file
           eds.map((ed) => {
             if (ed.id === edge.id) {
-              if(ed.className?.includes("has-many-edge-reversed")) {
-                ed.className = "has-many-edge-reversed has-many-edge-reversed--highlighted";
-                ed.markerEnd = "hasManyReversedHighlighted"
-
-                // https://stackoverflow.com/questions/17786618/how-to-use-z-index-in-svg-elements
-                const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
-                moveInFront(svg)
-              } else if(ed.className?.includes("has-many-edge")) {
-                ed.className = "has-many-edge has-many-edge--highlighted";
-                ed.markerEnd = "hasManyHighlighted"
-
-                const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
-                moveInFront(svg)
-              } else if(ed.className?.includes("has-one-edge-reversed")) {
-                ed.className = "has-one-edge-reversed has-one-edge-reversed--highlighted";
-                ed.markerEnd = "hasOneReversedHighlighted"
-
-                const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
-                moveInFront(svg)
-              } else if(ed.className?.includes("has-one-edge")) {
-                ed.className = "has-one-edge has-one-edge--highlighted";
-                ed.markerEnd = "hasOneHighlighted"
-
-                const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
-                moveInFront(svg)
-              }
+              setHighlightEdgeClassName(ed);
             }
 
             return ed;
@@ -224,7 +191,7 @@ function Flow() {
       const edges = params.edges;
       edges.forEach(ed => {
         const svg = document.querySelector(".react-flow__edges")?.querySelector(`[data-testid="rf__edge-${ed.id}"]`)
-        moveInFront(svg)
+        moveSVGInFront(svg)
       })
     },
     []

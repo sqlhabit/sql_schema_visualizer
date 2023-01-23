@@ -5,3 +5,5 @@ export * from "./calculateSourcePosition";
 export * from "./loadEdgeConfigs";
 export * from "./initializeNodes";
 export * from "./markdown";
+export * from "./moveSVGInFront";
+export * from "./setHighlightEdgeClassName";
