@@ -9,7 +9,8 @@ const resetConfigFile = async (filePath) => {
 };
 
 const cleanUpTablesFolder = async () => {
-  await fs.rmSync("src/config/tables", { recursive: true, force: true });
+  await fs.rm("src/config/tables", { recursive: true });
+  await fs.mkdir("src/config/tables");
 };
 
 const readline = require('readline').createInterface({
@@ -23,6 +24,7 @@ readline.question("Do you want to reset existing tables, edges and schema colors
     await resetConfigFile("src/config/schemaColors.ts");
     await resetConfigFile("src/config/tablePositions.ts");
     await resetConfigFile("src/config/tables.ts");
+    await cleanUpTablesFolder();
 
     console.log("Roger, everything is reset.");
   } else {

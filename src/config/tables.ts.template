@@ -1,5 +1,5 @@
 // import { usersTable } from "./tables/usersTable";
 
-// export const tables = [
-//   usersTable
-// ];
+export const tables = [
+  // usersTable
+];
