@@ -55,7 +55,6 @@
     ]
   },
   "devDependencies": {
-    "@juggle/resize-observer": "^3.4.0",
-    "yaml-loader": "^0.8.0"
+    "@juggle/resize-observer": "^3.4.0"
   }
 }
