@@ -1,5 +1,5 @@
 import { Position } from "./Position";
 
 export interface TablePositions {
-  tableName: Position;
+  [tableName: string] : Position
 };
