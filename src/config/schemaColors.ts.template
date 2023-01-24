@@ -1,0 +1,7 @@
+import { SchemaColorsDictionary } from "../Visualizer/types"
+
+// Get some color inspiration at https://coolors.co/generate
+export const schemaColors: SchemaColorsDictionary = {
+  "DEFAULT": "#91C4F2",
+  "public": "#BEB8EB",
+};
