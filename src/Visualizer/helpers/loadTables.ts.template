@@ -1,0 +1,9 @@
+// import usersTable from "../../config/tables/usersTable.json";
+
+const tables = [
+  // usersTable
+];
+
+export const loadTables = () => {
+  return tables;
+};

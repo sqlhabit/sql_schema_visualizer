@@ -23,6 +23,7 @@ readline.question("Do you want to reset existing tables, edges and schema colors
     await resetConfigFile("src/config/edges.json");
     await resetConfigFile("src/config/schemaColors.json");
     await resetConfigFile("src/config/tablePositions.json");
+    await resetConfigFile("src/Visualizer/helpers/loadTables.ts");
     await cleanUpTablesFolder();
 
     console.log("Roger, everything is reset.");
