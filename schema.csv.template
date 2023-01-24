@@ -1,0 +1,117 @@
+"table_schema","table_name","column_name","data_type","ordinal_position"
+"adjust","callbacks","id","bigint",1
+"adjust","callbacks","tracker","character varying",2
+"adjust","callbacks","created_at","timestamp without time zone",3
+"adjust","callbacks","campaign_name","character varying",4
+"adjust","callbacks","creative_name","character varying",5
+"adjust","callbacks","adgroup_name","character varying",6
+"adjust","callbacks","label","character varying",7
+"adjust","callbacks","device_name","character varying",8
+"adjust","callbacks","app_version","character varying",9
+"adjust","callbacks","activity_kind","character varying",10
+"adjust","callbacks","event_name","character varying",11
+"adjust","callbacks","adid","character varying",12
+"adjust","callbacks","user_id","bigint",13
+"adjust","callbacks","country","character varying",14
+"helpers","dates","id","bigint",1
+"helpers","dates","date","date",2
+"mobile_analytics","events","event_id","character varying",1
+"mobile_analytics","events","category","character varying",2
+"mobile_analytics","events","action","character varying",3
+"mobile_analytics","events","name","character varying",4
+"mobile_analytics","events","screen_resolution","character varying",5
+"mobile_analytics","events","device_type","character varying",6
+"mobile_analytics","events","user_id","integer",7
+"mobile_analytics","events","adid","character varying",8
+"mobile_analytics","events","country","character varying",9
+"mobile_analytics","events","custom_parameters","json",10
+"mobile_analytics","events","created_at","timestamp without time zone",11
+"mobile_analytics","events","app_version","character varying",13
+"public","ab_test_categorization","user_id","integer",1
+"public","ab_test_categorization","ab_test_name","text",2
+"public","ab_test_categorization","ab_test_variation","text",3
+"public","ab_test_categorization","categorized_at","timestamp without time zone",4
+"public","accounts","id","bigint",1
+"public","accounts","user_id","bigint",2
+"public","accounts","email","character varying",3
+"public","accounts","platform","character varying",4
+"public","accounts","created_at","timestamp without time zone",5
+"public","ar_internal_metadata","key","character varying",1
+"public","ar_internal_metadata","value","character varying",2
+"public","ar_internal_metadata","created_at","timestamp without time zone",3
+"public","ar_internal_metadata","updated_at","timestamp without time zone",4
+"public","books","id","bigint",1
+"public","books","name","character varying",2
+"public","books","genre","character varying",3
+"public","books","pages_count","integer",4
+"public","books","slug","character varying",5
+"public","books_users","id","bigint",1
+"public","books_users","user_id","bigint",2
+"public","books_users","book_id","bigint",3
+"public","books_users","last_page","integer",4
+"public","books_users","created_at","timestamp without time zone",5
+"public","devices","id","bigint",1
+"public","devices","user_id","bigint",2
+"public","devices","device_type","character varying",3
+"public","devices","connected_at","timestamp without time zone",4
+"public","devices","version","character varying",5
+"public","marketing_spends","id","bigint",1
+"public","marketing_spends","spent_at","date",2
+"public","marketing_spends","amount","numeric",3
+"public","marketing_spends","utm_medium","character varying",4
+"public","marketing_spends","utm_source","character varying",5
+"public","marketing_spends","utm_campaign","character varying",6
+"public","marketing_spends","utm_term","character varying",7
+"public","marketing_spends","utm_content","character varying",8
+"public","marketing_spends","clicks","integer",9
+"public","products","id","bigint",1
+"public","products","name","character varying",2
+"public","products","price","numeric",3
+"public","profiles","id","bigint",1
+"public","profiles","user_id","bigint",2
+"public","profiles","about","text",3
+"public","profiles","interests","text",4
+"public","profiles","avatar_url","character varying",5
+"public","profiles","postal_code","character varying",6
+"public","purchases","id","bigint",1
+"public","purchases","user_id","bigint",2
+"public","purchases","product_id","bigint",3
+"public","purchases","amount","numeric",4
+"public","purchases","refunded","boolean",5
+"public","purchases","created_at","timestamp without time zone",6
+"public","schema_migrations","version","character varying",1
+"public","users","id","bigint",1
+"public","users","email","character varying",2
+"public","users","first_name","character varying",3
+"public","users","last_name","character varying",4
+"public","users","country","character varying",5
+"public","users","created_at","timestamp without time zone",6
+"public","users","age","integer",7
+"public","users","referrer_id","bigint",8
+"public","users","signup_date","date",9
+"public","users","utm_source","character varying",10
+"public","users","utm_campaign","character varying",11
+"public","users","utm_medium","character varying",12
+"public","users","utm_term","character varying",13
+"public","users","utm_content","character varying",14
+"public","users","visitor_id","character varying",15
+"public","users","status","character varying",16
+"public","users","adjust_tracker","character varying",17
+"public","users","adjust_campaign","character varying",18
+"public","users","adjust_adgroup","character varying",19
+"public","users","adjust_creative","character varying",20
+"web_analytics","events","category","character varying",1
+"web_analytics","events","action","character varying",2
+"web_analytics","events","name","character varying",3
+"web_analytics","events","pageview_id","character varying",9
+"web_analytics","events","created_at","timestamp without time zone",13
+"web_analytics","pageviews","url","text",1
+"web_analytics","pageviews","referer_url","text",2
+"web_analytics","pageviews","screen_resolution","character varying",3
+"web_analytics","pageviews","device_type","character varying",4
+"web_analytics","pageviews","custom_parameters","json",5
+"web_analytics","pageviews","pageview_id","character varying",6
+"web_analytics","pageviews","user_id","integer",7
+"web_analytics","pageviews","visitor_id","character varying",8
+"web_analytics","pageviews","created_at","timestamp without time zone",10
+"web_analytics","pageviews","country","character varying",11

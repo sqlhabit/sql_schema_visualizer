@@ -13,7 +13,7 @@ const cleanUpTablesFolder = async () => {
   await fs.mkdir("src/config/tables");
 };
 
-const readline = require('readline').createInterface({
+const readline = require("readline").createInterface({
   input: process.stdin,
   output: process.stdout
 });
