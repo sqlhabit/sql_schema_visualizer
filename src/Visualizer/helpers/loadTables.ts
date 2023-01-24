@@ -15,7 +15,7 @@ import usersTable from "../../config/tables/users.json";
 import webAnalyticsEventsTable from "../../config/tables/web_analytics_events.json";
 import webAnalyticsPageviewsTable from "../../config/tables/web_analytics_pageviews.json";
 
-const tables = [
+const tables: TableConfig[] = [
   accountsTable,
   adjustCallbacksTable,
   booksUsersTable,
@@ -33,6 +33,6 @@ const tables = [
 ];
 
 
-export const loadTables = (): TableConfig[] => {
+export const loadTables = () => {
   return tables;
 };

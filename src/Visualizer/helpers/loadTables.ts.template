@@ -2,7 +2,7 @@ import { TableConfig } from "../types";
 
 // import usersTable from "../../config/tables/users.json";
 
-const tables = [
+const tables: TableConfig[] = [
   // usersTable,
 ];
 
