@@ -1,8 +1,11 @@
-import { loadEdgeConfigs } from "../Visualizer/helpers";
+import {
+  loadEdgeConfigs,
+  loadSchemaColors
+} from "../Visualizer/helpers";
 
 export * from "./tables";
 export * from "./nodeTypes";
 export * from "./tablePositions";
-export * from "./schemaColors";
 
+export const schemaColors = loadSchemaColors();
 export const edgeConfigs = loadEdgeConfigs();

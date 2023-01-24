@@ -9,3 +9,4 @@ export * from "./moveSVGInFront";
 export * from "./setHighlightEdgeClassName";
 export * from "./setEdgeClassName";
 export * from "./logTablePositions";
+export * from "./loadSchemaColors";

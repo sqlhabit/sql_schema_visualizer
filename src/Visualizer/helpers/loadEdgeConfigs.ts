@@ -1,22 +1,15 @@
 import { fullTableName } from "./fullTableName";
 import { EdgeConfig } from "../types";
-import { load as loadJson } from 'js-yaml';
-import edgeConfigsFile from "./edges.yaml";
+import edgeConfigs from "../../config/edges.json";
 
-export const loadEdgeConfigs = () => {
-  let err = loadJson(edgeConfigsFile);
+export const loadEdgeConfigs = (): EdgeConfig[] => {
+  edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
+    const sourceTableName = fullTableName(edgeConfig.source);
+    const targetTableName = fullTableName(edgeConfig.target);
 
-  console.log(err);
+    edgeConfig.source = sourceTableName;
+    edgeConfig.target = targetTableName;
+  });
 
-  // edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
-  //   const sourceTableName = fullTableName(edgeConfig.source);
-  //   const targetTableName = fullTableName(edgeConfig.target);
-
-  //   edgeConfig.source = sourceTableName;
-  //   edgeConfig.target = targetTableName;
-  // });
-
-  const edges: EdgeConfig[] = [];
-
-  return edges;
+  return edgeConfigs;
 }

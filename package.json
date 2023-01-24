@@ -15,7 +15,6 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "gh-pages": "^4.0.0",
-    "js-yaml": "^4.1.0",
     "markdown-it": "^13.0.1",
     "markdown-it-emoji": "^2.0.2",
     "react": "^18.2.0",
@@ -57,6 +56,6 @@
   },
   "devDependencies": {
     "@juggle/resize-observer": "^3.4.0",
-    "@types/js-yaml": "^4.0.5"
+    "yaml-loader": "^0.8.0"
   }
 }
