@@ -9,8 +9,8 @@ import ReactFlow, {
 import {
   tables,
   tablePositions,
-  edgeConfigs,
-  nodeTypes
+  nodeTypes,
+  edgeConfigs
 } from "../config";
 
 import {
