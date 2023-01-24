@@ -3,7 +3,7 @@
 const fs = require("fs").promises;
 const SCHEMA_FILE = "schema.csv";
 const DATA_TYPES = {
-  "character varying": "text"
+  "character varying": "chars"
 }
 
 const adjustDataTypeName = (rawName) => {
