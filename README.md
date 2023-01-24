@@ -8,7 +8,21 @@ Every table is a ReactFlow [Custom Node](https://reactflow.dev/docs/guides/custo
 
 [Here's a ReactFlow sandbox example of Custom Nodes](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-create-react-app).
 
-## How to arrange tables for your schema
+## How to config your own schema
+
+### Resetting config files
+
+To visualize your schema, first you need to clone the repo and reset all config files:
+
+```sh
+git clone https://github.com/sqlhabit/sql_schema_visualizer.git
+
+cd sql_schema_visualizer
+
+npm run reset
+```
+
+### How to arrange tables for your schema
 
 By default, every table will be places in the center of the screen (`x: 0, y: 0` posision). All custom positions are stored in the [`src/config/tablePositions.ts`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.ts) file.
 
