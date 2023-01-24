@@ -6,5 +6,5 @@ dist
 .eslintcache
 .idea
 .log
-
 .rollup.cache
+schema.csv

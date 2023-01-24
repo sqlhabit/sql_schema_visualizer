@@ -1,0 +1,70 @@
+{
+  "schema": "mobile_analytics",
+  "name": "events",
+  "description": "This analytics table contains all events fired by Bindle's mobile app.",
+  "columns": [
+    {
+      "name": "event_id",
+      "description": "Unique identifier of an event.",
+      "type": "text",
+      "handleType": "source",
+      "key": true
+    },
+    {
+      "name": "category",
+      "description": "Category parameter of an event, for example onboarding.",
+      "type": "text"
+    },
+    {
+      "name": "action",
+      "description": "Action parameter of an event, for example screenview.",
+      "type": "text"
+    },
+    {
+      "name": "name",
+      "description": "Name parameter of an event, for example bindle-content.",
+      "type": "text"
+    },
+    {
+      "name": "screen_resolution",
+      "description": "Resolution of a user’s smartphone, for example 375x812.",
+      "type": "text"
+    },
+    {
+      "name": "device_type",
+      "description": "Model of a a user’s smartphone and the version of the OS, for example iPhone 7,12.1.0.",
+      "type": "text"
+    },
+    {
+      "name": "user_id",
+      "description": "If user is logged in – ID of a user in the users table.",
+      "type": "integer",
+      "handleType": "target"
+    },
+    {
+      "name": "adid",
+      "description": "Unique identifier of a user’s smartphone, same as in Adjust callbacks table.",
+      "type": "text"
+    },
+    {
+      "name": "country",
+      "description": "Country derived from user’s IP address.",
+      "type": "text"
+    },
+    {
+      "name": "custom_parameters",
+      "description": "All custom parameters of an even in a key-value format.",
+      "type": "JSON"
+    },
+    {
+      "name": "created_at",
+      "description": "Timestamp of an event.",
+      "type": "datetime"
+    },
+    {
+      "name": "app_version",
+      "description": "Version of the Bindle app a user is using, for example 1.1.1.",
+      "type": "text"
+    }
+  ]
+}

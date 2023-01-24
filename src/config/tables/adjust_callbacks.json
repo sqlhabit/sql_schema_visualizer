@@ -1,0 +1,80 @@
+{
+  "schema": "adjust",
+  "name": "callbacks",
+  "description": "Adjust is a mobile attribution service, sort of Google Analytics for the mobile world. Adjust sends back callbacks with information (attribution) about every mobile install, like where this install comes from, which link a person clicked before installing the app.",
+  "columns": [
+    {
+      "name": "id",
+      "description": "Unique ID of an Adjust callback.",
+      "type": "integer",
+      "handleType": "source",
+      "key": true
+    },
+    {
+      "name": "tracker",
+      "description": "Adjust’s tracker parameter. For example https://app.adjust.com/gxel3d1.",
+      "type": "text"
+    },
+    {
+      "name": "created_at",
+      "description": "Timestamp of a callback.",
+      "type": "datetime"
+    },
+    {
+      "name": "campaign_name",
+      "description": "The value of campaign paramenter in Adjust URL.",
+      "type": "text"
+    },
+    {
+      "name": "adgroup_name",
+      "description": "The value of adgroup paramenter in Adjust URL.",
+      "type": "text"
+    },
+    {
+      "name": "creative_name",
+      "description": "The value of creative paramenter in Adjust URL.",
+      "type": "text"
+    },
+    {
+      "name": "label",
+      "description": "The value of label paramenter in Adjust URL.",
+      "type": "text"
+    },
+    {
+      "name": "device_name",
+      "description": "Model and OS version of a user’s device.",
+      "type": "text"
+    },
+    {
+      "name": "app_version",
+      "description": "Bindle’s app version at the moment.",
+      "type": "text"
+    },
+    {
+      "name": "activity_kind",
+      "description": "Predefined Adjust event, could be click, install, event (means custom event and event_name will be present) or else.",
+      "type": "text"
+    },
+    {
+      "name": "event_name",
+      "description": "Custom Adjust event; Bindle has custom signup event.",
+      "type": "text"
+    },
+    {
+      "name": "adid",
+      "description": "Adjust’s device ID.",
+      "type": "text"
+    },
+    {
+      "name": "user_id",
+      "description": "ID of a user (from users table). Present for signup event.",
+      "type": "integer",
+      "handleType": "target"
+    },
+    {
+      "name": "country",
+      "description": "Country derived from user’s IP address.",
+      "type": "text"
+    }
+  ]
+}

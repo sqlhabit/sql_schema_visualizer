@@ -1,0 +1,68 @@
+#!/usr/bin/env node
+
+const fs = require("fs").promises;
+const SCHEMA_FILE = "schema.csv";
+const DATA_TYPES = {
+  "character varying": "chars"
+}
+
+const adjustDataTypeName = (rawName) => {
+  if(DATA_TYPES[rawName]) {
+    return DATA_TYPES[rawName];
+  } else {
+    return rawName;
+  }
+};
+
+const readTableData = async () => {
+  const schema = await fs.readFile(SCHEMA_FILE, "utf8");
+
+  const schemaData = schema.replaceAll('"', '').trim().split("\n").map(row => row.split(","));
+  const [headers] = schemaData.splice(0, 1);
+
+  const data = schemaData.map(row => {
+    return Object.fromEntries(headers.map((key, index)=> [key, row[index]]));
+  });
+
+  data.map(o => o.data_type = adjustDataTypeName(o.data_type));
+
+  return data;
+};
+
+const importTables = async () => {
+  const tableData = await readTableData();
+  const tables = {};
+  const schemas = {};
+
+  tableData.forEach(row => {
+    schemas[row.table_schema] = true;
+    const name = row.table_schema === "public" ? row.table_name : `${row.table_schema}.${row.table_name}`;
+
+    if(tables[name]) {
+      tables[name].push([row.column_name, row.data_type]);
+    } else {
+      tables[name] = [];
+    }
+  });
+
+  // TODO: generate schemaColors
+  // TODO: generate tables
+  // TODO: generate tablePositions
+};
+
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+readline.question("Do you want to import schema from a CSV file? y/n\n", async (answer) => {
+  if(answer.toLowerCase().includes("y")) {
+    await importTables();
+
+    console.log("Roger, everything is imported.");
+  } else {
+    console.log("Roger, skipping importing.");
+  }
+
+  readline.close();
+});

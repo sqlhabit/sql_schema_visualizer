@@ -1,5 +1,0 @@
-import { EdgeConfig } from "../Visualizer/types";
-
-export const edges: EdgeConfig[] = [
-
-];

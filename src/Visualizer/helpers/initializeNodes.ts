@@ -1,18 +1,18 @@
 import { fullTableName } from "./fullTableName";
-import { Position, Positions } from "../types";
+import { Position, TablePositions } from "../types";
 
 export const initializeNodes = (tableConfigs: any[], tablePositions: any) => {
   const tables = [] as any;
-  const tablePositionsWithSchema = {} as Positions;
+  const tablePositionsWithSchema = {} as TablePositions;
 
   Object.entries(tablePositions).forEach(params => {
     const tableName = params[0];
     const position = params[1] as Position;
 
     if(tableName.includes(".")) {
-      tablePositionsWithSchema[tableName as keyof Positions] = position;
+      tablePositionsWithSchema[tableName as keyof TablePositions] = position;
     } else {
-      tablePositionsWithSchema[fullTableName(tableName) as keyof Positions] = position;
+      tablePositionsWithSchema[fullTableName(tableName) as keyof TablePositions] = position;
     }
   });
 
