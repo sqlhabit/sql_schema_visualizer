@@ -1,9 +1,11 @@
-// import usersTable from "../../config/tables/usersTable.json";
+import { TableConfig } from "../types";
+
+// import usersTable from "../../config/tables/users.json";
 
 const tables = [
-  // usersTable
+  // usersTable,
 ];
 
-export const loadTables = () => {
+export const loadTables = (): TableConfig[] => {
   return tables;
 };
