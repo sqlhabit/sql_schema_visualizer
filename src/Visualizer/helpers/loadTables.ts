@@ -1,3 +1,5 @@
+import { TableConfig } from "../types";
+
 import accountsTable from "../../config/tables/accounts.json";
 import adjustCallbacksTable from "../../config/tables/adjust_callbacks.json";
 import booksUsersTable from "../../config/tables/books_users.json";
@@ -31,6 +33,6 @@ const tables = [
 ];
 
 
-export const loadTables = () => {
+export const loadTables = (): TableConfig[] => {
   return tables;
 };

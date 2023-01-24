@@ -4,3 +4,4 @@ export * from "./TablePositions";
 export * from "./SchemaColors";
 export * from "./InfoPopupProps";
 export * from "./CloseIconProps";
+export * from "./TableConfig";
