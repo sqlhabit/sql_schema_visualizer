@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
 const fs = require("fs").promises;
+
 const SCHEMA_FILE = "schema.csv";
 const SCHEMA_COLORS_FILE = "src/config/schemaColors.json";
 const SCHEMA_COLORS_TEMPLATE_FILE = "src/config/schemaColors.json.template";
 const TABLE_POSITIONS_FILE = "src/config/tablePositions.json";
+
 const DATA_TYPES = {
   "character varying": "text",
   "timestamp without time zone": "timestamp"
@@ -25,7 +27,7 @@ const readTableData = async () => {
   const [headers] = schemaData.splice(0, 1);
 
   const data = schemaData.map(row => {
-    return Object.fromEntries(headers.map((key, index)=> [key, row[index]]));
+    return Object.fromEntries(headers.map((key, index) => [key, row[index]]));
   });
 
   data.map(o => o.data_type = adjustDataTypeName(o.data_type));
@@ -33,23 +35,7 @@ const readTableData = async () => {
   return data;
 };
 
-const importTables = async () => {
-  const tableData = await readTableData();
-  const tables = {};
-  const schemas = {};
-
-  tableData.forEach(row => {
-    schemas[row.table_schema] = true;
-
-    const name = row.table_schema === "public" ? row.table_name : `${row.table_schema}.${row.table_name}`;
-
-    if(tables[name]) {
-      tables[name].push([row.column_name, row.data_type]);
-    } else {
-      tables[name] = [];
-    }
-  });
-
+const importSchemaColors = async (schemas) => {
   const schemasTemplateFile = await fs.readFile(SCHEMA_COLORS_TEMPLATE_FILE, "utf8");
   const defaultSchemaColors = JSON.parse(schemasTemplateFile);
   let schemaColors = Object.keys(schemas).reduce((acc, schemaName) => {
@@ -63,7 +49,9 @@ const importTables = async () => {
   };
 
   await fs.writeFile(SCHEMA_COLORS_FILE, JSON.stringify(schemaColors, null, 2), "utf8");
+};
 
+const importTablePositions = async (tables) => {
   const tablePositions = Object.keys(tables).reduce((acc, tableName) => {
     const fullTableName = tableName.includes(".") ? tableName : `public.${tableName}`;
 
@@ -75,8 +63,10 @@ const importTables = async () => {
   }, {});
 
   await fs.writeFile(TABLE_POSITIONS_FILE, JSON.stringify(tablePositions, null, 2), "utf8");
+}
 
-  Object.keys(tables).reduce(async (acc, tableName) => {
+const importTableConfigs = async (tables) => {
+  Object.keys(tables).forEach(async tableName => {
     const tableFile = `src/config/tables/${tableName}.json`;
     const tableConfig = {
       name: tableName,
@@ -96,7 +86,29 @@ const importTables = async () => {
     });
 
     await fs.writeFile(tableFile, JSON.stringify(tableConfig, null, 2), "utf8");
-  }, {});
+  });
+};
+
+const importConfigFiles = async () => {
+  const tableData = await readTableData();
+  const tables = {};
+  const schemas = {};
+
+  tableData.forEach(row => {
+    schemas[row.table_schema] = true;
+
+    const name = row.table_schema === "public" ? row.table_name : `${row.table_schema}.${row.table_name}`;
+
+    if(tables[name]) {
+      tables[name].push([row.column_name, row.data_type]);
+    } else {
+      tables[name] = [];
+    }
+  });
+
+  await importSchemaColors(schemas);
+  await importTablePositions(tables);
+  await importTableConfigs(tables);
 };
 
 const readline = require("readline").createInterface({
@@ -106,7 +118,7 @@ const readline = require("readline").createInterface({
 
 readline.question("Do you want to import schema from a CSV file? y/n\n", async (answer) => {
   if(answer.toLowerCase().includes("y")) {
-    await importTables();
+    await importConfigFiles();
 
     console.log("Roger, everything is imported.");
   } else {
