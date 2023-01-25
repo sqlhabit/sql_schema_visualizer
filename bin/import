@@ -6,7 +6,8 @@ const SCHEMA_COLORS_FILE = "src/config/schemaColors.json";
 const SCHEMA_COLORS_TEMPLATE_FILE = "src/config/schemaColors.json.template";
 const TABLE_POSITIONS_FILE = "src/config/tablePositions.json";
 const DATA_TYPES = {
-  "character varying": "chars"
+  "character varying": "text",
+  "timestamp without time zone": "timestamp"
 }
 
 const adjustDataTypeName = (rawName) => {
