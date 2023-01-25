@@ -4,6 +4,7 @@ const fs = require("fs").promises;
 const SCHEMA_FILE = "schema.csv";
 const SCHEMA_COLORS_FILE = "src/config/schemaColors.json";
 const SCHEMA_COLORS_TEMPLATE_FILE = "src/config/schemaColors.json.template";
+const TABLE_POSITIONS_FILE = "src/config/tablePositions.json";
 const DATA_TYPES = {
   "character varying": "chars"
 }
@@ -62,8 +63,19 @@ const importTables = async () => {
 
   await fs.writeFile(SCHEMA_COLORS_FILE, JSON.stringify(schemaColors, null, 2), "utf8");
 
+  const tablePositions = Object.keys(tables).reduce((acc, tableName) => {
+    const fullTableName = `${tables[tableName].table_schema}.${tableName}`;
+
+    acc[fullTableName] = {
+      x: 0,
+      y: 0
+    };
+    return acc;
+  }, {});
+
+  await fs.writeFile(TABLE_POSITIONS_FILE, JSON.stringify(tablePositions, null, 2), "utf8");
+
   // TODO: generate tables
-  // TODO: generate tablePositions
 };
 
 const readline = require("readline").createInterface({
