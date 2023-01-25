@@ -75,7 +75,27 @@ const importTables = async () => {
 
   await fs.writeFile(TABLE_POSITIONS_FILE, JSON.stringify(tablePositions, null, 2), "utf8");
 
-  // TODO: generate tables
+  Object.keys(tables).reduce(async (acc, tableName) => {
+    const tableFile = `src/config/tables/${tableName}.json`;
+    const tableConfig = {
+      name: tableName,
+      description: "",
+      columns: []
+    };
+
+    tables[tableName].forEach(row => {
+      const columnName = row[0];
+      const columnType = row[1];
+
+      tableConfig.columns.push({
+        name: columnName,
+        description: "",
+        type: columnType
+      });
+    });
+
+    await fs.writeFile(tableFile, JSON.stringify(tableConfig, null, 2), "utf8");
+  }, {});
 };
 
 const readline = require("readline").createInterface({
