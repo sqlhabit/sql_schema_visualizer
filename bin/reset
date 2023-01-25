@@ -2,8 +2,8 @@
 
 const fs = require("fs").promises;
 
-const resetConfigFile = async (filePath) => {
-  const templateData = await fs.readFile(`${filePath}.template`, "utf8");
+const resetConfigFile = async (filePath, templatePath = `${filePath}.template`) => {
+  const templateData = await fs.readFile(templatePath, "utf8");
 
   await fs.writeFile(filePath, templateData, "utf8");
 };
@@ -23,7 +23,7 @@ readline.question("Do you want to reset existing tables, edges and schema colors
     await resetConfigFile("src/config/edges.json");
     await resetConfigFile("src/config/schemaColors.json");
     await resetConfigFile("src/config/tablePositions.json");
-    await resetConfigFile("src/Visualizer/helpers/loadTables.ts");
+    await resetConfigFile("src/Visualizer/helpers/loadTables.ts", "src/Visualizer/helpers/loadTables.ts.template.reset");
     await cleanUpTablesFolder();
 
     console.log("Roger, everything is reset.");
