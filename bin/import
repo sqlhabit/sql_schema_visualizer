@@ -102,7 +102,7 @@ const importConfigFiles = async () => {
     if(tables[name]) {
       tables[name].push([row.column_name, row.data_type]);
     } else {
-      tables[name] = [];
+      tables[name] = [[row.column_name, row.data_type]];
     }
   });
 
