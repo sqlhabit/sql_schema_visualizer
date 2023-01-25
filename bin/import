@@ -64,7 +64,7 @@ const importTables = async () => {
   await fs.writeFile(SCHEMA_COLORS_FILE, JSON.stringify(schemaColors, null, 2), "utf8");
 
   const tablePositions = Object.keys(tables).reduce((acc, tableName) => {
-    const fullTableName = `${tables[tableName].table_schema}.${tableName}`;
+    const fullTableName = tableName.includes(".") ? tableName : `public.${tableName}`;
 
     acc[fullTableName] = {
       x: 0,
