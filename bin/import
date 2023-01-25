@@ -2,6 +2,7 @@
 
 const fs = require("fs").promises;
 const SCHEMA_FILE = "schema.csv";
+const SCHEMA_COLORS_FILE = "src/config/schemaColors.json";
 const SCHEMA_COLORS_TEMPLATE_FILE = "src/config/schemaColors.json.template";
 const DATA_TYPES = {
   "character varying": "chars"
@@ -59,7 +60,7 @@ const importTables = async () => {
     ...schemaColors
   };
 
-  console.log(schemaColors);
+  await fs.writeFile(SCHEMA_COLORS_FILE, JSON.stringify(schemaColors, null, 2), "utf8");
 
   // TODO: generate tables
   // TODO: generate tablePositions
