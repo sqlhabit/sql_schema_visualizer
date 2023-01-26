@@ -1,0 +1,11 @@
+import { TableConfig } from "../types";
+
+%TABLE_FILES%
+
+const tables: TableConfig[] = [
+  %TABLE_NAMES%
+];
+
+export const loadTables = (): TableConfig[] => {
+  return tables;
+};
