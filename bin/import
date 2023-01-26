@@ -93,7 +93,7 @@ const importTableConfigs = async (tables) => {
 
 // https://ourcodeworld.com/articles/read/608/how-to-camelize-and-decamelize-strings-in-javascript
 const camelize = (text) => {
-  return text.replace(/^([A-Z])|[\s-_]+(\w)/g, function(match, p1, p2, offset) {
+  return text.replace(/\W/, "-").replace(/^([A-Z])|[\s-_]+(\w)/g, function(match, p1, p2, offset) {
       if (p2) return p2.toUpperCase();
       return p1.toLowerCase();
   });
@@ -102,16 +102,20 @@ const camelize = (text) => {
 const updateLoadTablesHelper = async (tables) => {
   const importStatements = [];
   const names = [];
+
   Object.keys(tables).forEach(tableName => {
-    importStatements.push(`import ${camelize(tableName)} from "../../config/tables/${camelize(tableName)}.json";`);
-    names.push(camelize(tableName));
+    const tableConfigFileName = `${camelize(tableName)}Table`;
+
+    importStatements.push(`import ${tableConfigFileName} from "../../config/tables/${tableName}.json";`);
+    names.push(`  ${tableConfigFileName}`);
   });
 
   const loadTablesTemplate = await fs.readFile(LOAD_TABLES_TEMPLATE, "utf8");
-  loadTablesTemplate.replace("%TABLE_FILES%", importStatements.join("\n"));
-  loadTablesTemplate.replace("%TABLE_NAMES%", names.join(",\n"));
+  const loadTablesHelper = loadTablesTemplate
+    .replace("%TABLE_FILES%", importStatements.join("\n"))
+    .replace("%TABLE_NAMES%", names.join(",\n"))
 
-  await fs.writeFile(LOAD_TABLES_HELPER, JSON.stringify(loadTablesTemplate, null, 2), "utf8");
+  await fs.writeFile(LOAD_TABLES_HELPER, loadTablesHelper, "utf8");
 };
 
 const importConfigFiles = async () => {
