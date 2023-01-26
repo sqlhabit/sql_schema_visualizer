@@ -32,7 +32,7 @@ export function InfoPopup(props: InfoPopupProps) {
           </p>
 
           <p>
-            <strong>CTRL + P</strong> shortcut prints all table node positions to the console and copies them to the clipboard. You can then paste these positions to the <a target="_blank" rel="noreferrer" href="https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/Flow/TablePositions.ts"><i>TablePositions.ts</i></a> file.
+            <strong>CTRL + P</strong> shortcut prints all table node positions to the console and copies them to the clipboard. You can then paste these positions to the <a target="_blank" rel="noreferrer" href="https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json"><i>TablePositions.json</i></a> file.
           </p>
 
           <p className="mb-32">

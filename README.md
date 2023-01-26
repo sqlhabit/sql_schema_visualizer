@@ -24,13 +24,13 @@ npm run reset
 
 ### How to arrange tables for your schema
 
-By default, every table will be places in the center of the screen (`x: 0, y: 0` posision). All custom positions are stored in the [`src/config/tablePositions.ts`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.ts) file.
+By default, every table will be places in the center of the screen (`x: 0, y: 0` posision). All custom positions are stored in the [`src/config/tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json) file.
 
 There's no need to update them manually. Instead:
 
 1. Drag table nodes around in the browser to find a perfect arrangement.
 2. **CTRL** + **P**. It copies node positions JSON to your clipboard.
-3. Paste (**CMD** + **V**) JSON with positions to the [`src/config/tablePositions.ts`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.ts) file.
+3. Paste (**CMD** + **V**) JSON with positions to the [`src/config/tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json) file.
 4. PROFIT :beers:
 
 ## Contributing
