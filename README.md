@@ -1,3 +1,5 @@
+![SQL Schema Visualizer snapshot](https://raw.githubusercontent.com/sqlhabit/sql_schema_visualizer/main/docs/snapshot.png)
+
 # SQL Schema Visualizer
 
 A prototype of relational database schema visualization using [ReactFlow](https://reactflow.dev/).
