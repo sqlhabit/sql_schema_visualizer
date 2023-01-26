@@ -54,18 +54,24 @@ const importSchemaColors = async (schemas) => {
 };
 
 const importTablePositions = async (tables) => {
+  const tableCount = Object.keys(tables).length;
+  const tablesPerRow = Math.round(Math.sqrt(tableCount));
+
   const tablePositions = Object.keys(tables).reduce((acc, tableName) => {
     const fullTableName = tableName.includes(".") ? tableName : `public.${tableName}`;
 
+    const yPosition = Math.round(tablesPerRow / tablesPerRow);
+    const xPosition = tablesPerRow % tablesPerRow;
+
     acc[fullTableName] = {
-      x: 0,
-      y: 0
+      x: xPosition * 350,
+      y: yPosition * 450
     };
     return acc;
   }, {});
 
   await fs.writeFile(TABLE_POSITIONS_FILE, JSON.stringify(tablePositions, null, 2), "utf8");
-}
+};
 
 const importTableConfigs = async (tables) => {
   Object.keys(tables).forEach(async tableName => {
