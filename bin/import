@@ -60,11 +60,11 @@ const importTablePositions = async (tables) => {
   const tablePositions = Object.keys(tables).reduce((acc, tableName, index) => {
     const fullTableName = tableName.includes(".") ? tableName : `public.${tableName}`;
 
-    const yPosition = Math.round(index / tablesPerRow);
+    const yPosition = Math.floor(index / tablesPerRow);
     const xPosition = index % tablesPerRow;
 
     acc[fullTableName] = {
-      x: xPosition * 350,
+      x: xPosition * 300,
       y: yPosition * 450
     };
     return acc;
