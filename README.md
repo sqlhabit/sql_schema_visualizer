@@ -8,7 +8,7 @@ A relational database schema visualizer built with React and [ReactFlow](https:/
 
 Originally built for [the SQL Habit course](https://www.sqlhabit.com/), it's now available for everyone. Enjoy :heart:
 
-[:mag: How to visualize your schema](https://github.com/sqlhabit/sql_schema_visualizer#how-to-visualize-your-schema) | [📖 How it works](https://github.com/sqlhabit/sql_schema_visualizer#under-the-hood) | [📺 Contributing](https://github.com/sqlhabit/sql_schema_visualizer#contributing)
+[:mag: How to visualize your schema](https://github.com/sqlhabit/sql_schema_visualizer#how-to-visualize-your-schema) | [:microscope: How it works](https://github.com/sqlhabit/sql_schema_visualizer#under-the-hood) | [:handshake: Contributing](https://github.com/sqlhabit/sql_schema_visualizer#contributing)
 
 </div>
 
