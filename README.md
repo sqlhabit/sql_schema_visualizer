@@ -7,8 +7,11 @@ A relational database schema visualizer built with React and ReactFlow.
 ## Features
 
 :dash: **Easy to start**: you can import your schema in 1.5 minutes.
+<br>
 :checkered_flag: **Easy to finish**: you only need to configure edges and table positions.
+<br>
 :wrench: **Customizable**: add table/column descriptions and schema colors.
+<br>
 :rocket: **Make it yours**: you get the whole React app, so you can change everything.
 
 ## How to add your own schema
