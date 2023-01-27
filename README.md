@@ -4,7 +4,7 @@
 
 # SQL Schema Visualizer
 
-A relational database schema visualizer built with React and ReactFlow.
+A relational database schema visualizer built with React and [ReactFlow](https://github.com/wbkd/react-flow).
 
 Originally built for [the SQL Habit course](https://www.sqlhabit.com/), it's now available for everyone. Enjoy :heart:
 
