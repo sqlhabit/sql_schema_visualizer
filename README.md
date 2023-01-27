@@ -97,63 +97,110 @@ Now you should see tables scattered in your browser.
 
 #### A. Set primary keys.
 
-If a column is a primary key, add the `key` param to a column definition. Here's an example from [the `users` table](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tables/users.json):
+To show a :key: icon next to the column name, add the `key` param to a column definition. Here's an example from [the `users` table](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tables/users.json):
 
 ```json
 {
   "name": "id",
-  "handleType": "source",
   "key": true,
   "description": "Unique identifier of a user.",
   "type": "number"
 }
 ```
 
-:bulb: To enable outgoing edges, also add the `"handleType": "source"` param.
+#### B. Add edges.
 
-#### B. Set foreign keys.
+Define edges in [the `src/config/edges.json` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/edges.json):
 
-If a column is a foreign key, set the `"handleType": "target"` param. It'll enable incoming edges. Here's an example from [the `purchases` table](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tables/purchases.json):
+Here's an example for **has one** relation:
 
 ```json
 {
-  "name": "user_id",
-  "description": "id of a user who made the purchase.",
-  "handleType": "target",
-  "type": "integer"
+  "source": "users",
+  "sourceKey": "id",
+  "target": "profiles",
+  "targetKey": "user_id",
+  "relation": "hasOne"
 }
 ```
 
-#### C. Add edges.
+and **has many** relation:
 
-#### D. Add schema colors.
-
-#### E. Add table positions.
-
-#### F. Add table and column descriptions.
-
-### Resetting config files
-
-To visualize your schema, first you need to clone the repo and reset all config files:
-
-```sh
-git clone https://github.com/sqlhabit/sql_schema_visualizer.git
-
-cd sql_schema_visualizer
-
-npm run reset
+```json
+{
+  "source": "users",
+  "sourceKey": "id",
+  "target": "purchases",
+  "targetKey": "user_id",
+  "relation": "hasMany"
+}
 ```
 
-### How to arrange tables for your schema
+#### C. Add schema colors.
 
-By default, every table will be places in the center of the screen (`x: 0, y: 0` posision). All custom positions are stored in the [`src/config/tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json) file.
+You can set custom header colors for tables that belongs to the same schema in [the `src/config/schemaColors.json` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/schemaColors.json). Here's an example:
+
+```json
+{
+  "DEFAULT": "#91C4F2",
+  "public": "#BEB8EB",
+  "adjust": "#AFA2FF",
+  "helpers": "#75C9C8",
+  "web_analytics": "#F6BDD1",
+  "mobile_analytics": "#FFD791"
+}
+```
+
+#### D. Add table positions.
+
+Table positions are defined in the [`src/config/tablePositions.json` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json):
+
+```json
+{
+"adjust.callbacks": {
+  "x": 864,
+  "y": -192
+},
+"helpers.dates": {
+  "x": 512,
+  "y": 528
+},
+"mobile_analytics.events": {
+  "x": 656,
+  "y": -336
+}
+```
+
+After you import a schema, every table will have a default position set in the [`src/config/tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json) file.
 
 There's no need to update them manually. Instead:
 
-1. Drag table nodes around in the browser to find a perfect arrangement.
-2. **CTRL** + **P**. It copies node positions JSON to your clipboard.
-3. Paste (**CMD** + **V**) JSON with positions to the [`src/config/tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json) file.
-4. PROFIT :beers:
+1. Open Schema Visualizer at [http://localhost:9292](http://localhost:9292).
+2. Drag table nodes around to find a perfect arrangement.
+3. **CTRL** + **P**. It copies node positions JSON to your clipboard.
+4. Paste (**CMD** + **V**) JSON with positions to the [`src/config/tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json) file.
+5. PROFIT :beers:
+
+#### E. Add table and column descriptions.
+
+Table and column descriptions are visible if you press `CMD` key and hover over a table or column name.
+
+Add custom copy to the `"description"` keys [in table config files](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config/tables). Here's an example:
+
+```json
+{
+  "name": "users",
+  "description": "This table contains all user records of Bindle.",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a user.",
+      "type": "number"
+    }
+  ]
+}
+```
 
 ## Contributing
 
