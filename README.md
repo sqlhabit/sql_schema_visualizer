@@ -1,8 +1,16 @@
 ![SQL Schema Visualizer snapshot](https://raw.githubusercontent.com/sqlhabit/sql_schema_visualizer/main/docs/snapshot.png)
 
+<div align="center">
+
 # SQL Schema Visualizer
 
 A relational database schema visualizer built with React and ReactFlow.
+
+Originally built for [the SQL Habit course](https://www.sqlhabit.com/), it's now available for everyone. Enjoy :heart:
+
+[:mag: How to visualize your schema](https://github.com/sqlhabit/sql_schema_visualizer#how-to-visualize-your-schema) | [📖 How it works](https://github.com/sqlhabit/sql_schema_visualizer#under-the-hood) | [📺 Contributing](https://github.com/sqlhabit/sql_schema_visualizer#contributing)
+
+</div>
 
 ## Features
 
@@ -204,6 +212,24 @@ Add custom copy to the `"description"` keys [in table config files](https://gith
 }
 ```
 
+### Publish your schema online
+
+#### Building your Schema Visualizer
+
+Once you're finished with config file, build the project and upload the files from the [`/build`](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/build) folder to your hosting of choice:
+
+
+```sh
+npm build
+```
+
+I highly recommend https://surge.sh/. It'll take you ~2 minutes to deploy your schema online:
+
+1. `npm install --global surge`.
+2. `cd build`
+3. `surge`
+4. PROFIT :beers:
+
 ## Contributing
 
 You're more than welcome to contribute. In fact, I'm really looking forward to it! :rocket:
@@ -238,26 +264,6 @@ Tests are written with the [React Testing Library](https://testing-library.com/d
 ```sh
 npm test
 ```
-
-## Publish your schema online
-
-### Building your Schema Visualizer
-
-Once you've added your tables, build the project and upload the files from the [`/build`](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/build) to your hosting of choice:
-
-
-```sh
-npm build
-```
-
-### Deploying
-
-I highly recommend https://surge.sh/. It'll take you ~2 minutes to deploy your schema online:
-
-1. `npm install --global surge`.
-2. `cd build`
-3. `surge`
-4. PROFIT :beers:
 
 ## Maintainers
 
