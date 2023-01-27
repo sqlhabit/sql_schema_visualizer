@@ -4,14 +4,12 @@
   "columns": [
     {
       "name": "id",
-      "handleType": "source",
       "key": true,
       "type": "number",
       "description": "Unique identifier of a profile."
     },
     {
       "name": "user_id",
-      "handleType": "target",
       "type": "number",
       "description": "User’s id."
     },

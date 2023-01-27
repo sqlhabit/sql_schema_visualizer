@@ -5,13 +5,11 @@
     {
       "name": "book_id",
       "description": "Book’s id.",
-      "handleType": "target",
       "type": "integer"
     },
     {
       "name": "user_id",
       "description": "User’s id.",
-      "handleType": "target",
       "type": "integer"
     },
     {

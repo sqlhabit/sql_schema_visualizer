@@ -7,20 +7,17 @@
       "name": "pageview_id",
       "description": "Unique identifier of a pageview.",
       "type": "text",
-      "handleType": "source",
       "key": true
     },
     {
       "name": "visitor_id",
       "description": "Unique identifier of a visitor. A fingerprint used to keep track of guest visitors who haven’t had signed up.",
-      "type": "text",
-      "handleType": "target"
+      "type": "text"
     },
     {
       "name": "user_id",
       "description": "If user is logged in – ID of a user in users table.",
-      "type": "integer",
-      "handleType": "target"
+      "type": "integer"
     },
     {
       "name": "url",

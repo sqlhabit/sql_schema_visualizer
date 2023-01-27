@@ -7,7 +7,6 @@
       "name": "event_id",
       "description": "Unique identifier of an event.",
       "type": "text",
-      "handleType": "source",
       "key": true
     },
     {
@@ -38,8 +37,7 @@
     {
       "name": "user_id",
       "description": "If user is logged in – ID of a user in the users table.",
-      "type": "integer",
-      "handleType": "target"
+      "type": "integer"
     },
     {
       "name": "adid",

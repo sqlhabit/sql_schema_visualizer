@@ -5,14 +5,12 @@
     {
       "name": "id",
       "description": "Unique identifier of a user’s device.",
-      "handleType": "source",
       "key": true,
       "type": "integer"
     },
     {
       "name": "user_id",
       "description": "id of a user who uses this device.",
-      "handleType": "target",
       "type": "integer"
     },
     {
