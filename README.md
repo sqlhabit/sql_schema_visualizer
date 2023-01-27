@@ -208,7 +208,7 @@ You're more than welcome to contribute. In fact, I'm really looking forward to i
 
 Just make sure to check out the [contribution guidelines](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/CONTRIBUTING.md). :pray:
 
-## How it was built
+## Under the hood
 
 Schema Visualizer is built with [ReactFlow](https://reactflow.dev/).
 
@@ -237,7 +237,7 @@ Tests are written with the [React Testing Library](https://testing-library.com/d
 npm test
 ```
 
-## Releasing
+## Publish your schema online
 
 ### Building your Schema Visualizer
 
