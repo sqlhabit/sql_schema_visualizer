@@ -5,7 +5,6 @@
     {
       "name": "id",
       "description": "Unique identifier of spend, just a primary key in a table.",
-      "handleType": "source",
       "key": true,
       "type": "integer"
     },

@@ -7,7 +7,6 @@
       "name": "id",
       "description": "Unique ID of an Adjust callback.",
       "type": "integer",
-      "handleType": "source",
       "key": true
     },
     {
@@ -68,8 +67,7 @@
     {
       "name": "user_id",
       "description": "ID of a user (from users table). Present for signup event.",
-      "type": "integer",
-      "handleType": "target"
+      "type": "integer"
     },
     {
       "name": "country",

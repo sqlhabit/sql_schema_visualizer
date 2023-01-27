@@ -5,14 +5,12 @@
     {
       "name": "id",
       "description": "Unique identifier of an account.",
-      "handleType": "source",
       "key": true,
       "type": "integer"
     },
     {
       "name": "user_id",
       "description": "User’s id.",
-      "handleType": "target",
       "type": "integer"
     },
     {

@@ -5,7 +5,6 @@
     {
       "name": "id",
       "description": "Unique identifier of the book.",
-      "handleType": "source",
       "key": true,
       "type": "integer"
     },

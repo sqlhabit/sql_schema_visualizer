@@ -11,13 +11,11 @@
     {
       "name": "user_id",
       "description": "id of a user who made the purchase.",
-      "handleType": "target",
       "type": "integer"
     },
     {
       "name": "product_id",
       "description": "id of a product inside products table.",
-      "handleType": "target",
       "type": "integer"
     },
     {
@@ -28,7 +26,6 @@
     {
       "name": "refunded",
       "description": "Status of a purchase, we receive money on the bank account only if purchase wasn’t refunded.",
-      "handleType": "target",
       "type": "boolean"
     },
     {

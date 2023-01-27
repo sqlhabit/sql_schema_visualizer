@@ -6,8 +6,7 @@
     {
       "name": "pageview_id",
       "description": "Category parameter of an event, for example Signup.",
-      "type": "text",
-      "handleType": "target"
+      "type": "text"
     },
     {
       "name": "category",

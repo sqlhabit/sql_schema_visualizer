@@ -41,7 +41,7 @@ import {
 import "reactflow/dist/style.css";
 import "./Style";
 
-let initialNodes = initializeNodes(tables, tablePositions);
+let initialNodes = initializeNodes(tables, tablePositions, edgeConfigs);
 
 function Flow() {
   const store = useStoreApi();
