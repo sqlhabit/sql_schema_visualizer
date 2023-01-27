@@ -1,7 +1,21 @@
 import { fullTableName } from "./fullTableName";
-import { Position, TablePositions } from "../types";
+import { EdgeConfig, Position, TableConfig, TablePositions } from "../types";
 
-export const initializeNodes = (tableConfigs: any[], tablePositions: any) => {
+const setHandleType = (tableConfigs: TableConfig[], tableName: string, columnName: string, handleType: string) => {
+  tableConfigs.forEach(tableConfig => {
+    const configTableName = fullTableName(tableConfig.name, tableConfig.schema || "public");
+
+    if(configTableName === tableName) {
+      tableConfig.columns.forEach((columnConfig: any) => {
+        if(columnConfig.name === columnName) {
+          columnConfig.handleType = handleType;
+        }
+      });
+    }
+  });
+};
+
+export const initializeNodes = (tableConfigs: TableConfig[], tablePositions: TablePositions, edgeConfigs: EdgeConfig[]) => {
   const tables = [] as any;
   const tablePositionsWithSchema = {} as TablePositions;
 
@@ -14,6 +28,14 @@ export const initializeNodes = (tableConfigs: any[], tablePositions: any) => {
     } else {
       tablePositionsWithSchema[fullTableName(tableName) as keyof TablePositions] = position;
     }
+  });
+
+  edgeConfigs.forEach(edgeConfig => {
+    const sourceTableName = fullTableName(edgeConfig.source);
+    setHandleType(tableConfigs, sourceTableName, edgeConfig.sourceKey, "source");
+
+    const targetTableName = fullTableName(edgeConfig.target);
+    setHandleType(tableConfigs, targetTableName, edgeConfig.targetKey, "target");
   });
 
   tableConfigs.forEach(tableConfig => {
