@@ -14,41 +14,43 @@ A relational database schema visualizer built with React and ReactFlow.
 <br>
 :rocket: **Make it yours**: you get the whole React app, so you can change everything.
 
-## How to add your own schema
+## How to visualize your schema
 
 ### Step 1. Clone and set up the repo
 
-Schema Visualizer is a React app, here's how to install dependencies:
+Clone the repo:
 
 ```bash
 git clone https://github.com/sqlhabit/sql_schema_visualizer.git
 
 cd sql_schema_visualizer
+```
 
+Schema Visualizer is a React app. Here's how to install dependencies:
+
+```bash
 npm run install
 
 npm run start
-
-open http://localhost:9292
 ```
 
-You might need to install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) as well to make sure you're not using an old Node version.
+:computer: Now Schema Visualizer is running on your 9292 port: [http://localhost:9292](http://localhost:9292).
+
+:bulb: You might need to install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) as well to make sure you're not using an old Node version.
 
 ### Step 2. Reset schema configuration
 
-At this point you should see SQL Habit's schema in your browser. Now let's reset all schema config files:
+At this point, you should see the default schema in your browser. Let's reset all schema config files:
 
 ```bash
 npm run reset
 ```
 
-After running, you should see an empty grid in your browser.
+After running this command, you should see an empty grid in your browser.
 
-### Step 3. Export your schema to a CSV file
+### Step 3. Export your schema into a CSV file
 
-Run a query in your database and save the output to the `schema.csv` file.
-
-Copy this file to the root folder of the Schema Visualizer repo.
+Pick a query that works for your database. Save the output of this query to the `schema.csv` file in the root folder (next to [the `schema.csv.template` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/schema.csv.template)).
 
 #### Postgres / Redshift
 
@@ -91,11 +93,11 @@ WHERE
 npm run import
 ```
 
-Now you should see tables scattered in your browser.
+Now you should see tables from your schema scattered in your browser.
 
-### Step 5. Configure your schema.
+### Step 5. Configure your schema
 
-#### A. Set primary keys.
+#### A. Set primary keys
 
 To show a :key: icon next to the column name, add the `key` param to a column definition. Here's an example from [the `users` table](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tables/users.json):
 
@@ -108,7 +110,7 @@ To show a :key: icon next to the column name, add the `key` param to a column de
 }
 ```
 
-#### B. Add edges.
+#### B. Add edges
 
 Define edges in [the `src/config/edges.json` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/edges.json):
 
@@ -136,7 +138,7 @@ and **has many** relation:
 }
 ```
 
-#### C. Add schema colors.
+#### C. Add schema colors
 
 You can set custom header colors for tables that belongs to the same schema in [the `src/config/schemaColors.json` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/schemaColors.json). Here's an example:
 
@@ -151,7 +153,7 @@ You can set custom header colors for tables that belongs to the same schema in [
 }
 ```
 
-#### D. Add table positions.
+#### D. Add table positions
 
 Table positions are defined in the [`src/config/tablePositions.json` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json):
 
@@ -181,7 +183,7 @@ There's no need to update them manually. Instead:
 4. Paste (**CMD** + **V**) JSON with positions to the [`src/config/tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json) file.
 5. PROFIT :beers:
 
-#### E. Add table and column descriptions.
+#### E. Add table and column descriptions
 
 Table and column descriptions are visible if you press `CMD` key and hover over a table or column name.
 
