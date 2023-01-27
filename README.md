@@ -242,7 +242,34 @@ Schema Visualizer is built with [ReactFlow](https://reactflow.dev/).
 
 Every table is a ReactFlow [Custom Node](https://reactflow.dev/docs/guides/custom-nodes/) with custom [Markers](https://reactflow.dev/docs/examples/edges/markers/) (those SVG icons with dot and fork).
 
-[Here's a ReactFlow sandbox example of Custom Nodes](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-create-react-app).
+Here's [a ReactFlow sandbox example](https://github.com/wbkd/react-flow-example-apps/tree/main/reactflow-create-react-app) of Custom Nodes.
+
+### Config files
+
+It all starts with plain [JSON config files](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config). There're 4 of them:
+
+* [tables](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config/tables)
+* [edges](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/edges.json)
+* [tablePositions](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json)
+* [schemaColors](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/schemaColors.json)
+
+Later they're translated into ReactFlow Node and Edge configs.
+
+### Nodes and Handles
+
+ReactFlow draws SVG edges between custom [Table Nodes](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/Visualizer/components/TableNode.tsx#L64).
+
+Those edges start and end in ReactFlow Handle's. Every table column row has 2 handles – left and right. :bulb: A handle could be either **source** (for an outgoing edge) or a **target** (for an incoming edge). Handles are configured [based on the edges config](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/Visualizer/helpers/initializeNodes.ts#L4).
+
+### Edges
+
+As you can see, edges are dynamically change handles and orientation depending on relative node positions. That way it's less config to maintain, here're [helper](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/Visualizer/helpers/calculateTargetPosition.ts) [functions](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/Visualizer/helpers/calculateSourcePosition.ts) that take care of that.
+
+### More details
+
+[Here's the entry file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/Visualizer/index.tsx) to the ReactFlow app.
+
+Have fun exploring the app, it was a pleasure to build! If you have a question – open a [new issue](https://github.com/sqlhabit/sql_schema_visualizer/issues/new/choose). :beers:
 
 ## Development
 
