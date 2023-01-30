@@ -10,8 +10,12 @@ export * from "./nodeTypes";
 
 const tables = loadTables();
 const tablePositions = loadTablePositions();
-export const schemaColors = loadSchemaColors();
+const schemaColors = loadSchemaColors();
 const edgeConfigs = loadEdgeConfigs();
+
+tables.forEach(table => {
+  table.schemaColor = schemaColors[table.schema || "DEFAULT"];
+});
 
 const bindleDatabase = {
   tables,

@@ -1,7 +1,6 @@
 import { useState, FC } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { KeyIcon } from "../components";
-import { schemaColors } from "../../config";
 
 import "@reactflow/node-resizer/dist/style.css";
 
@@ -9,16 +8,6 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
   const [showDescription, setshowDescription] = useState(false);
   const [descriptionOnHoverActive, setDescriptionOnHoverActive] = useState(false);
-
-  const tableNamebgColor = (schemaName: string) => {
-    let bgColor = schemaColors[schemaName];
-
-    if(!bgColor) {
-      bgColor = schemaColors.DEFAULT;
-    }
-
-    return bgColor
-  };
 
   document.addEventListener("keydown", (e: KeyboardEvent) => {
     if(e.code === "MetaLeft") {
@@ -35,7 +24,7 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
   return (
     <div className="table">
       <div
-        style={{ backgroundColor: tableNamebgColor(data.schema) }}
+        style={{ backgroundColor: data.schemaColor }}
         className="table__name"
         onMouseEnter={() => {
           if(descriptionOnHoverActive) {
