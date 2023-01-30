@@ -43,7 +43,11 @@ import "./Style";
 
 let initialNodes = initializeNodes(tables, tablePositions, edgeConfigs);
 
-function Flow() {
+interface FlowProps {
+  database?: string;
+}
+
+const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   const store = useStoreApi();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -53,6 +57,7 @@ function Flow() {
   const [nodeHoverActive, setNodeHoverActive] = useState(true);
 
   const onInit = (instance: any) => {
+    console.log("--> database: ", props.database);
     const nodes = instance.getNodes();
     const initialEdges: Edge[] = [];
 
@@ -323,8 +328,12 @@ function Flow() {
 
 // https://codesandbox.io/s/elastic-elion-dbqwty?file=/src/App.js
 // eslint-disable-next-line import/no-anonymous-default-export
-export default () => (
-  <ReactFlowProvider>
-    <Flow />
-  </ReactFlowProvider>
-);
+const Visualizer: React.FC<FlowProps> = (props: FlowProps) => {
+  return (
+    <ReactFlowProvider>
+      <Flow database={props.database} />
+    </ReactFlowProvider>
+  )
+};
+
+export default Visualizer;

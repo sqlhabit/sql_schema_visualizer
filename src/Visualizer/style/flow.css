@@ -1,4 +1,7 @@
 .Flow {
+  width: 800px;
+  height: 600px;
+
   flex-grow: 1;
   font-size: 12px;
 }
