@@ -7,10 +7,8 @@ import ReactFlow, {
 } from "reactflow";
 
 import {
-  tables,
-  tablePositions,
-  nodeTypes,
-  edgeConfigs
+  databases,
+  nodeTypes
 } from "../config";
 
 import {
@@ -41,13 +39,20 @@ import {
 import "reactflow/dist/style.css";
 import "./Style";
 
-let initialNodes = initializeNodes(tables, tablePositions, edgeConfigs);
-
 interface FlowProps {
   database?: string;
 }
 
 const Flow: React.FC<FlowProps> = (props: FlowProps) => {
+  const databaseSlug = (props.database as string);
+
+  if(!(databaseSlug in databases)) {
+    window.location.href = "/404";
+  }
+
+  const databaseConfig = databases[databaseSlug];
+
+  const initialNodes = initializeNodes(databaseConfig.tables, databaseConfig.tablePositions, databaseConfig.edgeConfigs);
   const store = useStoreApi();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -57,11 +62,10 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   const [nodeHoverActive, setNodeHoverActive] = useState(true);
 
   const onInit = (instance: any) => {
-    console.log("--> database: ", props.database);
     const nodes = instance.getNodes();
     const initialEdges: Edge[] = [];
 
-    edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
+    databaseConfig.edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
       const sourceNode = nodes.find((node: Node) => node.id === edgeConfig.source);
       const targetNode = nodes.find((node: Node) => node.id === edgeConfig.target);
 
@@ -172,7 +176,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
               return edge.id === `${incomingNode.id}-${node.id}`;
             });
 
-            const edgeConfig = edgeConfigs.find(edgeConfig => {
+            const edgeConfig = databaseConfig.edgeConfigs.find((edgeConfig: EdgeConfig) => {
               return edgeConfig.source === incomingNode.id && edgeConfig.target === node.id;
             });
 
@@ -204,7 +208,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
               return edge.id === `${node.id}-${targetNode.id}`;
             });
 
-            const edgeConfig = edgeConfigs.find(edgeConfig => {
+            const edgeConfig = databaseConfig.edgeConfigs.find((edgeConfig: EdgeConfig) => {
               return edgeConfig.source === nodeChange.id && edgeConfig.target === targetNode.id;
             });
 

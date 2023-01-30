@@ -4,10 +4,22 @@ import {
   loadTablePositions,
   loadTables
 } from "../Visualizer/helpers";
+import { Databases } from "../Visualizer/types/Database";
 
 export * from "./nodeTypes";
 
-export const tables = loadTables();
-export const tablePositions = loadTablePositions();
+const tables = loadTables();
+const tablePositions = loadTablePositions();
 export const schemaColors = loadSchemaColors();
-export const edgeConfigs = loadEdgeConfigs();
+const edgeConfigs = loadEdgeConfigs();
+
+const bindleDatabase = {
+  tables,
+  tablePositions,
+  edgeConfigs,
+  schemaColors
+}
+
+export const databases: Databases = {
+  bindle: bindleDatabase
+};
