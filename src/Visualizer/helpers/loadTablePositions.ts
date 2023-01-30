@@ -1,5 +1,5 @@
 import { TablePositions } from "../types";
-import tablePositions from "../../config/tablePositions.json";
+import tablePositions from "../../config/databases/bindle/tablePositions.json";
 
 export const loadTablePositions = (): TablePositions => {
   return tablePositions;

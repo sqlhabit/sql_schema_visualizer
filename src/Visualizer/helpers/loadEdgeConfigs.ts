@@ -1,6 +1,6 @@
 import { fullTableName } from "./fullTableName";
 import { EdgeConfig } from "../types";
-import edgeConfigs from "../../config/edges.json";
+import edgeConfigs from "../../config/databases/bindle/edges.json";
 
 export const loadEdgeConfigs = (): EdgeConfig[] => {
   edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
