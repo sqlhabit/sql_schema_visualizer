@@ -124,7 +124,7 @@ const updateLoadTablesHelper = async (tables) => {
   await fs.writeFile(LOAD_TABLES_HELPER, loadTablesHelper, "utf8");
 };
 
-const importConfigFiles = async () => {
+const importConfigFiles = async ({ databaseName }) => {
   const tableData = await readTableData();
   const tables = {};
   const schemas = {};
@@ -141,25 +141,37 @@ const importConfigFiles = async () => {
     }
   });
 
+  // TODO: create databaseName folder
+  // TODO: skip import if folder exists
+  // TODO: create all config files databaseName folder
+  // TODO: create loadDatabases file
   await importSchemaColors(schemas);
   await importTablePositions(tables);
   await importTableConfigs(tables);
   await updateLoadTablesHelper(tables);
 };
 
-const readline = require("readline").createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-readline.question("Do you want to import schema from a CSV file? y/n\n", async (answer) => {
-  if(answer.toLowerCase().includes("y")) {
-    await importConfigFiles();
-
-    console.log("Roger, everything is imported.");
-  } else {
-    console.log("Roger, skipping importing.");
+(async () => {
+  const databaseName = process.argv[2];
+  if(!databaseName) {
+    console.log("--> Provide a database name like 'npm run import foobar'");
+    return;
   }
 
-  readline.close();
-});
+  const readline = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  readline.question("Do you want to import schema from a CSV file? y/n\n", async (answer) => {
+    if(answer.toLowerCase().includes("y")) {
+      await importConfigFiles({ databaseName });
+
+      console.log("Roger, everything is imported.");
+    } else {
+      console.log("Roger, skipping importing.");
+    }
+
+    readline.close();
+  });
+})();
