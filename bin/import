@@ -46,7 +46,7 @@ const importSchemaColors = async (databaseName, schemas) => {
     ...schemaColors
   };
 
-  await fs.writeFile(`src/config/${databaseName}/schemaColors.json`, JSON.stringify(schemaColors, null, 2), "utf8");
+  await fs.writeFile(`src/config/databases/${databaseName}/schemaColors.json`, JSON.stringify(schemaColors, null, 2), "utf8");
 };
 
 const importTablePositions = async (databaseName, tables) => {
@@ -66,12 +66,14 @@ const importTablePositions = async (databaseName, tables) => {
     return acc;
   }, {});
 
-  await fs.writeFile(`src/config/${databaseName}/tablePositions.json`, JSON.stringify(tablePositions, null, 2), "utf8");
+  await fs.writeFile(`src/config/databases/${databaseName}/tablePositions.json`, JSON.stringify(tablePositions, null, 2), "utf8");
 };
 
 const importTableConfigs = async (databaseName, tables) => {
+  await fs.mkdir(`src/config/databases/${databaseName}/tables`);
+
   Object.keys(tables).forEach(async tableName => {
-    const tableFile = `src/config/${databaseName}/tables/${tableName}.json`;
+    const tableFile = `src/config/databases/${databaseName}/tables/${tableName}.json`;
     const tableConfig = {
       name: tableName,
       description: "",
@@ -118,7 +120,7 @@ const importTablesIndexFile = async (databaseName, tables) => {
     .replace("%TABLE_FILES%", importStatements.join("\n"))
     .replace("%TABLE_NAMES%", names.join(",\n"))
 
-  await fs.writeFile(`src/config/${databaseName}/tables.ts`, loadTablesHelper, "utf8");
+  await fs.writeFile(`src/config/databases/${databaseName}/tables.ts`, loadTablesHelper, "utf8");
 };
 
 const importConfigFiles = async ({ databaseName }) => {
