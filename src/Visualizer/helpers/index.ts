@@ -11,4 +11,3 @@ export * from "./setEdgeClassName";
 export * from "./logTablePositions";
 export * from "./loadTablePositions";
 export * from "./loadSchemaColors";
-export * from "./loadTables";

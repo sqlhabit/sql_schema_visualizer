@@ -3,9 +3,7 @@
 const fs = require("fs").promises;
 
 const SCHEMA_FILE = "schema.csv";
-const SCHEMA_COLORS_FILE = "src/config/schemaColors.json";
 const SCHEMA_COLORS_TEMPLATE_FILE = "src/config/schemaColors.json.template";
-const TABLE_POSITIONS_FILE = "src/config/tablePositions.json";
 const LOAD_TABLES_HELPER = "src/Visualizer/helpers/loadTables.ts";
 const LOAD_TABLES_TEMPLATE = "src/Visualizer/helpers/loadTables.ts.template.import";
 
@@ -37,7 +35,7 @@ const readTableData = async () => {
   return data;
 };
 
-const importSchemaColors = async (schemas) => {
+const importSchemaColors = async (databaseName, schemas) => {
   const schemasTemplateFile = await fs.readFile(SCHEMA_COLORS_TEMPLATE_FILE, "utf8");
   const defaultSchemaColors = JSON.parse(schemasTemplateFile);
   let schemaColors = Object.keys(schemas).reduce((acc, schemaName) => {
@@ -50,10 +48,10 @@ const importSchemaColors = async (schemas) => {
     ...schemaColors
   };
 
-  await fs.writeFile(SCHEMA_COLORS_FILE, JSON.stringify(schemaColors, null, 2), "utf8");
+  await fs.writeFile(`src/config/${databaseName}/schemaColors.json`, JSON.stringify(schemaColors, null, 2), "utf8");
 };
 
-const importTablePositions = async (tables) => {
+const importTablePositions = async (databaseName, tables) => {
   const tableCount = Object.keys(tables).length;
   const tablesPerRow = Math.round(Math.sqrt(tableCount));
 
@@ -70,15 +68,16 @@ const importTablePositions = async (tables) => {
     return acc;
   }, {});
 
-  await fs.writeFile(TABLE_POSITIONS_FILE, JSON.stringify(tablePositions, null, 2), "utf8");
+  await fs.writeFile(`src/config/${databaseName}/tablePositions.json`, JSON.stringify(tablePositions, null, 2), "utf8");
 };
 
-const importTableConfigs = async (tables) => {
+const importTableConfigs = async (databaseName, tables) => {
   Object.keys(tables).forEach(async tableName => {
-    const tableFile = `src/config/tables/${tableName}.json`;
+    const tableFile = `src/config/${databaseName}/tables/${tableName}.json`;
     const tableConfig = {
       name: tableName,
       description: "",
+      schemaColor: "#91C4F2",
       columns: []
     };
 
@@ -145,9 +144,9 @@ const importConfigFiles = async ({ databaseName }) => {
   // TODO: skip import if folder exists
   // TODO: create all config files databaseName folder
   // TODO: create loadDatabases file
-  await importSchemaColors(schemas);
-  await importTablePositions(tables);
-  await importTableConfigs(tables);
+  await importSchemaColors(databaseName, schemas);
+  await importTablePositions(databaseName, tables);
+  await importTableConfigs(databaseName, tables);
   await updateLoadTablesHelper(tables);
 };
 
