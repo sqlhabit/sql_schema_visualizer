@@ -1,24 +1,33 @@
+// import React from 'react';
 import {
   loadEdgeConfigs,
   loadSchemaColors,
-  loadTablePositions,
-  loadTables
+  loadTablePositions
 } from "../Visualizer/helpers";
+// import { TableConfig } from "../Visualizer/types";
 import { Databases } from "../Visualizer/types/Database";
 
 export * from "./nodeTypes";
 
-const tables = loadTables();
 const tablePositions = loadTablePositions();
 const schemaColors = loadSchemaColors();
 const edgeConfigs = loadEdgeConfigs();
 
-tables.forEach(table => {
-  table.schemaColor = schemaColors[table.schema || "DEFAULT"];
-});
+(async () => {
+  const dynamicEdgeConfigs = await require("./databases/bindle/edges.json");
+  console.log(dynamicEdgeConfigs);
+  // const dynamicTables = await require("./databases/bindle/tables");
+  // const dynamicTables = React.lazy(() => import("./databases/bindle/tables"));
+  // console.log(dynamicTables)
+
+  // const dynamicTables = React.lazy(() => import("./databases/bindle/tables"));
+  // console.log(dynamicTables);
+  const dynamicTables = await import("./databases/bindle/tables");
+  console.log(dynamicTables);
+})();
 
 const bindleDatabase = {
-  tables,
+  tables: [],
   tablePositions,
   edgeConfigs,
   schemaColors

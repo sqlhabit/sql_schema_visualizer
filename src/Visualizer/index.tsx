@@ -6,10 +6,8 @@ import ReactFlow, {
   getOutgoers
 } from "reactflow";
 
-import {
-  databases,
-  nodeTypes
-} from "../config";
+import databases from "../config";
+import { nodeTypes } from "../config/nodeTypes";
 
 import {
   MaximizeIcon,
@@ -51,6 +49,8 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   }
 
   const databaseConfig = databases[databaseSlug];
+
+  console.log(databaseConfig)
 
   const initialNodes = initializeNodes(databaseConfig.tables, databaseConfig.tablePositions, databaseConfig.edgeConfigs);
   const store = useStoreApi();
