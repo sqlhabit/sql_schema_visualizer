@@ -235,7 +235,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
       onNodesChange(nodeChanges);
     },
-    [onNodesChange, setEdges, nodes, edges]
+    [onNodesChange, setEdges, nodes, edges, databaseConfig]
   )
 
   const toggleFullScreen = () => {
