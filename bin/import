@@ -2,7 +2,6 @@
 
 const fs = require("fs").promises;
 
-const SCHEMA_FILE = "schema.csv";
 const SCHEMA_COLORS_TEMPLATE_FILE = "src/config/schemaColors.json.template";
 const TABLES_INDEX_FILE_TEMPLATE = "src/config/tables.ts.template";
 
@@ -19,8 +18,8 @@ const adjustDataTypeName = (rawName) => {
   }
 };
 
-const readTableData = async () => {
-  const schema = await fs.readFile(SCHEMA_FILE, "utf8");
+const readTableData = async (databaseName) => {
+  const schema = await fs.readFile(`${databaseName}.csv`, "utf8");
 
   const schemaData = schema.replaceAll('"', '').trim().split("\n").map(row => row.split(","));
   const [headers] = schemaData.splice(0, 1);
