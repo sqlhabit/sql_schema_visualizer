@@ -75,6 +75,7 @@ LEFT JOIN information_schema.columns c
     AND t.table_name = c.table_name
 WHERE
   t.table_schema NOT IN ('information_schema', 'pg_catalog')
+  AND t.table_name NOT IN ('schema_migrations', 'ar_internal_metadata')
 ORDER BY 1, 2, 5
 ```
 
@@ -93,6 +94,7 @@ LEFT JOIN information_schema.views v
     AND v.table_name = c.table_name
 WHERE
   c.table_schema NOT IN ('sys','information_schema', 'mysql', 'performance_schema')
+  AND c.table_name NOT IN ('schema_migrations', 'ar_internal_metadata')
 ```
 
 ### Step 4. Import schema
