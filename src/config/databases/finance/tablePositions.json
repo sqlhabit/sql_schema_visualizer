@@ -1,10 +1,10 @@
 {
   "public.transactions": {
-    "x": 0,
-    "y": 0
+    "x": 192,
+    "y": 176
   },
   "public.vendors": {
-    "x": 0,
-    "y": 450
+    "x": -64,
+    "y": 240
   }
 }
