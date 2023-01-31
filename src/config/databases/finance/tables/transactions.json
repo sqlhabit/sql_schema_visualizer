@@ -1,0 +1,27 @@
+{
+  "name": "transactions",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "vendor_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "amount_usd",
+      "description": "",
+      "type": "numeric"
+    },
+    {
+      "name": "created_at",
+      "description": "",
+      "type": "timestamp"
+    }
+  ]
+}

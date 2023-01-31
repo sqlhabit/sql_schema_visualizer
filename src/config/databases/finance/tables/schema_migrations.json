@@ -1,0 +1,12 @@
+{
+  "name": "schema_migrations",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "version",
+      "description": "",
+      "type": "text"
+    }
+  ]
+}

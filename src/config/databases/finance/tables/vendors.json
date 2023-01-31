@@ -1,0 +1,17 @@
+{
+  "name": "vendors",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "name",
+      "description": "",
+      "type": "text"
+    }
+  ]
+}
