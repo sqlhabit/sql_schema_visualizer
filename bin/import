@@ -123,12 +123,7 @@ const importTablesIndexFile = async (databaseName, tables) => {
 };
 
 const importConfigFiles = async ({ databaseName }) => {
-  const databaseConfigFolder = `src/config/${databaseName}`;
-  if(await fs.exists(databaseConfigFolder)) {
-    console.log(`⚠️ Folder ${databaseConfigFolder} already exists.`);
-    return;
-  }
-
+  const databaseConfigFolder = `src/config/databases/${databaseName}`;
   const tableData = await readTableData();
   const tables = {};
   const schemas = {};
@@ -158,6 +153,14 @@ const importConfigFiles = async ({ databaseName }) => {
     console.log("--> Provide a database name like 'npm run import foobar'");
     return;
   }
+
+  const databaseConfigFolder = `src/config/databases/${databaseName}`;
+  try {
+    if(await fs.stat(databaseConfigFolder)) {
+      console.log(`⚠️  Folder ${databaseConfigFolder} already exists.`);
+      return;
+    }
+  } catch {}
 
   const readline = require("readline").createInterface({
     input: process.stdin,
