@@ -6,6 +6,4 @@ const tables: TableConfig[] = [
 %TABLE_NAMES%
 ];
 
-export const loadTables = (): TableConfig[] => {
-  return tables;
-};
+export default tables;

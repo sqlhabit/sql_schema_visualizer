@@ -4,8 +4,7 @@ const fs = require("fs").promises;
 
 const SCHEMA_FILE = "schema.csv";
 const SCHEMA_COLORS_TEMPLATE_FILE = "src/config/schemaColors.json.template";
-const LOAD_TABLES_HELPER = "src/Visualizer/helpers/loadTables.ts";
-const LOAD_TABLES_TEMPLATE = "src/Visualizer/helpers/loadTables.ts.template.import";
+const TABLES_INDEX_FILE_TEMPLATE = "src/config/tables.ts.template";
 
 const DATA_TYPES = {
   "character varying": "text",
@@ -104,7 +103,7 @@ const camelize = (text) => {
   });
 };
 
-const updateLoadTablesHelper = async (tables) => {
+const importTablesIndexFile = async (databaseName, tables) => {
   const importStatements = [];
   const names = [];
 
@@ -115,15 +114,21 @@ const updateLoadTablesHelper = async (tables) => {
     names.push(`  ${tableConfigFileName}`);
   });
 
-  const loadTablesTemplate = await fs.readFile(LOAD_TABLES_TEMPLATE, "utf8");
+  const loadTablesTemplate = await fs.readFile(TABLES_INDEX_FILE_TEMPLATE, "utf8");
   const loadTablesHelper = loadTablesTemplate
     .replace("%TABLE_FILES%", importStatements.join("\n"))
     .replace("%TABLE_NAMES%", names.join(",\n"))
 
-  await fs.writeFile(LOAD_TABLES_HELPER, loadTablesHelper, "utf8");
+  await fs.writeFile(`src/config/${databaseName}/tables.ts`, loadTablesHelper, "utf8");
 };
 
 const importConfigFiles = async ({ databaseName }) => {
+  const databaseConfigFolder = `src/config/${databaseName}`;
+  if(await fs.exists(databaseConfigFolder)) {
+    console.log(`⚠️ Folder ${databaseConfigFolder} already exists.`);
+    return;
+  }
+
   const tableData = await readTableData();
   const tables = {};
   const schemas = {};
@@ -140,14 +145,11 @@ const importConfigFiles = async ({ databaseName }) => {
     }
   });
 
-  // TODO: create databaseName folder
-  // TODO: skip import if folder exists
-  // TODO: create all config files databaseName folder
-  // TODO: create loadDatabases file
+  await fs.mkdir(databaseConfigFolder);
   await importSchemaColors(databaseName, schemas);
   await importTablePositions(databaseName, tables);
   await importTableConfigs(databaseName, tables);
-  await updateLoadTablesHelper(tables);
+  await importTablesIndexFile(databaseName, tables);
 };
 
 (async () => {
