@@ -1,5 +1,5 @@
-import { Databases } from "../Visualizer/types/Database";
-import { loadDatabaseConfig } from "../Visualizer/helpers/loadDatabaseConfig";
+import { Databases } from "../Visualizer/types";
+import { loadDatabaseConfig } from "../Visualizer/helpers";
 import databaseName from "./databases.json";
 
 const databases: Databases = {};
