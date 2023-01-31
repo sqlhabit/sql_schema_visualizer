@@ -123,7 +123,9 @@ const importTablesIndexFile = async (databaseName, tables) => {
 
 const importConfigFiles = async ({ databaseName }) => {
   const databaseConfigFolder = `src/config/databases/${databaseName}`;
-  const tableData = await readTableData();
+  await fs.mkdir(databaseConfigFolder);
+
+  const tableData = await readTableData(databaseName);
   const tables = {};
   const schemas = {};
 
@@ -139,7 +141,6 @@ const importConfigFiles = async ({ databaseName }) => {
     }
   });
 
-  await fs.mkdir(databaseConfigFolder);
   await importSchemaColors(databaseName, schemas);
   await importTablePositions(databaseName, tables);
   await importTableConfigs(databaseName, tables);
