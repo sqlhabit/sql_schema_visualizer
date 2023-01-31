@@ -1,38 +1,34 @@
-// import React from 'react';
-import {
-  loadEdgeConfigs,
-  loadSchemaColors,
-  loadTablePositions
-} from "../Visualizer/helpers";
-// import { TableConfig } from "../Visualizer/types";
+import { fullTableName } from "../Visualizer/helpers/fullTableName";
+import { EdgeConfig, SchemaColors, TableConfig, TablePositions } from "../Visualizer/types";
 import { Databases } from "../Visualizer/types/Database";
 
-export * from "./nodeTypes";
+const databases: Databases = {};
+const DATABASE_NAMES = ["bindle"];
 
-const tablePositions = loadTablePositions();
-const schemaColors = loadSchemaColors();
-const edgeConfigs = loadEdgeConfigs();
+DATABASE_NAMES.forEach(async databaseName => {
+  const edgeConfigs = (await import("./databases/bindle/edges.json")).default as EdgeConfig[];
+  const tablePositions = (await import("./databases/bindle/tablePositions.json")).default as TablePositions;
+  const schemaColors = (await import("./databases/bindle/schemaColors.json")).default as SchemaColors;
+  const tables = (await import("./databases/bindle/tables")).default as TableConfig[];
 
-(async () => {
-  const dynamicEdgeConfigs = await require("./databases/bindle/edges.json");
-  console.log(dynamicEdgeConfigs);
-  // const dynamicTables = await require("./databases/bindle/tables");
-  // const dynamicTables = React.lazy(() => import("./databases/bindle/tables"));
-  // console.log(dynamicTables)
+  edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
+    const sourceTableName = fullTableName(edgeConfig.source);
+    const targetTableName = fullTableName(edgeConfig.target);
 
-  // const dynamicTables = React.lazy(() => import("./databases/bindle/tables"));
-  // console.log(dynamicTables);
-  const dynamicTables = await import("./databases/bindle/tables");
-  console.log(dynamicTables);
-})();
+    edgeConfig.source = sourceTableName;
+    edgeConfig.target = targetTableName;
+  });
 
-const bindleDatabase = {
-  tables: [],
-  tablePositions,
-  edgeConfigs,
-  schemaColors
-}
+  tables.forEach(table => {
+    table.schemaColor = schemaColors[table.schema || "DEFAULT"];
+  });
 
-export const databases: Databases = {
-  bindle: bindleDatabase
-};
+  databases[databaseName] = {
+    tables,
+    tablePositions,
+    edgeConfigs,
+    schemaColors
+  }
+});
+
+export default databases;
