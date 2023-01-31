@@ -104,6 +104,10 @@ const camelize = (text) => {
   });
 };
 
+const importEdgeConfigs = async (databaseName, tables) => {
+  await fs.writeFile(`src/config/databases/${databaseName}/edges.json`, JSON.stringify([], null, 2), "utf8");
+};
+
 const importTablesIndexFile = async (databaseName, tables) => {
   const importStatements = [];
   const names = [];
@@ -146,6 +150,7 @@ const importConfigFiles = async ({ databaseName }) => {
   await importSchemaColors(databaseName, schemas);
   await importTablePositions(databaseName, tables);
   await importTableConfigs(databaseName, tables);
+  await importEdgeConfigs(databaseName, tables);
   await importTablesIndexFile(databaseName, tables);
 };
 

@@ -49,9 +49,6 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   }
 
   const databaseConfig = databases[databaseSlug];
-
-  console.log(databaseConfig)
-
   const initialNodes = initializeNodes(databaseConfig.tables, databaseConfig.tablePositions, databaseConfig.edgeConfigs);
   const store = useStoreApi();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

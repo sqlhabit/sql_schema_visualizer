@@ -35,7 +35,10 @@ function Layout() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/databases/bindle">Dashboard</Link>
+            <Link to="/databases/bindle">Bindle</Link>
+          </li>
+          <li>
+            <Link to="/databases/finance">Finance</Link>
           </li>
           <li>
             <Link to="/nothing-here">Nothing Here</Link>
