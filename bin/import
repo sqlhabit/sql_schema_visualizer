@@ -111,7 +111,7 @@ const importTablesIndexFile = async (databaseName, tables) => {
   Object.keys(tables).forEach(tableName => {
     const tableConfigFileName = `${camelize(tableName)}Table`;
 
-    importStatements.push(`import ${tableConfigFileName} from "../../config/tables/${tableName}.json";`);
+    importStatements.push(`import ${tableConfigFileName} from "./tables/${tableName}.json";`);
     names.push(`  ${tableConfigFileName}`);
   });
 
