@@ -1,18 +1,10 @@
 {
-  "public.ar_internal_metadata": {
-    "x": 0,
-    "y": 0
-  },
-  "public.schema_migrations": {
-    "x": 300,
-    "y": 0
-  },
   "public.transactions": {
     "x": 0,
-    "y": 450
+    "y": 0
   },
   "public.vendors": {
-    "x": 300,
+    "x": 0,
     "y": 450
   }
 }
