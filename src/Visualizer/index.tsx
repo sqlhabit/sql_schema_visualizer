@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ReactFlow, {
   Node, useNodesState, useEdgesState, Edge,
   Controls, ControlButton, Background, useStoreApi, ReactFlowProvider,
@@ -26,7 +26,8 @@ import {
   moveSVGInFront,
   setHighlightEdgeClassName,
   logTablePositions,
-  setEdgeClassName
+  setEdgeClassName,
+  loadDatabases
 } from "./helpers";
 
 import {
@@ -101,6 +102,21 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
       setFullScreen(window.innerHeight === window.screen.height);
     });
   }
+
+  useEffect(() => {
+    loadDatabases().then((data) => {
+      setEdges(eds => []);
+
+      if(!props.database) {
+        return;
+      }
+
+      const databaseConfig = data[props.database];
+      const initialNodes = initializeNodes(databaseConfig.tables, databaseConfig.tablePositions, databaseConfig.edgeConfigs);
+
+      setNodes(() => initialNodes);
+    });
+  }, [props.database, setEdges, setNodes]);
 
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(

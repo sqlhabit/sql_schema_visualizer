@@ -9,3 +9,4 @@ export * from "./setHighlightEdgeClassName";
 export * from "./setEdgeClassName";
 export * from "./logTablePositions";
 export * from "./loadDatabaseConfig";
+export * from "./loadDatabases";
