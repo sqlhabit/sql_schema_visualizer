@@ -31,7 +31,8 @@ import {
 } from "./helpers";
 
 import {
-  EdgeConfig
+  EdgeConfig,
+  Database
 } from "./types";
 
 // this is important! You need to import the styles from the lib to make it work
@@ -62,9 +63,13 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     edgeConfigs: [],
     schemaColors: {},
     tablePositions: {}
-  });
+  } as Database);
+
+  console.log("--> yo");
 
   const onInit = (instance: any) => {
+    console.log("--> onInit");
+
     const nodes = instance.getNodes();
     const initialEdges: Edge[] = [];
 
@@ -109,16 +114,19 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   }
 
   useEffect(() => {
+    console.log("--> useEffect PROPS");
+
     loadDatabases().then((data) => {
       if(!props.database) {
         return;
       }
 
-      const databaseConfig = data[props.database];
+      const databaseConfig = data[props.database] as Database;
       const initialNodes = initializeNodes(databaseConfig.tables, databaseConfig.tablePositions, databaseConfig.edgeConfigs);
 
       setNodes(() => initialNodes);
       setEdges(() => []);
+      setCurrentDatabase(databaseConfig);
     });
   }, [props.database, setEdges, setNodes]);
 
