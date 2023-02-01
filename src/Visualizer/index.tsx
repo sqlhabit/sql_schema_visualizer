@@ -3,7 +3,7 @@ import ReactFlow, {
   Node, useNodesState, useEdgesState, Edge,
   Controls, ControlButton, Background, useStoreApi, ReactFlowProvider,
   getConnectedEdges, OnSelectionChangeParams, NodeChange, getIncomers,
-  getOutgoers
+  getOutgoers, useNodes
 } from "reactflow";
 
 import databases from "../config";
@@ -50,14 +50,19 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   }
 
   const databaseConfig = databases[databaseSlug];
-  const initialNodes = initializeNodes(databaseConfig.tables, databaseConfig.tablePositions, databaseConfig.edgeConfigs);
   const store = useStoreApi();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
   const [nodeHoverActive, setNodeHoverActive] = useState(true);
+  const [currentDatabase, setCurrentDatabase] = useState({
+    tables: [],
+    edgeConfigs: [],
+    schemaColors: {},
+    tablePositions: {}
+  });
 
   const onInit = (instance: any) => {
     const nodes = instance.getNodes();
@@ -105,8 +110,6 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
   useEffect(() => {
     loadDatabases().then((data) => {
-      setEdges(eds => []);
-
       if(!props.database) {
         return;
       }
@@ -115,6 +118,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
       const initialNodes = initializeNodes(databaseConfig.tables, databaseConfig.tablePositions, databaseConfig.edgeConfigs);
 
       setNodes(() => initialNodes);
+      setEdges(() => []);
     });
   }, [props.database, setEdges, setNodes]);
 
