@@ -144,6 +144,14 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     });
   }, [props.database, setEdges, setNodes]);
 
+  useEffect(() => {
+    console.log("--> useEffect nodes");
+    console.log(nodes);
+
+    // const initialEdges = calculateEdges({ nodes, databaseConfig });
+    // setEdges(() => initialEdges);
+  }, [nodes, databaseConfig, setEdges]);
+
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(
     (_: any, node: Node) => {
