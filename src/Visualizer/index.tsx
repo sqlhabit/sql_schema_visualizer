@@ -61,7 +61,14 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     tablePositions: {}
   } as Database);
 
+  const [nodesAreSet, setNodesAreSet] = useState(false);
+  const [edgesAreSet, setEdgesAreSet] = useState(false);
+
+  console.log("--> yo");
+
   const onInit = (instance: any) => {
+    console.log("--> onInit");
+
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
@@ -110,6 +117,8 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   };
 
   useEffect(() => {
+    console.log("--> useEffect 1");
+
     setUnknownDatasetOn(false);
     loadDatabases().then((data) => {
       if(!props.database || !(props.database in data)) {
@@ -119,19 +128,32 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
       const databaseConfig = data[props.database as string] as Database;
       setCurrentDatabase(() => databaseConfig);
+      setNodesAreSet(false);
+      setEdgesAreSet(false);
     });
   }, [props.database]);
 
   useEffect(() => {
-    const initialNodes = initializeNodes(currentDatabase);
-    setNodes(() => initialNodes);
-  }, [currentDatabase, setNodes]);
+    if(!nodesAreSet) {
+      console.log("--> useEffect 2");
+
+      const initialNodes = initializeNodes(currentDatabase);
+      setNodes(() => initialNodes);
+      setNodesAreSet(true);
+    }
+  }, [currentDatabase, setNodes, nodesAreSet, setNodesAreSet]);
 
   useEffect(() => {
+    console.log("--> useEffect 3");
+
     const initialEdges = calculateEdges({ nodes, currentDatabase });
     setEdges(() => initialEdges);
-    reactFlowInstance.fitView();
-  }, [nodes, setEdges]);
+
+    if(!edgesAreSet) {
+      reactFlowInstance.fitView();
+      setEdgesAreSet(true);
+    }
+  }, [nodesAreSet, nodes, currentDatabase, setEdges, reactFlowInstance, edgesAreSet, setEdgesAreSet]);
 
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(
