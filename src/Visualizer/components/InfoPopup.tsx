@@ -1,8 +1,8 @@
 import { markdown } from "../helpers";
 import { CloseIcon } from "../components";
-import { InfoPopupProps } from "../types";
+import { PopupProps } from "../types";
 
-export function InfoPopup(props: InfoPopupProps) {
+export function InfoPopup(props: PopupProps) {
   return (
     <div
       className="info-popup">
