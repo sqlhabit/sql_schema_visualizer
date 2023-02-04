@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import ReactFlow, {
-  Node, useNodesState, useEdgesState, Edge,
+  Node, useNodesState, useEdgesState,
   Controls, ControlButton, Background, useStoreApi, ReactFlowProvider,
   getConnectedEdges, OnSelectionChangeParams, NodeChange, getIncomers,
-  getOutgoers, useNodes, useReactFlow
+  getOutgoers, useReactFlow
 } from "reactflow";
 
 import { nodeTypes } from "../config/nodeTypes";
@@ -27,7 +27,8 @@ import {
   setHighlightEdgeClassName,
   logTablePositions,
   setEdgeClassName,
-  loadDatabases
+  loadDatabases,
+  calculateEdges
 } from "./helpers";
 
 import {
@@ -42,41 +43,6 @@ import "./Style";
 interface FlowProps {
   database?: string;
 }
-
-interface CalculateEdgesOptions {
-  nodes: Node[];
-  currentDatabase: Database;
-}
-
-const calculateEdges = ({ nodes, currentDatabase }: CalculateEdgesOptions) => {
-  const initialEdges: Edge[] = [];
-
-  currentDatabase.edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
-    const sourceNode = nodes.find((node: Node) => node.id === edgeConfig.source);
-    const targetNode = nodes.find((node: Node) => node.id === edgeConfig.target);
-
-    if(sourceNode && targetNode) {
-      const sourcePosition = edgeConfig.sourcePosition || calculateSourcePosition(sourceNode.width as number, sourceNode!.position.x, targetNode.width as number, targetNode!.position.x);
-      const targetPosition = edgeConfig.targetPosition || calculateTargetPosition(sourceNode.width as number, sourceNode!.position.x, targetNode.width as number, targetNode!.position.x);
-
-      const sourceHandle = `${edgeConfig.sourceKey}-${sourcePosition}`;
-      const targetHandle = `${edgeConfig.targetKey}-${targetPosition}`;
-
-      initialEdges.push({
-        id: `${edgeConfig.source}-${edgeConfig.target}`,
-        source: edgeConfig.source,
-        target: edgeConfig.target,
-        sourceHandle,
-        targetHandle,
-        type: "smoothstep",
-        markerEnd: edgeMarkerName(edgeConfig, targetPosition),
-        className: edgeClassName(edgeConfig, targetPosition)
-      });
-    }
-  });
-
-  return initialEdges;
-};
 
 const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   const reactFlowInstance = useReactFlow();
@@ -95,11 +61,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     tablePositions: {}
   } as Database);
 
-  console.log("--> yo");
-
   const onInit = (instance: any) => {
-    console.log("--> onInit");
-
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
@@ -149,30 +111,23 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
   useEffect(() => {
     setUnknownDatasetOn(false);
-    console.log("--> useEffect 1")
-
     loadDatabases().then((data) => {
       if(!props.database || !(props.database in data)) {
         setUnknownDatasetOn(true);
         return;
       }
 
-      // const state = store.getState();
-      // state.reset();
       const databaseConfig = data[props.database as string] as Database;
       setCurrentDatabase(() => databaseConfig);
     });
   }, [props.database]);
 
   useEffect(() => {
-    console.log("--> useEffect 2")
     const initialNodes = initializeNodes(currentDatabase);
     setNodes(() => initialNodes);
   }, [currentDatabase, setNodes]);
 
   useEffect(() => {
-    console.log("--> useEffect 3")
-
     const initialEdges = calculateEdges({ nodes, currentDatabase });
     setEdges(() => initialEdges);
     reactFlowInstance.fitView();
