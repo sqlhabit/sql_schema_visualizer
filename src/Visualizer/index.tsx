@@ -6,7 +6,6 @@ import ReactFlow, {
   getOutgoers, useNodes
 } from "reactflow";
 
-import databases from "../config";
 import { nodeTypes } from "../config/nodeTypes";
 
 import {
@@ -14,7 +13,8 @@ import {
   MinimizeIcon,
   InfoIcon,
   InfoPopup,
-  Markers
+  Markers,
+  UnknownDatasetPopup
 } from "./components";
 
 import {
@@ -85,6 +85,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
+  const [unknownDatasetOn, setUnknownDatasetOn] = useState(false);
   const [nodeHoverActive, setNodeHoverActive] = useState(true);
   const [currentDatabase, setCurrentDatabase] = useState({
     tables: [],
@@ -96,14 +97,6 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   console.log("--> yo");
 
   const onInit = (instance: any) => {
-    console.log("--> onInit");
-
-    const nodes = instance.getNodes();
-
-    const initialEdges = calculateEdges({ nodes, databaseConfig: currentDatabase })
-
-    setEdges(eds => initialEdges);
-
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
@@ -121,10 +114,12 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   }
 
   useEffect(() => {
+    setUnknownDatasetOn(false);
     console.log("--> useEffect PROPS");
 
     loadDatabases().then((data) => {
-      if(!props.database) {
+      if(!props.database || !(props.database in data)) {
+        setUnknownDatasetOn(true);
         return;
       }
 
@@ -136,7 +131,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
       setEdges(() => []);
       setCurrentDatabase(databaseConfig);
     });
-  }, [props.database, setEdges, setNodes]);
+  }, [props.database, setEdges, setNodes, setUnknownDatasetOn]);
 
   useEffect(() => {
     console.log("--> useEffect nodes");
@@ -367,6 +362,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
         <Background color="#aaa" gap={16} />
       </ReactFlow>
       {infoPopupOn && <InfoPopup onClose={() => { setInfoPopupOn(false) }} />}
+      {unknownDatasetOn && <UnknownDatasetPopup onClose={() => { setUnknownDatasetOn(false) }} />}
     </div>
   );
 }
