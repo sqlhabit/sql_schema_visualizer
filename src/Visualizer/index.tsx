@@ -129,9 +129,6 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
       setCurrentDatabase(() => databaseConfig);
       setEdges(() => []);
       setNodes(() => []);
-      // setTimeout(() => {
-      //   reactFlowInstance.fitView();
-      // })
     });
   }, [props.database]);
 
@@ -146,6 +143,8 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     console.log("--> useEffect 3")
     console.log("--> useEffect nodes");
     console.log(nodes);
+
+    reactFlowInstance.fitView();
 
     const initialEdges = calculateEdges({ nodes, currentDatabase });
     setEdges(() => initialEdges);
