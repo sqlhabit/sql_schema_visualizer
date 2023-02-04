@@ -3,7 +3,7 @@ import ReactFlow, {
   Node, useNodesState, useEdgesState, Edge,
   Controls, ControlButton, Background, useStoreApi, ReactFlowProvider,
   getConnectedEdges, OnSelectionChangeParams, NodeChange, getIncomers,
-  getOutgoers, useNodes
+  getOutgoers, useNodes, useReactFlow
 } from "reactflow";
 
 import { nodeTypes } from "../config/nodeTypes";
@@ -45,13 +45,13 @@ interface FlowProps {
 
 interface CalculateEdgesOptions {
   nodes: Node[];
-  databaseConfig: Database;
+  currentDatabase: Database;
 }
 
-const calculateEdges = ({ nodes, databaseConfig }: CalculateEdgesOptions) => {
+const calculateEdges = ({ nodes, currentDatabase }: CalculateEdgesOptions) => {
   const initialEdges: Edge[] = [];
 
-  databaseConfig.edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
+  currentDatabase.edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
     const sourceNode = nodes.find((node: Node) => node.id === edgeConfig.source);
     const targetNode = nodes.find((node: Node) => node.id === edgeConfig.target);
 
@@ -79,6 +79,7 @@ const calculateEdges = ({ nodes, databaseConfig }: CalculateEdgesOptions) => {
 };
 
 const Flow: React.FC<FlowProps> = (props: FlowProps) => {
+  const reactFlowInstance = useReactFlow();
   const store = useStoreApi();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
@@ -111,11 +112,11 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     window.addEventListener("resize", (event) => {
       setFullScreen(window.innerHeight === window.screen.height);
     });
-  }
+  };
 
   useEffect(() => {
     setUnknownDatasetOn(false);
-    console.log("--> useEffect PROPS");
+    console.log("--> useEffect 1")
 
     loadDatabases().then((data) => {
       if(!props.database || !(props.database in data)) {
@@ -124,22 +125,31 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
       }
 
       const databaseConfig = data[props.database] as Database;
-      setCurrentDatabase(databaseConfig);
-      const initialNodes = initializeNodes(databaseConfig.tables, databaseConfig.tablePositions, databaseConfig.edgeConfigs);
 
-      setNodes(() => initialNodes);
+      setCurrentDatabase(() => databaseConfig);
       setEdges(() => []);
-      setCurrentDatabase(databaseConfig);
+      setNodes(() => []);
+      // setTimeout(() => {
+      //   reactFlowInstance.fitView();
+      // })
     });
-  }, [props.database, setEdges, setNodes, setUnknownDatasetOn]);
+  }, [props.database]);
 
   useEffect(() => {
+    console.log("--> useEffect 2")
+    const initialNodes = initializeNodes(currentDatabase);
+
+    setNodes(() => initialNodes);
+  }, [currentDatabase]);
+
+  useEffect(() => {
+    console.log("--> useEffect 3")
     console.log("--> useEffect nodes");
     console.log(nodes);
 
-    // const initialEdges = calculateEdges({ nodes, databaseConfig });
-    // setEdges(() => initialEdges);
-  }, [nodes, currentDatabase, setEdges]);
+    const initialEdges = calculateEdges({ nodes, currentDatabase });
+    setEdges(() => initialEdges);
+  }, [nodes]);
 
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(

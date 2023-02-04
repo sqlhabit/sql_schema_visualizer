@@ -1,5 +1,5 @@
 import { fullTableName } from "./fullTableName";
-import { EdgeConfig, Position, TableConfig, TablePositions } from "../types";
+import { Database, EdgeConfig, Position, TableConfig, TablePositions } from "../types";
 
 const setHandleType = (tableConfigs: TableConfig[], tableName: string, columnName: string, handleType: string) => {
   tableConfigs.forEach(tableConfig => {
@@ -15,11 +15,11 @@ const setHandleType = (tableConfigs: TableConfig[], tableName: string, columnNam
   });
 };
 
-export const initializeNodes = (tableConfigs: TableConfig[], tablePositions: TablePositions, edgeConfigs: EdgeConfig[]) => {
+export const initializeNodes = (databaseConfig: Database) => {
   const tables = [] as any;
   const tablePositionsWithSchema = {} as TablePositions;
 
-  Object.entries(tablePositions).forEach(params => {
+  Object.entries(databaseConfig.tablePositions).forEach(params => {
     const tableName = params[0];
     const position = params[1] as Position;
 
@@ -30,15 +30,15 @@ export const initializeNodes = (tableConfigs: TableConfig[], tablePositions: Tab
     }
   });
 
-  edgeConfigs.forEach(edgeConfig => {
+  databaseConfig.edgeConfigs.forEach((edgeConfig: EdgeConfig) => {
     const sourceTableName = fullTableName(edgeConfig.source);
-    setHandleType(tableConfigs, sourceTableName, edgeConfig.sourceKey, "source");
+    setHandleType(databaseConfig.tables, sourceTableName, edgeConfig.sourceKey, "source");
 
     const targetTableName = fullTableName(edgeConfig.target);
-    setHandleType(tableConfigs, targetTableName, edgeConfig.targetKey, "target");
+    setHandleType(databaseConfig.tables, targetTableName, edgeConfig.targetKey, "target");
   });
 
-  tableConfigs.forEach(tableConfig => {
+  databaseConfig.tables.forEach((tableConfig: TableConfig) => {
     const schemaName = tableConfig.schema || "public";
     const tableID = fullTableName(tableConfig.name, schemaName);
 
