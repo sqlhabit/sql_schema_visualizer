@@ -333,7 +333,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
         onNodeMouseLeave={onNodeMouseLeave}
         onSelectionChange={onSelectionChange}
       >
-        <Controls>
+        <Controls showInteractive={false}>
           <ControlButton onClick={toggleFullScreen}>
             {!fullscreenOn && <MaximizeIcon />}
             {fullscreenOn && <MinimizeIcon />}
