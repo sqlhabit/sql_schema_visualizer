@@ -2,7 +2,6 @@ import { markdown } from "../helpers";
 import { CloseIcon } from "../components";
 import { PopupProps } from "../types";
 import databaseNames from "../../config/databases.json";
-import { Link } from "react-router-dom";
 
 export function UnknownDatasetPopup(props: PopupProps) {
   return (
@@ -22,7 +21,7 @@ export function UnknownDatasetPopup(props: PopupProps) {
             {databaseNames.map(databaseName => {
               return (
                 <li key={databaseName}>
-                  <Link to={`/databases/${databaseName}`}>{databaseName}</Link>
+                  <a href={`/databases/${databaseName}`}>{databaseName}</a>
                 </li>
               )
             })}
