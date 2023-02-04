@@ -98,6 +98,8 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   console.log("--> yo");
 
   const onInit = (instance: any) => {
+    console.log("--> onInit");
+
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
@@ -112,6 +114,37 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     window.addEventListener("resize", (event) => {
       setFullScreen(window.innerHeight === window.screen.height);
     });
+
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if(e.code === "Escape") {
+        setInfoPopupOn(false);
+      }
+    });
+
+    // https://stackoverflow.com/questions/42066421/property-value-does-not-exist-on-type-eventtarget
+    document.addEventListener("click", (event: Event) => {
+      const target = (event.target as HTMLInputElement);
+
+      if (target && target.closest(".into-popup-toggle")) {
+        return;
+      }
+
+      if (target && !target.closest(".info-popup__inner")) {
+        setInfoPopupOn(false);
+      }
+    })
+
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if(e.code === "MetaLeft") {
+        setNodeHoverActive(false);
+      }
+    }, false);
+
+    document.addEventListener("keyup", (e: KeyboardEvent) => {
+      if(e.code === "MetaLeft") {
+        setNodeHoverActive(true);
+      }
+    }, false);
   };
 
   useEffect(() => {
@@ -124,31 +157,26 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
         return;
       }
 
-      const databaseConfig = data[props.database] as Database;
-
+      // const state = store.getState();
+      // state.reset();
+      const databaseConfig = data[props.database as string] as Database;
       setCurrentDatabase(() => databaseConfig);
-      setEdges(() => []);
-      setNodes(() => []);
     });
   }, [props.database]);
 
   useEffect(() => {
     console.log("--> useEffect 2")
     const initialNodes = initializeNodes(currentDatabase);
-
     setNodes(() => initialNodes);
-  }, [currentDatabase]);
+  }, [currentDatabase, setNodes]);
 
   useEffect(() => {
     console.log("--> useEffect 3")
-    console.log("--> useEffect nodes");
-    console.log(nodes);
-
-    reactFlowInstance.fitView();
 
     const initialEdges = calculateEdges({ nodes, currentDatabase });
     setEdges(() => initialEdges);
-  }, [nodes]);
+    reactFlowInstance.fitView();
+  }, [nodes, setEdges]);
 
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(
@@ -310,45 +338,14 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     }
   }
 
-  document.addEventListener("keydown", (e: KeyboardEvent) => {
-    if(e.code === "Escape") {
-      setInfoPopupOn(false);
-    }
-  });
-
-  // https://stackoverflow.com/questions/42066421/property-value-does-not-exist-on-type-eventtarget
-  document.addEventListener("click", (event: Event) => {
-    const target = (event.target as HTMLInputElement);
-
-    if (target && target.closest(".into-popup-toggle")) {
-      return;
-    }
-
-    if (target && !target.closest(".info-popup__inner")) {
-      setInfoPopupOn(false);
-    }
-  })
-
-  document.addEventListener("keydown", (e: KeyboardEvent) => {
-    if(e.code === "MetaLeft") {
-      setNodeHoverActive(false);
-    }
-  }, false);
-
-  document.addEventListener("keyup", (e: KeyboardEvent) => {
-    if(e.code === "MetaLeft") {
-      setNodeHoverActive(true);
-    }
-  }, false);
-
   // https://stackoverflow.com/questions/16664584/changing-an-svg-markers-color-css
   return (
     <div className="Flow">
       <Markers />
       <ReactFlow
         nodes={nodes}
-        onNodesChange={handleNodesChange}
         edges={edges}
+        onNodesChange={handleNodesChange}
         onEdgesChange={onEdgesChange}
         onInit={onInit}
         snapToGrid={true}
