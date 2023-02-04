@@ -79,13 +79,6 @@ const calculateEdges = ({ nodes, databaseConfig }: CalculateEdgesOptions) => {
 };
 
 const Flow: React.FC<FlowProps> = (props: FlowProps) => {
-  const databaseSlug = (props.database as string);
-
-  if(!(databaseSlug in databases)) {
-    window.location.href = "/404";
-  }
-
-  const databaseConfig = databases[databaseSlug];
   const store = useStoreApi();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
@@ -107,7 +100,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
     const nodes = instance.getNodes();
 
-    const initialEdges = calculateEdges({ nodes, databaseConfig })
+    const initialEdges = calculateEdges({ nodes, databaseConfig: currentDatabase })
 
     setEdges(eds => initialEdges);
 
@@ -136,6 +129,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
       }
 
       const databaseConfig = data[props.database] as Database;
+      setCurrentDatabase(databaseConfig);
       const initialNodes = initializeNodes(databaseConfig.tables, databaseConfig.tablePositions, databaseConfig.edgeConfigs);
 
       setNodes(() => initialNodes);
@@ -150,7 +144,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
     // const initialEdges = calculateEdges({ nodes, databaseConfig });
     // setEdges(() => initialEdges);
-  }, [nodes, databaseConfig, setEdges]);
+  }, [nodes, currentDatabase, setEdges]);
 
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(
@@ -223,7 +217,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
               return edge.id === `${incomingNode.id}-${node.id}`;
             });
 
-            const edgeConfig = databaseConfig.edgeConfigs.find((edgeConfig: EdgeConfig) => {
+            const edgeConfig = currentDatabase.edgeConfigs.find((edgeConfig: EdgeConfig) => {
               return edgeConfig.source === incomingNode.id && edgeConfig.target === node.id;
             });
 
@@ -255,7 +249,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
               return edge.id === `${node.id}-${targetNode.id}`;
             });
 
-            const edgeConfig = databaseConfig.edgeConfigs.find((edgeConfig: EdgeConfig) => {
+            const edgeConfig = currentDatabase.edgeConfigs.find((edgeConfig: EdgeConfig) => {
               return edgeConfig.source === nodeChange.id && edgeConfig.target === targetNode.id;
             });
 
@@ -285,7 +279,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
       onNodesChange(nodeChanges);
     },
-    [onNodesChange, setEdges, nodes, edges, databaseConfig]
+    [onNodesChange, setEdges, nodes, edges, currentDatabase]
   )
 
   const toggleFullScreen = () => {
