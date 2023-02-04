@@ -1,6 +1,7 @@
 import Visualizer from "../Visualizer";
 import SQLHabitLogo from "./SQLHabitLogo";
 import { Routes, Route, Outlet, Link, useParams } from "react-router-dom";
+import databaseNames from "../config/databases.json";
 
 import "./App.css";
 
@@ -34,12 +35,13 @@ function Layout() {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <a href="/databases/bindle">Bindle</a>
-          </li>
-          <li>
-            <a href="/databases/finance">Finance</a>
-          </li>
+          {databaseNames.map((databaseName: string) => {
+            return (
+              <li key={databaseName}>
+                <a href={`/databases/${databaseName}`}>{databaseName}</a>
+              </li>
+            )
+          })}
           <li>
             <Link to="/nothing-here">Nothing Here</Link>
           </li>
