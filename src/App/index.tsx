@@ -29,7 +29,7 @@ function App() {
 
 function Layout() {
   return (
-    <div>
+    <div className="layout">
       <nav style={{position: "absolute", right: 24}}>
         <ul>
           <li>
@@ -48,9 +48,7 @@ function Layout() {
         </ul>
       </nav>
 
-      <hr />
-
-      <div style={ { width: 800, height: 600 } }>
+      <div className="layout__outlet">
         <Outlet />
       </div>
     </div>
