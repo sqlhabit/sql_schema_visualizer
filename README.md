@@ -46,17 +46,7 @@ npm run start
 
 :bulb: You might need to install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) as well to make sure you're not using an old Node version.
 
-### Step 2. Reset schema configuration
-
-At this point, you should see the default schema in your browser. Let's reset all schema config files:
-
-```bash
-npm run reset
-```
-
-After running this command, you should see an empty grid in your browser.
-
-### Step 3. Export your schema into a CSV file
+### Step 2. Export your schema into a CSV file
 
 Pick a query that works for your database. Save the output of this query to the `schema.csv` file in the root folder (next to [the `schema.csv.template` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/schema.csv.template)).
 
@@ -97,7 +87,7 @@ WHERE
   AND c.table_name NOT IN ('schema_migrations', 'ar_internal_metadata')
 ```
 
-### Step 4. Import schema
+### Step 3. Import schema
 
 ```bash
 npm run import
@@ -105,7 +95,7 @@ npm run import
 
 Now you should see tables from your schema scattered in your browser.
 
-### Step 5. Configure your schema
+### Step 4. Configure your schema
 
 #### A. Set primary keys
 
