@@ -25,6 +25,7 @@ function App() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Layout() {
   return (
     <div className="layout">

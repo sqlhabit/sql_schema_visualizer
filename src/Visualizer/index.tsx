@@ -350,7 +350,7 @@ const Visualizer: React.FC<VisualizerProps> = (props: VisualizerProps) => {
       setCurrentDatabase(databaseConfig);
       setDatabasesLoaded(true);
     });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <ReactFlowProvider>
