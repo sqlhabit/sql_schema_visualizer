@@ -50,11 +50,10 @@ interface VisualizerProps {
 }
 
 const Flow: React.FC<FlowProps> = (props: FlowProps) => {
-  const store = useStoreApi();
   const currentDatabase = props.currentDatabase;
   const initialNodes = initializeNodes(props.currentDatabase);
-  console.log("--> initialNodes: ", initialNodes);
 
+  const store = useStoreApi();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -66,8 +65,6 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
   const onInit = (instance: ReactFlowInstance) => {
     const nodes = instance.getNodes();
-    console.log("--> onInit: ", nodes);
-
     const initialEdges = calculateEdges({ nodes, currentDatabase });
     setEdges(() => initialEdges);
 
