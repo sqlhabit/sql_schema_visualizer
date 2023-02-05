@@ -22,9 +22,8 @@ export function UnknownDatasetPopup(props: PopupProps) {
               <div key={databaseName}>
                 <a href={`/databases/${databaseName}`}>{databases[databaseName].name}</a>
 
-                <div>
-                  {databases[databaseName].description}
-                </div>
+                <div
+                  dangerouslySetInnerHTML={{__html: markdown(databases[databaseName].description || "No description.") }} />
               </div>
             )
           })}

@@ -12,7 +12,9 @@ export function DatabaseMenuPopup(props: PopupProps) {
           className="info-popup__close-icon"
           onClick={() => { props.onClose() }} />
 
-        <h1 className="info-popup__headline" dangerouslySetInnerHTML={{__html: markdown("Choose database :point_down:") }} />
+        <h1
+          className="info-popup__headline"
+          dangerouslySetInnerHTML={{__html: markdown("Choose database :point_down:") }} />
 
         <div className="info-popup__body">
           {Object.keys(databases).map(databaseName => {
@@ -20,9 +22,8 @@ export function DatabaseMenuPopup(props: PopupProps) {
               <div key={databaseName}>
                 <a href={`/databases/${databaseName}`}>{databases[databaseName].name}</a>
 
-                <div>
-                  {databases[databaseName].description}
-                </div>
+                <div
+                  dangerouslySetInnerHTML={{__html: markdown(databases[databaseName].description || "No description.") }} />
               </div>
             )
           })}
