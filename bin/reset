@@ -8,9 +8,9 @@ const resetConfigFile = async (filePath, templatePath = `${filePath}.template`) 
   await fs.writeFile(filePath, templateData, "utf8");
 };
 
-const cleanUpTablesFolder = async () => {
-  await fs.rm("src/config/tables", { recursive: true });
-  await fs.mkdir("src/config/tables");
+const cleanUpDatabasesFolder = async () => {
+  await fs.rm("src/config/databases", { recursive: true });
+  await fs.mkdir("src/config/databases");
 };
 
 const readline = require("readline").createInterface({
@@ -20,11 +20,8 @@ const readline = require("readline").createInterface({
 
 readline.question("Do you want to reset existing tables, edges and schema colors? y/n\n", async (answer) => {
   if(answer.toLowerCase().includes("y")) {
-    await resetConfigFile("src/config/edges.json");
-    await resetConfigFile("src/config/schemaColors.json");
-    await resetConfigFile("src/config/tablePositions.json");
-    await resetConfigFile("src/Visualizer/helpers/loadTables.ts", "src/Visualizer/helpers/loadTables.ts.template.reset");
-    await cleanUpTablesFolder();
+    await resetConfigFile("src/config/databases.json");
+    await cleanUpDatabasesFolder();
 
     console.log("Roger, everything is reset.");
   } else {
