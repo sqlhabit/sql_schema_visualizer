@@ -5,4 +5,4 @@ export * from "./SchemaColors";
 export * from "./PopupProps";
 export * from "./CloseIconProps";
 export * from "./TableConfig";
-export * from "./Database";
+export * from "./DatabaseConfig";
