@@ -1,4 +1,4 @@
-import { useState, FC } from "react";
+import { useState, FC, useEffect } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { KeyIcon } from "../components";
 
@@ -9,17 +9,19 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
   const [showDescription, setshowDescription] = useState(false);
   const [descriptionOnHoverActive, setDescriptionOnHoverActive] = useState(false);
 
-  document.addEventListener("keydown", (e: KeyboardEvent) => {
-    if(e.code === "MetaLeft") {
-      setDescriptionOnHoverActive(true)
-    }
-  }, false);
+  useEffect(() => {
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if(e.code === "MetaLeft") {
+        setDescriptionOnHoverActive(true)
+      }
+    }, false);
 
-  document.addEventListener("keyup", (e: KeyboardEvent) => {
-    if(e.code === "MetaLeft") {
-      setDescriptionOnHoverActive(false)
-    }
-  }, false);
+    document.addEventListener("keyup", (e: KeyboardEvent) => {
+      if(e.code === "MetaLeft") {
+        setDescriptionOnHoverActive(false)
+      }
+    }, false);
+  }, []);
 
   return (
     <div className="table">
