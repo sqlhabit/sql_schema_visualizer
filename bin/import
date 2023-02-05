@@ -4,6 +4,7 @@ const fs = require("fs").promises;
 
 const SCHEMA_COLORS_TEMPLATE_FILE = "src/config/schemaColors.json.template";
 const TABLES_INDEX_FILE_TEMPLATE = "src/config/tables.ts.template";
+const DATABASES_FILE = "src/config/databases.json";
 
 const DATA_TYPES = {
   "character varying": "text",
@@ -127,6 +128,18 @@ const importTablesIndexFile = async (databaseName, tables) => {
   await fs.writeFile(`src/config/databases/${databaseName}/tables.ts`, loadTablesHelper, "utf8");
 };
 
+const addDatabaseEntry = async ({ databaseName }) => {
+  const rawDatabases = await fs.readFile(DATABASES_FILE, "utf8");
+  const databases = JSON.parse(rawDatabases);
+
+  databases[databaseName] = {
+    name: databaseName,
+    description: ""
+  }
+
+  await fs.writeFile(DATABASES_FILE, JSON.stringify(databases, null, 2), "utf8");
+};
+
 const importConfigFiles = async ({ databaseName }) => {
   const databaseConfigFolder = `src/config/databases/${databaseName}`;
   await fs.mkdir(databaseConfigFolder);
@@ -152,6 +165,7 @@ const importConfigFiles = async ({ databaseName }) => {
   await importTableConfigs(databaseName, tables);
   await importEdgeConfigs(databaseName, tables);
   await importTablesIndexFile(databaseName, tables);
+  await addDatabaseEntry(databaseName);
 };
 
 (async () => {
