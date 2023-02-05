@@ -1,9 +1,11 @@
 import { markdown } from "../helpers";
 import { CloseIcon } from "../components";
-import { PopupProps } from "../types";
+import { DatabaseMenuPopupProps } from "../types";
 import databases from "../../config/databases";
 
-export function DatabaseMenuPopup(props: PopupProps) {
+
+
+export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
   return (
     <div
       className="info-popup">
@@ -14,7 +16,11 @@ export function DatabaseMenuPopup(props: PopupProps) {
 
         <h1
           className="info-popup__headline"
-          dangerouslySetInnerHTML={{__html: markdown("Choose database :point_down:") }} />
+          dangerouslySetInnerHTML={{__html: markdown(props.headline) }} />
+
+        {props.subheadline && <h2
+          className="info-popup__subheadline"
+          dangerouslySetInnerHTML={{__html: markdown(props.subheadline) }} />}
 
         <div className="info-popup__body">
           {Object.keys(databases).map(databaseName => {
