@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+const fs = require("fs").promises;
+
+const resetConfigFile = async (filePath, templatePath = `${filePath}.template`) => {
+  const templateData = await fs.readFile(templatePath, "utf8");
+
+  await fs.writeFile(filePath, templateData, "utf8");
+};
+
+const cleanUpTablesFolder = async () => {
+  await fs.rm("src/config/tables", { recursive: true });
+  await fs.mkdir("src/config/tables");
+};
+
+const readline = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+readline.question("Do you want to reset existing tables, edges and schema colors? y/n\n", async (answer) => {
+  if(answer.toLowerCase().includes("y")) {
+    await resetConfigFile("src/config/edges.json");
+    await resetConfigFile("src/config/schemaColors.json");
+    await resetConfigFile("src/config/tablePositions.json");
+    await resetConfigFile("src/Visualizer/helpers/loadTables.ts", "src/Visualizer/helpers/loadTables.ts.template.reset");
+    await cleanUpTablesFolder();
+
+    console.log("Roger, everything is reset.");
+  } else {
+    console.log("Roger, skipping resetting.");
+  }
+
+  readline.close();
+});
