@@ -1,1 +1,10 @@
-["bindle", "finance"]
+{
+  "bindle": {
+    "name": "Bindle dataset",
+    "description": "Foo"
+  },
+  "finance": {
+    "name": "Finance dataset",
+    "description": "Bar"
+  }
+}
