@@ -26,6 +26,7 @@ export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
               <div key={databaseName}>
                 <h3
                   className="info-popup__database-name">
+                  { /* design_notes/0001_using_regular_links.md */}
                   <a href={`/databases/${databaseName}`}>{databases[databaseName].name}</a>
                 </h3>
 
