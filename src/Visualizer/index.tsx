@@ -13,8 +13,7 @@ import {
   MinimizeIcon,
   InfoIcon,
   InfoPopup,
-  Markers,
-  UnknownDatasetPopup
+  Markers
 } from "./components";
 
 import {
@@ -351,8 +350,13 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
         <Background color="#aaa" gap={16} />
       </ReactFlow>
       {infoPopupOn && <InfoPopup onClose={() => { setInfoPopupOn(false) }} />}
-      {unknownDatasetOn && <UnknownDatasetPopup onClose={() => { setUnknownDatasetOn(false) }} />}
-      {databaseMenuPopupOn && <DatabaseMenuPopup onClose={() => { setDatabaseMenuPopupOn(false) }} />}
+      {unknownDatasetOn && <DatabaseMenuPopup
+        headline={":warning: Unknown dataset."}
+        subheadline={"Available datasets"}
+        onClose={() => { setUnknownDatasetOn(false) }} />}
+      {databaseMenuPopupOn && <DatabaseMenuPopup
+        headline={":point_down: Choose a dataset"}
+        onClose={() => { setDatabaseMenuPopupOn(false) }} />}
     </div>
   );
 }
