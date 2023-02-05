@@ -1,0 +1,32 @@
+{
+  "name": "returns",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "cart_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "item_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "quantity",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "created_at",
+      "description": "",
+      "type": "timestamp"
+    }
+  ]
+}

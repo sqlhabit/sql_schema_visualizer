@@ -1,0 +1,37 @@
+{
+  "name": "discount_codes",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "amount_off",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "percent_off",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "code",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "created_at",
+      "description": "",
+      "type": "timestamp"
+    },
+    {
+      "name": "valid_until",
+      "description": "",
+      "type": "timestamp"
+    }
+  ]
+}
