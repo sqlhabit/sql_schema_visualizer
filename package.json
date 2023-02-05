@@ -56,6 +56,7 @@
     ]
   },
   "devDependencies": {
-    "@juggle/resize-observer": "^3.4.0"
+    "@juggle/resize-observer": "^3.4.0",
+    "sass": "^1.58.0"
   }
 }

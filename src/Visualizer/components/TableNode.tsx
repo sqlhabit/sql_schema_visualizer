@@ -37,7 +37,7 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
         {data.schema ? `${data.schema}.${data.name}` : data.name}
 
         <div className={showDescription ? "table__description table__description--active" : "table__description"}>
-          {data.description}
+          {data.description || "No description."}
         </div>
       </div>
 
