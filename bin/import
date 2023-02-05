@@ -128,7 +128,7 @@ const importTablesIndexFile = async (databaseName, tables) => {
   await fs.writeFile(`src/config/databases/${databaseName}/tables.ts`, loadTablesHelper, "utf8");
 };
 
-const addDatabaseEntry = async ({ databaseName }) => {
+const addDatabaseEntry = async (databaseName) => {
   const rawDatabases = await fs.readFile(DATABASES_FILE, "utf8");
   const databases = JSON.parse(rawDatabases);
 
