@@ -15,12 +15,11 @@ test("renders nodes and edges", async () => {
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     const nodes = container.getElementsByClassName("react-flow__node");
     expect(nodes.length).toBe(14);
-
   });
 
   await waitFor(() => {
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     const edges = container.getElementsByClassName("react-flow__edge");
-    expect(edges.length).toBe(0);
+    expect(edges.length).toBe(12);
   });
 });
