@@ -112,7 +112,7 @@ npm run import my_schema
 
 You should see table JSON files added to the `src/config/databases/my_schema/tables` folder.
 
-Let's spin up a dev server and see our tables [in the browser](http://localhost:9292/):
+Let's spin up a dev server and see our tables [in the browser](http://localhost:3000/):
 
 ```bash
 npm run start
@@ -200,7 +200,7 @@ After you import a schema, every table will have a default position set in the [
 
 There's no need to update them manually. Instead:
 
-1. Open Schema Visualizer [http://localhost:9292](http://localhost:9292).
+1. Open Schema Visualizer [http://localhost:3000](http://localhost:3000).
 2. Drag table nodes around to find a perfect arrangement.
 3. **CTRL** + **P**. It copies node positions JSON to your clipboard.
 4. Paste (**CMD** + **V**) JSON with positions to the [`tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/databases/bindle/tablePositions.json) file of your schema.
@@ -263,12 +263,12 @@ Here's [a ReactFlow sandbox example](https://github.com/wbkd/react-flow-example-
 
 It all starts with plain [JSON config files](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config). There're 4 of them:
 
-* [tables](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config/tables)
-* [edges](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/edges.json)
-* [tablePositions](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/tablePositions.json)
-* [schemaColors](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/schemaColors.json)
+* [tables](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config/databases/bindle/tables)
+* [edges](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/databases/bindle/edges.json)
+* [tablePositions](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/databases/bindle/tablePositions.json)
+* [schemaColors](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/databases/bindle/schemaColors.json)
 
-Later they're translated into ReactFlow Node and Edge configs.
+Later they're translated into Nodes and Edges digestible by ReactFlow.
 
 ### Nodes and Handles
 
