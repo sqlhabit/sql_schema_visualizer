@@ -4,8 +4,8 @@
 
 # SQL Schema Visualizer
 
-![GitHub License MIT](https://img.shields.io/github/license/sqlhabit/sql_schema_visualizer?color=%BEB8EB)
-![GitHub release (latest by date)](https://img.shields.io/github/sqlhabit/release/sqlhabit/sql_schema_visualizer?color=%BEB8EB)
+![GitHub License MIT](https://img.shields.io/github/license/sqlhabit/sql_schema_visualizer?color=%23BEB8EB)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/sqlhabit/sql_schema_visualizer?color=%23BEB8EB)
 
 A relational database schema visualizer built with React and [ReactFlow](https://github.com/wbkd/react-flow).
 
