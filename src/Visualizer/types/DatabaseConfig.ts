@@ -3,22 +3,22 @@ import { SchemaColors } from "./SchemaColors";
 import { TableConfig } from "./TableConfig";
 import { TablePositions } from "./TablePositions";
 
-export interface Database {
+export type Database = {
   name: string;
   description: string;
 };
 
-export interface Databases {
+export type Databases = {
   [databaseName: string] : Database
 };
 
-export interface DatabaseConfig {
+export type DatabaseConfig = {
   tables: TableConfig[],
   edgeConfigs: EdgeConfig[],
   schemaColors: SchemaColors,
   tablePositions: TablePositions
 };
 
-export interface DatabaseConfigs {
+export type DatabaseConfigs = {
   [databaseName: string] : DatabaseConfig
 };
