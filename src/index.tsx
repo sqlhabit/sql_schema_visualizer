@@ -8,9 +8,11 @@ import "./index.css";
 
 const root = (document.getElementById("root") as HTMLElement);
 
+const basename = process.env.NODE_ENV === "production" ? "/sql_schema_visualizer" : "/";
+
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </React.StrictMode>

@@ -4,6 +4,10 @@ import { DatabaseMenuPopupProps } from "../types";
 import databases from "../../config/databases";
 
 export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
+  const databaseHref = ((databaseName: string) => {
+    return `/databases/${databaseName}`;
+  });
+
   return (
     <div
       className="info-popup">
@@ -27,7 +31,7 @@ export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
                 <h3
                   className="info-popup__database-name">
                   { /* design_notes/0001_using_regular_links.md */}
-                  <a href={`/databases/${databaseName}`}>{databases[databaseName].name}</a>
+                  <a href={databaseHref(databaseName)}>{databases[databaseName].name}</a>
                 </h3>
 
                 <p
