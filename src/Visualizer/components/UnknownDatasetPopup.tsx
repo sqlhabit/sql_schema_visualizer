@@ -17,15 +17,17 @@ export function UnknownDatasetPopup(props: PopupProps) {
         <div className="info-popup__body">
           <h2>Available datasets</h2>
 
-          <ul>
-            {Object.keys(databases).map(databaseName => {
-              return (
-                <li key={databaseName}>
-                  <a href={`/databases/${databaseName}`}>{databases[databaseName].name}</a>
-                </li>
-              )
-            })}
-          </ul>
+          {Object.keys(databases).map(databaseName => {
+            return (
+              <div key={databaseName}>
+                <a href={`/databases/${databaseName}`}>{databases[databaseName].name}</a>
+
+                <div>
+                  {databases[databaseName].description}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
