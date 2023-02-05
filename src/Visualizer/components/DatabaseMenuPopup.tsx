@@ -1,7 +1,7 @@
 import { markdown } from "../helpers";
 import { CloseIcon } from "../components";
 import { PopupProps } from "../types";
-import databases from "../../config/databases.json";
+import databases from "../../config/databases";
 
 export function DatabaseMenuPopup(props: PopupProps) {
   return (
@@ -19,7 +19,7 @@ export function DatabaseMenuPopup(props: PopupProps) {
             {Object.keys(databases).map(databaseName => {
               return (
                 <li key={databaseName}>
-                  <a href={`/databases/${databaseName}`}>{databaseName}</a>
+                  <a href={`/databases/${databaseName}`}>{databases[databaseName].name}</a>
                 </li>
               )
             })}
