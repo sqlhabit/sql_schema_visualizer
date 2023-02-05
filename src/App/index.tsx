@@ -17,8 +17,7 @@ function App() {
       </a>
 
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+        <Route path="/" element={<Database />}>
           <Route path="databases/:slug" element={<Database />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
@@ -30,24 +29,6 @@ function App() {
 function Layout() {
   return (
     <div className="layout">
-      <nav style={{position: "absolute", right: 24}}>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          {databaseNames.map((databaseName: string) => {
-            return (
-              <li key={databaseName}>
-                <a href={`/databases/${databaseName}`}>{databaseName}</a>
-              </li>
-            )
-          })}
-          <li>
-            <Link to="/nothing-here">Nothing Here</Link>
-          </li>
-        </ul>
-      </nav>
-
       <div className="layout__outlet">
         <Outlet />
       </div>
@@ -55,19 +36,13 @@ function Layout() {
   );
 }
 
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
-  );
-}
-
 function Database() {
   let { slug } = useParams();
 
+  const databaseName = slug || databaseNames[0];
+
   return (
-    <Visualizer database={slug} />
+    <Visualizer database={databaseName} />
   );
 }
 

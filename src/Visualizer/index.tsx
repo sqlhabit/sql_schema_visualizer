@@ -39,6 +39,7 @@ import {
 // this is important! You need to import the styles from the lib to make it work
 import "reactflow/dist/style.css";
 import "./Style";
+import DatabaseIcon from "./components/DatabaseIcon";
 
 interface FlowProps {
   database?: string;
@@ -340,6 +341,9 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
           </ControlButton>
           <ControlButton onClick={() => { setInfoPopupOn(!infoPopupOn) }} className="into-popup-toggle">
             <InfoIcon />
+          </ControlButton>
+          <ControlButton onClick={() => { setUnknownDatasetOn(true) }} className="into-popup-toggle">
+            <DatabaseIcon />
           </ControlButton>
         </Controls>
         <Background color="#aaa" gap={16} />
