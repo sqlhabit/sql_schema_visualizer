@@ -40,6 +40,7 @@ import {
 import "reactflow/dist/style.css";
 import "./Style";
 import DatabaseIcon from "./components/DatabaseIcon";
+import { DatabaseMenuPopup } from "./components/DatabaseMenuPopup";
 
 interface FlowProps {
   database?: string;
@@ -54,6 +55,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
   const [unknownDatasetOn, setUnknownDatasetOn] = useState(false);
+  const [databaseMenuPopupOn, setDatabaseMenuPopupOn] = useState(false);
   const [nodeHoverActive, setNodeHoverActive] = useState(true);
   const [currentDatabase, setCurrentDatabase] = useState({
     tables: [],
@@ -342,7 +344,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
           <ControlButton onClick={() => { setInfoPopupOn(!infoPopupOn) }} className="into-popup-toggle">
             <InfoIcon />
           </ControlButton>
-          <ControlButton onClick={() => { setUnknownDatasetOn(true) }} className="into-popup-toggle">
+          <ControlButton onClick={() => { setDatabaseMenuPopupOn(true) }} className="into-popup-toggle">
             <DatabaseIcon />
           </ControlButton>
         </Controls>
@@ -350,6 +352,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
       </ReactFlow>
       {infoPopupOn && <InfoPopup onClose={() => { setInfoPopupOn(false) }} />}
       {unknownDatasetOn && <UnknownDatasetPopup onClose={() => { setUnknownDatasetOn(false) }} />}
+      {databaseMenuPopupOn && <DatabaseMenuPopup onClose={() => { setDatabaseMenuPopupOn(false) }} />}
     </div>
   );
 }
