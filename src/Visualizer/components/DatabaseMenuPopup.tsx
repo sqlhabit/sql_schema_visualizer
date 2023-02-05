@@ -5,7 +5,11 @@ import databases from "../../config/databases";
 
 export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
   const databaseHref = ((databaseName: string) => {
-    return `/databases/${databaseName}`;
+    if(process.env.NODE_ENV === "production") {
+      return `/sql_schema_visualizer/databases/${databaseName}`
+    } else {
+      return `/databases/${databaseName}`;
+    }
   });
 
   return (
