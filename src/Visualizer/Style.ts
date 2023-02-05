@@ -1,6 +1,6 @@
 import "./style/flow.css";
-import "./style/react-flow.css";
-import "./style/table.css";
+import "./style/react-flow.scss";
+import "./style/table.scss";
 import "./style/column-name.scss";
 import "./style/info-popup.scss";
 import "./style/has-one-edge.css";
