@@ -1,10 +1,10 @@
 {
   "bindle": {
     "name": "Bindle dataset",
-    "description": "Foo"
+    "description": "This data warehouse belongs to a fictional startup named **Bindle**. Bindle is a web and mobile app for reading books, it has subscription business model. The SQL Habit Course is based on Bindle's story. :book:\n\nBindle's data warehouse contains everything needed to run a modern Internet company – web and mobile analytics, marketing data, AB-test data, etc. :bar_chart:"
   },
   "finance": {
     "name": "Finance dataset",
-    "description": "Bar"
+    "description": "This data warehouse simply contains all company's financial transactions. :dollar:\n\nIf the company paid for something – there's a **debit** transaction with negative amount. If someone paid the company – it's a **credit** transaction with positive amount. :moneybag:"
   }
 }
