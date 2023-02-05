@@ -89,11 +89,19 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     document.addEventListener("keydown", (e: KeyboardEvent) => {
       if(e.code === "Escape") {
         setInfoPopupOn(false);
+        setUnknownDatasetOn(false);
+        setDatabaseMenuPopupOn(false);
       }
     });
 
     // https://stackoverflow.com/questions/42066421/property-value-does-not-exist-on-type-eventtarget
     document.addEventListener("click", (event: Event) => {
+      const popup = document.querySelector(".info-popup");
+
+      if(!popup) {
+        return;
+      }
+
       const target = (event.target as HTMLInputElement);
 
       if (target && target.closest(".into-popup-toggle")) {
@@ -102,6 +110,8 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
       if (target && !target.closest(".info-popup__inner")) {
         setInfoPopupOn(false);
+        setUnknownDatasetOn(false);
+        setDatabaseMenuPopupOn(false);
       }
     })
 
