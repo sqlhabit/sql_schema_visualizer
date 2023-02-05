@@ -3,7 +3,7 @@ import ReactFlow, {
   Node, useNodesState, useEdgesState,
   Controls, ControlButton, Background, useStoreApi, ReactFlowProvider,
   getConnectedEdges, OnSelectionChangeParams, NodeChange, getIncomers,
-  getOutgoers, useReactFlow, ReactFlowInstance
+  getOutgoers, ReactFlowInstance
 } from "reactflow";
 
 import { nodeTypes } from "../config/nodeTypes";
@@ -42,31 +42,35 @@ import DatabaseIcon from "./components/DatabaseIcon";
 import { DatabaseMenuPopup } from "./components/DatabaseMenuPopup";
 
 interface FlowProps {
+  currentDatabase: DatabaseConfig;
+}
+
+interface VisualizerProps {
   database?: string;
 }
 
 const Flow: React.FC<FlowProps> = (props: FlowProps) => {
-  const reactFlowInstance = useReactFlow();
   const store = useStoreApi();
+  const currentDatabase = props.currentDatabase;
+  const initialNodes = initializeNodes(props.currentDatabase);
+  console.log("--> initialNodes: ", initialNodes);
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [fullscreenOn, setFullScreen] = useState(false);
   const [infoPopupOn, setInfoPopupOn] = useState(false);
   const [unknownDatasetOn, setUnknownDatasetOn] = useState(false);
   const [databaseMenuPopupOn, setDatabaseMenuPopupOn] = useState(false);
   const [nodeHoverActive, setNodeHoverActive] = useState(true);
-  const [currentDatabase, setCurrentDatabase] = useState({
-    tables: [],
-    edgeConfigs: [],
-    schemaColors: {},
-    tablePositions: {}
-  } as DatabaseConfig);
-
-  const [nodesAreSet, setNodesAreSet] = useState(false);
-  const [edgesAreSet, setEdgesAreSet] = useState(false);
 
   const onInit = (instance: ReactFlowInstance) => {
+    const nodes = instance.getNodes();
+    console.log("--> onInit: ", nodes);
+
+    const initialEdges = calculateEdges({ nodes, currentDatabase });
+    setEdges(() => initialEdges);
+
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
@@ -123,39 +127,6 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
       }
     }, false);
   };
-
-  useEffect(() => {
-    setUnknownDatasetOn(false);
-    loadDatabases().then((data) => {
-      if(!props.database || !(props.database in data)) {
-        setUnknownDatasetOn(true);
-        return;
-      }
-
-      const databaseConfig = data[props.database as string] as DatabaseConfig;
-      setCurrentDatabase(() => databaseConfig);
-      setNodesAreSet(false);
-      setEdgesAreSet(false);
-    });
-  }, [props.database]);
-
-  useEffect(() => {
-    if(!nodesAreSet) {
-      const initialNodes = initializeNodes(currentDatabase);
-      setNodes(() => initialNodes);
-      setNodesAreSet(true);
-    }
-  }, [currentDatabase, setNodes, nodesAreSet, setNodesAreSet]);
-
-  useEffect(() => {
-    const initialEdges = calculateEdges({ nodes, currentDatabase });
-    setEdges(() => initialEdges);
-
-    if(!edgesAreSet) {
-      reactFlowInstance.fitView();
-      setEdgesAreSet(true);
-    }
-  }, [nodesAreSet, nodes, currentDatabase, setEdges, reactFlowInstance, edgesAreSet, setEdgesAreSet]);
 
   // https://github.com/wbkd/react-flow/issues/2580
   const onNodeMouseEnter = useCallback(
@@ -363,10 +334,32 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
 // https://codesandbox.io/s/elastic-elion-dbqwty?file=/src/App.js
 // eslint-disable-next-line import/no-anonymous-default-export
-const Visualizer: React.FC<FlowProps> = (props: FlowProps) => {
+const Visualizer: React.FC<VisualizerProps> = (props: VisualizerProps) => {
+  const [currentDatabase, setCurrentDatabase] = useState({
+    tables: [],
+    edgeConfigs: [],
+    schemaColors: {},
+    tablePositions: {}
+  } as DatabaseConfig)
+  const [databasesLoaded, setDatabasesLoaded] = useState(false);
+
+  useEffect(() => {
+    loadDatabases().then((data) => {
+      if(!props.database || !(props.database in data)) {
+        return;
+      }
+
+      const databaseConfig = data[props.database as string] as DatabaseConfig;
+      setCurrentDatabase(databaseConfig);
+      setDatabasesLoaded(true);
+    });
+  }, []);
+
   return (
     <ReactFlowProvider>
-      <Flow database={props.database} />
+      {databasesLoaded && <Flow
+        currentDatabase={currentDatabase} />
+      }
     </ReactFlowProvider>
   )
 };
