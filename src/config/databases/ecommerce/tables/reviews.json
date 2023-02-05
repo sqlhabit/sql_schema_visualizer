@@ -1,0 +1,37 @@
+{
+  "name": "reviews",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "item_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "user_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "rating",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "created_at",
+      "description": "",
+      "type": "timestamp"
+    },
+    {
+      "name": "feedback",
+      "description": "",
+      "type": "text"
+    }
+  ]
+}

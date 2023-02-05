@@ -1,0 +1,42 @@
+{
+  "name": "users",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "email",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "first_name",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "last_name",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "country",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "city",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "created_at",
+      "description": "",
+      "type": "timestamp"
+    }
+  ]
+}

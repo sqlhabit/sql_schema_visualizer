@@ -6,5 +6,9 @@
   "finance": {
     "name": "Finance dataset",
     "description": "This data warehouse simply contains all company's financial transactions. :dollar:\n\nIf the company paid for something – there's a **debit** transaction with negative amount. If someone paid the company – it's a **credit** transaction with positive amount. :moneybag:"
+  },
+  "ecommerce": {
+    "name": "ecommerce",
+    "description": ""
   }
 }

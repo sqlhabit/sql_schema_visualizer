@@ -1,0 +1,27 @@
+{
+  "name": "categories",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "name",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "parent_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "created_at",
+      "description": "",
+      "type": "timestamp"
+    }
+  ]
+}
