@@ -1,14 +1,14 @@
 {
   "bindle": {
     "name": "Bindle dataset",
-    "description": "This data warehouse belongs to a fictional startup named **Bindle**. Bindle is a web and mobile app for reading books, it has subscription business model. The SQL Habit Course is based on Bindle's story. :book:\n\nBindle's data warehouse contains everything needed to run a modern Internet company – web and mobile analytics, marketing data, AB-test data, etc. :bar_chart:"
+    "description": "This data warehouse belongs to a fictional startup named **Bindle**. Bindle is a web and mobile app for reading books, it has subscription business model. The SQL Habit Course is based on Bindle's story. :book:\n\nBindle's data warehouse contains everything needed to run a modern Internet company – web and mobile analytics, marketing data, AB-test data, etc."
   },
   "finance": {
     "name": "Finance dataset",
     "description": "This data warehouse simply contains all company's financial transactions. :dollar:\n\nIf the company paid for something – there's a **debit** transaction with negative amount. If someone paid the company – it's a **credit** transaction with positive amount. :moneybag:"
   },
   "ecommerce": {
-    "name": "ecommerce",
-    "description": ""
+    "name": "E-commerce dataset",
+    "description": "This data warehouse is inspired by an E-commerce website like Amazon. :shopping_cart:\n\nOur E-commerce website allows vendors to sell items in multiple categories. Users can add as many items as they want to a cart and then purchase a cart with/without a discount code. Users also can return items and leave reviews."
   }
 }

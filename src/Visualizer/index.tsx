@@ -351,11 +351,11 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
       </ReactFlow>
       {infoPopupOn && <InfoPopup onClose={() => { setInfoPopupOn(false) }} />}
       {unknownDatasetOn && <DatabaseMenuPopup
-        headline={":warning: Unknown dataset."}
-        subheadline={"Available datasets"}
+        headline={"Unknown dataset :warning:"}
+        subheadline={"Available datasets :point_down:"}
         onClose={() => { setUnknownDatasetOn(false) }} />}
       {databaseMenuPopupOn && <DatabaseMenuPopup
-        headline={":point_down: Choose a dataset"}
+        headline={"Choose a dataset :point_down:"}
         onClose={() => { setDatabaseMenuPopupOn(false) }} />}
     </div>
   );
