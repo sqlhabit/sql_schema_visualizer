@@ -1,6 +1,7 @@
 import { useState, FC, useEffect } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { KeyIcon } from "../components";
+import { markdown } from "../helpers";
 
 import "@reactflow/node-resizer/dist/style.css";
 
@@ -36,9 +37,9 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
         onMouseLeave={() => setshowDescription(false)}>
         {data.schema ? `${data.schema}.${data.name}` : data.name}
 
-        <div className={showDescription ? "table__description table__description--active" : "table__description"}>
-          {data.description || "No description."}
-        </div>
+        <div
+          className={showDescription ? "table__description table__description--active" : "table__description"}
+          dangerouslySetInnerHTML={{__html: markdown(data.description || "No description.") }} />
       </div>
 
       <div className="table__columns">
@@ -74,9 +75,9 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
                 {column.type}
               </div>
 
-              <div className="column-name__description">
-                {column.description || "No description."}
-              </div>
+              <div
+                className="column-name__description"
+                dangerouslySetInnerHTML={{__html: markdown(column.description || "No description.") }} />
             </div>
           </div>
         ))}
