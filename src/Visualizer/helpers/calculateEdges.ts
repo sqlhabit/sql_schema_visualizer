@@ -3,11 +3,11 @@ import { edgeClassName } from "./edgeClassName";
 import { calculateSourcePosition } from "./calculateSourcePosition";
 import { calculateTargetPosition } from "./calculateTargetPosition";
 import { Edge, Node } from "reactflow";
-import { Database, EdgeConfig } from "../types";
+import { DatabaseConfig, EdgeConfig } from "../types";
 
 interface CalculateEdgesOptions {
   nodes: Node[];
-  currentDatabase: Database;
+  currentDatabase: DatabaseConfig;
 }
 
 export const calculateEdges = ({ nodes, currentDatabase }: CalculateEdgesOptions) => {

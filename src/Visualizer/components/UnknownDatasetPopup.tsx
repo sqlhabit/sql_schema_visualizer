@@ -1,7 +1,7 @@
 import { markdown } from "../helpers";
 import { CloseIcon } from "../components";
 import { PopupProps } from "../types";
-import databaseNames from "../../config/databases.json";
+import databases from "../../config/databases.json";
 
 export function UnknownDatasetPopup(props: PopupProps) {
   return (
@@ -18,7 +18,7 @@ export function UnknownDatasetPopup(props: PopupProps) {
           <h2>Available datasets</h2>
 
           <ul>
-            {databaseNames.map(databaseName => {
+            {Object.keys(databases).map(databaseName => {
               return (
                 <li key={databaseName}>
                   <a href={`/databases/${databaseName}`}>{databaseName}</a>

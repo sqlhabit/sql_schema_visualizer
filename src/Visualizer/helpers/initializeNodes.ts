@@ -1,5 +1,5 @@
 import { fullTableName } from "./fullTableName";
-import { Database, EdgeConfig, Position, TableConfig, TablePositions } from "../types";
+import { DatabaseConfig, EdgeConfig, Position, TableConfig, TablePositions } from "../types";
 
 const setHandleType = (tableConfigs: TableConfig[], tableName: string, columnName: string, handleType: string) => {
   tableConfigs.forEach(tableConfig => {
@@ -15,7 +15,7 @@ const setHandleType = (tableConfigs: TableConfig[], tableName: string, columnNam
   });
 };
 
-export const initializeNodes = (databaseConfig: Database) => {
+export const initializeNodes = (databaseConfig: DatabaseConfig) => {
   const tables = [] as any;
   const tablePositionsWithSchema = {} as TablePositions;
 

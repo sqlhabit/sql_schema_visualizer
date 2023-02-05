@@ -1,8 +1,7 @@
 import Visualizer from "../Visualizer";
 import SQLHabitLogo from "./SQLHabitLogo";
 import { Routes, Route, Outlet, Link, useParams } from "react-router-dom";
-import databaseNames from "../config/databases.json";
-
+import databases from "../config/databases.json";
 import "./App.css";
 
 function App() {
@@ -39,6 +38,7 @@ function Layout() {
 function Database() {
   let { slug } = useParams();
 
+  const databaseNames = Object.keys(databases);
   const databaseName = slug || databaseNames[0];
 
   return (
