@@ -26,7 +26,7 @@ Originally built for [the SQL Habit course](https://www.sqlhabit.com/), it's ava
 
 Schema Visualizer can visualize multiple schemas – each schema will have its own URL.
 
-A schema configuration lives in its own folder and contains a bunch of simple JSON files.
+A schema configuration lives in [its own folder](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config/databases) and contains a bunch of [simple JSON files](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config/databases/bindle).
 
 Here's how you can import your schema:
 
