@@ -66,11 +66,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   const [nodesAreSet, setNodesAreSet] = useState(false);
   const [edgesAreSet, setEdgesAreSet] = useState(false);
 
-  console.log("--> yo");
-
   const onInit = (instance: any) => {
-    console.log("--> onInit");
-
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
@@ -129,8 +125,6 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   };
 
   useEffect(() => {
-    console.log("--> useEffect 1");
-
     setUnknownDatasetOn(false);
     loadDatabases().then((data) => {
       if(!props.database || !(props.database in data)) {
@@ -147,8 +141,6 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
 
   useEffect(() => {
     if(!nodesAreSet) {
-      console.log("--> useEffect 2");
-
       const initialNodes = initializeNodes(currentDatabase);
       setNodes(() => initialNodes);
       setNodesAreSet(true);
@@ -156,8 +148,6 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   }, [currentDatabase, setNodes, nodesAreSet, setNodesAreSet]);
 
   useEffect(() => {
-    console.log("--> useEffect 3");
-
     const initialEdges = calculateEdges({ nodes, currentDatabase });
     setEdges(() => initialEdges);
 
