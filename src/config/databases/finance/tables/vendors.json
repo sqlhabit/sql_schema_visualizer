@@ -1,16 +1,16 @@
 {
   "name": "vendors",
-  "description": "",
+  "description": "This table contains all vendors.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
-      "description": "",
+      "description": "Unique identifier of a vendor. A vendor can have **credit** transactions with us (pay us money) and **debit** transactions (we pay money to a vendor).",
       "type": "bigint"
     },
     {
       "name": "name",
-      "description": "",
+      "description": "Vendor's name (could be a person or a company).",
       "type": "text"
     }
   ]

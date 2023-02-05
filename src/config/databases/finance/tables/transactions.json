@@ -1,27 +1,27 @@
 {
   "name": "transactions",
-  "description": "",
+  "description": "This table contains transactions of all vendors.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a transaction.",
       "type": "bigint"
     },
     {
       "name": "vendor_id",
-      "description": "",
+      "description": "ID of a vendor from the `vendors` table.",
       "type": "bigint"
     },
     {
       "name": "amount_usd",
-      "description": "",
+      "description": "Transaction's amount in USD. Positive value indicates a **credit** transaction, negative indicates **debit** transaction.",
       "type": "numeric"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "Timestamp of a transaction.",
       "type": "timestamp"
     }
   ]
