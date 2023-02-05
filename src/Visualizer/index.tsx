@@ -3,7 +3,7 @@ import ReactFlow, {
   Node, useNodesState, useEdgesState,
   Controls, ControlButton, Background, useStoreApi, ReactFlowProvider,
   getConnectedEdges, OnSelectionChangeParams, NodeChange, getIncomers,
-  getOutgoers, useReactFlow
+  getOutgoers, useReactFlow, ReactFlowInstance
 } from "reactflow";
 
 import { nodeTypes } from "../config/nodeTypes";
@@ -66,7 +66,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
   const [nodesAreSet, setNodesAreSet] = useState(false);
   const [edgesAreSet, setEdgesAreSet] = useState(false);
 
-  const onInit = (instance: any) => {
+  const onInit = (instance: ReactFlowInstance) => {
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.ctrlKey && e.key === "p") {
         const nodes = instance.getNodes();
