@@ -1,14 +1,16 @@
 import { render } from "@testing-library/react";
 import Visualizer from ".";
 
-const wrapperStyle = { height: 1200 };
+const wrapperStyle = { width: 1200, height: 800 };
 
-test("renders nodes and edges", () => {
+test("renders nodes and edges", async () => {
   const { container } = render(
     <div style={wrapperStyle}>
-      <Visualizer />
+      <Visualizer database={"bindle"} />
     </div>
   );
+
+  console.log(container.innerHTML);
 
   // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
   const nodes = container.getElementsByClassName("react-flow__node");
