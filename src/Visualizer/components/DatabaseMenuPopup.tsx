@@ -3,8 +3,6 @@ import { CloseIcon } from "../components";
 import { DatabaseMenuPopupProps } from "../types";
 import databases from "../../config/databases";
 
-
-
 export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
   return (
     <div
@@ -26,9 +24,12 @@ export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
           {Object.keys(databases).map(databaseName => {
             return (
               <div key={databaseName}>
-                <a href={`/databases/${databaseName}`}>{databases[databaseName].name}</a>
+                <h3
+                  className="info-popup__database-name">
+                  <a href={`/databases/${databaseName}`}>{databases[databaseName].name}</a>
+                </h3>
 
-                <div
+                <p
                   dangerouslySetInnerHTML={{__html: markdown(databases[databaseName].description || "No description.") }} />
               </div>
             )
