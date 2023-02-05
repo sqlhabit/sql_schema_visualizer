@@ -50,7 +50,7 @@ npm run install
 
 ### Step 2. Reset schema configuration
 
-By default, Schema Visualizer contains [SQL Habit's](https://www.sqlhabit.com) dataset schemas. Let's delete all of them first:
+By default, Schema Visualizer contains [SQL Habit's](https://www.sqlhabit.com) dataset schemas. Let's delete all before we import new schemas:
 
 ```bash
 npm run reset
@@ -58,9 +58,11 @@ npm run reset
 
 ### Step 3. Export your schema into a CSV file
 
-A schema config consists of tables and edges. We can import table structures with an SQL query.
+A schema config consists of [tables](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config/databases/bindle/tables), [edges](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/databases/bindle/edges.json), [table positions](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/databases/bindle/tablePositions.json) and [schema colors](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/databases/bindle/schemaColors.json).
 
-Pick a query that works for your database and save the output to a CSV file like `my_schema.csv`. Put it to the root folder (next to [the `schema.csv.template` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/schema.csv.template)).
+Good news is that we can import tables using an SQL query. :rocket:
+
+Pick a query for your database type and save the output to a CSV file like `my_schema.csv`. Put it to the root folder (next to [the `schema.csv.template` file](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/schema.csv.template)).
 
 #### Postgres / Redshift
 
@@ -101,16 +103,16 @@ WHERE
 
 ### Step 4. Import schema
 
-Now we can import tables. The argument of the `npm run import` is your CSV file name:
+Now we can import tables. The argument of the `npm run import` command is your CSV file name:
 
 
 ```bash
 npm run import my_schema
 ```
 
-You should see table JSON files added to the `src/config/my_schema/tables` folder.
+You should see table JSON files added to the `src/config/databases/my_schema/tables` folder.
 
-Let's spin up a dev server and see our tables in the browser (they should be available on the [http://localhost:9292/](http://localhost:9292/)):
+Let's spin up a dev server and see our tables [in the browser](http://localhost:9292/):
 
 ```bash
 npm run start
@@ -198,17 +200,17 @@ After you import a schema, every table will have a default position set in the [
 
 There's no need to update them manually. Instead:
 
-1. Open Schema Visualizer at [http://localhost:9292](http://localhost:9292).
+1. Open Schema Visualizer [http://localhost:9292](http://localhost:9292).
 2. Drag table nodes around to find a perfect arrangement.
 3. **CTRL** + **P**. It copies node positions JSON to your clipboard.
-4. Paste (**CMD** + **V**) JSON with positions to the [`tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/databases/bindle/tablePositions.json) file.
+4. Paste (**CMD** + **V**) JSON with positions to the [`tablePositions.json`](https://github.com/sqlhabit/sql_schema_visualizer/blob/main/src/config/databases/bindle/tablePositions.json) file of your schema.
 5. PROFIT :beers:
 
 #### E. Add table and column descriptions
 
 Table and column descriptions are visible if you press `CMD` key and hover over a table or column name.
 
-Add custom copy to the `"description"` keys [in table config files](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config/databases/bindle/tables). Here's an example:
+Add custom copy to the `"description"` keys [in table config files](https://github.com/sqlhabit/sql_schema_visualizer/tree/main/src/config/databases/bindle/tables/users.json). Here's an example:
 
 ```json
 {
