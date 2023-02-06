@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+const databases = require("../src/config/databases.json");
+
+const fs = require("fs").promises;
+
+(async () => {
+  await fs.mkdir("build/databases");
+
+  for (const databaseSlug of Object.keys(databases)) {
+    await fs.copyFile("build/index.html", `build/databases/${databaseSlug}.html`);
+  };
+})();

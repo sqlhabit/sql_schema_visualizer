@@ -1,13 +1,28 @@
 {
   "files": {
-    "main.css": "/sql_schema_visualizer/static/css/main.5df51d5a.css",
-    "main.js": "/sql_schema_visualizer/static/js/main.0a9be55d.js",
+    "main.css": "/sql_schema_visualizer/static/css/main.2f0da7ad.css",
+    "main.js": "/sql_schema_visualizer/static/js/main.ad987ec5.js",
+    "static/js/866.291bc3bb.chunk.js": "/sql_schema_visualizer/static/js/866.291bc3bb.chunk.js",
+    "static/js/336.e46d3386.chunk.js": "/sql_schema_visualizer/static/js/336.e46d3386.chunk.js",
+    "static/js/490.45a0b72c.chunk.js": "/sql_schema_visualizer/static/js/490.45a0b72c.chunk.js",
+    "static/js/366.5347532b.chunk.js": "/sql_schema_visualizer/static/js/366.5347532b.chunk.js",
+    "static/js/462.d8b44103.chunk.js": "/sql_schema_visualizer/static/js/462.d8b44103.chunk.js",
+    "static/js/514.c1d14158.chunk.js": "/sql_schema_visualizer/static/js/514.c1d14158.chunk.js",
+    "static/js/737.06349bc0.chunk.js": "/sql_schema_visualizer/static/js/737.06349bc0.chunk.js",
+    "static/js/90.93e25d12.chunk.js": "/sql_schema_visualizer/static/js/90.93e25d12.chunk.js",
+    "static/js/881.af611b39.chunk.js": "/sql_schema_visualizer/static/js/881.af611b39.chunk.js",
+    "static/js/543.caa55bcd.chunk.js": "/sql_schema_visualizer/static/js/543.caa55bcd.chunk.js",
+    "static/js/213.683397f0.chunk.js": "/sql_schema_visualizer/static/js/213.683397f0.chunk.js",
+    "static/js/986.f26cd75b.chunk.js": "/sql_schema_visualizer/static/js/986.f26cd75b.chunk.js",
     "index.html": "/sql_schema_visualizer/index.html",
-    "main.5df51d5a.css.map": "/sql_schema_visualizer/static/css/main.5df51d5a.css.map",
-    "main.0a9be55d.js.map": "/sql_schema_visualizer/static/js/main.0a9be55d.js.map"
+    "main.2f0da7ad.css.map": "/sql_schema_visualizer/static/css/main.2f0da7ad.css.map",
+    "main.ad987ec5.js.map": "/sql_schema_visualizer/static/js/main.ad987ec5.js.map",
+    "543.caa55bcd.chunk.js.map": "/sql_schema_visualizer/static/js/543.caa55bcd.chunk.js.map",
+    "213.683397f0.chunk.js.map": "/sql_schema_visualizer/static/js/213.683397f0.chunk.js.map",
+    "986.f26cd75b.chunk.js.map": "/sql_schema_visualizer/static/js/986.f26cd75b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5df51d5a.css",
-    "static/js/main.0a9be55d.js"
+    "static/css/main.2f0da7ad.css",
+    "static/js/main.ad987ec5.js"
   ]
 }
