@@ -1,42 +1,42 @@
 {
   "public.carts": {
-    "x": 0,
-    "y": 0
+    "x": 672,
+    "y": 368
   },
   "public.carts_items": {
-    "x": 300,
-    "y": 0
+    "x": 464,
+    "y": 560
   },
   "public.categories": {
-    "x": 600,
-    "y": 0
+    "x": -160,
+    "y": 496
   },
   "public.discount_codes": {
-    "x": 0,
-    "y": 450
+    "x": 1136,
+    "y": 336
   },
   "public.items": {
-    "x": 300,
-    "y": 450
+    "x": 112,
+    "y": 608
   },
   "public.purchases": {
-    "x": 600,
-    "y": 450
+    "x": 896,
+    "y": 160
   },
   "public.returns": {
-    "x": 0,
-    "y": 900
+    "x": 400,
+    "y": 288
   },
   "public.reviews": {
-    "x": 300,
-    "y": 900
+    "x": 400,
+    "y": 800
   },
   "public.users": {
-    "x": 600,
-    "y": 900
+    "x": 688,
+    "y": 720
   },
   "public.vendors": {
-    "x": 0,
-    "y": 1350
+    "x": -160,
+    "y": 848
   }
 }

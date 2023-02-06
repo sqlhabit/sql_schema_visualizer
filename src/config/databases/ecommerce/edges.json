@@ -1,1 +1,79 @@
-[]
+[
+  {
+    "source": "vendors",
+    "sourceKey": "id",
+    "target": "items",
+    "targetKey": "vendor_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "categories",
+    "sourceKey": "id",
+    "target": "items",
+    "targetKey": "category_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "items",
+    "sourceKey": "id",
+    "target": "reviews",
+    "targetKey": "item_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "users",
+    "sourceKey": "id",
+    "target": "reviews",
+    "targetKey": "user_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "items",
+    "sourceKey": "id",
+    "target": "carts_items",
+    "targetKey": "item_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "carts",
+    "sourceKey": "id",
+    "target": "carts_items",
+    "targetKey": "cart_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "users",
+    "sourceKey": "id",
+    "target": "carts",
+    "targetKey": "user_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "carts",
+    "sourceKey": "id",
+    "target": "returns",
+    "targetKey": "cart_id",
+    "relation": "hasOne"
+  },
+  {
+    "source": "items",
+    "sourceKey": "id",
+    "target": "returns",
+    "targetKey": "item_id",
+    "relation": "hasOne"
+  },
+  {
+    "source": "carts",
+    "sourceKey": "id",
+    "target": "purchases",
+    "targetKey": "cart_id",
+    "relation": "hasOne"
+  },
+  {
+    "source": "discount_codes",
+    "sourceKey": "code",
+    "target": "purchases",
+    "targetKey": "discount_code",
+    "relation": "hasOne"
+  }
+]

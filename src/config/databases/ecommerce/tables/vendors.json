@@ -5,6 +5,7 @@
   "columns": [
     {
       "name": "id",
+      "key": true,
       "description": "",
       "type": "bigint"
     },
