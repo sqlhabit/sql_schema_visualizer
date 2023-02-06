@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "source": "products",
+    "sourceKey": "id",
+    "target": "purchases",
+    "targetKey": "product_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "users",
+    "sourceKey": "id",
+    "target": "purchases",
+    "targetKey": "user_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "users",
+    "sourceKey": "id",
+    "target": "trials",
+    "targetKey": "user_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "products",
+    "sourceKey": "id",
+    "target": "trials",
+    "targetKey": "product_id",
+    "relation": "hasMany"
+  }
+]
