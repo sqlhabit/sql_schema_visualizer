@@ -53,14 +53,14 @@
     "sourceKey": "id",
     "target": "returns",
     "targetKey": "cart_id",
-    "relation": "hasOne"
+    "relation": "hasMany"
   },
   {
     "source": "items",
     "sourceKey": "id",
     "target": "returns",
     "targetKey": "item_id",
-    "relation": "hasOne"
+    "relation": "hasMany"
   },
   {
     "source": "carts",
@@ -74,6 +74,6 @@
     "sourceKey": "code",
     "target": "purchases",
     "targetKey": "discount_code",
-    "relation": "hasOne"
+    "relation": "hasMany"
   }
 ]
