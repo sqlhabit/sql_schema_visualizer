@@ -1,0 +1,22 @@
+{
+  "public.games": {
+    "x": 0,
+    "y": 0
+  },
+  "public.player_game_stats": {
+    "x": 300,
+    "y": 0
+  },
+  "public.players": {
+    "x": 0,
+    "y": 450
+  },
+  "public.team_game_stats": {
+    "x": 300,
+    "y": 450
+  },
+  "public.teams": {
+    "x": 0,
+    "y": 900
+  }
+}

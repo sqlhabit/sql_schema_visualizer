@@ -1,0 +1,42 @@
+{
+  "name": "purchases",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "user_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "product_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "trial_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "amount",
+      "description": "",
+      "type": "numeric"
+    },
+    {
+      "name": "created_at",
+      "description": "",
+      "type": "timestamp"
+    },
+    {
+      "name": "refunded_at",
+      "description": "",
+      "type": "timestamp"
+    }
+  ]
+}

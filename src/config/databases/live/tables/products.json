@@ -1,0 +1,32 @@
+{
+  "name": "products",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "name",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "price",
+      "description": "",
+      "type": "numeric"
+    },
+    {
+      "name": "trial_days",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "renewal_period",
+      "description": "",
+      "type": "integer"
+    }
+  ]
+}

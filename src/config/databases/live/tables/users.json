@@ -1,0 +1,57 @@
+{
+  "name": "users",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "first_name",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "last_name",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "email",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "country",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "city",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "age",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "timezone",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "utc_offset",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "created_at",
+      "description": "",
+      "type": "timestamp"
+    }
+  ]
+}

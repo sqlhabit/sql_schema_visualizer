@@ -1,0 +1,18 @@
+{
+  "public.products": {
+    "x": 0,
+    "y": 0
+  },
+  "public.purchases": {
+    "x": 300,
+    "y": 0
+  },
+  "public.trials": {
+    "x": 0,
+    "y": 450
+  },
+  "public.users": {
+    "x": 300,
+    "y": 450
+  }
+}

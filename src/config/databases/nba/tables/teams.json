@@ -1,0 +1,37 @@
+{
+  "name": "teams",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "name",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "nickname",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "city",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "state",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "founding_year",
+      "description": "",
+      "type": "integer"
+    }
+  ]
+}

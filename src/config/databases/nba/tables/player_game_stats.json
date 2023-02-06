@@ -1,0 +1,102 @@
+{
+  "name": "player_game_stats",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "game_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "team_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "player_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "min",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "fgm",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "fga",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "fg3m",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "fg3a",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "ftm",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "fta",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "oreb",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "dreb",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "reb",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "ast",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "stl",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "blk",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "to",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pf",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts",
+      "description": "",
+      "type": "integer"
+    }
+  ]
+}

@@ -10,5 +10,13 @@
   "ecommerce": {
     "name": "E-commerce dataset",
     "description": "This data warehouse is inspired by an E-commerce website like Amazon. :shopping_cart:\n\nOur E-commerce website allows vendors to sell items in multiple categories. Users can add as many items as they want to a cart and then purchase a cart with/without a discount code. Users also can return items and leave reviews."
+  },
+  "nba": {
+    "name": "NBA dataset",
+    "description": "The **NBA** dataset contains stats of NBA games since 1949. It is regularly updated.\n\nThe dataset contains aggregated game stats (**team_game_stats** table) and individual player stats per quarter or overtime period (**player_period_stats**).\n\nHave a ball! :basketball:"
+  },
+  "live": {
+    "name": "Live dataset",
+    "description": "The **Live** dataset contains data of a meditation mobile app with subscription business model. :iphone:\n\nThe data is updated **daily**. You can run queries to calculate metrics for the past 24h, week, month, etc. and build dashboards as if you were actually working for that company. :bar_chart:"
   }
 }

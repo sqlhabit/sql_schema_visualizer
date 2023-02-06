@@ -1,0 +1,37 @@
+{
+  "name": "trials",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "user_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "product_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "started_at",
+      "description": "",
+      "type": "timestamp"
+    },
+    {
+      "name": "cancelled_at",
+      "description": "",
+      "type": "timestamp"
+    },
+    {
+      "name": "finished_at",
+      "description": "",
+      "type": "timestamp"
+    }
+  ]
+}

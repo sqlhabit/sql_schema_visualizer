@@ -1,0 +1,97 @@
+{
+  "name": "team_game_stats",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "game_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "team_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "pts_q1",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts_q2",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts_q3",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts_q4",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts_ot1",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts_ot2",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts_ot3",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts_ot4",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts_ot5",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "pts_ot6",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "fg_pct",
+      "description": "",
+      "type": "numeric"
+    },
+    {
+      "name": "ft_pct",
+      "description": "",
+      "type": "numeric"
+    },
+    {
+      "name": "fg3_pct",
+      "description": "",
+      "type": "numeric"
+    },
+    {
+      "name": "ast",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "reb",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "tov",
+      "description": "",
+      "type": "integer"
+    }
+  ]
+}

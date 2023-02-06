@@ -1,0 +1,47 @@
+{
+  "name": "games",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "game_date",
+      "description": "",
+      "type": "date"
+    },
+    {
+      "name": "season",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "home_team_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "visitor_team_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "game_type",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "home_team_points",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "visitor_team_points",
+      "description": "",
+      "type": "integer"
+    }
+  ]
+}
