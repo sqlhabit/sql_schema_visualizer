@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "source": "players",
+    "sourceKey": "id",
+    "target": "player_game_stats",
+    "targetKey": "player_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "games",
+    "sourceKey": "id",
+    "target": "player_game_stats",
+    "targetKey": "game_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "games",
+    "sourceKey": "id",
+    "target": "team_game_stats",
+    "targetKey": "game_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "teams",
+    "sourceKey": "id",
+    "target": "team_game_stats",
+    "targetKey": "team_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "teams",
+    "sourceKey": "id",
+    "target": "player_game_stats",
+    "targetKey": "team_id",
+    "relation": "hasMany"
+  }
+]

@@ -1,22 +1,22 @@
 {
   "public.games": {
-    "x": 0,
-    "y": 0
+    "x": 32,
+    "y": 48
   },
   "public.player_game_stats": {
-    "x": 300,
-    "y": 0
+    "x": 400,
+    "y": 288
   },
   "public.players": {
-    "x": 0,
-    "y": 450
+    "x": 688,
+    "y": 496
   },
   "public.team_game_stats": {
-    "x": 300,
-    "y": 450
+    "x": -272,
+    "y": 208
   },
   "public.teams": {
-    "x": 0,
-    "y": 900
+    "x": 48,
+    "y": 416
   }
 }
