@@ -1,17 +1,17 @@
 {
   "name": "players",
-  "description": "",
+  "description": "This table contains all players who have played in at least one NBA game.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of an NBA player.",
       "type": "bigint"
     },
     {
       "name": "name",
-      "description": "",
+      "description": "Player's name.",
       "type": "text"
     }
   ]

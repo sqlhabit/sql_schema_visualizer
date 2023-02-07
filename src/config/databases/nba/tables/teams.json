@@ -1,37 +1,37 @@
 {
   "name": "teams",
-  "description": "",
+  "description": "This table contains all NBA teams (including dissolved or merged teams).",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of an NBA team.",
       "type": "bigint"
     },
     {
       "name": "name",
-      "description": "",
+      "description": "Team's name.",
       "type": "text"
     },
     {
       "name": "nickname",
-      "description": "",
+      "description": "Team's nickname.",
       "type": "text"
     },
     {
       "name": "city",
-      "description": "",
+      "description": "Team's city.",
       "type": "text"
     },
     {
       "name": "state",
-      "description": "",
+      "description": "Team's state.",
       "type": "text"
     },
     {
       "name": "founding_year",
-      "description": "",
+      "description": "When the team was founded.",
       "type": "integer"
     }
   ]

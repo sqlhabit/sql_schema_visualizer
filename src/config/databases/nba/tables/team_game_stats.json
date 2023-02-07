@@ -1,96 +1,96 @@
 {
   "name": "team_game_stats",
-  "description": "",
+  "description": "This table contains team stats for individual games.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "game_id",
-      "description": "",
+      "description": "An ID of a game.",
       "type": "bigint"
     },
     {
       "name": "team_id",
-      "description": "",
+      "description": "An ID of a team.",
       "type": "bigint"
     },
     {
       "name": "pts_q1",
-      "description": "",
+      "description": "Number of points scored by the team in the 1st quarter.",
       "type": "integer"
     },
     {
       "name": "pts_q2",
-      "description": "",
+      "description": "Number of points scored by the team in the 2nd quarter.",
       "type": "integer"
     },
     {
       "name": "pts_q3",
-      "description": "",
+      "description": "Number of points scored by the team in the 3rd quarter.",
       "type": "integer"
     },
     {
       "name": "pts_q4",
-      "description": "",
+      "description": "Number of points scored by the team in the 4th quarter.",
       "type": "integer"
     },
     {
       "name": "pts_ot1",
-      "description": "",
+      "description": "Number of points scored by the team in the 1st overtime.",
       "type": "integer"
     },
     {
       "name": "pts_ot2",
-      "description": "",
+      "description": "Number of points scored by the team in the 2nd overtime.",
       "type": "integer"
     },
     {
       "name": "pts_ot3",
-      "description": "",
+      "description": "Number of points scored by the team in the 3rd overtime.",
       "type": "integer"
     },
     {
       "name": "pts_ot4",
-      "description": "",
+      "description": "Number of points scored by the team in the 4th overtime.",
       "type": "integer"
     },
     {
       "name": "pts_ot5",
-      "description": "",
+      "description": "Number of points scored by the team in the 5th overtime.",
       "type": "integer"
     },
     {
       "name": "pts_ot6",
-      "description": "",
+      "description": "Number of points scored by the team in the 6th overtime.",
       "type": "integer"
     },
     {
       "name": "fg_pct",
-      "description": "",
+      "description": "Team's Field Goal Percentage in a game. It's the ratio of made goals to attempted goals.",
       "type": "numeric"
     },
     {
       "name": "ft_pct",
-      "description": "",
+      "description": "Team's Free Throw Percentage in a game. It's the ratio of made free throws to attemtped free throws.",
       "type": "numeric"
     },
     {
       "name": "fg3_pct",
-      "description": "",
+      "description": "Team's Three Point Field Goal Percentage in a game. It's the ratio of made 3-pointers to the total number ",
       "type": "numeric"
     },
     {
       "name": "ast",
-      "description": "",
+      "description": "A number of team assists in a game.",
       "type": "integer"
     },
     {
       "name": "reb",
-      "description": "",
+      "description": "A number of team rebounds in a game.",
       "type": "integer"
     },
     {
       "name": "tov",
-      "description": "",
+      "description": "A number of team turnovers in a game.",
       "type": "integer"
     }
   ]

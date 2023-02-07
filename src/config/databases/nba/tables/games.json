@@ -1,47 +1,47 @@
 {
   "name": "games",
-  "description": "",
+  "description": "This table contains all NBA games since NBA was found in 1949.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of an NBA game.",
       "type": "bigint"
     },
     {
       "name": "game_date",
-      "description": "",
+      "description": "When the game was played (calculated with EST time).",
       "type": "date"
     },
     {
       "name": "season",
-      "description": "",
+      "description": "A year of a NBA season.",
       "type": "integer"
     },
     {
       "name": "home_team_id",
-      "description": "",
+      "description": "An ID of a team that played on their home court.",
       "type": "bigint"
     },
     {
       "name": "visitor_team_id",
-      "description": "",
+      "description": "An ID of a visiting team.",
       "type": "bigint"
     },
     {
       "name": "game_type",
-      "description": "",
+      "description": "Type of a game depending on when it was played during a season. Possible values are **preseason**, **regular**, **allstar**, **playin** or **playoff**.",
       "type": "text"
     },
     {
       "name": "home_team_points",
-      "description": "",
+      "description": "How many points a home team scored.",
       "type": "integer"
     },
     {
       "name": "visitor_team_points",
-      "description": "",
+      "description": "How many points a visiting team scored.",
       "type": "integer"
     }
   ]

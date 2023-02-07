@@ -1,101 +1,101 @@
 {
   "name": "player_game_stats",
-  "description": "",
+  "description": "This table contains player stats for individual games.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "game_id",
-      "description": "",
+      "description": "An ID of a game.",
       "type": "bigint"
     },
     {
       "name": "team_id",
-      "description": "",
+      "description": "An ID of a team.",
       "type": "bigint"
     },
     {
       "name": "player_id",
-      "description": "",
+      "description": "An ID of a player.",
       "type": "bigint"
     },
     {
       "name": "min",
-      "description": "",
+      "description": "How many minutes a player was in the game.",
       "type": "integer"
     },
     {
       "name": "fgm",
-      "description": "",
+      "description": "A number of goals made by a player.",
       "type": "integer"
     },
     {
       "name": "fga",
-      "description": "",
+      "description": "A number of goals attempted (shots made) by a player.",
       "type": "integer"
     },
     {
       "name": "fg3m",
-      "description": "",
+      "description": "A number of 3-pointers made by a player.",
       "type": "integer"
     },
     {
       "name": "fg3a",
-      "description": "",
+      "description": "A number of attempted 3-point shots by a player.",
       "type": "integer"
     },
     {
       "name": "ftm",
-      "description": "",
+      "description": "A number of Free Throws made by a player.",
       "type": "integer"
     },
     {
       "name": "fta",
-      "description": "",
+      "description": "A number of Free Throws attempted by a player.",
       "type": "integer"
     },
     {
       "name": "oreb",
-      "description": "",
+      "description": "Number of offensive rebounds by a player.",
       "type": "integer"
     },
     {
       "name": "dreb",
-      "description": "",
+      "description": "Number of defensive rebounds by a player.",
       "type": "integer"
     },
     {
       "name": "reb",
-      "description": "",
+      "description": "Total number of rebounds by a player.",
       "type": "integer"
     },
     {
       "name": "ast",
-      "description": "",
+      "description": "Number of assists by a player.",
       "type": "integer"
     },
     {
       "name": "stl",
-      "description": "",
+      "description": "Number of steals by a player.",
       "type": "integer"
     },
     {
       "name": "blk",
-      "description": "",
+      "description": "Number of blocks by a player.",
       "type": "integer"
     },
     {
       "name": "to",
-      "description": "",
+      "description": "Number of turnovers by a player.",
       "type": "integer"
     },
     {
       "name": "pf",
-      "description": "",
+      "description": "Number of personal fouls made by a player.",
       "type": "integer"
     },
     {
       "name": "pts",
-      "description": "",
+      "description": "Number of points scored by a player.",
       "type": "integer"
     }
   ]
