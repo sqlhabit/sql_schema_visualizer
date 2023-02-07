@@ -1,37 +1,37 @@
 {
   "name": "discount_codes",
-  "description": "",
+  "description": "Thsi table contains all discount codes that could be redeemed by a user when making a purchase. Note that discount codes could save a fixed amount or a percentage of the final price.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a discount code.",
       "type": "bigint"
     },
     {
       "name": "amount_off",
-      "description": "",
+      "description": "Amount in USD that will be subtracted from a total cart's price if a user redeems this discount code.",
       "type": "bigint"
     },
     {
       "name": "percent_off",
-      "description": "",
+      "description": "Percentage of a total cart's price that will be removed if a user redeems this discount code.",
       "type": "bigint"
     },
     {
       "name": "code",
-      "description": "",
+      "description": "Unique code of a discount code. Codes are shared with customers, not ID-s :warning:.",
       "type": "text"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "When discount code was created.",
       "type": "timestamp"
     },
     {
       "name": "valid_until",
-      "description": "",
+      "description": "The latest timestamp when customers are able to redeem a discount code.",
       "type": "timestamp"
     }
   ]

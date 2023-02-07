@@ -1,26 +1,26 @@
 {
   "name": "carts_items",
-  "description": "",
+  "description": "This is a join table that enables many-to-many relation between carts and items.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "item_id",
-      "description": "",
+      "description": "ID of an item that was added to a cart.",
       "type": "bigint"
     },
     {
       "name": "cart_id",
-      "description": "",
+      "description": "Cart's ID.",
       "type": "bigint"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "When an item was added to a cart.",
       "type": "timestamp"
     },
     {
       "name": "quantity",
-      "description": "",
+      "description": "How many identical items are in a cart.",
       "type": "integer"
     }
   ]

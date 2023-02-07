@@ -1,22 +1,22 @@
 {
   "name": "vendors",
-  "description": "",
+  "description": "This table contains all vendors (people or companies that sell items on our E-commerce platform).",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a vendor.",
       "type": "bigint"
     },
     {
       "name": "name",
-      "description": "",
+      "description": "Vendor's name (person or company name).",
       "type": "text"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "Timestamp when a vendor started working with our E-commerce store.",
       "type": "timestamp"
     }
   ]

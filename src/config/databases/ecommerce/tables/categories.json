@@ -1,27 +1,27 @@
 {
   "name": "categories",
-  "description": "",
+  "description": "This table contains item categories. Note that cateories are nested and a category could have multiple children categories.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of an item category.",
       "type": "bigint"
     },
     {
       "name": "name",
-      "description": "",
+      "description": "Category name, like \"Sport shoes\".",
       "type": "text"
     },
     {
       "name": "parent_id",
-      "description": "",
+      "description": "ID of a parent category. Yep, categories have nested structure. For example, \"books\" category have \"fiction\" and \"non-fiction\" categories. \"Fiction\" category has categories like \"History\", \"Detective\", etc.",
       "type": "bigint"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "When a category was added.",
       "type": "timestamp"
     }
   ]

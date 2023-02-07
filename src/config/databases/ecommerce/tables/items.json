@@ -1,42 +1,42 @@
 {
   "name": "items",
-  "description": "",
+  "description": "This table contains all items that could be purchased by users. Note that only published items are available to website visitors (have value in the `published_at` column).",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of an item.",
       "type": "bigint"
     },
     {
       "name": "name",
-      "description": "",
+      "description": "Item's name.",
       "type": "text"
     },
     {
       "name": "category_id",
-      "description": "",
+      "description": "ID of item's category.",
       "type": "bigint"
     },
     {
       "name": "vendor_id",
-      "description": "",
+      "description": "ID of a vendor who produces or sells this item in our E-commerce store.",
       "type": "bigint"
     },
     {
       "name": "price_usd",
-      "description": "",
+      "description": "Item's price in USD.",
       "type": "numeric"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "Timestamp when an item was first added to our E-commerce store.",
       "type": "timestamp"
     },
     {
       "name": "published_at",
-      "description": "",
+      "description": "Timestamp when an item was first available for purchasing.",
       "type": "timestamp"
     }
   ]

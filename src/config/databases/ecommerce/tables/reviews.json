@@ -1,37 +1,37 @@
 {
   "name": "reviews",
-  "description": "",
+  "description": "This table contains all user reviews for individual items.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a review.",
       "type": "bigint"
     },
     {
       "name": "item_id",
-      "description": "",
+      "description": "ID of an item that was reviewed.",
       "type": "bigint"
     },
     {
       "name": "user_id",
-      "description": "",
+      "description": "ID of a user who left a review.",
       "type": "bigint"
     },
     {
       "name": "rating",
-      "description": "",
+      "description": "Star rating that a user selected in a review form.",
       "type": "integer"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "Timestamp when a user left a review.",
       "type": "timestamp"
     },
     {
       "name": "feedback",
-      "description": "",
+      "description": "Text feedback that a user types in a review form.",
       "type": "text"
     }
   ]

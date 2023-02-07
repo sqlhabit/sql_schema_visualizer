@@ -1,22 +1,22 @@
 {
   "name": "carts",
-  "description": "",
+  "description": "This table contains all carts (purchased or not) that were ever assembled by users.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a cart.",
       "type": "bigint"
     },
     {
       "name": "user_id",
-      "description": "",
+      "description": "ID of a user who assemled a cart.",
       "type": "bigint"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "When a cart was created (when a user added the first item to a cart).",
       "type": "timestamp"
     }
   ]

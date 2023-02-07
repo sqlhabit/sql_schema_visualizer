@@ -1,42 +1,42 @@
 {
   "name": "purchases",
-  "description": "",
+  "description": "This table contains all cart purchases.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a return.",
       "type": "bigint"
     },
     {
       "name": "discount_code",
-      "description": "",
+      "description": "Discount code that was used by a user. It's a foreign key for the `discount_codes` table.",
       "type": "text"
     },
     {
       "name": "country",
-      "description": "",
+      "description": "Country of a user who made a purchase (IP based).",
       "type": "text"
     },
     {
       "name": "city",
-      "description": "",
+      "description": "City of a user who made a purchase (IP based).",
       "type": "text"
     },
     {
       "name": "payment_method",
-      "description": "",
+      "description": "Payment method that was used for a purchase. Could be **cc** (credit card) or **paypal**.",
       "type": "text"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "Timestamp of a purchase.",
       "type": "timestamp"
     },
     {
       "name": "cart_id",
-      "description": "",
+      "description": "ID of a cart that was purchased.",
       "type": "bigint"
     }
   ]

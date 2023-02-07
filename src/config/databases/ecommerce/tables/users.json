@@ -1,42 +1,42 @@
 {
   "name": "users",
-  "description": "",
+  "description": "This table contains all user records (accounts).",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a user.",
       "type": "bigint"
     },
     {
       "name": "email",
-      "description": "",
+      "description": "User's email.",
       "type": "text"
     },
     {
       "name": "first_name",
-      "description": "",
+      "description": "User's first name.",
       "type": "text"
     },
     {
       "name": "last_name",
-      "description": "",
+      "description": "User's last name.",
       "type": "text"
     },
     {
       "name": "country",
-      "description": "",
+      "description": "User's country (IP based).",
       "type": "text"
     },
     {
       "name": "city",
-      "description": "",
+      "description": "User's city (IP based).",
       "type": "text"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "Timestamp when a user created an account.",
       "type": "timestamp"
     }
   ]

@@ -1,32 +1,32 @@
 {
   "name": "returns",
-  "description": "",
+  "description": "This table contains all returns (full carts or partial item returns).",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a return.",
       "type": "bigint"
     },
     {
       "name": "cart_id",
-      "description": "",
+      "description": "ID of a cart that a retuned item belongs to. In our E-commerce store users add items to a cart, then purchase the whole cart. Users are allowed to return as many items from a purchased cart as they want.",
       "type": "bigint"
     },
     {
       "name": "item_id",
-      "description": "",
+      "description": "ID of an item that was returned.",
       "type": "bigint"
     },
     {
       "name": "quantity",
-      "description": "",
+      "description": "How many items were returned.",
       "type": "integer"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "Timestamp when a return was processed.",
       "type": "timestamp"
     }
   ]
