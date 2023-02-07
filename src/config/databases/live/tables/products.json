@@ -1,32 +1,32 @@
 {
   "name": "products",
-  "description": "",
+  "description": "All available products (available via subscriptions or one-time payments) users can buy.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a product.",
       "type": "bigint"
     },
     {
       "name": "name",
-      "description": "",
+      "description": "Product's name.",
       "type": "text"
     },
     {
       "name": "price",
-      "description": "",
+      "description": "Product's price in USD.",
       "type": "numeric"
     },
     {
       "name": "trial_days",
-      "description": "",
+      "description": "T[he number of free trial days.",
       "type": "integer"
     },
     {
       "name": "renewal_period",
-      "description": "",
+      "description": "Renewal period of a subscription product: 1 for monthly, 12 for yearly.",
       "type": "integer"
     }
   ]

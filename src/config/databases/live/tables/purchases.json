@@ -1,42 +1,42 @@
 {
   "name": "purchases",
-  "description": "",
+  "description": "This table contains all purchase records.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a purchase.",
       "type": "bigint"
     },
     {
       "name": "user_id",
-      "description": "",
+      "description": "ID of a user who made this purchase.",
       "type": "bigint"
     },
     {
       "name": "product_id",
-      "description": "",
+      "description": "ID of a purchased product.",
       "type": "bigint"
     },
     {
       "name": "trial_id",
-      "description": "",
+      "description": "ID of an associated trial for a subscription product.",
       "type": "bigint"
     },
     {
       "name": "amount",
-      "description": "",
+      "description": "Amount paid in USD.",
       "type": "numeric"
     },
     {
       "name": "created_at",
-      "description": "",
+      "description": "Timestamp of a purchase.",
       "type": "timestamp"
     },
     {
       "name": "refunded_at",
-      "description": "",
+      "description": "Timestamp of a full refund in case a user asked for it.",
       "type": "timestamp"
     }
   ]

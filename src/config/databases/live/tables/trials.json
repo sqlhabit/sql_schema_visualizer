@@ -1,37 +1,37 @@
 {
   "name": "trials",
-  "description": "",
+  "description": "This table contains all started trials (trials are available only for subscription products).",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
       "key": true,
-      "description": "",
+      "description": "Unique identifier of a trial.",
       "type": "bigint"
     },
     {
       "name": "user_id",
-      "description": "",
+      "description": "ID of a user who started a trial.",
       "type": "bigint"
     },
     {
       "name": "product_id",
-      "description": "",
+      "description": "ID of a subscription product.",
       "type": "bigint"
     },
     {
       "name": "started_at",
-      "description": "",
+      "description": "Timestamp when a user started a trial.",
       "type": "timestamp"
     },
     {
       "name": "cancelled_at",
-      "description": "",
+      "description": "Timestamp when a user cancelled a trial.",
       "type": "timestamp"
     },
     {
       "name": "finished_at",
-      "description": "",
+      "description": "Timestamp when a trial was finished and a purchase was made (user was automatically charged the product's price).",
       "type": "timestamp"
     }
   ]
