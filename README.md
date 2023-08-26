@@ -104,6 +104,21 @@ WHERE
   AND c.table_name NOT IN ('schema_migrations', 'ar_internal_metadata')
 ```
 
+#### [SAP ASE](https://github.com/sqlhabit/sql_schema_visualizer/issues/8)
+
+```sql
+SELECT
+  'public' as table_schema,
+  so.name as table_name,
+  sc.name as column_name,
+  sc.type as data_type,
+  sc.colid as ordinal_position
+FROM syscolumns sc
+INNER JOIN sysobjects so
+  ON sc.id = so.id
+WHERE so.type = 'U'
+```
+
 ### Step 4. Import schema
 
 Now we can import tables. The argument of the `npm run import` command is your CSV file name:
