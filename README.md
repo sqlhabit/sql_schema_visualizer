@@ -46,7 +46,7 @@ cd sql_schema_visualizer
 Install dependencies:
 
 ```bash
-npm run install
+npm install
 ```
 
 :bulb: You might need to install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) as well to make sure you're not using an old Node version.
