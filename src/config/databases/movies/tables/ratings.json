@@ -1,0 +1,27 @@
+{
+  "name": "ratings",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "movie_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "user_id",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "rating",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "created_at",
+      "description": "",
+      "type": "timestamp"
+    }
+  ]
+}

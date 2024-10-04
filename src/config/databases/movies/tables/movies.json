@@ -1,0 +1,47 @@
+{
+  "name": "movies",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "release_date",
+      "description": "",
+      "type": "date"
+    },
+    {
+      "name": "duration",
+      "description": "",
+      "type": "integer"
+    },
+    {
+      "name": "budget",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "revenue",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "director_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "name",
+      "description": "",
+      "type": "text"
+    },
+    {
+      "name": "imdb_slug",
+      "description": "",
+      "type": "text"
+    }
+  ]
+}

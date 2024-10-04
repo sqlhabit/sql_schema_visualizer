@@ -1,0 +1,30 @@
+{
+  "public.actors": {
+    "x": -112,
+    "y": 160
+  },
+  "public.actors_movies": {
+    "x": 176,
+    "y": -16
+  },
+  "public.directors": {
+    "x": 752,
+    "y": 160
+  },
+  "public.genres": {
+    "x": -96,
+    "y": 320
+  },
+  "public.genres_movies": {
+    "x": 128,
+    "y": 272
+  },
+  "public.movies": {
+    "x": 480,
+    "y": 208
+  },
+  "public.ratings": {
+    "x": 160,
+    "y": 496
+  }
+}

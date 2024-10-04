@@ -1,0 +1,17 @@
+{
+  "name": "genres_movies",
+  "description": "",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "genre_id",
+      "description": "",
+      "type": "bigint"
+    },
+    {
+      "name": "movie_id",
+      "description": "",
+      "type": "bigint"
+    }
+  ]
+}

@@ -18,5 +18,9 @@
   "live": {
     "name": "Live dataset",
     "description": "The **Live** dataset contains data of a meditation mobile app with subscription business model. :iphone:\n\nThe data is updated **daily**. You can run queries to calculate metrics for the past 24h, week, month, etc. and build dashboards as if you were actually working for that company. :bar_chart:"
+  },
+  "movies": {
+    "name": "Movies dataset",
+    "description": "The **Movies** dataset contains data from some of the best films released since the 1990s.\n\nIt includes information on actors, directors, and key movie statistics like budget and revenue. The most interesting part is probably the `ratings` table. Please note that the ratings were artificially generated, so the final movie scores only partially correlate with real IMDb data.\n\nEnjoy the show! :movie_camera:"
   }
 }
