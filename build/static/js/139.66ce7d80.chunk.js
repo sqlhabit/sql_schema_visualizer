@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksql_schema_visualizer=self.webpackChunksql_schema_visualizer||[]).push([[139],{4139:function(s){s.exports=JSON.parse('{"public.games":{"x":32,"y":48},"public.player_game_stats":{"x":400,"y":288},"public.players":{"x":688,"y":496},"public.team_game_stats":{"x":-272,"y":208},"public.teams":{"x":48,"y":416}}')}}]);
