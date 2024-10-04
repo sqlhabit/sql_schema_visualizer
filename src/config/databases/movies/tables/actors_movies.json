@@ -1,16 +1,16 @@
 {
   "name": "actors_movies",
-  "description": "",
+  "description": "This is a join table between actors and movies, since they have many-to-many relationship.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "actor_id",
-      "description": "",
+      "description": "Unique identifier of an actor from the `actors` table.",
       "type": "bigint"
     },
     {
       "name": "movie_id",
-      "description": "",
+      "description": "Unique identifier of a movie from the `movies` table.",
       "type": "bigint"
     }
   ]

@@ -1,16 +1,16 @@
 {
   "name": "genres_movies",
-  "description": "",
+  "description": "This is an association (aka join aka many-to-many relationship) table between genres and movies.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "genre_id",
-      "description": "",
+      "description": "Genre's ID from the `genres` table.",
       "type": "bigint"
     },
     {
       "name": "movie_id",
-      "description": "",
+      "description": "Movie's ID from the `movies` table.",
       "type": "bigint"
     }
   ]

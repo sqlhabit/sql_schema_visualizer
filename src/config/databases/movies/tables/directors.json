@@ -1,16 +1,16 @@
 {
   "name": "directors",
-  "description": "",
+  "description": "This table contains movie directors.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
-      "description": "",
+      "description": "Unique identifier for each director.",
       "type": "bigint"
     },
     {
       "name": "name",
-      "description": "",
+      "description": "Full name of the director.",
       "type": "text"
     }
   ]

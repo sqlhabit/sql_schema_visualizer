@@ -1,46 +1,46 @@
 {
   "name": "movies",
-  "description": "",
+  "description": "This table contains all dataset movies.",
   "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",
-      "description": "",
+      "description": "Unique identifier for each movie.",
       "type": "bigint"
     },
     {
       "name": "release_date",
-      "description": "",
+      "description": "Release date of the movie.",
       "type": "date"
     },
     {
       "name": "duration",
-      "description": "",
+      "description": "Total runtime of the movie in minutes.",
       "type": "integer"
     },
     {
       "name": "budget",
-      "description": "",
+      "description": "Total budget allocated for the movie in US dollars.",
       "type": "bigint"
     },
     {
       "name": "revenue",
-      "description": "",
+      "description": "Total revenue earned by the movie in US dollars.",
       "type": "bigint"
     },
     {
       "name": "director_id",
-      "description": "",
+      "description": "Director's ID from the `director` table linking the director to the movie.",
       "type": "bigint"
     },
     {
       "name": "name",
-      "description": "",
+      "description": "Official title of the movie.",
       "type": "text"
     },
     {
       "name": "imdb_slug",
-      "description": "",
+      "description": "Unique IMDb URL slug for the movie.",
       "type": "text"
     }
   ]
