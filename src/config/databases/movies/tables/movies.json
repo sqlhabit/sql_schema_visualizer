@@ -42,6 +42,11 @@
       "name": "imdb_slug",
       "description": "Unique IMDb URL slug for the movie.",
       "type": "text"
+    },
+    {
+      "name": "sequel_id",
+      "description": "A sequel (follow up) movie ID from the `movies` table.",
+      "type": "integer"
     }
   ]
 }

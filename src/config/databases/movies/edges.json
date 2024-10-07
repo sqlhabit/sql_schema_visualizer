@@ -42,5 +42,14 @@
     "relation": "hasMany",
     "sourcePosition": "left",
     "targetPosition": "right"
+  },
+  {
+    "source": "movies",
+    "sourceKey": "id",
+    "target": "movies",
+    "targetKey": "sequel_id",
+    "relation": "hasOne",
+    "sourcePosition": "right",
+    "targetPosition": "right"
   }
 ]
