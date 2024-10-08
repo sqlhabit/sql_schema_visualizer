@@ -2,7 +2,7 @@ import { useState, FC, useEffect } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { KeyIcon } from "../components";
 import { markdown } from "../helpers";
-import { isTableHighlighted, isColumnHighlighted } from "../helpers/tableHighlights";
+import { tableHighlightsPresent, isTableHighlighted, isColumnHighlighted } from "../helpers/tableHighlights";
 
 import "@reactflow/node-resizer/dist/style.css";
 
@@ -34,6 +34,8 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
 
     if (isColumnHighlighted({ schema: data.schema, tableName: data.name, columnName })) {
       classes.push("column-name--highlighted")
+    } else if (tableHighlightsPresent()) {
+      classes.push("column-name--dimmed")
     }
 
     return classes.join(" ")
@@ -43,7 +45,7 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
     <div
       className={`table ${isTableHighlighted({ schema: data.schema, tableName: data.name }) ? 'table--highlighted' : ''}`}>
       <div
-        style={{ backgroundColor: data.schemaColor }}
+        style={isTableHighlighted({ schema: data.schema, tableName: data.name }) ? {} : { backgroundColor: data.schemaColor }}
         className="table__name"
         onMouseEnter={() => {
           if(descriptionOnHoverActive) {

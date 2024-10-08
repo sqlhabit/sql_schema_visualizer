@@ -10,6 +10,10 @@ const highlights = (urlParams.get("highlights") || "").split(";").reduce((acc: {
   return acc;
 }, {} as { [key: string]: string[] });
 
+export const tableHighlightsPresent = () => {
+  return Object.keys(highlights).length > 0
+}
+
 export const isTableHighlighted = ({ schema, tableName }: { schema: string | undefined, tableName: string }) => {
   const fullTableName = schema ? `${schema}.${tableName}` : tableName
 

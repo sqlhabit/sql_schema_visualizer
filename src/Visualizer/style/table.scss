@@ -1,4 +1,6 @@
 .table {
+  $root: &;
+
   background-color: #FFF;
 
   &__name {
@@ -64,6 +66,19 @@
 
     &--active {
       display: block;
+    }
+  }
+
+  &--highlighted {
+    #{$root}__name {
+      background-color: #FADB5F;
+    }
+
+    #{$root}__columns {
+      border-color: #FADB5F;
+      border-style: dashed;
+      border-width: 2px;
+      border-top: 0;
     }
   }
 }
