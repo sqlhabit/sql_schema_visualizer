@@ -81,4 +81,16 @@
       border-top: 0;
     }
   }
+
+  &:hover {
+    #{$root}__name {
+      opacity: 1;
+    }
+  }
+
+  &--dimmed {
+    #{$root}__name {
+      opacity: 0.4;
+    }
+  }
 }

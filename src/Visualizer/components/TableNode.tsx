@@ -25,6 +25,18 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
     }, false);
   }, []);
 
+  const tableClass = ({ schema, tableName}: { schema: string, tableName: string }) => {
+    const classes = ["table"]
+
+    if (isTableHighlighted({ schema, tableName })) {
+      classes.push("table--highlighted")
+    } else if (tableHighlightsPresent()) {
+      classes.push("table--dimmed")
+    }
+
+    return classes.join(" ")
+  }
+
   const columnClass = ({ selectedColumn, columnName }: { selectedColumn: string, columnName: string }) => {
     const classes = ["column-name"]
 
@@ -43,7 +55,7 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
 
   return (
     <div
-      className={`table ${isTableHighlighted({ schema: data.schema, tableName: data.name }) ? 'table--highlighted' : ''}`}>
+      className={tableClass({ schema: data.schema, tableName: data.name })}>
       <div
         style={isTableHighlighted({ schema: data.schema, tableName: data.name }) ? {} : { backgroundColor: data.schemaColor }}
         className="table__name"
