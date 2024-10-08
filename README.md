@@ -25,6 +25,16 @@ Originally built for [the SQL Habit course](https://www.sqlhabit.com/), it's ava
 <br>
 :rocket: **Make it yours**: you get the whole React app, so you can change everything.
 
+### Highlight specific tables and columns via a URL param
+
+You can highlight tables and columns via the `highlights` URL param. Here's an example URL:
+
+https://sqlhabit.github.io/sql_schema_visualizer/?highlights=users:id,email,signup_date;purchases:user_id,created_at
+
+:mag: Note that tables are followed by semicolons `:` and column names are separated with commas `,`. Here's how it looks like:
+
+![Table and column snapshots](https://raw.githubusercontent.com/sqlhabit/sql_schema_visualizer/main/docs/table_highlights.png)
+
 ## How to visualize your schema(s)
 
 Schema Visualizer can visualize multiple schemas – each schema will have its own URL.
