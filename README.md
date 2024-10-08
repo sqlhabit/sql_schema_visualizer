@@ -29,7 +29,7 @@ Originally built for [the SQL Habit course](https://www.sqlhabit.com/), it's ava
 
 You can highlight tables and columns via the `highlights` URL param. Here's an example URL:
 
-https://sqlhabit.github.io/sql_schema_visualizer/?highlights=users:id,email,signup_date;purchases:user_id,created_at
+https://sqlhabit.github.io/sql_schema_visualizer/databases/bindle?highlights=users:id,email,signup_date;purchases:user_id,created_at
 
 :mag: Note that tables are followed by semicolons `:` and column names are separated with commas `,`. Here's how it looks like:
 
