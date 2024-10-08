@@ -33,7 +33,7 @@ https://sqlhabit.github.io/sql_schema_visualizer/?highlights=users:id,email,sign
 
 :mag: Note that tables are followed by semicolons `:` and column names are separated with commas `,`. Here's how it looks like:
 
-![Table and column snapshots](https://raw.githubusercontent.com/sqlhabit/sql_schema_visualizer/main/docs/table_highlights.png)
+<img src="https://raw.githubusercontent.com/sqlhabit/sql_schema_visualizer/main/docs/table_highlights.png" width="600">
 
 ## How to visualize your schema(s)
 
