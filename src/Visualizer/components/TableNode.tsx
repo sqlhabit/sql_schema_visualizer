@@ -2,6 +2,7 @@ import { useState, FC, useEffect } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { KeyIcon } from "../components";
 import { markdown } from "../helpers";
+import { isTableHighlighted, isColumnHighlighted } from "../helpers/tableHighlights";
 
 import "@reactflow/node-resizer/dist/style.css";
 
@@ -24,8 +25,23 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
     }, false);
   }, []);
 
+  const columnClass = ({ selectedColumn, columnName }: { selectedColumn: string, columnName: string }) => {
+    const classes = ["column-name"]
+
+    if (selectedColumn === columnName) {
+      classes.push("column-name--selected")
+    }
+
+    if (isColumnHighlighted({ schema: data.schema, tableName: data.name, columnName })) {
+      classes.push("column-name--highlighted")
+    }
+
+    return classes.join(" ")
+  }
+
   return (
-    <div className="table">
+    <div
+      className={`table ${isTableHighlighted({ schema: data.schema, tableName: data.name }) ? 'table--highlighted' : ''}`}>
       <div
         style={{ backgroundColor: data.schemaColor }}
         className="table__name"
@@ -46,7 +62,7 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
         {data.columns.map((column: any, index: any) => (
           <div
             key={index}
-            className={selectedColumn === column.name ? "column-name column-name--selected" : "column-name"}
+            className={columnClass({ selectedColumn, columnName: column.name })}
             onMouseEnter={() => {
               if(descriptionOnHoverActive) {
                 setSelectedColumn(column.name)
