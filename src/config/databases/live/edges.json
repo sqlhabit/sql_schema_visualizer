@@ -26,5 +26,21 @@
     "target": "trials",
     "targetKey": "product_id",
     "relation": "hasMany"
+  },
+  {
+    "source": "users",
+    "sourceKey": "id",
+    "target": "users",
+    "targetKey": "referrer_id",
+    "relation": "hasMany",
+    "sourcePosition": "right",
+    "targetPosition": "right"
+  },
+  {
+    "source": "users",
+    "sourceKey": "id",
+    "target": "mobile_analytics.events",
+    "targetKey": "user_id",
+    "relation": "hasMany"
   }
 ]

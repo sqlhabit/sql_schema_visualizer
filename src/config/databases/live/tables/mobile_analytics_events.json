@@ -1,12 +1,12 @@
 {
   "schema": "mobile_analytics",
   "name": "events",
-  "description": "This analytics table contains all events fired by Bindle's mobile app.",
+  "description": "This analytics table contains all events tracked in the Meditation iOS app.",
   "columns": [
     {
-      "name": "event_id",
+      "name": "id",
       "description": "Unique identifier of an event.",
-      "type": "text",
+      "type": "bigint",
       "key": true
     },
     {
@@ -31,18 +31,13 @@
     },
     {
       "name": "device_type",
-      "description": "Model of a user’s smartphone and the version of the OS, for example iPhone 7,12.1.0.",
+      "description": "Model of a user’s smartphone and the version of the OS, for example iPhone 15 Pro,17.0",
       "type": "text"
     },
     {
       "name": "user_id",
-      "description": "If user is logged in – ID of a user in the users table.",
+      "description": "ID of a user in the users table.",
       "type": "integer"
-    },
-    {
-      "name": "adid",
-      "description": "Unique identifier of a user’s smartphone, same as in Adjust callbacks table.",
-      "type": "text"
     },
     {
       "name": "country",
@@ -58,11 +53,6 @@
       "name": "created_at",
       "description": "Timestamp of an event.",
       "type": "datetime"
-    },
-    {
-      "name": "app_version",
-      "description": "Version of the Bindle app a user is using, for example 1.1.1.",
-      "type": "text"
     }
   ]
 }

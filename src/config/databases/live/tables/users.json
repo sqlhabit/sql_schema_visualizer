@@ -10,6 +10,11 @@
       "type": "bigint"
     },
     {
+      "name": "referrer_id",
+      "description": "id of another user who invited this user.",
+      "type": "bigint"
+    },
+    {
       "name": "first_name",
       "description": "User's first name.",
       "type": "text"
