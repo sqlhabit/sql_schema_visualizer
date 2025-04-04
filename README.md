@@ -33,7 +33,7 @@ https://sqlhabit.github.io/sql_schema_visualizer/databases/bindle?highlights=use
 
 :mag: Note that tables are followed by semicolons `:` and column names are separated with commas `,`. Here's how it looks like:
 
-<img src="https://raw.githubusercontent.com/sqlhabit/sql_schema_visualizer/main/docs/table_highlights.png" width="600">
+<img src="https://raw.githubusercontent.com/sqlhabit/sql_schema_visualizer/main/docs/table_highlights.png" width="400px">
 
 ## How to visualize your schema(s)
 
