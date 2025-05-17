@@ -96,6 +96,29 @@ WHERE
 ORDER BY 1, 2, 5
 ```
 
+#### BigQuery
+
+```sql
+SELECT
+  c.table_schema,
+  c.table_name,
+  c.column_name,
+  c.data_type,
+  c.ordinal_position
+FROM %PROJECT_NAME%.%DATASET_NAME%.INFORMATION_SCHEMA.COLUMNS c
+JOIN %PROJECT_NAME%.%DATASET_NAME%.INFORMATION_SCHEMA.TABLES t
+  ON c.table_schema = t.table_schema
+  AND c.table_name = t.table_name
+WHERE
+  c.table_schema NOT IN ('INFORMATION_SCHEMA')
+ORDER BY
+  c.table_schema,
+  c.table_name,
+  c.ordinal_position;
+```
+
+:mag: Make sure to replace `%PROJECT_NAME%.%DATASET_NAME%` with proper values.
+
 #### MySQL
 
 ```sql
