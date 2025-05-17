@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out your repository using git
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Use Node.js 16
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '16'
         cache: 'npm'
@@ -41,10 +41,10 @@ jobs:
 
     steps:
     - name: Check out your repository using git
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Use Node.js 16
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '16'
         cache: 'npm'
@@ -56,7 +56,7 @@ jobs:
       run: npm run build
 
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
+      uses: actions/upload-pages-artifact@v3
       with:
         path: ./build
 
@@ -69,4 +69,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
