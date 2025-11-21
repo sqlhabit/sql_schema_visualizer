@@ -1,0 +1,23 @@
+{
+  "name": "interpol.crime_types",
+  "description": "Crime types.",
+  "schemaColor": "#F4A261",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a crime type.",
+      "type": "integer"
+    },
+    {
+      "name": "name",
+      "description": "Name of the crime type.",
+      "type": "text"
+    },
+    {
+      "name": "description",
+      "description": "Description of the crime type.",
+      "type": "text"
+    }
+  ]
+}

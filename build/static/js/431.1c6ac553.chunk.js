@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksql_schema_visualizer=self.webpackChunksql_schema_visualizer||[]).push([[431],{6431:function(s){s.exports=JSON.parse('{"public.products":{"x":0,"y":96},"public.purchases":{"x":256,"y":-128},"public.trials":{"x":256,"y":224},"public.users":{"x":560,"y":80}}')}}]);

@@ -1,0 +1,33 @@
+{
+  "name": "bank.accounts",
+  "description": "Information about the bank accounts.",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a bank account.",
+      "type": "integer"
+    },
+    {
+      "name": "name",
+      "description": "Account owner's name.",
+      "type": "text"
+    },
+    {
+      "name": "address",
+      "description": "Account owner's address.",
+      "type": "text"
+    },
+    {
+      "name": "created_at",
+      "description": "Timestamp when the account was created.",
+      "type": "timestamp"
+    },
+    {
+      "name": "closed_at",
+      "description": "Timestamp when the account was closed.",
+      "type": "timestamp"
+    }
+  ]
+}

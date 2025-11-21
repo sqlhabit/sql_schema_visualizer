@@ -1,0 +1,28 @@
+{
+  "name": "bank.event_log",
+  "description": "Event log of everything happening at the bank.",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of an event log entry.",
+      "type": "integer"
+    },
+    {
+      "name": "event_name",
+      "description": "Name of the event, like *boring_joke_from_steve_detected*.",
+      "type": "text"
+    },
+    {
+      "name": "created_at",
+      "description": "Timestamp of the event.",
+      "type": "timestamp"
+    },
+    {
+      "name": "params",
+      "description": "Parameters of the event in a key-value JSON format.",
+      "type": "json"
+    }
+  ]
+}

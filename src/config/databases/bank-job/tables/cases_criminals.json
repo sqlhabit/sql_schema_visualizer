@@ -1,0 +1,17 @@
+{
+  "name": "interpol.cases_criminals",
+  "description": "This is a join table between cases and criminal aliases.",
+  "schemaColor": "#F4A261",
+  "columns": [
+    {
+      "name": "case_number",
+      "description": "Case number.",
+      "type": "text"
+    },
+    {
+      "name": "criminal_alias_id",
+      "description": "Criminal alias ID.",
+      "type": "integer"
+    }
+  ]
+}

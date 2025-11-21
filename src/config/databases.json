@@ -22,5 +22,9 @@
   "movies": {
     "name": "Movies dataset",
     "description": "The **Movies** dataset contains data from some of the best films released since the 1990s.\n\nIt includes information on actors, directors, and key movie statistics like budget and revenue. The most interesting part is probably the `ratings` table. Please note that the ratings were artificially generated, so the final movie scores only partially correlate with real IMDb data.\n\nEnjoy the show! :movie_camera:"
+  },
+  "bank-job": {
+    "name": "The Bank Job Quest dataset",
+    "description": "The **Bank Job Quest** dataset contains data from a bank and Interpol investigations. :bank:\n\nThe bank schema includes accounts, vaults, safe deposit boxes, and event logs. The Interpol schema tracks criminal cases, crime types, criminals, and their aliases. This dataset is perfect for practicing complex queries across multiple schemas with many-to-many relationships."
   }
 }

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksql_schema_visualizer=self.webpackChunksql_schema_visualizer||[]).push([[990],{8990:function(s){s.exports=JSON.parse('{"DEFAULT":"#91C4F2","bank":"#91C4F2","interpol":"#F4A261"}')}}]);

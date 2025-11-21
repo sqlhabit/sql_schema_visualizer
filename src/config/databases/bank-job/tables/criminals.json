@@ -1,0 +1,43 @@
+{
+  "name": "interpol.criminals",
+  "description": "Criminal records.",
+  "schemaColor": "#F4A261",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a criminal.",
+      "type": "integer"
+    },
+    {
+      "name": "full_name",
+      "description": "Full name of the criminal.",
+      "type": "text"
+    },
+    {
+      "name": "date_of_birth",
+      "description": "Date of birth of the criminal.",
+      "type": "date"
+    },
+    {
+      "name": "gender",
+      "description": "Gender of the criminal.",
+      "type": "text"
+    },
+    {
+      "name": "nationality",
+      "description": "Nationality of the criminal.",
+      "type": "text"
+    },
+    {
+      "name": "notes",
+      "description": "Additional notes about the criminal.",
+      "type": "text"
+    },
+    {
+      "name": "created_at",
+      "description": "Timestamp when the criminal record was created.",
+      "type": "timestamp"
+    }
+  ]
+}

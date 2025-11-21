@@ -1,0 +1,23 @@
+{
+  "name": "interpol.criminal_aliases",
+  "description": "This table contains all aliases used by criminals.",
+  "schemaColor": "#F4A261",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a criminal alias.",
+      "type": "integer"
+    },
+    {
+      "name": "criminal_id",
+      "description": "ID of the criminal that this alias belongs to.",
+      "type": "integer"
+    },
+    {
+      "name": "alias",
+      "description": "Alias name used by the criminal.",
+      "type": "text"
+    }
+  ]
+}

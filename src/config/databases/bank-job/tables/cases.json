@@ -1,0 +1,43 @@
+{
+  "name": "interpol.cases",
+  "description": "Interpol case records.",
+  "schemaColor": "#F4A261",
+  "columns": [
+    {
+      "name": "case_number",
+      "key": true,
+      "description": "Unique identifier of a case (primary key).",
+      "type": "text"
+    },
+    {
+      "name": "title",
+      "description": "Title of the case.",
+      "type": "text"
+    },
+    {
+      "name": "status",
+      "description": "Current status of the case.",
+      "type": "text"
+    },
+    {
+      "name": "country",
+      "description": "Country where the case was opened.",
+      "type": "text"
+    },
+    {
+      "name": "opened_at",
+      "description": "Timestamp when the case was opened.",
+      "type": "timestamp"
+    },
+    {
+      "name": "closed_at",
+      "description": "Timestamp when the case was closed.",
+      "type": "timestamp"
+    },
+    {
+      "name": "resolution",
+      "description": "Resolution details of the case.",
+      "type": "text"
+    }
+  ]
+}

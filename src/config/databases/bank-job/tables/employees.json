@@ -1,0 +1,43 @@
+{
+  "name": "bank.employees",
+  "description": "Bank employee records.",
+  "schemaColor": "#91C4F2",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of an employee.",
+      "type": "integer"
+    },
+    {
+      "name": "name",
+      "description": "Name of the employee.",
+      "type": "text"
+    },
+    {
+      "name": "address",
+      "description": "Address of the employee.",
+      "type": "text"
+    },
+    {
+      "name": "age",
+      "description": "Age of the employee.",
+      "type": "integer"
+    },
+    {
+      "name": "started_at",
+      "description": "Timestamp when the employee joined the bank.",
+      "type": "timestamp"
+    },
+    {
+      "name": "terminated_at",
+      "description": "Timestamp when the employee contractwas terminated.",
+      "type": "timestamp"
+    },
+    {
+      "name": "title",
+      "description": "Job title of the employee.",
+      "type": "text"
+    }
+  ]
+}
