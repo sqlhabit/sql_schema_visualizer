@@ -1,5 +1,6 @@
 {
-  "name": "bank.safe_deposit_boxes",
+  "schema": "bank",
+  "name": "safe_deposit_boxes",
   "description": "Safe deposit boxes.",
   "columns": [
     {

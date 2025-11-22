@@ -1,5 +1,6 @@
 {
-  "name": "interpol.cases_criminals",
+  "schema": "interpol",
+  "name": "cases_criminals",
   "description": "This is a join table between cases and criminal aliases.",
   "columns": [
     {

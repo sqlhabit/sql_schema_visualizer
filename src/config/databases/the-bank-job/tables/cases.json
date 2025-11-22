@@ -1,5 +1,6 @@
 {
-  "name": "interpol.cases",
+  "schema": "interpol",
+  "name": "cases",
   "description": "Interpol case records.",
   "columns": [
     {

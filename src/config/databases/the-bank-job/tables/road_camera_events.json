@@ -1,5 +1,6 @@
 {
-  "name": "nyc_dot.road_camera_events",
+  "schema": "nyc_dot",
+  "name": "road_camera_events",
   "description": "This table contains all events captured by NYC Department of Transportation road cameras.",
   "columns": [
     {

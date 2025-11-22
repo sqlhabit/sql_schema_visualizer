@@ -1,5 +1,6 @@
 {
-  "name": "bank.vaults",
+  "schema": "bank",
+  "name": "vaults",
   "description": "Bank vaults.",
   "columns": [
     {

@@ -1,5 +1,6 @@
 {
-  "name": "bank.employees",
+  "schema": "bank",
+  "name": "employees",
   "description": "Bank employee records.",
   "columns": [
     {

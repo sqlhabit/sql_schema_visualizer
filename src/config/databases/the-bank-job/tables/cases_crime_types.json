@@ -1,5 +1,6 @@
 {
-  "name": "interpol.cases_crime_types",
+  "schema": "interpol",
+  "name": "cases_crime_types",
   "description": "This is a join table between cases and crime types.",
   "columns": [
     {

@@ -1,5 +1,6 @@
 {
-  "name": "bank.event_log",
+  "schema": "bank",
+  "name": "event_log",
   "description": "Event log of everything happening at the bank.",
   "columns": [
     {

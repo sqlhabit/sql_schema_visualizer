@@ -1,7 +1,6 @@
 {
-  "DEFAULT": "#91C4F2",
-  "bank": "#BEB8EB",
-  "interpol": "#AFA2FF",
+  "bank": "#91C4F2",
+  "interpol": "#BEB8EB",
   "sellmycar_com": "#75C9C8",
   "nyc_dot": "#F6BDD1"
 }

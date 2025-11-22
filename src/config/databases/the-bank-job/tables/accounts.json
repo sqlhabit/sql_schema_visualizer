@@ -1,5 +1,6 @@
 {
-  "name": "bank.accounts",
+  "schema": "bank",
+  "name": "accounts",
   "description": "Information about the bank accounts.",
   "columns": [
     {

@@ -1,5 +1,6 @@
 {
-  "name": "sellmycar_com.vehicles",
+  "schema": "sellmycar_com",
+  "name": "vehicles",
   "description": "This table contains all vehicles listed for sale on the fictional sellmycar.com website.",
   "columns": [
     {

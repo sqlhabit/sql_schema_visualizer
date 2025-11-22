@@ -1,5 +1,6 @@
 {
-  "name": "bank.authorized_vehicles",
+  "schema": "bank",
+  "name": "authorized_vehicles",
   "description": "This table contains all vehicles authorized to enter the bank premises.",
   "columns": [
     {

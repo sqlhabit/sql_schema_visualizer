@@ -1,5 +1,6 @@
 {
-  "name": "interpol.criminals",
+  "schema": "interpol",
+  "name": "criminals",
   "description": "Criminal records.",
   "columns": [
     {
