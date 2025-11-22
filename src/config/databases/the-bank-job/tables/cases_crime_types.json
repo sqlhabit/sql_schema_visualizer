@@ -1,7 +1,6 @@
 {
   "name": "interpol.cases_crime_types",
   "description": "This is a join table between cases and crime types.",
-  "schemaColor": "#F4A261",
   "columns": [
     {
       "name": "case_number",

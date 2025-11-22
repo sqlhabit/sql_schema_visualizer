@@ -1,0 +1,47 @@
+{
+  "name": "nyc_dot.road_camera_events",
+  "description": "This table contains all events captured by NYC Department of Transportation road cameras.",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a road camera event.",
+      "type": "integer"
+    },
+    {
+      "name": "camera_id",
+      "description": "ID of the camera that captured the event.",
+      "type": "integer"
+    },
+    {
+      "name": "name",
+      "description": "Name or description of the event.",
+      "type": "text"
+    },
+    {
+      "name": "address",
+      "description": "Address where the event was captured.",
+      "type": "text"
+    },
+    {
+      "name": "lat",
+      "description": "Latitude coordinate of the camera location.",
+      "type": "numeric"
+    },
+    {
+      "name": "lon",
+      "description": "Longitude coordinate of the camera location.",
+      "type": "numeric"
+    },
+    {
+      "name": "created_at",
+      "description": "Timestamp when the event was recorded.",
+      "type": "timestamp"
+    },
+    {
+      "name": "params",
+      "description": "Additional parameters of the event in a key-value JSON format.",
+      "type": "json"
+    }
+  ]
+}

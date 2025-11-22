@@ -28,6 +28,13 @@
     "relation": "hasMany"
   },
   {
+    "source": "bank.employees",
+    "sourceKey": "id",
+    "target": "bank.authorized_vehicles",
+    "targetKey": "employee_id",
+    "relation": "hasMany"
+  },
+  {
     "source": "interpol.cases",
     "sourceKey": "case_number",
     "target": "interpol.cases_crime_types",

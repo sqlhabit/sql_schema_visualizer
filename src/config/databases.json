@@ -25,6 +25,6 @@
   },
   "the-bank-job": {
     "name": "The Bank Job Quest dataset",
-    "description": "The **Bank Job Quest** dataset contains data from a bank and Interpol investigations. :bank:\n\nThe bank schema includes accounts, vaults, safe deposit boxes, and event logs. The Interpol schema tracks criminal cases, crime types, criminals, and their aliases. This dataset is perfect for practicing complex queries across multiple schemas with many-to-many relationships."
+    "description": "This is a dataset for [SQL Habit's Bank Job quest](https://www.sqlhabit.com/quests/the-bank-job). Saying more would be a spoiler. :bank:"
   }
 }

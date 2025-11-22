@@ -19,6 +19,18 @@
     "x": 100,
     "y": 500
   },
+  "bank.authorized_vehicles": {
+    "x": 1200,
+    "y": 384
+  },
+  "sellmycar_com.vehicles": {
+    "x": 1200,
+    "y": 800
+  },
+  "nyc_dot.road_camera_events": {
+    "x": 1200,
+    "y": 1200
+  },
   "interpol.cases": {
     "x": 100,
     "y": 800

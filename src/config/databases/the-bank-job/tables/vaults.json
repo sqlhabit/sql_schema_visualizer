@@ -1,7 +1,6 @@
 {
   "name": "bank.vaults",
   "description": "Bank vaults.",
-  "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",

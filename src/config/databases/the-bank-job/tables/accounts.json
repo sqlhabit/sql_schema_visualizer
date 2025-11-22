@@ -1,7 +1,6 @@
 {
   "name": "bank.accounts",
   "description": "Information about the bank accounts.",
-  "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",

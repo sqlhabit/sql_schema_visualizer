@@ -1,7 +1,6 @@
 {
   "name": "interpol.criminals",
   "description": "Criminal records.",
-  "schemaColor": "#F4A261",
   "columns": [
     {
       "name": "id",

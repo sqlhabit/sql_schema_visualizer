@@ -1,7 +1,6 @@
 {
   "name": "bank.event_log",
   "description": "Event log of everything happening at the bank.",
-  "schemaColor": "#91C4F2",
   "columns": [
     {
       "name": "id",

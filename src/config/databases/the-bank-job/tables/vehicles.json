@@ -1,0 +1,57 @@
+{
+  "name": "sellmycar_com.vehicles",
+  "description": "This table contains all vehicles listed for sale on the fictional sellmycar.com website.",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a vehicle.",
+      "type": "integer"
+    },
+    {
+      "name": "brand",
+      "description": "Brand of the vehicle.",
+      "type": "text"
+    },
+    {
+      "name": "model",
+      "description": "Model of the vehicle.",
+      "type": "text"
+    },
+    {
+      "name": "production_year",
+      "description": "Year when the vehicle was produced.",
+      "type": "integer"
+    },
+    {
+      "name": "color",
+      "description": "Color of the vehicle.",
+      "type": "text"
+    },
+    {
+      "name": "number_of_seats",
+      "description": "Number of seats in the vehicle.",
+      "type": "integer"
+    },
+    {
+      "name": "cargo_volume",
+      "description": "Cargo volume of the vehicle in cubic meters.",
+      "type": "numeric"
+    },
+    {
+      "name": "price",
+      "description": "Price of the vehicle.",
+      "type": "numeric"
+    },
+    {
+      "name": "rating",
+      "description": "Customer rating of the vehicle.",
+      "type": "numeric"
+    },
+    {
+      "name": "has_damages",
+      "description": "Whether the vehicle has any damages.",
+      "type": "boolean"
+    }
+  ]
+}

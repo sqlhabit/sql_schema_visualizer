@@ -1,0 +1,42 @@
+{
+  "name": "bank.authorized_vehicles",
+  "description": "This table contains all vehicles authorized to enter the bank premises.",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of an authorized vehicle.",
+      "type": "integer"
+    },
+    {
+      "name": "employee_id",
+      "description": "ID of the employee who is authorized to use this vehicle.",
+      "type": "integer"
+    },
+    {
+      "name": "manufacturer",
+      "description": "Manufacturer of the vehicle.",
+      "type": "text"
+    },
+    {
+      "name": "model",
+      "description": "Model of the vehicle.",
+      "type": "text"
+    },
+    {
+      "name": "production_year",
+      "description": "Year when the vehicle was produced.",
+      "type": "integer"
+    },
+    {
+      "name": "color",
+      "description": "Color of the vehicle.",
+      "type": "text"
+    },
+    {
+      "name": "plate_number",
+      "description": "License plate number of the vehicle.",
+      "type": "text"
+    }
+  ]
+}

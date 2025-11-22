@@ -1,7 +1,6 @@
 {
   "name": "interpol.criminal_aliases",
   "description": "This table contains all aliases used by criminals.",
-  "schemaColor": "#F4A261",
   "columns": [
     {
       "name": "id",

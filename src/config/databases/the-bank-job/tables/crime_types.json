@@ -1,7 +1,6 @@
 {
   "name": "interpol.crime_types",
   "description": "Crime types.",
-  "schemaColor": "#F4A261",
   "columns": [
     {
       "name": "id",

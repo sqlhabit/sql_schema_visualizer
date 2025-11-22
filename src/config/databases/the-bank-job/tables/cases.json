@@ -1,7 +1,6 @@
 {
   "name": "interpol.cases",
   "description": "Interpol case records.",
-  "schemaColor": "#F4A261",
   "columns": [
     {
       "name": "case_number",
