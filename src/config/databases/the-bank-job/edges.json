@@ -68,5 +68,26 @@
     "target": "interpol.criminal_aliases",
     "targetKey": "criminal_id",
     "relation": "hasMany"
+  },
+  {
+    "source": "fake.art_works",
+    "sourceKey": "id",
+    "target": "fake.transactions",
+    "targetKey": "art_work_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "fake.transactions",
+    "sourceKey": "id",
+    "target": "fake.transactions",
+    "targetKey": "prev_transaction_id",
+    "relation": "hasMany"
+  },
+  {
+    "source": "penn_station.storage_units",
+    "sourceKey": "id",
+    "target": "penn_station.storage_units_log",
+    "targetKey": "unit_id",
+    "relation": "hasMany"
   }
 ]

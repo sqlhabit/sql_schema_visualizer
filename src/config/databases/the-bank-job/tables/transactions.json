@@ -1,0 +1,48 @@
+{
+  "schema": "fake",
+  "name": "transactions",
+  "description": "Transactions of fake art works.",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a transaction.",
+      "type": "integer"
+    },
+    {
+      "name": "art_work_id",
+      "description": "ID of the art work involved in the transaction.",
+      "type": "integer"
+    },
+    {
+      "name": "code",
+      "description": "Unique code of the transaction.",
+      "type": "text"
+    },
+    {
+      "name": "prev_code",
+      "description": "Code of the previous transaction in the chain.",
+      "type": "text"
+    },
+    {
+      "name": "from_party",
+      "description": "Party that the art work was transferred from (e.g. \"John Doe\").",
+      "type": "text"
+    },
+    {
+      "name": "to_party",
+      "description": "Party that the art work was transferred to (e.g. \"Jane Doe\").",
+      "type": "text"
+    },
+    {
+      "name": "kind",
+      "description": "Type or kind of the transaction (e.g. \"Purchase\").",
+      "type": "text"
+    },
+    {
+      "name": "year",
+      "description": "Year when the transaction occurred.",
+      "type": "integer"
+    }
+  ]
+}

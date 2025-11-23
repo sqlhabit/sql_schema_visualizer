@@ -1,0 +1,28 @@
+{
+  "schema": "penn_station",
+  "name": "storage_units_log",
+  "description": "Log entries for storage unit events at Penn Station.",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a storage unit log entry.",
+      "type": "integer"
+    },
+    {
+      "name": "unit_id",
+      "description": "ID of the storage unit.",
+      "type": "integer"
+    },
+    {
+      "name": "name",
+      "description": "Event name.",
+      "type": "text"
+    },
+    {
+      "name": "created_at",
+      "description": "Timestamp when the log entry was created.",
+      "type": "datetime"
+    }
+  ]
+}

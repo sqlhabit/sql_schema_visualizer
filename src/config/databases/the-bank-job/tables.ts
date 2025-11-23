@@ -14,6 +14,10 @@ import casesCrimeTypesTable from "./tables/cases_crime_types.json";
 import casesCriminalsTable from "./tables/cases_criminals.json";
 import vehiclesTable from "./tables/vehicles.json";
 import roadCameraEventsTable from "./tables/road_camera_events.json";
+import storageUnitsTable from "./tables/storage_units.json";
+import storageUnitsLogTable from "./tables/storage_units_log.json";
+import artWorksTable from "./tables/art_works.json";
+import transactionsTable from "./tables/transactions.json";
 
 const tables: TableConfig[] = [
   accountsTable,
@@ -29,7 +33,11 @@ const tables: TableConfig[] = [
   casesCrimeTypesTable,
   casesCriminalsTable,
   vehiclesTable,
-  roadCameraEventsTable
+  roadCameraEventsTable,
+  storageUnitsTable,
+  storageUnitsLogTable,
+  artWorksTable,
+  transactionsTable
 ];
 
 export default tables;

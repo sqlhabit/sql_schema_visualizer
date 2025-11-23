@@ -1,0 +1,28 @@
+{
+  "schema": "penn_station",
+  "name": "storage_units",
+  "description": "Storage units at Penn Station.",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of a storage unit.",
+      "type": "integer"
+    },
+    {
+      "name": "width",
+      "description": "Width of the storage unit.",
+      "type": "integer"
+    },
+    {
+      "name": "height",
+      "description": "Height of the storage unit.",
+      "type": "integer"
+    },
+    {
+      "name": "depth",
+      "description": "Depth of the storage unit.",
+      "type": "integer"
+    }
+  ]
+}

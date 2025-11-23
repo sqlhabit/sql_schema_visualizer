@@ -1,0 +1,23 @@
+{
+  "schema": "fake",
+  "name": "art_works",
+  "description": "Fake art works database.",
+  "columns": [
+    {
+      "name": "id",
+      "key": true,
+      "description": "Unique identifier of an art work.",
+      "type": "integer"
+    },
+    {
+      "name": "author",
+      "description": "Author(s) of the art work.",
+      "type": "text"
+    },
+    {
+      "name": "creation_date",
+      "description": "Date when the art work was created.",
+      "type": "date"
+    }
+  ]
+}

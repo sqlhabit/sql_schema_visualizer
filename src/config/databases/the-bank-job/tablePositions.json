@@ -3,6 +3,10 @@
     "x": 100,
     "y": 100
   },
+  "bank.authorized_vehicles": {
+    "x": 1200,
+    "y": 384
+  },
   "bank.employees": {
     "x": 912,
     "y": 384
@@ -19,17 +23,13 @@
     "x": 100,
     "y": 500
   },
-  "bank.authorized_vehicles": {
-    "x": 1200,
-    "y": 384
-  },
-  "sellmycar_com.vehicles": {
-    "x": 1200,
+  "fake.art_works": {
+    "x": 1120,
     "y": 800
   },
-  "nyc_dot.road_camera_events": {
-    "x": 1200,
-    "y": 1200
+  "fake.transactions": {
+    "x": 864,
+    "y": 816
   },
   "interpol.cases": {
     "x": 100,
@@ -54,5 +54,21 @@
   "interpol.criminals": {
     "x": 560,
     "y": 1104
+  },
+  "nyc_dot.road_camera_events": {
+    "x": 1744,
+    "y": 384
+  },
+  "penn_station.storage_units": {
+    "x": 1072,
+    "y": 48
+  },
+  "penn_station.storage_units_log": {
+    "x": 768,
+    "y": 48
+  },
+  "sellmycar_com.vehicles": {
+    "x": 1472,
+    "y": 384
   }
 }
