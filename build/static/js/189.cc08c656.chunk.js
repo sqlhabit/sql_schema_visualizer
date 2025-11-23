@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksql_schema_visualizer=self.webpackChunksql_schema_visualizer||[]).push([[189],{4189:function(e){e.exports=JSON.parse('{"DEFAULT":"#91C4F2","bank":"#BEB8EB","interpol":"#AFA2FF","sellmycar_com":"#75C9C8","nyc_dot":"#F6BDD1","penn_station":"#FFD791","fake":"#FFA07A"}')}}]);
