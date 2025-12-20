@@ -1,4 +1,4 @@
-import { useState, FC, useEffect, memo } from "react";
+import { useState, FC, useEffect, memo, useCallback } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { KeyIcon } from "../components";
 import { markdown } from "../helpers";
@@ -58,26 +58,43 @@ const TableNodeComponent: FC<NodeProps> = ({ data }) => {
   }
 
   // Lazy load table description only when first shown
-  const getTableDescription = () => {
+  const getTableDescription = useCallback(async () => {
     if (parsedTableDescription === null) {
-      const parsed = markdown(data.description || "No description.");
+      const parsed = await markdown(data.description || "No description.");
       setParsedTableDescription(parsed);
       return parsed;
     }
     return parsedTableDescription;
-  };
+  }, [parsedTableDescription, data.description]);
 
   // Lazy load column description only when first shown
-  const getColumnDescription = (column: any) => {
+  const getColumnDescription = useCallback(async (column: any) => {
     const cached = parsedColumnDescriptions.get(column.name);
     if (cached !== undefined) {
       return cached;
     }
 
-    const parsed = markdown(column.description || "No description.");
+    const parsed = await markdown(column.description || "No description.");
     setParsedColumnDescriptions(new Map(parsedColumnDescriptions.set(column.name, parsed)));
     return parsed;
-  };
+  }, [parsedColumnDescriptions]);
+
+  // Effect to load table description when showDescription becomes true
+  useEffect(() => {
+    if (showDescription && parsedTableDescription === null) {
+      getTableDescription();
+    }
+  }, [showDescription, parsedTableDescription, getTableDescription]);
+
+  // Effect to load column description when selectedColumn changes
+  useEffect(() => {
+    if (selectedColumn && !parsedColumnDescriptions.has(selectedColumn)) {
+      const column = data.columns.find((col: any) => col.name === selectedColumn);
+      if (column) {
+        getColumnDescription(column);
+      }
+    }
+  }, [selectedColumn, parsedColumnDescriptions, data.columns, getColumnDescription]);
 
   return (
     <div
@@ -95,7 +112,7 @@ const TableNodeComponent: FC<NodeProps> = ({ data }) => {
 
         <div
           className={showDescription ? "table__description table__description--active" : "table__description"}
-          dangerouslySetInnerHTML={{__html: showDescription ? getTableDescription() : "" }} />
+          dangerouslySetInnerHTML={{__html: showDescription && parsedTableDescription ? parsedTableDescription : "" }} />
       </div>
 
       <div className="table__columns">
@@ -133,7 +150,7 @@ const TableNodeComponent: FC<NodeProps> = ({ data }) => {
 
               <div
                 className="column-name__description"
-                dangerouslySetInnerHTML={{__html: selectedColumn === column.name ? getColumnDescription(column) : "" }} />
+                dangerouslySetInnerHTML={{__html: selectedColumn === column.name && parsedColumnDescriptions.has(column.name) ? (parsedColumnDescriptions.get(column.name) || "") : "" }} />
             </div>
           </div>
         ))}
