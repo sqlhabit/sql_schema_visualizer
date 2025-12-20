@@ -18,9 +18,9 @@ export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
       Promise.resolve(markdown(props.subheadline)).then(setParsedSubheadline);
     }
 
-    // Load all database descriptions
+    // Load all database teasers
     Object.keys(databases).forEach(databaseName => {
-      Promise.resolve(markdown(databases[databaseName].description || "No description.")).then(parsed => {
+      Promise.resolve(markdown(databases[databaseName].teaser || "No teaser.")).then(parsed => {
         setParsedDescriptions(prev => new Map(prev).set(databaseName, parsed));
       });
     });

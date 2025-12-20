@@ -5,6 +5,7 @@ import { TablePositions } from "./TablePositions";
 
 export type Database = {
   name: string;
+  teaser: string;
   description: string;
 };
 
