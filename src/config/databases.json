@@ -1,30 +1,37 @@
 {
   "bindle": {
     "name": "Bindle dataset",
+    "teaser": "Database of a fictional startup called Bindle that's used in the SQL Habit course.",
     "description": "This data warehouse belongs to a fictional startup named **Bindle**. Bindle is a web and mobile app for reading books, it has subscription business model. The SQL Habit Course is based on Bindle's story. :book:\n\nBindle's data warehouse contains everything needed to run a modern Internet company – web and mobile analytics, marketing data, AB-test data, etc."
   },
   "finance": {
     "name": "Finance dataset",
+    "teaser": "Database of financial transactions.",
     "description": "This data warehouse simply contains all company's financial transactions. :dollar:\n\nIf the company paid for something – there's a **debit** transaction with negative amount. If someone paid the company – it's a **credit** transaction with positive amount. :moneybag:"
   },
   "ecommerce": {
     "name": "E-commerce dataset",
+    "teaser": "Database of an E-commerce website similar to Amazon.",
     "description": "This data warehouse is inspired by an E-commerce website like Amazon. :shopping_cart:\n\nOur E-commerce website allows vendors to sell items in multiple categories. Users can add as many items as they want to a cart and then purchase a cart with/without a discount code. Users also can return items and leave reviews."
   },
   "nba": {
     "name": "NBA dataset",
+    "teaser": "Database of NBA games and player stats.",
     "description": "The **NBA** dataset contains stats of NBA games since 1949. It is regularly updated.\n\nThe dataset contains aggregated game stats (**team_game_stats** table) and individual player stats per quarter or overtime period (**player_period_stats**).\n\nHave a ball! :basketball:"
   },
   "live": {
     "name": "Live dataset",
+    "teaser": "Database of a meditation mobile app with live data.",
     "description": "The **Live** dataset contains data of a meditation mobile app with subscription business model. :iphone:\n\nThe data is updated **daily**. You can run queries to calculate metrics for the past 24h, week, month, etc. and build dashboards as if you were actually working for that company. :bar_chart:"
   },
   "movies": {
     "name": "Movies dataset",
+    "teaser": "Database of a movie website similar to IMDb.",
     "description": "The **Movies** dataset contains data from some of the best films released since the 1990s.\n\nIt includes information on actors, directors, and key movie statistics like budget and revenue. The most interesting part is probably the `ratings` table. Please note that the ratings were artificially generated, so the final movie scores only partially correlate with real IMDb data.\n\nEnjoy the show! :movie_camera:"
   },
   "the-bank-job": {
     "name": "The Bank Job Quest dataset",
+    "teaser": "Database behind the Bank Job quest.",
     "description": "This is a dataset for [SQL Habit's Bank Job quest](https://www.sqlhabit.com/quests/the-bank-job). Saying more would be a spoiler. :bank:"
   }
 }
