@@ -39,7 +39,7 @@ import {
 import "reactflow/dist/style.css";
 import "./Style";
 import DatabaseIcon from "./components/DatabaseIcon";
-import { DatabaseMenuPopup } from "./components/DatabaseMenuPopup";
+import { DatabaseMenuSidebar } from "./components/DatabaseMenuSidebar";
 
 interface FlowProps {
   currentDatabase: DatabaseConfig;
@@ -94,8 +94,9 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
     // https://stackoverflow.com/questions/42066421/property-value-does-not-exist-on-type-eventtarget
     document.addEventListener("click", (event: Event) => {
       const popup = document.querySelector(".info-popup");
+      const sidebar = document.querySelector(".database-menu-sidebar");
 
-      if(!popup) {
+      if(!popup && !sidebar) {
         return;
       }
 
@@ -105,8 +106,11 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
         return;
       }
 
-      if (target && !target.closest(".info-popup__inner")) {
+      if (popup && target && !target.closest(".info-popup__inner")) {
         setInfoPopupOn(false);
+      }
+
+      if (sidebar && target && !target.closest(".database-menu-sidebar__inner")) {
         setUnknownDatasetOn(false);
         setDatabaseMenuPopupOn(false);
       }
@@ -318,11 +322,11 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
         <Background color="#aaa" gap={16} />
       </ReactFlow>
       {infoPopupOn && <InfoPopup onClose={() => { setInfoPopupOn(false) }} />}
-      {unknownDatasetOn && <DatabaseMenuPopup
+      {unknownDatasetOn && <DatabaseMenuSidebar
         headline={"Unknown dataset :warning:"}
         subheadline={"Available datasets :point_down:"}
         onClose={() => { setUnknownDatasetOn(false) }} />}
-      {databaseMenuPopupOn && <DatabaseMenuPopup
+      {databaseMenuPopupOn && <DatabaseMenuSidebar
         headline={"Choose a dataset"}
         onClose={() => { setDatabaseMenuPopupOn(false) }} />}
     </div>
