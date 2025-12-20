@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { markdown } from "../helpers";
-import { CloseIcon } from "../components";
+import { CloseIcon, InfoIcon } from "../components";
 import { DatabaseMenuPopupProps } from "../types";
 import databases from "../../config/databases";
 
@@ -9,6 +9,7 @@ export function DatabaseMenuSidebar(props: DatabaseMenuPopupProps) {
   const [parsedSubheadline, setParsedSubheadline] = useState<string>("");
   const [parsedTeasers, setParsedTeasers] = useState<Map<string, string>>(new Map());
   const [parsedDescriptions, setParsedDescriptions] = useState<Map<string, string>>(new Map());
+  const [expandedTile, setExpandedTile] = useState<string | null>(null);
 
   useEffect(() => {
     // Load headline
@@ -56,11 +57,14 @@ export function DatabaseMenuSidebar(props: DatabaseMenuPopupProps) {
 
         <div className="database-menu-sidebar__body">
           {Object.keys(databases).map((databaseName, index) => {
+            const isExpanded = expandedTile === databaseName;
+
             return (
               <a
                 href={databaseHref(databaseName)}
                 key={databaseName}
-                className="database-tile">
+                className={`database-tile ${isExpanded ? 'database-tile--expanded' : ''}`}
+                onMouseLeave={() => setExpandedTile(null)}>
                 <div className="database-tile__index">
                   {String(index + 1).padStart(2, '0')}
                 </div>
@@ -74,6 +78,14 @@ export function DatabaseMenuSidebar(props: DatabaseMenuPopupProps) {
                   <div
                     className="database-tile__description"
                     dangerouslySetInnerHTML={{__html: parsedDescriptions.get(databaseName) || "" }} />
+                </div>
+                <div
+                  className="database-tile__info-icon"
+                  onMouseEnter={(e) => {
+                    e.preventDefault();
+                    setExpandedTile(databaseName);
+                  }}>
+                  <InfoIcon />
                 </div>
               </a>
             )
