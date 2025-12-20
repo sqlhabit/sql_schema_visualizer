@@ -1,9 +1,31 @@
+import { useState, useEffect } from "react";
 import { markdown } from "../helpers";
 import { CloseIcon } from "../components";
 import { DatabaseMenuPopupProps } from "../types";
 import databases from "../../config/databases";
 
 export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
+  const [parsedHeadline, setParsedHeadline] = useState<string>("");
+  const [parsedSubheadline, setParsedSubheadline] = useState<string>("");
+  const [parsedDescriptions, setParsedDescriptions] = useState<Map<string, string>>(new Map());
+
+  useEffect(() => {
+    // Load headline
+    Promise.resolve(markdown(props.headline)).then(setParsedHeadline);
+
+    // Load subheadline if present
+    if (props.subheadline) {
+      Promise.resolve(markdown(props.subheadline)).then(setParsedSubheadline);
+    }
+
+    // Load all database descriptions
+    Object.keys(databases).forEach(databaseName => {
+      Promise.resolve(markdown(databases[databaseName].description || "No description.")).then(parsed => {
+        setParsedDescriptions(prev => new Map(prev).set(databaseName, parsed));
+      });
+    });
+  }, [props.headline, props.subheadline]);
+
   const databaseHref = ((databaseName: string) => {
     if(process.env.NODE_ENV === "production") {
       return `/sql_schema_visualizer/databases/${databaseName}`
@@ -22,11 +44,11 @@ export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
 
         <h1
           className="info-popup__headline"
-          dangerouslySetInnerHTML={{__html: markdown(props.headline) }} />
+          dangerouslySetInnerHTML={{__html: parsedHeadline }} />
 
         {props.subheadline && <h2
           className="info-popup__subheadline"
-          dangerouslySetInnerHTML={{__html: markdown(props.subheadline) }} />}
+          dangerouslySetInnerHTML={{__html: parsedSubheadline }} />}
 
         <div className="info-popup__body">
           {Object.keys(databases).map(databaseName => {
@@ -39,7 +61,7 @@ export function DatabaseMenuPopup(props: DatabaseMenuPopupProps) {
                 </h3>
 
                 <p
-                  dangerouslySetInnerHTML={{__html: markdown(databases[databaseName].description || "No description.") }} />
+                  dangerouslySetInnerHTML={{__html: parsedDescriptions.get(databaseName) || "" }} />
               </div>
             )
           })}

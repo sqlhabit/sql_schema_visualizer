@@ -1,8 +1,21 @@
+import { useState, useEffect } from "react";
 import { markdown } from "../helpers";
 import { CloseIcon } from "../components";
 import { PopupProps } from "../types";
 
 export function InfoPopup(props: PopupProps) {
+  const [parsedText1, setParsedText1] = useState<string>("");
+  const [parsedText2, setParsedText2] = useState<string>("");
+  const [parsedText3, setParsedText3] = useState<string>("");
+
+  useEffect(() => {
+    Promise.resolve(markdown("Hey :wave: The SQL Schema Visualiser is an open source project, it is built with [React Flow](https://reactflow.dev/). I bet in 20 minutes you can visualize your own schema! :boom: Check out [the README file on Github](https://github.com/sqlhabit/sql_schema_visualisation#readme) for instructions how to do it.")).then(setParsedText1);
+
+    Promise.resolve(markdown("The schema you're looking at belongs to a fictional startup called Bindle and featured in [the SQL Habit course](https://www.sqlhabit.com).")).then(setParsedText2);
+
+    Promise.resolve(markdown("Made with :heart: by [Anatoli Makarevich](https://twitter.com/makaroni4).")).then(setParsedText3);
+  }, []);
+
   return (
     <div
       className="info-popup">
@@ -17,9 +30,9 @@ export function InfoPopup(props: PopupProps) {
         </h1>
 
         <div className="info-popup__body">
-          <p dangerouslySetInnerHTML={{__html: markdown("Hey :wave: The SQL Schema Visualiser is an open source project, it is built with [React Flow](https://reactflow.dev/). I bet in 20 minutes you can visualize your own schema! :boom: Check out [the README file on Github](https://github.com/sqlhabit/sql_schema_visualisation#readme) for instructions how to do it.") }} />
+          <p dangerouslySetInnerHTML={{__html: parsedText1 }} />
 
-          <p dangerouslySetInnerHTML={{__html: markdown("The schema you're looking at belongs to a fictional startup called Bindle and featured in [the SQL Habit course](https://www.sqlhabit.com).") }} />
+          <p dangerouslySetInnerHTML={{__html: parsedText2 }} />
 
           <h2>Shortcuts</h2>
 
@@ -28,7 +41,7 @@ export function InfoPopup(props: PopupProps) {
           </p>
 
           <p>
-            <strong>CMD + click on an edge</strong> to select and highlight it.
+            <strong>CMD + click on an edge</strong> to select and highlight it.
           </p>
 
           <p>
@@ -36,10 +49,10 @@ export function InfoPopup(props: PopupProps) {
           </p>
 
           <p className="mb-32">
-            <strong>Hover over a table node</strong> to highlight all incoming and outgoing edges.
+            <strong>Hover over a table node</strong> to highlight all incoming and outgoing edges.
           </p>
 
-          <p dangerouslySetInnerHTML={{__html: markdown("Made with :heart: by [Anatoli Makarevich](https://twitter.com/makaroni4).") }} />
+          <p dangerouslySetInnerHTML={{__html: parsedText3 }} />
         </div>
       </div>
     </div>
