@@ -327,7 +327,7 @@ const Flow: React.FC<FlowProps> = (props: FlowProps) => {
         subheadline={"Available datasets :point_down:"}
         onClose={() => { setUnknownDatasetOn(false) }} />}
       {databaseMenuPopupOn && <DatabaseMenuSidebar
-        headline={"Choose a dataset"}
+        headline={"Datasets"}
         onClose={() => { setDatabaseMenuPopupOn(false) }} />}
     </div>
   );
