@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sql_schema_visualizer/static/css/main.9f228f45.css",
-    "main.js": "/sql_schema_visualizer/static/js/main.33dfc6b0.js",
+    "main.css": "/sql_schema_visualizer/static/css/main.8781c033.css",
+    "main.js": "/sql_schema_visualizer/static/js/main.5aad4d8e.js",
     "static/js/394.14a9b9da.chunk.js": "/sql_schema_visualizer/static/js/394.14a9b9da.chunk.js",
     "static/js/226.0d90ab44.chunk.js": "/sql_schema_visualizer/static/js/226.0d90ab44.chunk.js",
     "bindle-edges-json.js": "/sql_schema_visualizer/static/js/bindle-edges-json.94501736.chunk.js",
@@ -33,8 +33,8 @@
     "nba-tables.js": "/sql_schema_visualizer/static/js/nba-tables.7858f3c9.chunk.js",
     "the-bank-job-tables.js": "/sql_schema_visualizer/static/js/the-bank-job-tables.b72c42c8.chunk.js",
     "index.html": "/sql_schema_visualizer/index.html",
-    "main.9f228f45.css.map": "/sql_schema_visualizer/static/css/main.9f228f45.css.map",
-    "main.33dfc6b0.js.map": "/sql_schema_visualizer/static/js/main.33dfc6b0.js.map",
+    "main.8781c033.css.map": "/sql_schema_visualizer/static/css/main.8781c033.css.map",
+    "main.5aad4d8e.js.map": "/sql_schema_visualizer/static/js/main.5aad4d8e.js.map",
     "394.14a9b9da.chunk.js.map": "/sql_schema_visualizer/static/js/394.14a9b9da.chunk.js.map",
     "226.0d90ab44.chunk.js.map": "/sql_schema_visualizer/static/js/226.0d90ab44.chunk.js.map",
     "bindle-tables.0d2bfe46.chunk.js.map": "/sql_schema_visualizer/static/js/bindle-tables.0d2bfe46.chunk.js.map",
@@ -46,7 +46,7 @@
     "the-bank-job-tables.b72c42c8.chunk.js.map": "/sql_schema_visualizer/static/js/the-bank-job-tables.b72c42c8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9f228f45.css",
-    "static/js/main.33dfc6b0.js"
+    "static/css/main.8781c033.css",
+    "static/js/main.5aad4d8e.js"
   ]
 }
