@@ -58,7 +58,7 @@
   position: relative;
   display: block;
   padding: 20px;
-  border: 2px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
   border-radius: 12px;
   background: #fff;
   text-decoration: none;
@@ -90,8 +90,8 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 500;
     color: #999;
     font-family: 'Monaco', 'Courier New', monospace;
   }
@@ -118,8 +118,8 @@
     position: absolute;
     bottom: 12px;
     right: 12px;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     fill: #999;
     transition: all 0.2s ease;
@@ -136,15 +136,15 @@
     }
 
     svg {
-      width: 12px;
-      height: 12px;
+      width: 11px;
+      height: 11px;
     }
   }
 
   &__description {
     position: absolute;
-    left: -2px;
-    right: -2px;
+    left: -1px;
+    right: -1px;
     top: 100%;
     max-height: 0;
     opacity: 0;
@@ -154,7 +154,7 @@
     line-height: 1.6;
     color: #666;
     background-color: #fff;
-    border: 2px solid #4A90E2;
+    border: 1px solid #4A90E2;
     border-top: none;
     border-radius: 0 0 12px 12px;
     padding: 0 20px 0 36px;
