@@ -15,7 +15,7 @@
     max-width: 500px;
     height: 100%;
     z-index: 200000;
-    padding: 24px;
+    padding: 24px 24px 24px;
     overflow-y: auto;
     background-color: #FFF;
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
@@ -31,6 +31,7 @@
     font-size: 28px;
     font-weight: 700;
     padding-right: 40px;
+    line-height: 1;
   }
 
   &__subheadline {
@@ -50,7 +51,7 @@
 
   &__close-icon {
     position: absolute;
-    top: 20px;
+    top: 28px;
     right: 20px;
     cursor: pointer;
     z-index: 10;
@@ -86,7 +87,7 @@
     .database-tile__description {
       max-height: 500px;
       opacity: 1;
-      padding: 12px 20px;
+      padding: 16px 20px 16px 20px;
       pointer-events: auto;
     }
   }
@@ -99,10 +100,6 @@
     font-weight: 700;
     color: #999;
     font-family: 'Monaco', 'Courier New', monospace;
-  }
-
-  &__content {
-    margin-left: 16px;
   }
 
   &__name {
@@ -166,7 +163,7 @@
     border: 2px solid #4A90E2;
     border-top: none;
     border-radius: 0 0 12px 12px;
-    padding: 0 20px;
+    padding: 0 20px 0 36px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     pointer-events: none;
 
