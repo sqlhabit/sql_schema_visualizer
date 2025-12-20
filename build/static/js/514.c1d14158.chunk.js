@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksql_schema_visualizer=self.webpackChunksql_schema_visualizer||[]).push([[514],{514:function(s){s.exports=JSON.parse('{"public.transactions":{"x":192,"y":176},"public.vendors":{"x":-64,"y":240}}')}}]);

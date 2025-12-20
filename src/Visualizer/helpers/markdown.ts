@@ -22,6 +22,18 @@ md.renderer.rules.emoji = (token: Token, idx: Number) => {
   });
 };
 
+// Full markdown rendering with emoji parsing (for when content is displayed)
 export const markdown = (text: string) => {
   return md.renderInline(text);
+};
+
+// Optimized markdown rendering without emoji parsing (deferred)
+// This is faster for initial render when descriptions aren't visible
+export const markdownWithoutEmoji = (text: string) => {
+  // Simple markdown parsing without emoji conversion
+  // Just handle basic markdown like bold, italic, and links
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
 };

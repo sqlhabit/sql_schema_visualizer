@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksql_schema_visualizer=self.webpackChunksql_schema_visualizer||[]).push([[737],{1737:function(s){s.exports=JSON.parse('{"DEFAULT":"#91C4F2","public":"#BEB8EB","adjust":"#AFA2FF","helpers":"#75C9C8","web_analytics":"#F6BDD1","mobile_analytics":"#FFD791"}')}}]);

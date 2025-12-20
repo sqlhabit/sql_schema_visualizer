@@ -1,4 +1,4 @@
-import { useState, FC, useEffect } from "react";
+import { useState, FC, useEffect, memo } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { KeyIcon } from "../components";
 import { markdown } from "../helpers";
@@ -6,10 +6,14 @@ import { tableHighlightsPresent, isTableHighlighted, isColumnHighlighted } from 
 
 import "@reactflow/node-resizer/dist/style.css";
 
-export const TableNode: FC<NodeProps> = ({ data }) => {
+const TableNodeComponent: FC<NodeProps> = ({ data }) => {
   const [selectedColumn, setSelectedColumn] = useState("");
   const [showDescription, setshowDescription] = useState(false);
   const [descriptionOnHoverActive, setDescriptionOnHoverActive] = useState(false);
+
+  // Cache for parsed descriptions - only parse when first needed
+  const [parsedTableDescription, setParsedTableDescription] = useState<string | null>(null);
+  const [parsedColumnDescriptions, setParsedColumnDescriptions] = useState<Map<string, string>>(new Map());
 
   useEffect(() => {
     document.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -53,6 +57,28 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
     return classes.join(" ")
   }
 
+  // Lazy load table description only when first shown
+  const getTableDescription = () => {
+    if (parsedTableDescription === null) {
+      const parsed = markdown(data.description || "No description.");
+      setParsedTableDescription(parsed);
+      return parsed;
+    }
+    return parsedTableDescription;
+  };
+
+  // Lazy load column description only when first shown
+  const getColumnDescription = (column: any) => {
+    const cached = parsedColumnDescriptions.get(column.name);
+    if (cached !== undefined) {
+      return cached;
+    }
+
+    const parsed = markdown(column.description || "No description.");
+    setParsedColumnDescriptions(new Map(parsedColumnDescriptions.set(column.name, parsed)));
+    return parsed;
+  };
+
   return (
     <div
       className={tableClass({ schema: data.schema, tableName: data.name })}>
@@ -69,7 +95,7 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
 
         <div
           className={showDescription ? "table__description table__description--active" : "table__description"}
-          dangerouslySetInnerHTML={{__html: markdown(data.description || "No description.") }} />
+          dangerouslySetInnerHTML={{__html: showDescription ? getTableDescription() : "" }} />
       </div>
 
       <div className="table__columns">
@@ -107,7 +133,7 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
 
               <div
                 className="column-name__description"
-                dangerouslySetInnerHTML={{__html: markdown(column.description || "No description.") }} />
+                dangerouslySetInnerHTML={{__html: selectedColumn === column.name ? getColumnDescription(column) : "" }} />
             </div>
           </div>
         ))}
@@ -115,3 +141,7 @@ export const TableNode: FC<NodeProps> = ({ data }) => {
     </div>
   );
 };
+
+// Memoize the component to prevent unnecessary re-renders
+// Only re-render if data changes (which happens when switching databases or updating positions)
+export const TableNode = memo(TableNodeComponent);

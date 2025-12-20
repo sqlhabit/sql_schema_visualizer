@@ -26,7 +26,7 @@ import {
   setHighlightEdgeClassName,
   logTablePositions,
   setEdgeClassName,
-  loadDatabases,
+  loadDatabase,
   calculateEdges
 } from "./helpers";
 
@@ -341,16 +341,24 @@ const Visualizer: React.FC<VisualizerProps> = (props: VisualizerProps) => {
   const [databasesLoaded, setDatabasesLoaded] = useState(false);
 
   useEffect(() => {
-    loadDatabases().then((data) => {
-      if(!props.database || !(props.database in data)) {
+    // Only load the current database instead of all databases
+    const databaseName = props.database;
+
+    if (!databaseName) {
+      return;
+    }
+
+    setDatabasesLoaded(false);
+
+    loadDatabase(databaseName).then((databaseConfig) => {
+      if (!databaseConfig) {
         return;
       }
 
-      const databaseConfig = data[props.database as string] as DatabaseConfig;
       setCurrentDatabase(databaseConfig);
       setDatabasesLoaded(true);
     });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [props.database]); // Re-load when database changes
 
   return (
     <ReactFlowProvider>
